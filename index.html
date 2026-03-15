@@ -22987,8 +22987,8 @@ const apPapersData = {
 
         function renderContentTabs() {
             const tabsContainer = document.getElementById('contentTabs');
-            const tabs = ['summary', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'mock_exam', 'test', 'dashboard', 'planner'];
-            const labels = ['Summary', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Mock Exam', 'Test', 'Dashboard', 'Study Plan'];
+            const tabs = ['summary', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'methods', 'mock_exam', 'test', 'dashboard', 'planner'];
+            const labels = ['Summary', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Methods', 'Mock Exam', 'Test', 'Dashboard', 'Study Plan'];
 
             tabsContainer.innerHTML = '';
             tabs.forEach((tab, i) => {
@@ -23021,6 +23021,7 @@ const apPapersData = {
                 case 'essays': renderEssays(); break;
                 case 'connections': renderConnections(); break;
                 case 'conceptual': renderConceptualCards(); break;
+                case 'methods': renderMethodsReference(); break;
                 case 'mock_exam': renderMockExam(); break;
                 case 'test': renderTestYourself(); break;
                 case 'dashboard': renderDashboard(); break;
@@ -24385,6 +24386,405 @@ const apPapersData = {
             if (action === 1) card.box = 1;
             else if (action === 2) card.box = Math.min(5, card.box + 1);
             navConceptual(1);
+        }
+
+
+        // ==================== ECONOMETRIC METHODS REFERENCE ====================
+        function renderMethodsReference() {
+            var contentArea = document.getElementById('contentArea');
+            var html = '<div style="max-width:900px;margin:0 auto;padding:20px;">';
+            html += '<h2 style="margin-bottom:4px;">Econometric Methods Reference</h2>';
+            html += '<p style="color:#666;margin-bottom:24px;">Standard errors, identification strategies, and when to use what. A PhD-level reference keyed to the papers in this platform.</p>';
+
+            // Quick navigation
+            html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;">';
+            var sections = ['Standard Errors','Clustering','Newey-West & HAC','Fama-MacBeth','Fixed Effects','IV & 2SLS','Difference-in-Differences','RDD','GMM','Bootstrap','Selection Models','Panel Data'];
+            sections.forEach(function(s) {
+                var id = s.toLowerCase().replace(/[^a-z]/g,'_');
+                html += '<a href="#meth_' + id + '" style="padding:6px 12px;background:#e8f5e9;color:#2d5016;border-radius:16px;font-size:12px;text-decoration:none;font-weight:500;" onclick="event.preventDefault();document.getElementById(\'meth_' + id + '\').scrollIntoView({behavior:\'smooth\'})">' + s + '</a>';
+            });
+            html += '</div>';
+
+            // ===== STANDARD ERRORS =====
+            html += '<div id="meth_standard_errors" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Standard Errors: The Foundation</h3>';
+            html += '<p style="line-height:1.7;">Every regression coefficient is an estimate, and the standard error measures our uncertainty about it. The choice of standard error estimator determines whether your t-statistics and confidence intervals are valid. <strong>Getting this wrong can make insignificant results look significant (or vice versa).</strong></p>';
+
+            html += '<div style="background:#f8f9fa;border-radius:10px;padding:20px;margin:16px 0;">';
+            html += '<h4 style="margin-bottom:12px;">The Menu of Options</h4>';
+            html += '<table style="width:100%;border-collapse:collapse;font-size:14px;">';
+            html += '<tr style="border-bottom:2px solid #ddd;"><th style="text-align:left;padding:10px;">Method</th><th style="text-align:left;padding:10px;">What It Corrects For</th><th style="text-align:left;padding:10px;">When to Use</th><th style="text-align:left;padding:10px;">Key Assumption</th></tr>';
+
+            var rows = [
+                ['OLS (Homoskedastic)', 'Nothing \u2014 assumes constant variance', 'Almost never in finance. Textbook baseline only.', 'Var(\u03b5\u1d62) = \u03c3\u00b2 for all i'],
+                ['White (Heteroskedasticity-Robust)', 'Non-constant error variance across observations', 'Cross-sectional regressions with no panel structure. Default minimum in finance.', 'Errors are independent across observations'],
+                ['Clustered (One-Way)', 'Within-group correlation of errors', 'Panel data where errors correlate within firm or within time period. <strong>Most common in corporate finance.</strong>', 'Independence across clusters; enough clusters (>50)'],
+                ['Two-Way Clustered', 'Correlation along TWO dimensions simultaneously', 'Panel data with both firm and time effects. Standard in modern corporate finance since Petersen (2009).', 'Independence across intersection cells'],
+                ['Newey-West (HAC)', 'Heteroskedasticity + autocorrelation in time series', 'Time-series regressions, asset pricing tests with overlapping returns.', 'Autocorrelation dies off after L lags (bandwidth choice critical)'],
+                ['Fama-MacBeth', 'Cross-sectional correlation (time effects)', 'Asset pricing cross-sectional tests. Run cross-sectional regression each period, average coefficients across time.', 'Time-series independence of cross-sectional slopes'],
+                ['Bootstrap', 'Unknown error distribution, small samples', 'When asymptotic SE formulas may be unreliable. Common in event studies, matching estimators.', 'Sample is representative of population'],
+                ['Driscoll-Kraay', 'Cross-sectional AND temporal dependence', 'Macro-finance panels with both spatial and temporal correlation. Handles arbitrary cross-sectional dependence.', 'T is large (asymptotics in time dimension)']
+            ];
+
+            rows.forEach(function(r) {
+                html += '<tr style="border-bottom:1px solid #eee;">';
+                html += '<td style="padding:10px;font-weight:600;color:#2d5016;">' + r[0] + '</td>';
+                html += '<td style="padding:10px;">' + r[1] + '</td>';
+                html += '<td style="padding:10px;">' + r[2] + '</td>';
+                html += '<td style="padding:10px;font-style:italic;color:#666;">' + r[3] + '</td>';
+                html += '</tr>';
+            });
+            html += '</table></div>';
+
+            html += '<div style="background:#fff3e0;border-left:4px solid #ff9800;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Decision Rule (Petersen 2009):</strong> If you have panel data, <em>always</em> cluster. The question is along which dimension. If the firm effect dominates (persistent firm characteristics drive errors), cluster by firm. If time effects dominate (macro shocks hit all firms simultaneously), cluster by time or use Fama-MacBeth. If both matter \u2014 which is the typical case in corporate finance \u2014 use two-way clustering (firm + year). Petersen\u2019s Monte Carlo simulations show that failing to cluster when you should inflates t-statistics by 2-5x.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== CLUSTERING =====
+            html += '<div id="meth_clustering" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Clustering in Depth</h3>';
+
+            html += '<p style="line-height:1.7;">Clustering allows errors to be correlated within groups (clusters) while assuming independence across groups. The intuition: firms in the same industry may have correlated shocks; the same firm\u2019s errors over time are correlated due to persistent unobservables.</p>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Cluster by Firm</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Corrects for serial correlation within firm. Appropriate when firm-specific shocks persist over time (leverage is sticky, investment is autocorrelated). This is the <strong>most common choice</strong> in corporate finance.</p>';
+            html += '<p style="font-size:13px;color:#666;"><strong>Example papers:</strong> Nearly all panel regressions in CF I and CF II</p>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#1565c0;">Cluster by Time</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Corrects for cross-sectional correlation within time period. Appropriate when macro shocks (recessions, policy changes) affect all firms simultaneously. Less common alone but important in asset pricing.</p>';
+            html += '<p style="font-size:13px;color:#666;"><strong>When needed:</strong> Crisis studies, policy event studies, market-wide tests</p>';
+            html += '</div>';
+
+            html += '<div style="background:#f3e5f5;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#7b1fa2;">Two-Way Clustering (Firm + Time)</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Corrects for <em>both</em> dimensions simultaneously. Formula: V\u0302 = V\u0302_firm + V\u0302_time \u2212 V\u0302_firm\u00d7time. The subtraction avoids double-counting. This is the <strong>gold standard for modern corporate finance panels</strong>.</p>';
+            html += '<p style="font-size:13px;color:#666;"><strong>Reference:</strong> Cameron, Gelbach & Miller (2011); Thompson (2011); Petersen (2009)</p>';
+            html += '</div>';
+
+            html += '<div style="background:#fff3e0;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#e65100;">Industry Clustering</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Clusters at the industry level when firms within the same industry share common shocks. More conservative than firm clustering. Used when treatment varies at the industry level (e.g., deregulation shocks).</p>';
+            html += '<p style="font-size:13px;color:#666;"><strong>Caution:</strong> Need enough industry clusters (>30-50); otherwise use wild cluster bootstrap</p>';
+            html += '</div>';
+
+            html += '</div>';
+
+            html += '<div style="background:#fce4ec;border-left:4px solid #e53935;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Common Mistake:</strong> Clustering at too fine a level (e.g., firm-year) gives you the same SEs as heteroskedasticity-robust \u2014 it does NOT correct for within-firm serial correlation. You must cluster at the level where errors are correlated. Also: too few clusters (<20-30) makes cluster-robust SEs unreliable. In that case, use wild cluster bootstrap (Cameron, Gelbach & Miller 2008).';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== NEWEY-WEST & HAC =====
+            html += '<div id="meth_newey_west___hac" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Newey-West & HAC Estimators</h3>';
+
+            html += '<p style="line-height:1.7;">Heteroskedasticity and Autocorrelation Consistent (HAC) estimators handle both non-constant variance and serial correlation in time-series data. Newey-West (1987) is the most common variant.</p>';
+
+            html += '<div style="background:#f8f9fa;padding:20px;border-radius:10px;margin:16px 0;">';
+            html += '<h4>How It Works</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">The Newey-West estimator modifies the covariance matrix by including autocovariances up to lag L, weighted by a kernel that downweights higher lags:</p>';
+            html += '<div style="background:#e8f5e9;padding:12px;border-radius:6px;font-family:monospace;margin:10px 0;">V\u0302 = (X\'X)\u207b\u00b9 [\u03a3\u0302\u2080 + \u03a3(1 - j/(L+1))(\u03a3\u0302\u2c7c + \u03a3\u0302\u2c7c\')] (X\'X)\u207b\u00b9</div>';
+            html += '<p style="font-size:14px;">where \u03a3\u0302\u2c7c is the j-th autocovariance matrix and L is the bandwidth (number of lags).</p>';
+            html += '</div>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">When to Use</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li>Time-series regressions (macro-finance, predictive regressions)</li>';
+            html += '<li>Overlapping return windows (e.g., 12-month returns observed monthly)</li>';
+            html += '<li>Asset pricing time-series tests (CAPM, factor models)</li>';
+            html += '<li>Any regression where residuals are serially correlated but you don\u2019t have a panel structure</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fff3e0;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#e65100;">Bandwidth Selection (L)</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Rule of thumb:</strong> L = 0.75 \u00d7 T^(1/3) (Newey-West automatic)</li>';
+            html += '<li><strong>Overlapping returns:</strong> L = overlap period \u2212 1 (e.g., L=11 for monthly obs of annual returns)</li>';
+            html += '<li>Too small L \u2192 still biased (misses autocorrelation)</li>';
+            html += '<li>Too large L \u2192 imprecise (too many parameters estimated)</li>';
+            html += '<li><strong>Always do robustness</strong> with different L values</li>';
+            html += '</ul></div>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;border-left:4px solid #2196f3;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Newey-West vs. Clustering:</strong> In panel data, clustering by firm is generally preferred over Newey-West because it makes fewer assumptions about the structure of dependence. Newey-West assumes autocorrelation dies off after L lags; clustering allows arbitrary within-cluster correlation. Use Newey-West for pure time-series; use clustering for panels. In asset pricing with Fama-MacBeth, you can apply Newey-West to the time series of cross-sectional slope estimates to correct for autocorrelation in the estimated risk premia.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== FAMA-MACBETH =====
+            html += '<div id="meth_fama_macbeth" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Fama-MacBeth Procedure</h3>';
+
+            html += '<p style="line-height:1.7;">The Fama-MacBeth (1973) two-step procedure is the workhorse of empirical asset pricing. It addresses cross-sectional correlation in panel data by running cross-sectional regressions period by period.</p>';
+
+            html += '<div style="background:#f8f9fa;padding:20px;border-radius:10px;margin:16px 0;">';
+            html += '<h4>The Two Steps</h4>';
+            html += '<p style="font-size:14px;line-height:1.8;"><strong>Step 1 (Cross-Sectional):</strong> For each time period t, run a cross-sectional regression of returns on characteristics: R\u1d62\u209c = \u03b3\u2080\u209c + \u03b3\u2081\u209c\u00b7X\u1d62\u209c + \u03b5\u1d62\u209c. This gives T estimates of each \u03b3.</p>';
+            html += '<p style="font-size:14px;line-height:1.8;"><strong>Step 2 (Time-Series):</strong> The final estimate is the time-series average: \u03b3\u0302 = (1/T)\u03a3\u03b3\u0302\u209c. Standard error = std(\u03b3\u0302\u209c) / \u221aT. This automatically accounts for cross-sectional correlation because each \u03b3\u0302\u209c is estimated from a single cross-section.</p>';
+            html += '</div>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Strengths</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li>Naturally handles cross-sectional correlation</li>';
+            html += '<li>Provides time-varying coefficient estimates (\u03b3\u209c)</li>';
+            html += '<li>Easy to implement and interpret</li>';
+            html += '<li>Can test whether risk premia vary over time</li>';
+            html += '<li>Standard in asset pricing (Fama-French, Carhart factors)</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fce4ec;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#c62828;">Limitations</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li>Does NOT correct for serial correlation in \u03b3\u0302\u209c \u2014 need Newey-West on the time series of slopes</li>';
+            html += '<li>Assumes balanced panel or at least stable cross-section size</li>';
+            html += '<li>Cannot include time fixed effects (absorbed into intercept each period)</li>';
+            html += '<li>Errors-in-variables bias if characteristics are measured with noise (use lagged values or portfolio sorts)</li>';
+            html += '<li>Not suitable for corporate finance panels where firm FE are critical</li>';
+            html += '</ul></div>';
+            html += '</div>';
+
+            html += '<div style="background:#fff3e0;border-left:4px solid #ff9800;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Fama-MacBeth vs. Panel Regression with Two-Way Clustering:</strong> Petersen (2009) shows that Fama-MacBeth is equivalent to clustering by time (corrects cross-sectional correlation) but does NOT correct for within-firm serial correlation. If the firm effect is important (which it usually is in corporate finance), Fama-MacBeth gives biased standard errors. Use Fama-MacBeth for asset pricing; use panel regressions with two-way clustering for corporate finance.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== FIXED EFFECTS =====
+            html += '<div id="meth_fixed_effects" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Fixed Effects</h3>';
+
+            html += '<p style="line-height:1.7;">Fixed effects absorb unobserved heterogeneity that is constant within a group (firm, industry, year). They are the primary tool for addressing omitted variable bias in panel data.</p>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:16px 0;">';
+
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Firm FE</h4>';
+            html += '<p style="font-size:13px;line-height:1.6;">Absorbs all time-invariant firm characteristics (culture, founder effects, industry, location). Identification comes from <em>within-firm variation over time</em>. Critical finding from Lemmon, Roberts & Zender (2008): firm FE explain 60% of leverage variation, dwarfing all observable variables combined.</p>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#1565c0;">Year FE</h4>';
+            html += '<p style="font-size:13px;line-height:1.6;">Absorbs aggregate time shocks (business cycles, interest rate changes, regulatory shifts). Removes common trends that affect all firms. Combined with firm FE, you get a \u201cwithin\u201d estimator: how does X changing for firm i over time relate to Y changing for firm i, controlling for aggregate trends?</p>';
+            html += '</div>';
+
+            html += '<div style="background:#f3e5f5;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#7b1fa2;">Industry\u00d7Year FE</h4>';
+            html += '<p style="font-size:13px;line-height:1.6;">The most demanding specification. Absorbs all industry-specific time-varying shocks. Identification comes from variation <em>across firms within the same industry in the same year</em>. Eliminates concerns about industry-level confounders but requires enough within-industry variation.</p>';
+            html += '</div>';
+
+            html += '</div>';
+
+            html += '<div style="background:#fce4ec;border-left:4px solid #e53935;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>The Incidental Parameters Problem (Gormley & Matsa 2014):</strong> Logit/Probit with fixed effects produce biased coefficient estimates when T is small (typical: T=10-20 years in corporate finance). The bias can be 20-40% of the true coefficient. Solutions: (1) use linear probability models (OLS with FE) \u2014 interpretation changes but estimates are consistent; (2) conditional logit (only uses within-group variation); (3) bias-corrected estimators. Gormley & Matsa\u2019s Monte Carlo evidence strongly favors OLS-FE over logit-FE for typical corporate finance panels.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== IV & 2SLS =====
+            html += '<div id="meth_iv___2sls" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Instrumental Variables & 2SLS</h3>';
+
+            html += '<p style="line-height:1.7;">IV addresses endogeneity by finding a variable Z (instrument) that affects the outcome Y only through the endogenous variable X. The two requirements: <strong>relevance</strong> (Z predicts X) and <strong>exclusion</strong> (Z does not directly affect Y).</p>';
+
+            html += '<div style="background:#f8f9fa;padding:20px;border-radius:10px;margin:16px 0;">';
+            html += '<h4>The Two Stages</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;"><strong>First stage:</strong> X\u0302 = \u03c0\u2080 + \u03c0\u2081Z + controls + \u03bd. The F-statistic on \u03c0\u2081 tests instrument relevance.</p>';
+            html += '<p style="font-size:14px;line-height:1.6;"><strong>Second stage:</strong> Y = \u03b2\u2080 + \u03b2\u2081X\u0302 + controls + \u03b5. The coefficient \u03b2\u2081 is the causal effect (LATE).</p>';
+            html += '</div>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Diagnostics You Must Report</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>First-stage F-statistic:</strong> F > 10 (Stock & Yogo 2005 rule of thumb). F < 10 = weak instruments \u2192 biased toward OLS</li>';
+            html += '<li><strong>Reduced form:</strong> Regress Y directly on Z. If insignificant, IV won\u2019t work</li>';
+            html += '<li><strong>Overidentification test:</strong> Hansen J-test if you have more instruments than endogenous variables. Tests whether excluded instruments are uncorrelated with the error</li>';
+            html += '<li><strong>LIML:</strong> Limited Information Maximum Likelihood \u2014 less biased than 2SLS with weak instruments</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fce4ec;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#c62828;">Common Pitfalls</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Exclusion restriction is untestable:</strong> You can argue for it but never prove it. This is the #1 challenge</li>';
+            html += '<li><strong>LATE \u2260 ATE:</strong> IV estimates the Local Average Treatment Effect for compliers only. External validity is limited</li>';
+            html += '<li><strong>Forbidden regression:</strong> Don\u2019t manually run the first stage and plug \u03b5\u0302 into the second stage \u2014 SEs will be wrong. Use proper 2SLS routine</li>';
+            html += '<li><strong>Weak instruments:</strong> Bias toward OLS, inflated t-stats. Always report F-stat</li>';
+            html += '</ul></div>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;border-left:4px solid #2196f3;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Famous Instruments in Finance:</strong> Geographic proximity (Lerner & Malmendier 2013), judge leniency (Dobbie & Song 2015), regulatory thresholds (Roberts & Sufi 2009), weather shocks, military drafts (Angrist 1990). The best instruments have a clear economic mechanism connecting Z to X that rules out direct effects on Y. Bennedsen et al. (2007) use CEO deaths/hospitalizations as instruments for CEO change \u2014 compelling because health shocks are exogenous to firm performance.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== DIFFERENCE-IN-DIFFERENCES =====
+            html += '<div id="meth_difference_in_differences" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Difference-in-Differences</h3>';
+
+            html += '<p style="line-height:1.7;">DiD compares the change in outcomes for a treated group to the change for a control group, before and after treatment. The \u201cdouble differencing\u201d removes both time-invariant group differences and common time trends.</p>';
+
+            html += '<div style="background:#f8f9fa;padding:20px;border-radius:10px;margin:16px 0;">';
+            html += '<div style="font-family:monospace;background:#e8f5e9;padding:12px;border-radius:6px;margin:10px 0;">Y\u1d62\u209c = \u03b1 + \u03b2\u2081\u00b7Treat\u1d62 + \u03b2\u2082\u00b7Post\u209c + <strong>\u03b4\u00b7(Treat\u1d62 \u00d7 Post\u209c)</strong> + \u03b5\u1d62\u209c</div>';
+            html += '<p style="font-size:14px;">\u03b4 is the treatment effect: the differential change for treated vs. control after the event.</p>';
+            html += '</div>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Key Assumption: Parallel Trends</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Absent treatment, treated and control groups would have followed the same trajectory. This is the critical assumption \u2014 it is not directly testable but can be assessed by:</p>';
+            html += '<ul style="font-size:13px;line-height:1.6;padding-left:18px;">';
+            html += '<li>Plotting pre-treatment trends for both groups</li>';
+            html += '<li>Event study specification: include leads and lags of treatment. Pre-treatment coefficients should be \u2248 0</li>';
+            html += '<li>Placebo tests with fake treatment dates or fake treatment groups</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fff3e0;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#e65100;">Modern DiD Issues</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Staggered treatment:</strong> Classical two-way FE DiD is biased when treatment timing varies. Use Callaway-Sant\u2019Anna (2021) or Sun-Abraham (2021) estimators</li>';
+            html += '<li><strong>Cluster SEs at treatment level:</strong> If treatment is at state level, cluster by state \u2014 not by firm</li>';
+            html += '<li><strong>Anticipation effects:</strong> If firms anticipate treatment, pre-trends may be contaminated</li>';
+            html += '<li><strong>Composition changes:</strong> If treatment causes entry/exit, survivor bias affects estimates</li>';
+            html += '</ul></div>';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== RDD =====
+            html += '<div id="meth_rdd" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Regression Discontinuity Design</h3>';
+
+            html += '<p style="line-height:1.7;">RDD exploits a threshold rule: units just above a cutoff receive treatment; units just below do not. If units cannot precisely manipulate the running variable, assignment near the threshold is \u201cas good as random.\u201d</p>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Sharp vs. Fuzzy RDD</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;"><strong>Sharp:</strong> Treatment probability jumps from 0 to 1 at cutoff. Estimate directly from discontinuity in outcome at threshold.</p>';
+            html += '<p style="font-size:14px;line-height:1.6;"><strong>Fuzzy:</strong> Treatment probability increases discontinuously but not from 0 to 1. Essentially an IV where the instrument is \u201cabove cutoff\u201d and the endogenous variable is actual treatment. Roberts & Sufi (2009) use covenant violations as a fuzzy RDD for creditor control.</p>';
+            html += '</div>';
+
+            html += '<div style="background:#fff3e0;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#e65100;">Validity Tests</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>McCrary density test:</strong> No bunching at threshold (units can\u2019t manipulate the running variable)</li>';
+            html += '<li><strong>Covariate balance:</strong> Covariates should be smooth through cutoff</li>';
+            html += '<li><strong>Bandwidth sensitivity:</strong> Results should hold across different bandwidths around the threshold</li>';
+            html += '<li><strong>Placebo cutoffs:</strong> No effect at fake thresholds</li>';
+            html += '</ul></div>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;border-left:4px solid #2196f3;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>Finance Applications:</strong> Covenant violations (Roberts & Sufi 2009), index inclusion (Russell 1000/2000 cutoff), HSR antitrust thresholds (Kepler et al. 2023), SBIR grant scoring (Howell 2017), credit scoring cutoffs, regulatory size thresholds (Dodd-Frank). RDD gives very clean causal estimates but only at the threshold \u2014 external validity is the main limitation.';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== GMM =====
+            html += '<div id="meth_gmm" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Generalized Method of Moments (GMM)</h3>';
+
+            html += '<p style="line-height:1.7;">GMM estimates parameters by exploiting moment conditions \u2014 theoretical restrictions the data should satisfy. It nests OLS, IV, and many other estimators as special cases.</p>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">When to Use in Finance</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Dynamic panel models:</strong> Arellano-Bond GMM for panels with lagged dependent variables where FE is biased (Nickell bias)</li>';
+            html += '<li><strong>Asset pricing:</strong> Hansen-Singleton consumption CAPM, stochastic discount factor estimation</li>';
+            html += '<li><strong>Euler equation estimation:</strong> Investment-q models (Bloom, Bond & Van Reenen 2007)</li>';
+            html += '<li><strong>Overidentification:</strong> When you have more moment conditions than parameters</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fce4ec;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#c62828;">Practical Issues</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Instrument proliferation:</strong> Too many moment conditions \u2192 overfitting, biased estimates. Rule: instruments < N^(1/2)</li>';
+            html += '<li><strong>Hansen J-test:</strong> Tests validity of overidentifying restrictions but has low power with many instruments</li>';
+            html += '<li><strong>AR(1)/AR(2) tests:</strong> Should reject AR(1) but not AR(2) in first-differenced residuals for Arellano-Bond</li>';
+            html += '<li><strong>System GMM vs. Difference GMM:</strong> System GMM adds level equations, more efficient but stronger assumptions</li>';
+            html += '</ul></div>';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== BOOTSTRAP =====
+            html += '<div id="meth_bootstrap" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Bootstrap Methods</h3>';
+
+            html += '<p style="line-height:1.7;">Bootstrap estimates the sampling distribution of a statistic by resampling from the data with replacement. Useful when analytical standard errors are unreliable or unavailable.</p>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Types</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li><strong>Pairs bootstrap:</strong> Resample (Y\u1d62, X\u1d62) pairs. Most common, fewest assumptions</li>';
+            html += '<li><strong>Residual bootstrap:</strong> Resample residuals, add to fitted values. Assumes homoskedasticity</li>';
+            html += '<li><strong>Block bootstrap:</strong> Resample blocks of consecutive observations. For time series with serial correlation</li>';
+            html += '<li><strong>Wild cluster bootstrap:</strong> For clustered data with few clusters. Randomly flips sign of cluster-level residuals. Cameron, Gelbach & Miller (2008)</li>';
+            html += '</ul></div>';
+
+            html += '<div style="background:#fff3e0;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#e65100;">When to Use</h4>';
+            html += '<ul style="font-size:14px;line-height:1.8;padding-left:18px;">';
+            html += '<li>Few clusters (<30): wild cluster bootstrap instead of cluster-robust SEs</li>';
+            html += '<li>Matching estimators: analytical SEs for propensity score matching are complex; bootstrap is simpler</li>';
+            html += '<li>Nonlinear models: when delta method SEs may be inaccurate</li>';
+            html += '<li>Event studies: bootstrapped CARs provide better inference in small samples</li>';
+            html += '</ul></div>';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== SELECTION MODELS =====
+            html += '<div id="meth_selection_models" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Selection Models</h3>';
+
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+            html += '<div style="background:#e8f5e9;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#2d5016;">Heckman Two-Step</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Corrects for sample selection bias: (1) Probit for selection equation, compute inverse Mills ratio; (2) include Mills ratio in outcome equation. Example: only observe returns for firms that choose to hedge \u2014 selection into hedging is endogenous.</p>';
+            html += '</div>';
+
+            html += '<div style="background:#e3f2fd;padding:16px;border-radius:10px;">';
+            html += '<h4 style="color:#1565c0;">Propensity Score Matching</h4>';
+            html += '<p style="font-size:14px;line-height:1.6;">Match treated firms to similar untreated firms based on propensity score (predicted probability of treatment). Reduces selection bias by comparing \u201clike with like.\u201d Assumes selection on observables only (no unobserved confounders). Common in PE studies (Bharath et al. 2014), M&A studies.</p>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+
+            // ===== PANEL DATA =====
+            html += '<div id="meth_panel_data" style="margin-bottom:36px;">';
+            html += '<h3 style="color:#2d5016;border-bottom:2px solid #4a7c23;padding-bottom:6px;">Panel Data: Putting It All Together</h3>';
+
+            html += '<p style="line-height:1.7;">Most empirical corporate finance uses panel data (firms \u00d7 years). Here\u2019s the decision tree for choosing your specification:</p>';
+
+            html += '<div style="background:#f8f9fa;padding:20px;border-radius:10px;margin:16px 0;font-size:14px;line-height:2.0;">';
+            html += '<p><strong>1. Is there unobserved heterogeneity?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 Almost always YES in finance \u2192 Include firm fixed effects</p>';
+            html += '<p><strong>2. Are there common time shocks?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 Almost always YES \u2192 Include year fixed effects (or industry\u00d7year for more demanding specifications)</p>';
+            html += '<p><strong>3. Is the dependent variable binary?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 Use linear probability model (OLS with FE), NOT logit/probit with FE (incidental parameters problem)</p>';
+            html += '<p><strong>4. Is there a lagged dependent variable?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 FE is biased (Nickell bias). Use Arellano-Bond GMM or bias-corrected FE (if T is not too small)</p>';
+            html += '<p><strong>5. How should you compute standard errors?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 Two-way cluster by firm and year (Petersen 2009). If few clusters in one dimension, consider wild cluster bootstrap</p>';
+            html += '<p><strong>6. Is the treatment variable endogenous?</strong></p>';
+            html += '<p style="padding-left:20px;">\u2192 Consider IV, RDD, DiD, or control function approach depending on the source of variation available</p>';
+            html += '</div>';
+
+            html += '<div style="background:#e8f5e9;border-left:4px solid #4a7c23;padding:16px;border-radius:0 8px 8px 0;margin:16px 0;">';
+            html += '<strong>The Roberts & Whited (2012) Hierarchy:</strong> In order of credibility: (1) Randomized experiment (rare in finance), (2) RDD (cleanest quasi-experiment), (3) IV with strong instrument, (4) DiD with credible parallel trends, (5) Panel FE with two-way clustering, (6) OLS with controls. Most published finance papers are at levels 3-5. Your comp exam answers should always identify which level the paper\u2019s identification is at and discuss threats to validity.';
+            html += '</div>';
+            html += '</div>';
+
+            html += '</div>';
+            contentArea.innerHTML = html;
         }
 
         // Initialize with deferred execution and error handling
