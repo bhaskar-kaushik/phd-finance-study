@@ -23339,6 +23339,11 @@ const apPapersData = {
             if (hasEdits) html += '<button class="reset-edits-btn" onclick="resetEdits(\'' + currentPaper.id + '\',\'summary\')">Reset</button>';
             html += '</div></div>';
             html += '<div class="editable-section" id="editable-summary">' + editedSummary + '</div>';
+            
+            var pdfUrl = getPdfUrl(currentPaper.id);
+            if (pdfUrl) {
+                html += '<a href="' + pdfUrl + '" target="_blank" style="display:inline-block;padding:4px 10px;background:#2563eb;color:white;border-radius:6px;text-decoration:none;font-size:13px;font-weight:500;">📄 View PDF</a>';
+            }
             html += '</div>';
             // Personal notes
             var note = getNote(currentPaper.id);
@@ -26643,6 +26648,77 @@ const apPapersData = {
             if (btn) btn.classList.add('recording');
         }
 
+
+        var pdfUrlMap = {
+            'corpfinance1_corp-jensen-meckling-1976': 'http://100.66.55.55:8888/pdfs/corpfinance1/Jensen-1986-Agency-FCF.pdf',
+            'corpfinance1_corp-miller-1977': 'http://100.66.55.55:8888/pdfs/corpfinance1/Miller-1977-Debt-Taxes.pdf',
+            'corpfinance1_corp-leland-pyle-1977': 'http://100.66.55.55:8888/pdfs/corpfinance1/Leland-Pyle-1977.pdf',
+            'corpfinance1_corp-myers-1977': 'http://100.66.55.55:8888/pdfs/corpfinance1/Myers-Majluf-1984.pdf',
+            'corpfinance1_corp-myers-majluf-1984': 'http://100.66.55.55:8888/pdfs/corpfinance1/Myers-Majluf-1984.pdf',
+            'corpfinance1_corp-rajan-zingales-1995': 'http://100.66.55.55:8888/pdfs/corpfinance1/Rajan-Zingales-1995.pdf',
+            'corpfinance1_corp-baker-wurgler-2002': 'http://100.66.55.55:8888/pdfs/corpfinance1/Baker-Wurgler-2002.pdf',
+            'corpfinance1_corp-strebulaev-2007': 'http://100.66.55.55:8888/pdfs/corpfinance1/Strebulaev-2007.pdf',
+            'corpfinance1_corp-vanbinsbergen-graham-yang-2010': 'http://100.66.55.55:8888/pdfs/corpfinance1/Binsbergen-2010.pdf',
+            'corpfinance1_corp-falato-kadyrzhanova-sim-steri-2022': 'http://100.66.55.55:8888/pdfs/corpfinance1/Falato-2022.pdf',
+            'corpfinance1_farre-mensa-ljungqvist-2016': 'http://100.66.55.55:8888/pdfs/corpfinance1/Ljungqvist-2006.pdf',
+            'corpfinance1_miller-rock-1985': 'http://100.66.55.55:8888/pdfs/corpfinance1/Miller-1977-Debt-Taxes.pdf',
+            'corpfinance1_jensen-1986': 'http://100.66.55.55:8888/pdfs/corpfinance1/Jensen-1986-Agency-FCF.pdf',
+            'corpfinance1_jensen_1986': 'http://100.66.55.55:8888/pdfs/corpfinance1/Jensen-1986-Agency-FCF.pdf',
+            'corpfinance1_mikkelson-1986': 'http://100.66.55.55:8888/pdfs/corpfinance1/Mikkelson-1986.pdf',
+            'corpfinance1_loughran-1995': 'http://100.66.55.55:8888/pdfs/corpfinance1/Loughran-Ritter-1995.pdf',
+            'corpfinance1_ljungqvist-2006': 'http://100.66.55.55:8888/pdfs/corpfinance1/Ljungqvist-2006.pdf',
+            'corpfinance1_celikurt-2010': 'http://100.66.55.55:8888/pdfs/corpfinance1/Celikyurt-2010.pdf',
+            'corpfinance1_liu-2011': 'http://100.66.55.55:8888/pdfs/corpfinance1/Loughran-Ritter-1995.pdf',
+            'corpfinance1_bernstein-2015': 'http://100.66.55.55:8888/pdfs/corpfinance1/Bernstein-2015.pdf',
+            'corpfinance1_doidge-2017': 'http://100.66.55.55:8888/pdfs/corpfinance1/Doidge-2017.pdf',
+            'corpfinance1_p-hochberg-2007': 'http://100.66.55.55:8888/pdfs/corpfinance1/Ljungqvist-2006.pdf',
+            'corpfinance1_psw2006': 'http://100.66.55.55:8888/pdfs/corpfinance1/Pinkowitz-2006.pdf',
+            'corpfinance1_jy2012': 'http://100.66.55.55:8888/pdfs/corpfinance1/Julio-Yook-2012.pdf',
+            'corpfinance1_julio_yook_2012': 'http://100.66.55.55:8888/pdfs/corpfinance1/Julio-Yook-2012.pdf',
+            'banking_paper1': 'http://100.66.55.55:8888/pdfs/banking/W02-01 Kashyap & Stein (2000 AER) (1).pdf',
+            'banking_paper3': 'http://100.66.55.55:8888/pdfs/banking/W01-03 Ashcraft (2005 AER).pdf',
+            'banking_paper4': 'http://100.66.55.55:8888/pdfs/banking/W01-04 Berger & Bouwman (2009 RFS).pdf',
+            'banking_paper5': 'http://100.66.55.55:8888/pdfs/banking/W04-04 Ivashina & Scharfstein (2010 JFE) (1).pdf',
+            'banking_paper6': 'http://100.66.55.55:8888/pdfs/banking/W02-02 Jiménez Ongena Peydró Saurina (2012 AER) (2).pdf',
+            'banking_paper7': 'http://100.66.55.55:8888/pdfs/banking/W02-03 Drechsler Savov Schnabl (2017 QJE).pdf',
+            'banking_paper8': 'http://100.66.55.55:8888/pdfs/banking/W02-04 Rodnyansky & Darmouni (2017 RFS) (3).pdf',
+            'banking_paper9': 'http://100.66.55.55:8888/pdfs/banking/W03-01 Jayaratne & Strahan (1996 QJE).pdf',
+            'banking_paper10': 'http://100.66.55.55:8888/pdfs/banking/W03-02 Peek & Rosengren (2000 AER).pdf',
+            'banking_paper11': 'http://100.66.55.55:8888/pdfs/banking/W04-03 Mian & Sufi (2009 QJE).pdf',
+            'banking_paper12': 'http://100.66.55.55:8888/pdfs/banking/W03-04 Amiti & Weinstein (2011 QJE).pdf',
+            'banking_paper13': 'http://100.66.55.55:8888/pdfs/banking/W04-01 Gorton & Metrick (2012 JFE) (1).pdf',
+            'banking_paper14': 'http://100.66.55.55:8888/pdfs/banking/W04-02 Keys Mukherjee Seru Vig (2010 QJE) (2).pdf',
+            'banking_paper15': 'http://100.66.55.55:8888/pdfs/banking/W04-03 Mian & Sufi (2009 QJE).pdf',
+            'banking_paper16': 'http://100.66.55.55:8888/pdfs/banking/W04-04 Ivashina & Scharfstein (2010 JFE) (1).pdf',
+            'banking_paper17': 'http://100.66.55.55:8888/pdfs/banking/W05-01 Iyer & Puri (2012 AER) (1).pdf',
+            'banking_paper18': 'http://100.66.55.55:8888/pdfs/banking/W05-02 Egan Hortaçsu Matvos (2017 AER) (2).pdf',
+            'banking_paper19': 'http://100.66.55.55:8888/pdfs/banking/W05-03 Schmidt Timmermann Wermers (2016 AER).pdf',
+            'banking_paper20': 'http://100.66.55.55:8888/pdfs/banking/W05-02 Egan Hortaçsu Matvos (2017 AER) (2).pdf',
+            'risk_paper1': 'http://100.66.55.55:8888/pdfs/risk/W06-01 Tufano (1996 JF) (1).pdf',
+            'risk_paper2': 'http://100.66.55.55:8888/pdfs/risk/W07-01 Geczy Minton Schrand (1997 JF) (1).pdf',
+            'risk_paper3': 'http://100.66.55.55:8888/pdfs/risk/W07-02 Graham Rogers (2002 JF).pdf',
+            'risk_paper4': 'http://100.66.55.55:8888/pdfs/risk/W07-03 Haushalter (2000 JF) (1).pdf',
+            'risk_paper5': 'http://100.66.55.55:8888/pdfs/risk/W07-04 Allayannis Weston (2001 RFS) (1).pdf',
+            'risk_paper6': 'http://100.66.55.55:8888/pdfs/risk/W08-01 Jin Jorion (2006 JF) (1).pdf',
+            'risk_paper7': 'http://100.66.55.55:8888/pdfs/risk/W08-02 Gilje Taillard (2017 RFS) (1).pdf',
+            'risk_paper8': 'http://100.66.55.55:8888/pdfs/risk/W08-03 Acharya Lochstoer Ramadorai (2013 JFE) (1).pdf',
+            'risk_paper9': 'http://100.66.55.55:8888/pdfs/risk/W08-04 Dewally Ederington Fernando (2013 RFS) (1).pdf',
+            'risk_paper10': 'http://100.66.55.55:8888/pdfs/risk/W09-01 Gormley et al JAE 2013.pdf',
+            'risk_paper11': 'http://100.66.55.55:8888/pdfs/risk/W09-02 Bakke Mahmudi Fernando Salas (2016 JFE).pdf',
+            'risk_ap-gormley-matsa-2014': 'http://100.66.55.55:8888/pdfs/risk/W09-01 Gormley et al JAE 2013.pdf',
+            'risk_ap-gormley-matsa-2014': 'http://100.66.55.55:8888/pdfs/risk/W09-01 Gormley et al JAE 2013.pdf'
+        };
+
+        function getPdfUrl(paperId) {
+            var courseKey = '';
+            if (papersData === corpPapersData) courseKey = 'corporate';
+            else if (papersData === cf1PapersData) courseKey = 'corpfinance1';
+            else if (papersData === bankPapersData) courseKey = 'banking';
+            else if (papersData === rmPapersData) courseKey = 'risk';
+            else if (papersData === apPapersData) courseKey = 'asset';
+            var key = courseKey + '_' + paperId;
+            return pdfUrlMap[key] || null;
+        }
 
         function safeInitialize() {
             loadGameState();
