@@ -7,8 +7,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PhD Finance">
 <meta name="theme-color" content="#2d5016">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232d5016'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white'>F</text></svg>">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUGhEIEZpbmFuY2UgU3R1ZHkgUGxhdGZvcm0iLCJzaG9ydF9uYW1lIjoiUGhEIEZpbmFuY2UiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2YwZjJmNSIsInRoZW1lX2NvbG9yIjoiIzJkNTAxNiJ9">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon-192.svg">
+<link rel="apple-touch-icon" href="icon-192.svg">
 
 <title>PhD Study Platform - Finance</title>
 <style>
@@ -277,6 +279,151 @@ body.dark-mode .dash-card h3 { color: #8bc34a; }
 }
 .tts-speed option { color: #333; background: white; }
 
+
+/* ==================== GAMIFICATION ==================== */
+.xp-bar-container { position: relative; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; margin: 0 15px; flex: 1; max-width: 200px; }
+.xp-bar-fill { height: 100%; background: linear-gradient(90deg, #ffd700, #ffaa00); border-radius: 3px; transition: width 0.5s ease; }
+.level-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,215,0,0.2); border: 1px solid rgba(255,215,0,0.4); border-radius: 12px; padding: 3px 10px; font-size: 12px; font-weight: 700; color: #ffd700; cursor: pointer; white-space: nowrap; }
+.level-badge .level-icon { font-size: 14px; }
+.streak-badge { display: inline-flex; align-items: center; gap: 3px; background: rgba(255,107,53,0.2); border: 1px solid rgba(255,107,53,0.4); border-radius: 12px; padding: 3px 10px; font-size: 12px; font-weight: 700; color: #ff6b35; cursor: pointer; white-space: nowrap; }
+
+/* XP popup animation */
+.xp-popup { position: fixed; pointer-events: none; z-index: 9999; font-size: 18px; font-weight: 800; color: #ffd700; text-shadow: 0 1px 4px rgba(0,0,0,0.5); animation: xpFloat 1.5s ease-out forwards; }
+@keyframes xpFloat { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-60px) scale(1.3); } }
+
+/* Achievement toast */
+.achievement-toast { position: fixed; top: 20px; right: 20px; z-index: 10000; background: linear-gradient(135deg, #1a1a2e, #2d2d5e); border: 2px solid #ffd700; border-radius: 16px; padding: 16px 20px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 32px rgba(255,215,0,0.3); animation: toastSlide 0.4s ease-out, toastFade 0.4s ease-in 3.6s forwards; max-width: 340px; }
+.achievement-toast .badge-icon { font-size: 36px; }
+.achievement-toast .badge-text { color: white; }
+.achievement-toast .badge-text h4 { color: #ffd700; font-size: 13px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
+.achievement-toast .badge-text p { font-size: 14px; font-weight: 600; }
+@keyframes toastSlide { from { transform: translateX(120%); } to { transform: translateX(0); } }
+@keyframes toastFade { to { opacity: 0; transform: translateX(120%); } }
+
+/* Gamification dashboard */
+.gami-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.gami-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e8e8e8; transition: transform 0.2s; }
+body.dark-mode .gami-card { background: #1a1a2e; border-color: #333; }
+.gami-card:hover { transform: translateY(-2px); }
+.gami-card h3 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.gami-stat { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+.gami-sub { font-size: 13px; color: #888; }
+
+/* Level progress */
+.level-progress { margin-top: 16px; }
+.level-progress .level-info { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; color: #888; }
+.level-progress .lp-bar { height: 10px; background: #e8e8e8; border-radius: 5px; overflow: hidden; }
+body.dark-mode .level-progress .lp-bar { background: #333; }
+.level-progress .lp-fill { height: 100%; background: linear-gradient(90deg, #ffd700, #ff8c00); border-radius: 5px; transition: width 0.5s; }
+
+/* Achievements grid */
+.achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.achievement-item { text-align: center; padding: 16px 10px; border-radius: 14px; background: #f8f8f8; border: 2px solid #e0e0e0; transition: all 0.3s; }
+body.dark-mode .achievement-item { background: #1a1a2e; border-color: #333; }
+.achievement-item.unlocked { border-color: #ffd700; background: linear-gradient(135deg, #fffbea, #fff3cd); }
+body.dark-mode .achievement-item.unlocked { background: linear-gradient(135deg, #2d2a1a, #332d14); }
+.achievement-item.locked { opacity: 0.5; filter: grayscale(0.8); }
+.achievement-item .ach-icon { font-size: 32px; margin-bottom: 6px; display: block; }
+.achievement-item .ach-name { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.achievement-item .ach-desc { font-size: 10px; color: #888; }
+
+/* Streak calendar */
+.streak-calendar { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
+.streak-day { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; }
+.streak-day.active { background: #ff6b35; color: white; }
+.streak-day.today { background: var(--accent-color); color: white; }
+.streak-day.empty { background: #f0f0f0; color: #ccc; }
+body.dark-mode .streak-day.empty { background: #222; color: #555; }
+
+/* PWA install banner */
+.pwa-install-banner { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #2d5016, #4a7c23); color: white; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; box-shadow: 0 -4px 20px rgba(0,0,0,0.3); transform: translateY(100%); transition: transform 0.4s ease; }
+.pwa-install-banner.show { transform: translateY(0); }
+.pwa-install-banner button { padding: 8px 20px; border-radius: 20px; border: none; font-weight: 700; font-size: 13px; cursor: pointer; }
+.pwa-install-btn { background: white; color: #2d5016; }
+.pwa-dismiss-btn { background: transparent; color: rgba(255,255,255,0.7); }
+
+/* Mobile gamification adjustments */
+@media (max-width: 768px) {
+    .xp-bar-container { max-width: 100px; }
+    .level-badge, .streak-badge { font-size: 10px; padding: 2px 7px; }
+    .gami-grid { grid-template-columns: 1fr; }
+    .achievements-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    .achievement-toast { top: auto; bottom: 80px; right: 10px; left: 10px; max-width: none; }
+    .gami-stat { font-size: 28px; }
+    /* Better mobile tab scrolling */
+    .content-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; scrollbar-width: none; }
+    .content-tabs::-webkit-scrollbar { display: none; }
+    .content-tabs button { flex-shrink: 0; }
+    /* Prevent text overflow on mobile */
+    .main-content { overflow-x: hidden; word-wrap: break-word; }
+    /* Full-width cards on mobile */
+    .dashboard { grid-template-columns: 1fr !important; }
+}
+
+/* Safe area for PWA (notch phones) */
+@supports (padding: env(safe-area-inset-top)) {
+    header { padding-top: calc(15px + env(safe-area-inset-top)); }
+    .pwa-install-banner { padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+}
+
+
+/* ==================== INLINE EDITING ==================== */
+.edit-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ddd; background: #f8f8f8; color: #666; font-size: 11px; cursor: pointer; transition: all 0.2s; float: right; margin-left: 8px; }
+body.dark-mode .edit-toggle { background: #222; border-color: #444; color: #aaa; }
+.edit-toggle:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+.edit-toggle.active { background: #e74c3c; color: white; border-color: #e74c3c; }
+.editable-section { position: relative; transition: box-shadow 0.2s; border-radius: 8px; }
+.editable-section.editing { box-shadow: 0 0 0 2px var(--accent-color); padding: 8px; background: rgba(255,255,255,0.03); }
+.editable-section [contenteditable="true"] { outline: none; min-height: 30px; }
+.edit-saved-indicator { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #27ae60; color: white; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; z-index: 9999; animation: savedPop 0.3s ease, savedFade 0.3s ease 1.7s forwards; pointer-events: none; }
+@keyframes savedPop { from { transform: translateX(-50%) scale(0.8); opacity: 0; } to { transform: translateX(-50%) scale(1); opacity: 1; } }
+@keyframes savedFade { to { opacity: 0; transform: translateX(-50%) translateY(10px); } }
+.reset-edits-btn { padding: 4px 10px; border-radius: 6px; border: 1px solid #e74c3c; background: transparent; color: #e74c3c; font-size: 11px; cursor: pointer; margin-left: 6px; }
+.reset-edits-btn:hover { background: #e74c3c; color: white; }
+
+/* ==================== PERSONAL NOTES ==================== */
+.notes-section { margin-top: 20px; padding: 16px; background: #fffde7; border: 1px solid #fff9c4; border-radius: 12px; }
+body.dark-mode .notes-section { background: #2a2a1a; border-color: #444; }
+.notes-section h3 { font-size: 14px; color: #f9a825; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.notes-textarea { width: 100%; min-height: 120px; padding: 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-family: inherit; font-size: 14px; line-height: 1.6; resize: vertical; background: white; color: #333; }
+body.dark-mode .notes-textarea { background: #1a1a2e; border-color: #444; color: #e0e0e0; }
+.notes-textarea:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 2px rgba(74,124,35,0.2); }
+.notes-meta { font-size: 11px; color: #888; margin-top: 6px; display: flex; justify-content: space-between; }
+
+/* ==================== PDF UPLOAD & VIEWER ==================== */
+.pdf-section { margin-top: 20px; padding: 16px; background: #f3e5f5; border: 1px solid #e1bee7; border-radius: 12px; }
+body.dark-mode .pdf-section { background: #2a1a2e; border-color: #444; }
+.pdf-section h3 { font-size: 14px; color: #9c27b0; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.pdf-dropzone { border: 2px dashed #ce93d8; border-radius: 10px; padding: 24px; text-align: center; cursor: pointer; transition: all 0.3s; background: rgba(156,39,176,0.04); }
+body.dark-mode .pdf-dropzone { border-color: #7b1fa2; background: rgba(156,39,176,0.08); }
+.pdf-dropzone:hover, .pdf-dropzone.dragover { border-color: #9c27b0; background: rgba(156,39,176,0.1); }
+.pdf-dropzone p { color: #888; font-size: 13px; margin-top: 6px; }
+.pdf-dropzone .drop-icon { font-size: 32px; margin-bottom: 4px; }
+.pdf-file-info { display: flex; align-items: center; gap: 12px; padding: 12px; background: white; border-radius: 8px; margin-top: 10px; border: 1px solid #e0e0e0; }
+body.dark-mode .pdf-file-info { background: #1a1a2e; border-color: #444; }
+.pdf-file-info .pdf-icon { font-size: 28px; }
+.pdf-file-info .pdf-details { flex: 1; }
+.pdf-file-info .pdf-name { font-weight: 600; font-size: 14px; }
+.pdf-file-info .pdf-size { font-size: 11px; color: #888; }
+.pdf-file-info button { padding: 6px 14px; border-radius: 6px; border: none; font-size: 12px; cursor: pointer; font-weight: 600; }
+.pdf-view-btn { background: #9c27b0; color: white; }
+.pdf-view-btn:hover { background: #7b1fa2; }
+.pdf-remove-btn { background: #f5f5f5; color: #e74c3c; margin-left: 4px; }
+.pdf-remove-btn:hover { background: #e74c3c; color: white; }
+.pdf-viewer-frame { width: 100%; height: 70vh; border: none; border-radius: 8px; margin-top: 10px; background: #eee; }
+.pdf-viewer-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 10001; display: flex; flex-direction: column; }
+.pdf-viewer-modal .pdf-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #1a1a2e; color: white; }
+.pdf-viewer-modal .pdf-modal-header h4 { font-size: 14px; }
+.pdf-viewer-modal .pdf-modal-close { background: #e74c3c; border: none; color: white; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.pdf-viewer-modal iframe { flex: 1; border: none; }
+
+/* Mobile adjustments for new features */
+@media (max-width: 768px) {
+    .pdf-viewer-frame { height: 50vh; }
+    .notes-textarea { min-height: 80px; }
+    .edit-toggle { font-size: 10px; padding: 3px 7px; }
+}
+
 </style>
 </head>
 <body>
@@ -285,7 +432,8 @@ body.dark-mode .dash-card h3 { color: #8bc34a; }
         <h1>PhD Study Platform</h1>
         <div class="course-selector">
             <select id="courseSelector" onchange="switchCourse(this.value)">
-                <option value="corporate" selected>Empirical Corporate Finance</option>
+                <option value="corporate" selected>Empirical Corporate Finance II</option>
+                <option value="corpfinance1">Corporate Finance I</option>
                 <option value="banking">Banking &amp; Financial Intermediation</option>
                 <option value="risk">Corporate Risk Management</option>
                 <option value="asset">Asset Pricing / Financial Econometrics</option>
@@ -294,7 +442,12 @@ body.dark-mode .dash-card h3 { color: #8bc34a; }
             </select>
         </div>
     </div>
-    <div class="header-controls">
+    <div class="game-badges" style="display:flex;align-items:center;gap:8px;">
+            <span class="level-badge" id="levelBadge" onclick="switchTab('dashboard')" title="View Dashboard">\u2B50 Lv.1</span>
+            <div class="xp-bar-container"><div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div></div>
+            <span class="streak-badge" id="streakBadge" title="Study Streak">\uD83D\uDD25 0d</span>
+        </div>
+        <div class="header-controls">
         <div class="search-box">
             <span class="search-icon">&#128269;</span>
             <input type="text" id="searchInput" placeholder="Search papers, concepts...">
@@ -22885,6 +23038,254 @@ const apPapersData = {
         // ==================== ADHD AIDS STATE ====================
         var focusState = { running: false, mode: 'work', timeLeft: 25*60, sessions: 0, interval: null };
         var srsData = null; // loaded from localStorage
+
+        // ==================== GAMIFICATION ENGINE ====================
+        var gameState = null;
+
+        function loadGameState() {
+            try {
+                var saved = localStorage.getItem('phdFinanceGame');
+                if (saved) { gameState = JSON.parse(saved); }
+            } catch(e) {}
+            if (!gameState) {
+                gameState = {
+                    xp: 0,
+                    level: 1,
+                    streak: { current: 0, longest: 0, lastStudyDate: null, freezes: 1 },
+                    achievements: {},
+                    paperXP: {},
+                    dailyXP: {},
+                    totalStudyDays: 0,
+                    quizzesCompleted: 0,
+                    essaysAttempted: 0,
+                    flashcardsReviewed: 0,
+                    mockExamsCompleted: 0,
+                    perfectQuizzes: 0,
+                    papersStudied: [],
+                    coursesExplored: [],
+                    focusSessions: 0,
+                    srsReviews: 0
+                };
+            }
+            checkStreak();
+            saveGameState();
+        }
+
+        function saveGameState() {
+            try { localStorage.setItem('phdFinanceGame', JSON.stringify(gameState)); } catch(e) {}
+        }
+
+        function getToday() {
+            return new Date().toISOString().split('T')[0];
+        }
+
+        function checkStreak() {
+            var today = getToday();
+            var last = gameState.streak.lastStudyDate;
+            if (!last) return;
+            var lastDate = new Date(last);
+            var todayDate = new Date(today);
+            var diffDays = Math.floor((todayDate - lastDate) / (1000 * 60 * 60 * 24));
+            if (diffDays > 1) {
+                if (diffDays === 2 && gameState.streak.freezes > 0) {
+                    gameState.streak.freezes--;
+                } else {
+                    gameState.streak.current = 0;
+                }
+            }
+        }
+
+        function recordStudyActivity() {
+            var today = getToday();
+            if (gameState.streak.lastStudyDate !== today) {
+                if (gameState.streak.lastStudyDate) {
+                    var lastDate = new Date(gameState.streak.lastStudyDate);
+                    var todayDate = new Date(today);
+                    var diff = Math.floor((todayDate - lastDate) / (1000*60*60*24));
+                    if (diff === 1) {
+                        gameState.streak.current++;
+                    } else if (diff > 1) {
+                        if (diff === 2 && gameState.streak.freezes > 0) {
+                            gameState.streak.freezes--;
+                            gameState.streak.current++;
+                        } else {
+                            gameState.streak.current = 1;
+                        }
+                    }
+                } else {
+                    gameState.streak.current = 1;
+                }
+                gameState.streak.lastStudyDate = today;
+                gameState.totalStudyDays++;
+                if (gameState.streak.current > gameState.streak.longest) {
+                    gameState.streak.longest = gameState.streak.current;
+                }
+                // Award streak freeze every 7 days
+                if (gameState.streak.current > 0 && gameState.streak.current % 7 === 0) {
+                    gameState.streak.freezes = Math.min(gameState.streak.freezes + 1, 3);
+                }
+            }
+            saveGameState();
+        }
+
+        // XP Constants
+        var XP_REWARDS = {
+            readPaper: 10,
+            completeQuiz: 25,
+            perfectQuiz: 50,
+            reviewFlashcard: 5,
+            essayAttempt: 30,
+            mockExamComplete: 100,
+            conceptualCard: 8,
+            focusSession: 20,
+            srsReview: 15,
+            crossCourseExplore: 12
+        };
+
+        function xpForLevel(lvl) {
+            return Math.floor(100 * Math.pow(1.5, lvl - 1));
+        }
+
+        function getLevelTitle(lvl) {
+            var titles = [
+                'Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate',
+                'Researcher', 'Scholar', 'Expert', 'Master', 'PhD Candidate',
+                'Dissertation Ready', 'ABD', 'Doctor', 'Professor', 'Dean',
+                'Provost', 'Chancellor', 'Nobel Nominee', 'Nobel Laureate', 'Legend'
+            ];
+            return titles[Math.min(lvl - 1, titles.length - 1)] || 'Legend';
+        }
+
+        function awardXP(amount, reason, element) {
+            if (!gameState) loadGameState();
+            gameState.xp += amount;
+            var today = getToday();
+            gameState.dailyXP[today] = (gameState.dailyXP[today] || 0) + amount;
+
+            // Level up check
+            var needed = xpForLevel(gameState.level);
+            var leveledUp = false;
+            while (gameState.xp >= needed) {
+                gameState.xp -= needed;
+                gameState.level++;
+                needed = xpForLevel(gameState.level);
+                leveledUp = true;
+            }
+
+            recordStudyActivity();
+            saveGameState();
+            updateGameUI();
+
+            // Show XP popup
+            showXPPopup(amount, reason, element);
+
+            if (leveledUp) {
+                setTimeout(function() {
+                    showAchievementToast('\u2B50', 'LEVEL UP!', 'You reached Level ' + gameState.level + ' — ' + getLevelTitle(gameState.level));
+                }, 500);
+            }
+
+            // Check achievements
+            checkAchievements();
+        }
+
+        function showXPPopup(amount, reason, element) {
+            var popup = document.createElement('div');
+            popup.className = 'xp-popup';
+            popup.textContent = '+' + amount + ' XP';
+            if (element) {
+                var rect = element.getBoundingClientRect();
+                popup.style.left = rect.left + rect.width / 2 - 30 + 'px';
+                popup.style.top = rect.top - 10 + 'px';
+            } else {
+                popup.style.right = '20px';
+                popup.style.top = '60px';
+            }
+            document.body.appendChild(popup);
+            setTimeout(function() { popup.remove(); }, 1500);
+        }
+
+        function showAchievementToast(icon, title, desc) {
+            var toast = document.createElement('div');
+            toast.className = 'achievement-toast';
+            toast.innerHTML = '<span class="badge-icon">' + icon + '</span><div class="badge-text"><h4>' + title + '</h4><p>' + desc + '</p></div>';
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 4000);
+        }
+
+        // Achievement definitions
+        var ACHIEVEMENTS = [
+            { id: 'first_paper', name: 'First Steps', icon: '\uD83D\uDC23', desc: 'Study your first paper', check: function() { return gameState.papersStudied.length >= 1; } },
+            { id: 'ten_papers', name: 'Bookworm', icon: '\uD83D\uDC1B', desc: 'Study 10 papers', check: function() { return gameState.papersStudied.length >= 10; } },
+            { id: 'fifty_papers', name: 'Scholar', icon: '\uD83C\uDF93', desc: 'Study 50 papers', check: function() { return gameState.papersStudied.length >= 50; } },
+            { id: 'all_papers', name: 'Completionist', icon: '\uD83C\uDFC6', desc: 'Study all 158 papers', check: function() { return gameState.papersStudied.length >= 158; } },
+            { id: 'quiz_first', name: 'Quiz Taker', icon: '\u2753', desc: 'Complete your first quiz', check: function() { return gameState.quizzesCompleted >= 1; } },
+            { id: 'quiz_ten', name: 'Quiz Master', icon: '\uD83E\uDDE0', desc: 'Complete 10 quizzes', check: function() { return gameState.quizzesCompleted >= 10; } },
+            { id: 'perfect_quiz', name: 'Perfectionist', icon: '\uD83D\uDCAF', desc: 'Get a perfect quiz score', check: function() { return gameState.perfectQuizzes >= 1; } },
+            { id: 'streak_3', name: 'Consistency', icon: '\uD83D\uDD25', desc: '3-day study streak', check: function() { return gameState.streak.longest >= 3; } },
+            { id: 'streak_7', name: 'On Fire', icon: '\uD83C\uDF1F', desc: '7-day study streak', check: function() { return gameState.streak.longest >= 7; } },
+            { id: 'streak_30', name: 'Unstoppable', icon: '\u26A1', desc: '30-day study streak', check: function() { return gameState.streak.longest >= 30; } },
+            { id: 'essay_first', name: 'Essayist', icon: '\u270D\uFE0F', desc: 'Attempt your first essay', check: function() { return gameState.essaysAttempted >= 1; } },
+            { id: 'essay_ten', name: 'Prose Master', icon: '\uD83D\uDCDD', desc: 'Attempt 10 essays', check: function() { return gameState.essaysAttempted >= 10; } },
+            { id: 'mock_exam', name: 'Exam Ready', icon: '\uD83D\uDCCB', desc: 'Complete a mock exam', check: function() { return gameState.mockExamsCompleted >= 1; } },
+            { id: 'focus_5', name: 'Deep Focus', icon: '\uD83C\uDFAF', desc: 'Complete 5 Pomodoro sessions', check: function() { return gameState.focusSessions >= 5; } },
+            { id: 'focus_25', name: 'Flow State', icon: '\uD83E\uDDD8', desc: 'Complete 25 Pomodoro sessions', check: function() { return gameState.focusSessions >= 25; } },
+            { id: 'srs_50', name: 'Memory Palace', icon: '\uD83C\uDFDB\uFE0F', desc: 'Complete 50 SRS reviews', check: function() { return gameState.srsReviews >= 50; } },
+            { id: 'level_5', name: 'Rising Star', icon: '\u2B50', desc: 'Reach level 5', check: function() { return gameState.level >= 5; } },
+            { id: 'level_10', name: 'Expert', icon: '\uD83D\uDC8E', desc: 'Reach level 10', check: function() { return gameState.level >= 10; } },
+            { id: 'all_courses', name: 'Renaissance', icon: '\uD83C\uDF0D', desc: 'Study papers from all 5 courses', check: function() { return gameState.coursesExplored.length >= 5; } },
+            { id: 'xp_1000', name: 'XP Hunter', icon: '\uD83D\uDCB0', desc: 'Earn 1000+ total XP', check: function() { var total = 0; Object.values(gameState.dailyXP).forEach(function(v) { total += v; }); return total >= 1000; } },
+            { id: 'cards_100', name: 'Card Shark', icon: '\uD83C\uDCCF', desc: 'Review 100 flashcards', check: function() { return gameState.flashcardsReviewed >= 100; } }
+        ];
+
+        function checkAchievements() {
+            ACHIEVEMENTS.forEach(function(ach) {
+                if (!gameState.achievements[ach.id] && ach.check()) {
+                    gameState.achievements[ach.id] = { unlockedAt: getToday() };
+                    saveGameState();
+                    showAchievementToast(ach.icon, 'Achievement Unlocked!', ach.name + ' — ' + ach.desc);
+                    // Bonus XP for achievements
+                    gameState.xp += 50;
+                    saveGameState();
+                    updateGameUI();
+                }
+            });
+        }
+
+        function updateGameUI() {
+            // Update header XP bar and level badge
+            var lvlBadge = document.getElementById('levelBadge');
+            var xpBar = document.getElementById('xpBarFill');
+            var streakBadge = document.getElementById('streakBadge');
+            if (lvlBadge && gameState) {
+                lvlBadge.innerHTML = '<span class="level-icon">\u2B50</span> Lv.' + gameState.level;
+                lvlBadge.title = getLevelTitle(gameState.level) + ' — ' + gameState.xp + '/' + xpForLevel(gameState.level) + ' XP';
+            }
+            if (xpBar && gameState) {
+                var pct = Math.floor(gameState.xp / xpForLevel(gameState.level) * 100);
+                xpBar.style.width = pct + '%';
+            }
+            if (streakBadge && gameState) {
+                streakBadge.innerHTML = '\uD83D\uDD25 ' + gameState.streak.current + 'd';
+                streakBadge.title = 'Current streak: ' + gameState.streak.current + ' days (Longest: ' + gameState.streak.longest + ')';
+            }
+        }
+
+        function trackPaperStudied(paperId) {
+            if (!gameState) loadGameState();
+            if (gameState.papersStudied.indexOf(paperId) === -1) {
+                gameState.papersStudied.push(paperId);
+                awardXP(XP_REWARDS.readPaper, 'Paper studied');
+            }
+            // Track which course
+            var courseMap = { corporate: 'Corp II', corpfinance1: 'Corp I', banking: 'Banking', risk: 'RM', asset: 'AP' };
+            var sel = document.getElementById('courseSelector');
+            var currentCourse = sel ? sel.value : 'corporate';
+            if (gameState.coursesExplored.indexOf(currentCourse) === -1) {
+                gameState.coursesExplored.push(currentCourse);
+            }
+            saveGameState();
+        }
         function loadSRS() {
             try { srsData = JSON.parse(localStorage.getItem('srsData_' + currentCourse) || '{}'); } catch(e) { srsData = {}; }
         }
@@ -23049,7 +23450,30 @@ const apPapersData = {
                 contentArea.innerHTML = '<div class="empty-state"><p>Select a paper from the sidebar to view its summary.</p></div>';
                 return;
             }
-            contentArea.innerHTML = '<div class="paper-summary"><h2>' + currentPaper.title + '</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div>' + currentPaper.summary + '</div>';
+            var editedSummary = getEditedContent(currentPaper.id, 'summary', currentPaper.summary);
+            var hasEdits = localStorage.getItem(getEditKey(currentPaper.id, 'summary')) !== null;
+            var html = '<div class="paper-summary">';
+            html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">';
+            html += '<div><h2 style="margin:0;">' + currentPaper.title + '</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div></div>';
+            html += '<div style="display:flex;gap:4px;align-items:center;">';
+            html += '<button class="edit-toggle" id="editToggleBtn" onclick="toggleEditing()">\u270F\uFE0F Edit</button>';
+            if (hasEdits) html += '<button class="reset-edits-btn" onclick="resetEdits(\'' + currentPaper.id + '\',\'summary\')">Reset</button>';
+            html += '</div></div>';
+            html += '<div class="editable-section" id="editable-summary">' + editedSummary + '</div>';
+            html += '</div>';
+            // Personal notes
+            var note = getNote(currentPaper.id);
+            html += '<div class="notes-section">';
+            html += '<h3>\uD83D\uDCDD My Notes</h3>';
+            html += '<textarea class="notes-textarea" id="paperNotes" placeholder="Add your personal notes, insights, exam prep points..." oninput="onNotesInput(\'' + currentPaper.id + '\')">' + note.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea>';
+            html += '<div class="notes-meta" id="notesMeta">' + (note.length > 0 ? note.length + ' characters' : 'No notes yet') + '</div>';
+            html += '</div>';
+            // PDF section
+            html += renderPDFSection(currentPaper.id);
+            html += '</div>';
+            contentArea.innerHTML = html;
+            // Load PDF status
+            refreshPDFDisplay(currentPaper.id);
         }
 
         function renderEconometrics() {
@@ -23058,7 +23482,18 @@ const apPapersData = {
                 contentArea.innerHTML = '<div class="empty-state"><p>No econometrics content available for this paper.</p></div>';
                 return;
             }
-            contentArea.innerHTML = '<div class="paper-content"><h2>' + currentPaper.title + ' - Econometrics</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div>' + currentPaper.econometrics + '</div>';
+            var editedContent = getEditedContent(currentPaper.id, 'econometrics', currentPaper.econometrics);
+            var hasEdits = localStorage.getItem(getEditKey(currentPaper.id, 'econometrics')) !== null;
+            var html = '<div class="paper-content">';
+            html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">';
+            html += '<div><h2 style="margin:0;">' + currentPaper.title + ' - Econometrics</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div></div>';
+            html += '<div style="display:flex;gap:4px;align-items:center;">';
+            html += '<button class="edit-toggle" id="editToggleBtn" onclick="toggleEditing()">\u270F\uFE0F Edit</button>';
+            if (hasEdits) html += '<button class="reset-edits-btn" onclick="resetEdits(\'' + currentPaper.id + '\',\'econometrics\')">Reset</button>';
+            html += '</div></div>';
+            html += '<div class="editable-section" id="editable-econometrics">' + editedContent + '</div>';
+            html += '</div>';
+            contentArea.innerHTML = html;
         }
 
         function renderEmpirics() {
@@ -23067,7 +23502,18 @@ const apPapersData = {
                 contentArea.innerHTML = '<div class="empty-state"><p>No empirics content available for this paper.</p></div>';
                 return;
             }
-            contentArea.innerHTML = '<div class="paper-content"><h2>' + currentPaper.title + ' - Empirical Analysis</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div>' + currentPaper.empirics + '</div>';
+            var editedContent = getEditedContent(currentPaper.id, 'empirics', currentPaper.empirics);
+            var hasEdits = localStorage.getItem(getEditKey(currentPaper.id, 'empirics')) !== null;
+            var html = '<div class="paper-content">';
+            html += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">';
+            html += '<div><h2 style="margin:0;">' + currentPaper.title + ' - Empirical Analysis</h2><div class="citation">' + currentPaper.authors + ', ' + currentPaper.journal + ', ' + currentPaper.year + '</div></div>';
+            html += '<div style="display:flex;gap:4px;align-items:center;">';
+            html += '<button class="edit-toggle" id="editToggleBtn" onclick="toggleEditing()">\u270F\uFE0F Edit</button>';
+            if (hasEdits) html += '<button class="reset-edits-btn" onclick="resetEdits(\'' + currentPaper.id + '\',\'empirics\')">Reset</button>';
+            html += '</div></div>';
+            html += '<div class="editable-section" id="editable-empirics">' + editedContent + '</div>';
+            html += '</div>';
+            contentArea.innerHTML = html;
         }
 
         // ==================== FLASHCARDS ====================
@@ -23342,41 +23788,120 @@ const apPapersData = {
 
         // ==================== DASHBOARD ====================
         function renderDashboard() {
-            const contentArea = document.getElementById('contentArea');
-            let totalCards = 0, totalQuiz = 0, quizAnswered = 0, quizCorrect = 0;
+            if (!gameState) loadGameState();
+            var contentArea = document.getElementById('contentArea');
+            var totalXP = 0;
+            Object.values(gameState.dailyXP).forEach(function(v) { totalXP += v; });
+            var needed = xpForLevel(gameState.level);
+            var pct = Math.floor(gameState.xp / needed * 100);
 
-            papersData.groups.forEach(g => g.papers.forEach(p => {
-                if (p.flashcards) totalCards += p.flashcards.length;
+            var totalPapers = 0;
+            papersData.groups.forEach(function(g) { totalPapers += g.papers.length; });
+            var studiedInCourse = 0;
+            papersData.groups.forEach(function(g) { g.papers.forEach(function(p) {
+                if (gameState.papersStudied.indexOf(p.id) !== -1) studiedInCourse++;
+            }); });
+            var coursePct = totalPapers > 0 ? Math.round(studiedInCourse / totalPapers * 100) : 0;
+
+            // Count total quiz data
+            var totalQuiz = 0, quizAnswered = 0, quizCorrect = 0;
+            papersData.groups.forEach(function(g) { g.papers.forEach(function(p) {
                 if (p.quiz) {
                     totalQuiz += p.quiz.length;
                     if (quizState[p.id]) {
-                        const answers = quizState[p.id].answers;
+                        var answers = quizState[p.id].answers;
                         quizAnswered += Object.keys(answers).length;
-                        quizCorrect += Object.entries(answers).filter(([qi, ai]) => ai === p.quiz[parseInt(qi)].correct).length;
+                        quizCorrect += Object.entries(answers).filter(function(e) { return e[1] === p.quiz[parseInt(e[0])].correct; }).length;
                     }
                 }
-            }));
+            }); });
 
-            let html = '<h2 style="margin-bottom:20px;">Study Dashboard</h2>';
-            html += '<div class="dashboard">';
+            var html = '<div style="margin-bottom:24px;">';
+            html += '<h2 style="margin-bottom:4px;">Your Dashboard</h2>';
+            html += '<p style="color:#888;font-size:14px;">' + getLevelTitle(gameState.level) + ' \u2022 Level ' + gameState.level + '</p>';
+            html += '</div>';
 
-            html += '<div class="dash-card"><h3>Papers Loaded</h3><div class="dash-stat">20</div><p style="font-size:12px;color:#888;margin-top:5px;">Across 5 thematic groups</p></div>';
+            // Level & XP card
+            html += '<div class="gami-grid">';
+            html += '<div class="gami-card">';
+            html += '<h3>\u2B50 Level & XP</h3>';
+            html += '<div class="gami-stat" style="color:#ffd700;">' + gameState.level + '</div>';
+            html += '<div class="gami-sub">' + getLevelTitle(gameState.level) + ' \u2022 ' + totalXP + ' total XP earned</div>';
+            html += '<div class="level-progress"><div class="level-info"><span>' + gameState.xp + ' / ' + needed + ' XP</span><span>' + pct + '%</span></div>';
+            html += '<div class="lp-bar"><div class="lp-fill" style="width:' + pct + '%"></div></div></div>';
+            html += '</div>';
 
-            html += '<div class="dash-card"><h3>Flashcards</h3><div class="dash-stat">' + totalCards + '</div><p style="font-size:12px;color:#888;margin-top:5px;">Available for spaced repetition</p></div>';
+            // Streak card
+            html += '<div class="gami-card">';
+            html += '<h3>\uD83D\uDD25 Study Streak</h3>';
+            html += '<div class="gami-stat" style="color:#ff6b35;">' + gameState.streak.current + ' days</div>';
+            html += '<div class="gami-sub">Longest: ' + gameState.streak.longest + ' days \u2022 ' + gameState.streak.freezes + ' freeze(s) available</div>';
+            // Last 14 days calendar
+            html += '<div class="streak-calendar">';
+            var now = new Date();
+            for (var d = 13; d >= 0; d--) {
+                var date = new Date(now);
+                date.setDate(date.getDate() - d);
+                var ds = date.toISOString().split('T')[0];
+                var isActive = gameState.dailyXP[ds] && gameState.dailyXP[ds] > 0;
+                var isToday = d === 0;
+                var cls = isToday ? 'today' : (isActive ? 'active' : 'empty');
+                var dayNames = ['S','M','T','W','T','F','S'];
+                html += '<div class="streak-day ' + cls + '">' + dayNames[date.getDay()] + '</div>';
+            }
+            html += '</div></div>';
 
-            html += '<div class="dash-card"><h3>Quiz Progress</h3><div class="dash-stat">' + quizAnswered + '/' + totalQuiz + '</div>';
-            const quizPct = totalQuiz > 0 ? Math.round(quizAnswered/totalQuiz*100) : 0;
-            html += '<div class="progress-bar"><div class="progress-fill" style="width:' + quizPct + '%;"></div></div></div>';
+            // Course Progress
+            html += '<div class="gami-card">';
+            html += '<h3>\uD83D\uDCDA Course Progress</h3>';
+            html += '<div class="gami-stat">' + studiedInCourse + '/' + totalPapers + '</div>';
+            html += '<div class="gami-sub">Papers studied in current course</div>';
+            html += '<div class="level-progress"><div class="level-info"><span>Progress</span><span>' + coursePct + '%</span></div>';
+            html += '<div class="lp-bar"><div class="lp-fill" style="width:' + coursePct + '%;background:linear-gradient(90deg, var(--accent-color), var(--accent-light))"></div></div></div>';
+            html += '</div>';
 
-            html += '<div class="dash-card"><h3>Quiz Accuracy</h3><div class="dash-stat">' + (quizAnswered > 0 ? Math.round(quizCorrect/quizAnswered*100) : 0) + '%</div>';
-            html += '<p style="font-size:12px;color:#888;margin-top:5px;">' + quizCorrect + ' correct of ' + quizAnswered + ' attempted</p></div>';
+            // Quiz stats
+            html += '<div class="gami-card">';
+            html += '<h3>\uD83E\uDDE0 Quiz Performance</h3>';
+            var accuracy = quizAnswered > 0 ? Math.round(quizCorrect/quizAnswered*100) : 0;
+            html += '<div class="gami-stat">' + accuracy + '%</div>';
+            html += '<div class="gami-sub">' + quizCorrect + ' correct of ' + quizAnswered + ' attempted (' + totalQuiz + ' total)</div>';
+            html += '</div>';
 
-            const essayCount = essayQuestions.categories.reduce((sum, cat) => sum + cat.questions.length, 0);
-            html += '<div class="dash-card"><h3>Essay Questions</h3><div class="dash-stat">' + essayCount + '</div><p style="font-size:12px;color:#888;margin-top:5px;">Across ' + essayQuestions.categories.length + ' categories</p></div>';
+            // Activity stats
+            html += '<div class="gami-card">';
+            html += '<h3>\uD83D\uDCCA Activity</h3>';
+            html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">';
+            html += '<div style="text-align:center;padding:8px;background:#f8f8f8;border-radius:8px;"><div style="font-size:20px;font-weight:700;">' + gameState.essaysAttempted + '</div><div style="font-size:11px;color:#888;">Essays</div></div>';
+            html += '<div style="text-align:center;padding:8px;background:#f8f8f8;border-radius:8px;"><div style="font-size:20px;font-weight:700;">' + gameState.mockExamsCompleted + '</div><div style="font-size:11px;color:#888;">Mock Exams</div></div>';
+            html += '<div style="text-align:center;padding:8px;background:#f8f8f8;border-radius:8px;"><div style="font-size:20px;font-weight:700;">' + gameState.focusSessions + '</div><div style="font-size:11px;color:#888;">Focus Sessions</div></div>';
+            html += '<div style="text-align:center;padding:8px;background:#f8f8f8;border-radius:8px;"><div style="font-size:20px;font-weight:700;">' + gameState.srsReviews + '</div><div style="font-size:11px;color:#888;">SRS Reviews</div></div>';
+            html += '</div></div>';
 
-            html += '<div class="dash-card"><h3>Cross-Course Links</h3><div class="dash-stat">' + crossCourseConnections.reduce((sum, c) => sum + c.connections.length, 0) + '</div><p style="font-size:12px;color:#888;margin-top:5px;">Across ' + crossCourseConnections.length + ' courses</p></div>';
+            // Today's XP
+            html += '<div class="gami-card">';
+            html += '<h3>\u26A1 Today</h3>';
+            var todayXP = gameState.dailyXP[getToday()] || 0;
+            html += '<div class="gami-stat" style="color:#4a7c23;">' + todayXP + ' XP</div>';
+            html += '<div class="gami-sub">' + gameState.totalStudyDays + ' total study days</div>';
+            html += '</div>';
 
             html += '</div>';
+
+            // Achievements section
+            html += '<h3 style="margin:24px 0 16px;font-size:18px;">\uD83C\uDFC6 Achievements (' + Object.keys(gameState.achievements).length + '/' + ACHIEVEMENTS.length + ')</h3>';
+            html += '<div class="achievements-grid">';
+            ACHIEVEMENTS.forEach(function(ach) {
+                var unlocked = gameState.achievements[ach.id];
+                html += '<div class="achievement-item ' + (unlocked ? 'unlocked' : 'locked') + '">';
+                html += '<span class="ach-icon">' + ach.icon + '</span>';
+                html += '<div class="ach-name">' + ach.name + '</div>';
+                html += '<div class="ach-desc">' + ach.desc + '</div>';
+                if (unlocked) html += '<div style="font-size:9px;color:#888;margin-top:4px;">\u2705 ' + unlocked.unlockedAt + '</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+
             contentArea.innerHTML = html;
         }
 
@@ -24085,6 +24610,7 @@ const apPapersData = {
         }
 
         function showMockAnswer() {
+            if (gameState) { gameState.essaysAttempted++; awardXP(XP_REWARDS.essayAttempt, 'Essay attempt'); saveGameState(); }
             // Save current answer first
             var textarea = document.getElementById('mockAnswerInput');
             if (textarea) mockExamState.answers[mockExamState.currentIndex] = textarea.value;
@@ -24118,6 +24644,7 @@ const apPapersData = {
         }
 
         function finishMockExam() {
+            if (gameState) { gameState.mockExamsCompleted++; awardXP(XP_REWARDS.mockExamComplete, 'Mock exam completed'); saveGameState(); }
             if (mockExamTimer) clearInterval(mockExamTimer);
             var textarea = document.getElementById('mockAnswerInput');
             if (textarea) mockExamState.answers[mockExamState.currentIndex] = textarea.value;
@@ -24396,6 +24923,7 @@ const apPapersData = {
         }
 
         function rateConceptual(action) {
+            if (gameState) { gameState.flashcardsReviewed++; awardXP(XP_REWARDS.conceptualCard, 'Conceptual card reviewed'); saveGameState(); }
             var card = conceptualDeck[conceptualCardIndex];
             if (action === 1) card.box = 1;
             else if (action === 2) card.box = Math.min(5, card.box + 1);
@@ -24955,6 +25483,7 @@ const apPapersData = {
         }
 
         function selectPaperById(id) {
+            if (gameState && id) { trackPaperStudied(id); }
             if (papersData && papersData.groups) {
                 papersData.groups.forEach(function(g) {
                     if (g.papers) g.papers.forEach(function(p) {
@@ -24987,6 +25516,7 @@ const apPapersData = {
         }
 
         function ratePaperConfidence(level) {
+            if (gameState) { gameState.srsReviews++; awardXP(XP_REWARDS.srsReview, 'SRS review'); saveGameState(); }
             if (!currentPaper) return;
             loadSRS();
             if (!srsData[currentPaper.id]) srsData[currentPaper.id] = {};
@@ -25085,6 +25615,7 @@ const apPapersData = {
                     focusState.running = false;
                     if (focusState.mode === 'work') {
                         focusState.sessions++;
+            if (gameState) { gameState.focusSessions++; awardXP(XP_REWARDS.focusSession, 'Focus session completed'); saveGameState(); }
                         try {
                             localStorage.setItem('focusSessions', JSON.stringify({ date: new Date().toDateString(), count: focusState.sessions }));
                         } catch(e) {}
@@ -25266,7 +25797,268 @@ const apPapersData = {
 
         // Initialize with deferred execution and error handling
         // On mobile, deferring allows the browser to render the loading screen first
+        
+        // ==================== IndexedDB for PDF Storage ====================
+        var pdfDB = null;
+
+        function openPdfDB() {
+            return new Promise(function(resolve, reject) {
+                if (pdfDB) { resolve(pdfDB); return; }
+                var request = indexedDB.open('phdFinancePDFs', 1);
+                request.onupgradeneeded = function(e) {
+                    var db = e.target.result;
+                    if (!db.objectStoreNames.contains('pdfs')) {
+                        db.createObjectStore('pdfs', { keyPath: 'paperId' });
+                    }
+                };
+                request.onsuccess = function(e) { pdfDB = e.target.result; resolve(pdfDB); };
+                request.onerror = function(e) { reject(e); };
+            });
+        }
+
+        function storePDF(paperId, file) {
+            return new Promise(function(resolve, reject) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    openPdfDB().then(function(db) {
+                        var tx = db.transaction('pdfs', 'readwrite');
+                        var store = tx.objectStore('pdfs');
+                        store.put({ paperId: paperId, name: file.name, size: file.size, data: e.target.result, uploadedAt: new Date().toISOString() });
+                        tx.oncomplete = function() { resolve(); };
+                        tx.onerror = function(err) { reject(err); };
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        function getPDF(paperId) {
+            return new Promise(function(resolve, reject) {
+                openPdfDB().then(function(db) {
+                    var tx = db.transaction('pdfs', 'readonly');
+                    var store = tx.objectStore('pdfs');
+                    var request = store.get(paperId);
+                    request.onsuccess = function() { resolve(request.result || null); };
+                    request.onerror = function() { resolve(null); };
+                });
+            });
+        }
+
+        function deletePDF(paperId) {
+            return new Promise(function(resolve, reject) {
+                openPdfDB().then(function(db) {
+                    var tx = db.transaction('pdfs', 'readwrite');
+                    var store = tx.objectStore('pdfs');
+                    store.delete(paperId);
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function(err) { reject(err); };
+                });
+            });
+        }
+
+        // ==================== INLINE EDITING ====================
+        var editingMode = false;
+
+        function getEditKey(paperId, section) {
+            return 'edit_' + paperId + '_' + section;
+        }
+
+        function getEditedContent(paperId, section, originalContent) {
+            try {
+                var saved = localStorage.getItem(getEditKey(paperId, section));
+                if (saved) return saved;
+            } catch(e) {}
+            return originalContent;
+        }
+
+        function saveEditedContent(paperId, section) {
+            var el = document.getElementById('editable-' + section);
+            if (!el) return;
+            var content = el.innerHTML;
+            try {
+                localStorage.setItem(getEditKey(paperId, section), content);
+            } catch(e) {}
+            showSavedIndicator();
+            if (gameState) { awardXP(2, 'Content edited'); }
+        }
+
+        function toggleEditing() {
+            editingMode = !editingMode;
+            var btn = document.getElementById('editToggleBtn');
+            if (btn) {
+                btn.className = 'edit-toggle' + (editingMode ? ' active' : '');
+                btn.innerHTML = editingMode ? '\u2705 Done Editing' : '\u270F\uFE0F Edit';
+            }
+            var editables = document.querySelectorAll('.editable-section');
+            editables.forEach(function(el) {
+                el.contentEditable = editingMode ? 'true' : 'false';
+                el.classList.toggle('editing', editingMode);
+            });
+            if (!editingMode && currentPaper) {
+                // Save all editable sections
+                ['summary', 'econometrics', 'empirics'].forEach(function(section) {
+                    var el = document.getElementById('editable-' + section);
+                    if (el) {
+                        try { localStorage.setItem(getEditKey(currentPaper.id, section), el.innerHTML); } catch(e) {}
+                    }
+                });
+                showSavedIndicator();
+            }
+        }
+
+        function resetEdits(paperId, section) {
+            if (!confirm('Reset this section to the original content? Your edits will be lost.')) return;
+            try { localStorage.removeItem(getEditKey(paperId, section)); } catch(e) {}
+            renderContent();
+        }
+
+        function showSavedIndicator() {
+            var ind = document.createElement('div');
+            ind.className = 'edit-saved-indicator';
+            ind.textContent = '\u2705 Changes saved';
+            document.body.appendChild(ind);
+            setTimeout(function() { ind.remove(); }, 2000);
+        }
+
+        // ==================== PERSONAL NOTES ====================
+        function getNoteKey(paperId) {
+            return 'note_' + paperId;
+        }
+
+        function getNote(paperId) {
+            try { return localStorage.getItem(getNoteKey(paperId)) || ''; } catch(e) { return ''; }
+        }
+
+        function saveNote(paperId) {
+            var textarea = document.getElementById('paperNotes');
+            if (!textarea) return;
+            try { localStorage.setItem(getNoteKey(paperId), textarea.value); } catch(e) {}
+            var meta = document.getElementById('notesMeta');
+            if (meta) meta.textContent = 'Saved just now \u2022 ' + textarea.value.length + ' characters';
+            if (gameState && textarea.value.length > 10) { awardXP(3, 'Notes updated'); }
+        }
+
+        var notesSaveTimer = null;
+        function onNotesInput(paperId) {
+            clearTimeout(notesSaveTimer);
+            notesSaveTimer = setTimeout(function() { saveNote(paperId); }, 800);
+        }
+
+        // ==================== PDF UPLOAD/VIEWER ====================
+        function renderPDFSection(paperId) {
+            var html = '<div class="pdf-section">';
+            html += '<h3>\uD83D\uDCC4 Original Paper</h3>';
+            html += '<div id="pdfContent-' + paperId + '"><div class="pdf-dropzone" id="pdfDrop-' + paperId + '" onclick="triggerPDFUpload(\'' + paperId + '\')" ondragover="event.preventDefault();this.classList.add(\'dragover\')" ondragleave="this.classList.remove(\'dragover\')" ondrop="handlePDFDrop(event,\'' + paperId + '\')">';
+            html += '<div class="drop-icon">\uD83D\uDCC2</div>';
+            html += '<div><strong>Drop PDF here</strong> or click to upload</div>';
+            html += '<p>Upload the original paper for quick reference</p>';
+            html += '</div></div>';
+            html += '<input type="file" id="pdfInput-' + paperId + '" accept=".pdf" style="display:none" onchange="handlePDFSelect(this,\'' + paperId + '\')">';
+            html += '</div>';
+            return html;
+        }
+
+        function triggerPDFUpload(paperId) {
+            var input = document.getElementById('pdfInput-' + paperId);
+            if (input) input.click();
+        }
+
+        function handlePDFSelect(input, paperId) {
+            if (input.files && input.files[0]) {
+                uploadPDF(paperId, input.files[0]);
+            }
+        }
+
+        function handlePDFDrop(event, paperId) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('dragover');
+            var files = event.dataTransfer.files;
+            if (files && files[0] && files[0].type === 'application/pdf') {
+                uploadPDF(paperId, files[0]);
+            }
+        }
+
+        function uploadPDF(paperId, file) {
+            storePDF(paperId, file).then(function() {
+                refreshPDFDisplay(paperId);
+                if (gameState) { awardXP(5, 'PDF uploaded'); }
+            }).catch(function(err) {
+                console.error('PDF storage error:', err);
+                alert('Failed to store PDF. It may be too large for browser storage.');
+            });
+        }
+
+        function refreshPDFDisplay(paperId) {
+            getPDF(paperId).then(function(pdf) {
+                var container = document.getElementById('pdfContent-' + paperId);
+                if (!container) return;
+                if (pdf) {
+                    var sizeStr = pdf.size > 1048576 ? (pdf.size / 1048576).toFixed(1) + ' MB' : (pdf.size / 1024).toFixed(0) + ' KB';
+                    var dateStr = pdf.uploadedAt ? new Date(pdf.uploadedAt).toLocaleDateString() : '';
+                    container.innerHTML = '<div class="pdf-file-info">' +
+                        '<span class="pdf-icon">\uD83D\uDCC4</span>' +
+                        '<div class="pdf-details"><div class="pdf-name">' + pdf.name + '</div><div class="pdf-size">' + sizeStr + ' \u2022 Uploaded ' + dateStr + '</div></div>' +
+                        '<button class="pdf-view-btn" onclick="viewPDF(\'' + paperId + '\')">\uD83D\uDC41 View</button>' +
+                        '<button class="pdf-remove-btn" onclick="removePDF(\'' + paperId + '\')">\u2716</button>' +
+                        '</div>';
+                } else {
+                    container.innerHTML = '<div class="pdf-dropzone" id="pdfDrop-' + paperId + '" onclick="triggerPDFUpload(\'' + paperId + '\')" ondragover="event.preventDefault();this.classList.add(\'dragover\')" ondragleave="this.classList.remove(\'dragover\')" ondrop="handlePDFDrop(event,\'' + paperId + '\')">' +
+                        '<div class="drop-icon">\uD83D\uDCC2</div>' +
+                        '<div><strong>Drop PDF here</strong> or click to upload</div>' +
+                        '<p>Upload the original paper for quick reference</p></div>';
+                }
+            });
+        }
+
+        function viewPDF(paperId) {
+            getPDF(paperId).then(function(pdf) {
+                if (!pdf) return;
+                var blob = new Blob([pdf.data], { type: 'application/pdf' });
+                var url = URL.createObjectURL(blob);
+                // Create full-screen modal viewer
+                var modal = document.createElement('div');
+                modal.className = 'pdf-viewer-modal';
+                modal.id = 'pdfViewerModal';
+                modal.innerHTML = '<div class="pdf-modal-header"><h4>\uD83D\uDCC4 ' + pdf.name + '</h4><div><button class="pdf-modal-close" onclick="closePDFViewer()" style="margin-right:8px;">\u2716 Close</button></div></div><iframe src="' + url + '#toolbar=1"></iframe>';
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        function closePDFViewer() {
+            var modal = document.getElementById('pdfViewerModal');
+            if (modal) {
+                var iframe = modal.querySelector('iframe');
+                if (iframe && iframe.src) URL.revokeObjectURL(iframe.src);
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        }
+
+        function removePDF(paperId) {
+            if (!confirm('Remove uploaded PDF for this paper?')) return;
+            deletePDF(paperId).then(function() { refreshPDFDisplay(paperId); });
+        }
+
+
         function safeInitialize() {
+            loadGameState();
+            updateGameUI();
+            registerServiceWorker();
+            openPdfDB().catch(function(e) { console.log('IndexedDB init:', e); });
+            // Ctrl+S to save edits
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                    e.preventDefault();
+                    if (editingMode && currentPaper) {
+                        ['summary', 'econometrics', 'empirics'].forEach(function(section) {
+                            var el = document.getElementById('editable-' + section);
+                            if (el) { try { localStorage.setItem(getEditKey(currentPaper.id, section), el.innerHTML); } catch(e) {} }
+                        });
+                        showSavedIndicator();
+                    }
+                }
+            });
             try {
                 initializeUI();
                 // Hide loading screen when initialization is complete
@@ -25294,6 +26086,63 @@ const apPapersData = {
             });
         } else {
             setTimeout(safeInitialize, 100);
+        }
+
+
+        // ==================== PWA SERVICE WORKER ====================
+        var deferredInstallPrompt = null;
+
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js').then(function(reg) {
+                    console.log('SW registered:', reg.scope);
+                }).catch(function(err) {
+                    console.log('SW registration failed:', err);
+                });
+            }
+
+            // Listen for install prompt
+            window.addEventListener('beforeinstallprompt', function(e) {
+                e.preventDefault();
+                deferredInstallPrompt = e;
+                showInstallBanner();
+            });
+        }
+
+        function showInstallBanner() {
+            var dismissed = localStorage.getItem('pwaInstallDismissed');
+            if (dismissed) return;
+
+            var banner = document.createElement('div');
+            banner.className = 'pwa-install-banner';
+            banner.id = 'pwaInstallBanner';
+            banner.innerHTML = '<div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">\uD83D\uDCF1</span><div><strong>Install PhD Finance</strong><br><span style="font-size:12px;opacity:0.8;">Add to your home screen for the full app experience</span></div></div><div style="display:flex;gap:8px;"><button class="pwa-dismiss-btn" onclick="dismissInstall()">Not now</button><button class="pwa-install-btn" onclick="installPWA()">Install</button></div>';
+            document.body.appendChild(banner);
+            setTimeout(function() { banner.classList.add('show'); }, 100);
+        }
+
+        function installPWA() {
+            if (deferredInstallPrompt) {
+                deferredInstallPrompt.prompt();
+                deferredInstallPrompt.userChoice.then(function(result) {
+                    if (result.outcome === 'accepted') {
+                        if (gameState) {
+                            showAchievementToast('\uD83D\uDCF1', 'App Installed!', 'Welcome to the full experience!');
+                        }
+                    }
+                    deferredInstallPrompt = null;
+                });
+            }
+            dismissInstall();
+        }
+
+        function dismissInstall() {
+            var banner = document.getElementById('pwaInstallBanner');
+            if (banner) {
+                banner.classList.remove('show');
+                setTimeout(function() { banner.remove(); }, 400);
+            }
+            localStorage.setItem('pwaInstallDismissed', 'true');
         }
 
 </script>
