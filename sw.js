@@ -1,4 +1,4 @@
-const CACHE_NAME = 'phd-finance-v2';
+const CACHE_NAME = 'phd-finance-v3';
 const URLS_TO_CACHE = ['./index.html', './manifest.json'];
 
 self.addEventListener('install', event => {
@@ -19,15 +19,16 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) return response;
-      return fetch(event.request).then(fetchResponse => {
-        if (fetchResponse && fetchResponse.status === 200) {
-          const clone = fetchResponse.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        }
-        return fetchResponse;
-      }).catch(() => caches.match('./index.html'));
+    fetch(event.request).then(fetchResponse => {
+      if (fetchResponse && fetchResponse.status === 200) {
+        const clone = fetchResponse.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+      }
+      return fetchResponse;
+    }).catch(() => {
+      return caches.match(event.request).then(response => {
+        return response || caches.match('./index.html');
+      });
     })
   );
 });
