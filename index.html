@@ -440,6 +440,75 @@ body.dark-mode .pdf-file-info { background: #1a1a2e; border-color: #444; }
     .edit-toggle { font-size: 10px; padding: 3px 7px; }
 }
 
+
+/* ==================== VOICE / WALK MODE ==================== */
+.walk-mode-container { max-width: 600px; margin: 0 auto; }
+.walk-player { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); border-radius: 24px; padding: 30px 24px; color: white; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.walk-player .now-playing { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+.walk-player .track-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+.walk-player .track-authors { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.walk-player .progress-track { height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; margin-bottom: 8px; cursor: pointer; }
+.walk-player .progress-fill { height: 100%; background: var(--accent-color, #4a7c23); border-radius: 2px; transition: width 0.3s; }
+.walk-player .time-info { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+.walk-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px; }
+.walk-btn { background: none; border: none; color: white; cursor: pointer; padding: 8px; border-radius: 50%; transition: all 0.2s; }
+.walk-btn:hover { background: rgba(255,255,255,0.1); }
+.walk-btn.play-btn { width: 64px; height: 64px; background: var(--accent-color, #4a7c23); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.walk-btn.play-btn:hover { transform: scale(1.05); background: var(--accent-light, #6ba832); }
+.walk-btn svg { width: 24px; height: 24px; fill: white; }
+.speed-control { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 16px; }
+.speed-control button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 16px; font-size: 12px; cursor: pointer; }
+.speed-control button.active { background: var(--accent-color); border-color: var(--accent-color); }
+.walk-playlist { margin-top: 20px; max-height: 300px; overflow-y: auto; }
+.walk-playlist-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+.walk-playlist-item:hover { background: rgba(255,255,255,0.05); }
+.walk-playlist-item.active { background: rgba(74,124,35,0.2); }
+.walk-playlist-item .pl-num { font-size: 12px; color: rgba(255,255,255,0.3); min-width: 24px; }
+.walk-playlist-item.active .pl-num { color: var(--accent-color); }
+.walk-playlist-item .pl-info { flex: 1; text-align: left; }
+.walk-playlist-item .pl-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.3; }
+.walk-playlist-item .pl-author { font-size: 11px; color: rgba(255,255,255,0.4); }
+.walk-section-picker { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+.walk-section-btn { padding: 6px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); background: none; color: rgba(255,255,255,0.6); font-size: 12px; cursor: pointer; }
+.walk-section-btn.active { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+
+/* Voice Quiz */
+.voice-quiz-container { max-width: 500px; margin: 0 auto; text-align: center; }
+.voice-orb { width: 140px; height: 140px; border-radius: 50%; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 48px; transition: all 0.3s; }
+.voice-orb.idle { background: linear-gradient(135deg, #e8e8e8, #d0d0d0); }
+.voice-orb.listening { background: linear-gradient(135deg, #4a7c23, #8bc34a); animation: orbPulse 1.5s ease-in-out infinite; box-shadow: 0 0 30px rgba(74,124,35,0.4); }
+.voice-orb.speaking { background: linear-gradient(135deg, #2980b9, #3498db); animation: orbPulse 1s ease-in-out infinite; box-shadow: 0 0 30px rgba(41,128,185,0.4); }
+.voice-orb.correct { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+.voice-orb.wrong { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+body.dark-mode .voice-orb.idle { background: linear-gradient(135deg, #333, #444); }
+@keyframes orbPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.voice-transcript { min-height: 40px; padding: 12px; margin: 16px 0; font-size: 16px; color: #888; font-style: italic; }
+.voice-transcript.heard { color: var(--accent-color, #4a7c23); font-style: normal; font-weight: 600; }
+.voice-status { font-size: 13px; color: #888; margin-bottom: 16px; }
+.voice-answer-reveal { margin-top: 16px; padding: 16px; background: #f0f7e6; border-radius: 12px; text-align: left; }
+body.dark-mode .voice-answer-reveal { background: #1a2a1a; }
+
+/* Conversation mode */
+.convo-container { max-width: 600px; margin: 0 auto; }
+.convo-messages { min-height: 300px; max-height: 500px; overflow-y: auto; padding: 16px; background: #f8f8f8; border-radius: 16px; margin-bottom: 16px; }
+body.dark-mode .convo-messages { background: #1a1a2e; }
+.convo-msg { display: flex; gap: 10px; margin-bottom: 12px; }
+.convo-msg.user { flex-direction: row-reverse; }
+.convo-msg .msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.convo-msg.ai .msg-avatar { background: var(--accent-color, #4a7c23); color: white; }
+.convo-msg.user .msg-avatar { background: #3498db; color: white; }
+.convo-msg .msg-bubble { max-width: 80%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; }
+.convo-msg.ai .msg-bubble { background: white; border: 1px solid #e0e0e0; }
+.convo-msg.user .msg-bubble { background: #3498db; color: white; }
+body.dark-mode .convo-msg.ai .msg-bubble { background: #222; border-color: #444; }
+.convo-input-row { display: flex; gap: 8px; }
+.convo-input-row input { flex: 1; padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 24px; font-size: 14px; }
+body.dark-mode .convo-input-row input { background: #1a1a2e; border-color: #444; color: #e0e0e0; }
+.convo-input-row input:focus { outline: none; border-color: var(--accent-color); }
+.convo-mic-btn { width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--accent-color, #4a7c23); color: white; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.convo-mic-btn.recording { background: #e74c3c; animation: orbPulse 1s ease-in-out infinite; }
+.convo-send-btn { width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--accent-color, #4a7c23); color: white; font-size: 18px; cursor: pointer; }
+
 </style>
 </head>
 <body>
@@ -23416,8 +23485,8 @@ const apPapersData = {
 
         function renderContentTabs() {
             const tabsContainer = document.getElementById('contentTabs');
-            const tabs = ['summary', 'recall', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'methods', 'mock_exam', 'test', 'focus', 'srs', 'dashboard', 'planner'];
-            const labels = ['Summary', 'Recall', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Methods', 'Mock Exam', 'Test', 'Focus', 'SRS', 'Dashboard', 'Study Plan'];
+            const tabs = ['summary', 'recall', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'methods', 'mock_exam', 'test', 'voice', 'focus', 'srs', 'dashboard', 'planner'];
+            const labels = ['Summary', 'Recall', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Methods', 'Mock Exam', 'Test', '\uD83C\uDFA7 Voice', 'Focus', 'SRS', 'Dashboard', 'Study Plan'];
 
             tabsContainer.innerHTML = '';
             tabs.forEach((tab, i) => {
@@ -23457,6 +23526,7 @@ const apPapersData = {
                 case 'srs': renderSRS(); break;
                 case 'test': renderTestYourself(); break;
                 case 'dashboard': renderDashboard(); break;
+                case 'voice': renderVoiceMode(); break;
                 case 'planner': renderStudyPlanner(); break;
             }
         }
@@ -26127,6 +26197,660 @@ const apPapersData = {
                 }
             }
         }
+
+        
+        // ==================== VOICE / WALK MODE ====================
+        var walkState = {
+            playing: false,
+            currentTrack: 0,
+            playlist: [],
+            mode: 'walk', // 'walk', 'voicequiz', 'convo'
+            speed: 1,
+            section: 'summary', // which part of paper to read
+            utterance: null,
+            chunkIndex: 0,
+            chunks: [],
+            recognition: null,
+            convoHistory: []
+        };
+
+        function renderVoiceMode() {
+            var contentArea = document.getElementById('contentArea');
+            var html = '<div style="margin-bottom:20px;">';
+            html += '<h2 style="margin-bottom:4px;">\uD83C\uDFA7 Voice Study</h2>';
+            html += '<p style="color:#888;font-size:14px;">Hands-free studying for walks, commutes, and exercise</p>';
+            html += '</div>';
+
+            // Mode selector
+            html += '<div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">';
+            html += '<button onclick="switchVoiceMode(\'walk\')" style="flex:1;min-width:120px;padding:12px;border-radius:12px;border:2px solid ' + (walkState.mode === 'walk' ? 'var(--accent-color)' : '#e0e0e0') + ';background:' + (walkState.mode === 'walk' ? 'var(--accent-color)' : 'transparent') + ';color:' + (walkState.mode === 'walk' ? 'white' : 'inherit') + ';font-weight:600;font-size:13px;cursor:pointer;">\uD83D\uDEB6 Walk Mode</button>';
+            html += '<button onclick="switchVoiceMode(\'voicequiz\')" style="flex:1;min-width:120px;padding:12px;border-radius:12px;border:2px solid ' + (walkState.mode === 'voicequiz' ? 'var(--accent-color)' : '#e0e0e0') + ';background:' + (walkState.mode === 'voicequiz' ? 'var(--accent-color)' : 'transparent') + ';color:' + (walkState.mode === 'voicequiz' ? 'white' : 'inherit') + ';font-weight:600;font-size:13px;cursor:pointer;">\uD83C\uDFA4 Voice Quiz</button>';
+            html += '<button onclick="switchVoiceMode(\'convo\')" style="flex:1;min-width:120px;padding:12px;border-radius:12px;border:2px solid ' + (walkState.mode === 'convo' ? 'var(--accent-color)' : '#e0e0e0') + ';background:' + (walkState.mode === 'convo' ? 'var(--accent-color)' : 'transparent') + ';color:' + (walkState.mode === 'convo' ? 'white' : 'inherit') + ';font-weight:600;font-size:13px;cursor:pointer;">\uD83D\uDCAC Study Buddy</button>';
+            html += '</div>';
+
+            html += '<div id="voiceModeContent">';
+            if (walkState.mode === 'walk') {
+                html += renderWalkMode();
+            } else if (walkState.mode === 'voicequiz') {
+                html += renderVoiceQuiz();
+            } else {
+                html += renderConvoMode();
+            }
+            html += '</div>';
+
+            contentArea.innerHTML = html;
+            if (walkState.mode === 'walk') initWalkPlaylist();
+        }
+
+        function switchVoiceMode(mode) {
+            stopWalkAudio();
+            walkState.mode = mode;
+            renderVoiceMode();
+        }
+
+        // ==================== WALK MODE ====================
+        function renderWalkMode() {
+            var html = '<div class="walk-mode-container">';
+
+            // Section picker - what to read
+            html += '<div class="walk-section-picker">';
+            ['summary', 'econometrics', 'empirics'].forEach(function(sec) {
+                var active = walkState.section === sec;
+                html += '<button class="walk-section-btn' + (active ? ' active' : '') + '" onclick="walkState.section=\'' + sec + '\';initWalkPlaylist();renderVoiceMode();">' + sec.charAt(0).toUpperCase() + sec.slice(1) + '</button>';
+            });
+            html += '</div>';
+
+            // Player
+            var track = walkState.playlist[walkState.currentTrack];
+            html += '<div class="walk-player">';
+            html += '<div class="now-playing">' + (walkState.playing ? '\uD83D\uDD0A Now Playing' : 'Ready to Play') + '</div>';
+            html += '<div class="track-title" id="walkTrackTitle">' + (track ? track.title : 'Select a paper to start') + '</div>';
+            html += '<div class="track-authors" id="walkTrackAuthors">' + (track ? track.authors + ' (' + track.year + ')' : '') + '</div>';
+
+            // Progress
+            html += '<div class="progress-track" id="walkProgress"><div class="progress-fill" id="walkProgressFill" style="width:' + getWalkProgress() + '%"></div></div>';
+            html += '<div class="time-info"><span>Paper ' + (walkState.currentTrack + 1) + ' of ' + walkState.playlist.length + '</span><span>' + walkState.section + '</span></div>';
+
+            // Speed
+            html += '<div class="speed-control">';
+            [0.75, 1, 1.25, 1.5, 2].forEach(function(s) {
+                html += '<button class="' + (walkState.speed === s ? 'active' : '') + '" onclick="setWalkSpeed(' + s + ')">' + s + 'x</button>';
+            });
+            html += '</div>';
+
+            // Controls
+            html += '<div class="walk-controls">';
+            html += '<button class="walk-btn" onclick="walkPrev()" title="Previous">\u23EE\uFE0F</button>';
+            html += '<button class="walk-btn" onclick="walkRewind()" title="Back 15s">\u23EA</button>';
+            html += '<button class="walk-btn play-btn" onclick="toggleWalkPlay()" id="walkPlayBtn">' + (walkState.playing ? '\u23F8\uFE0F' : '\u25B6\uFE0F') + '</button>';
+            html += '<button class="walk-btn" onclick="walkForward()" title="Forward 15s">\u23E9</button>';
+            html += '<button class="walk-btn" onclick="walkNext()" title="Next">\u23ED\uFE0F</button>';
+            html += '</div>';
+
+            html += '</div>'; // end walk-player
+
+            // Playlist
+            html += '<div class="walk-playlist" id="walkPlaylist">';
+            walkState.playlist.forEach(function(item, i) {
+                html += '<div class="walk-playlist-item' + (i === walkState.currentTrack ? ' active' : '') + '" onclick="playWalkTrack(' + i + ')">';
+                html += '<span class="pl-num">' + (i === walkState.currentTrack && walkState.playing ? '\uD83D\uDD0A' : (i + 1)) + '</span>';
+                html += '<div class="pl-info"><div class="pl-title">' + item.title + '</div>';
+                html += '<div class="pl-author">' + item.authors + ' (' + item.year + ')</div></div>';
+                html += '</div>';
+            });
+            html += '</div>';
+
+            html += '</div>'; // end container
+            return html;
+        }
+
+        function initWalkPlaylist() {
+            walkState.playlist = [];
+            papersData.groups.forEach(function(g) {
+                g.papers.forEach(function(p) {
+                    var hasContent = false;
+                    if (walkState.section === 'summary' && p.summary) hasContent = true;
+                    if (walkState.section === 'econometrics' && p.econometrics) hasContent = true;
+                    if (walkState.section === 'empirics' && p.empirics) hasContent = true;
+                    if (hasContent) {
+                        walkState.playlist.push({
+                            id: p.id,
+                            title: p.title,
+                            authors: p.authors,
+                            year: p.year,
+                            paper: p
+                        });
+                    }
+                });
+            });
+        }
+
+        function getWalkProgress() {
+            if (walkState.chunks.length === 0) return 0;
+            return Math.round(walkState.chunkIndex / walkState.chunks.length * 100);
+        }
+
+        function getReadableTextForPaper(paper, section) {
+            var raw = '';
+            if (section === 'summary' && paper.summary) raw = paper.summary;
+            else if (section === 'econometrics' && paper.econometrics) raw = paper.econometrics;
+            else if (section === 'empirics' && paper.empirics) raw = paper.empirics;
+            // Strip HTML
+            var tmp = document.createElement('div');
+            tmp.innerHTML = raw;
+            return tmp.textContent || tmp.innerText || '';
+        }
+
+        function toggleWalkPlay() {
+            if (walkState.playing) {
+                stopWalkAudio();
+            } else {
+                startWalkAudio();
+            }
+        }
+
+        function startWalkAudio() {
+            if (walkState.playlist.length === 0) return;
+            var track = walkState.playlist[walkState.currentTrack];
+            var text = 'Now reading: ' + track.title + ' by ' + track.authors + '. ' + getReadableTextForPaper(track.paper, walkState.section);
+
+            // Chunk the text for Safari compatibility
+            var sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            walkState.chunks = [];
+            var current = '';
+            sentences.forEach(function(s) {
+                if ((current + s).length > 400) {
+                    if (current) walkState.chunks.push(current.trim());
+                    current = s;
+                } else {
+                    current += s;
+                }
+            });
+            if (current) walkState.chunks.push(current.trim());
+
+            walkState.playing = true;
+            walkState.chunkIndex = 0;
+            speakWalkChunk();
+            updateWalkUI();
+            if (gameState) { trackPaperStudied(track.id); }
+        }
+
+        function speakWalkChunk() {
+            if (walkState.chunkIndex >= walkState.chunks.length || !walkState.playing) {
+                // Track finished - auto advance
+                if (walkState.playing && walkState.currentTrack < walkState.playlist.length - 1) {
+                    walkState.currentTrack++;
+                    startWalkAudio();
+                } else {
+                    stopWalkAudio();
+                }
+                return;
+            }
+            var utter = new SpeechSynthesisUtterance(walkState.chunks[walkState.chunkIndex]);
+            utter.rate = walkState.speed;
+            utter.pitch = 1;
+            var voices = speechSynthesis.getVoices();
+            var preferred = voices.find(function(v) { return v.name.indexOf('Samantha') >= 0 || v.name.indexOf('Karen') >= 0 || v.name.indexOf('Daniel') >= 0; });
+            if (preferred) utter.voice = preferred;
+            utter.onend = function() {
+                walkState.chunkIndex++;
+                updateWalkProgress();
+                speakWalkChunk();
+            };
+            utter.onerror = function() {
+                walkState.chunkIndex++;
+                speakWalkChunk();
+            };
+            walkState.utterance = utter;
+            speechSynthesis.speak(utter);
+        }
+
+        function stopWalkAudio() {
+            speechSynthesis.cancel();
+            walkState.playing = false;
+            walkState.utterance = null;
+            updateWalkUI();
+        }
+
+        function updateWalkUI() {
+            var btn = document.getElementById('walkPlayBtn');
+            if (btn) btn.textContent = walkState.playing ? '\u23F8\uFE0F' : '\u25B6\uFE0F';
+            var title = document.getElementById('walkTrackTitle');
+            var authors = document.getElementById('walkTrackAuthors');
+            var track = walkState.playlist[walkState.currentTrack];
+            if (title && track) title.textContent = track.title;
+            if (authors && track) authors.textContent = track.authors + ' (' + track.year + ')';
+        }
+
+        function updateWalkProgress() {
+            var fill = document.getElementById('walkProgressFill');
+            if (fill) fill.style.width = getWalkProgress() + '%';
+        }
+
+        function walkNext() {
+            stopWalkAudio();
+            walkState.currentTrack = Math.min(walkState.currentTrack + 1, walkState.playlist.length - 1);
+            walkState.chunkIndex = 0;
+            walkState.chunks = [];
+            renderVoiceMode();
+        }
+
+        function walkPrev() {
+            stopWalkAudio();
+            walkState.currentTrack = Math.max(0, walkState.currentTrack - 1);
+            walkState.chunkIndex = 0;
+            walkState.chunks = [];
+            renderVoiceMode();
+        }
+
+        function walkRewind() {
+            walkState.chunkIndex = Math.max(0, walkState.chunkIndex - 3);
+            if (walkState.playing) {
+                speechSynthesis.cancel();
+                speakWalkChunk();
+            }
+        }
+
+        function walkForward() {
+            walkState.chunkIndex = Math.min(walkState.chunks.length - 1, walkState.chunkIndex + 3);
+            if (walkState.playing) {
+                speechSynthesis.cancel();
+                speakWalkChunk();
+            }
+        }
+
+        function playWalkTrack(index) {
+            stopWalkAudio();
+            walkState.currentTrack = index;
+            walkState.chunkIndex = 0;
+            walkState.chunks = [];
+            startWalkAudio();
+            renderVoiceMode();
+        }
+
+        function setWalkSpeed(speed) {
+            walkState.speed = speed;
+            if (walkState.playing) {
+                speechSynthesis.cancel();
+                speakWalkChunk();
+            }
+            // Update speed buttons
+            document.querySelectorAll('.speed-control button').forEach(function(btn) {
+                btn.classList.toggle('active', parseFloat(btn.textContent) === speed);
+            });
+        }
+
+        // ==================== VOICE QUIZ ====================
+        var voiceQuizState = {
+            active: false,
+            currentCard: null,
+            status: 'idle', // idle, asking, listening, evaluating, result
+            transcript: '',
+            questionIndex: 0,
+            score: 0,
+            total: 0,
+            cards: []
+        };
+
+        function renderVoiceQuiz() {
+            var html = '<div class="voice-quiz-container">';
+            html += '<p style="color:#888;font-size:13px;margin-bottom:16px;">The app reads a question aloud. Answer by speaking. Tap the orb to start.</p>';
+
+            // Stats
+            if (voiceQuizState.total > 0) {
+                html += '<div style="display:flex;gap:16px;justify-content:center;margin-bottom:16px;">';
+                html += '<div style="text-align:center;"><div style="font-size:20px;font-weight:700;color:var(--accent-color);">' + voiceQuizState.score + '/' + voiceQuizState.total + '</div><div style="font-size:11px;color:#888;">Score</div></div>';
+                html += '</div>';
+            }
+
+            // Orb
+            var orbClass = 'idle';
+            var orbEmoji = '\uD83C\uDFA4';
+            if (voiceQuizState.status === 'asking') { orbClass = 'speaking'; orbEmoji = '\uD83D\uDD0A'; }
+            else if (voiceQuizState.status === 'listening') { orbClass = 'listening'; orbEmoji = '\uD83C\uDFA4'; }
+            else if (voiceQuizState.status === 'result') { orbClass = voiceQuizState.lastCorrect ? 'correct' : 'wrong'; orbEmoji = voiceQuizState.lastCorrect ? '\u2705' : '\u274C'; }
+
+            html += '<div class="voice-orb ' + orbClass + '" id="voiceOrb" onclick="startVoiceQuizRound()">' + orbEmoji + '</div>';
+
+            // Status
+            var statusText = 'Tap to start a question';
+            if (voiceQuizState.status === 'asking') statusText = 'Listening to the question...';
+            else if (voiceQuizState.status === 'listening') statusText = 'Your turn — speak your answer...';
+            else if (voiceQuizState.status === 'result') statusText = voiceQuizState.lastCorrect ? 'Great job!' : 'Not quite — see the answer below';
+            html += '<div class="voice-status">' + statusText + '</div>';
+
+            // Transcript
+            html += '<div class="voice-transcript' + (voiceQuizState.transcript ? ' heard' : '') + '" id="voiceTranscript">' + (voiceQuizState.transcript || 'Your answer will appear here...') + '</div>';
+
+            // Current question
+            if (voiceQuizState.currentCard) {
+                html += '<div style="padding:12px;background:rgba(0,0,0,0.03);border-radius:10px;margin:12px 0;text-align:left;">';
+                html += '<div style="font-size:12px;color:#888;margin-bottom:4px;">Question:</div>';
+                html += '<div style="font-size:14px;font-weight:600;">' + voiceQuizState.currentCard.question + '</div>';
+                html += '</div>';
+            }
+
+            // Answer reveal
+            if (voiceQuizState.status === 'result' && voiceQuizState.currentCard) {
+                html += '<div class="voice-answer-reveal">';
+                html += '<div style="font-size:12px;color:#888;margin-bottom:4px;">Expected Answer:</div>';
+                html += '<div style="font-size:14px;">' + voiceQuizState.currentCard.answer + '</div>';
+                html += '</div>';
+                html += '<button onclick="startVoiceQuizRound()" style="margin-top:16px;padding:12px 24px;border-radius:20px;border:none;background:var(--accent-color);color:white;font-weight:600;font-size:14px;cursor:pointer;">Next Question \u27A1\uFE0F</button>';
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function buildVoiceQuizDeck() {
+            voiceQuizState.cards = [];
+            papersData.groups.forEach(function(g) {
+                g.papers.forEach(function(p) {
+                    if (p.flashcards) {
+                        p.flashcards.forEach(function(fc) {
+                            voiceQuizState.cards.push({ question: fc.question, answer: fc.answer, paper: p.title });
+                        });
+                    }
+                });
+            });
+            // Shuffle
+            for (var i = voiceQuizState.cards.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = voiceQuizState.cards[i];
+                voiceQuizState.cards[i] = voiceQuizState.cards[j];
+                voiceQuizState.cards[j] = temp;
+            }
+        }
+
+        function startVoiceQuizRound() {
+            if (voiceQuizState.cards.length === 0) buildVoiceQuizDeck();
+            if (voiceQuizState.cards.length === 0) {
+                alert('No flashcards available for voice quiz. Select a course with flashcards.');
+                return;
+            }
+
+            voiceQuizState.currentCard = voiceQuizState.cards[voiceQuizState.questionIndex % voiceQuizState.cards.length];
+            voiceQuizState.questionIndex++;
+            voiceQuizState.status = 'asking';
+            voiceQuizState.transcript = '';
+            renderVoiceMode();
+
+            // Read the question aloud
+            var utter = new SpeechSynthesisUtterance(voiceQuizState.currentCard.question);
+            utter.rate = 0.9;
+            var voices = speechSynthesis.getVoices();
+            var preferred = voices.find(function(v) { return v.name.indexOf('Samantha') >= 0 || v.name.indexOf('Daniel') >= 0; });
+            if (preferred) utter.voice = preferred;
+            utter.onend = function() {
+                // Start listening
+                voiceQuizState.status = 'listening';
+                renderVoiceMode();
+                startVoiceRecognition();
+            };
+            speechSynthesis.speak(utter);
+        }
+
+        function startVoiceRecognition() {
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                voiceQuizState.transcript = '(Speech recognition not supported in this browser. Try Chrome.)';
+                voiceQuizState.status = 'result';
+                voiceQuizState.lastCorrect = false;
+                renderVoiceMode();
+                return;
+            }
+
+            var recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 1;
+            recognition.continuous = false;
+
+            recognition.onresult = function(event) {
+                var transcript = '';
+                for (var i = 0; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                voiceQuizState.transcript = transcript;
+                var el = document.getElementById('voiceTranscript');
+                if (el) { el.textContent = transcript; el.className = 'voice-transcript heard'; }
+            };
+
+            recognition.onend = function() {
+                evaluateVoiceAnswer();
+            };
+
+            recognition.onerror = function(e) {
+                if (e.error === 'no-speech') {
+                    voiceQuizState.transcript = '(No speech detected. Tap to try again.)';
+                }
+                voiceQuizState.status = 'result';
+                voiceQuizState.lastCorrect = false;
+                voiceQuizState.total++;
+                renderVoiceMode();
+            };
+
+            try {
+                recognition.start();
+                walkState.recognition = recognition;
+                // Auto-stop after 15 seconds
+                setTimeout(function() {
+                    try { recognition.stop(); } catch(e) {}
+                }, 15000);
+            } catch(e) {
+                voiceQuizState.transcript = '(Could not start speech recognition.)';
+                voiceQuizState.status = 'result';
+                renderVoiceMode();
+            }
+        }
+
+        function evaluateVoiceAnswer() {
+            var userAnswer = (voiceQuizState.transcript || '').toLowerCase().trim();
+            var correctAnswer = (voiceQuizState.currentCard.answer || '').toLowerCase();
+
+            // Simple keyword matching — check if user mentioned key terms
+            var keywords = correctAnswer.split(/\s+/).filter(function(w) {
+                return w.length > 4 && !['which','where','their','these','those','about','would','could','should','through','between'].includes(w);
+            });
+
+            var matched = 0;
+            keywords.forEach(function(kw) {
+                if (userAnswer.indexOf(kw.replace(/[^a-z]/g, '')) >= 0) matched++;
+            });
+
+            var matchRatio = keywords.length > 0 ? matched / Math.min(keywords.length, 8) : 0;
+            voiceQuizState.lastCorrect = matchRatio >= 0.3;
+            voiceQuizState.total++;
+            if (voiceQuizState.lastCorrect) voiceQuizState.score++;
+            voiceQuizState.status = 'result';
+
+            if (gameState) {
+                gameState.flashcardsReviewed++;
+                awardXP(voiceQuizState.lastCorrect ? XP_REWARDS.completeQuiz : Math.floor(XP_REWARDS.reviewFlashcard), 'Voice quiz');
+            }
+
+            // Speak result
+            var resultText = voiceQuizState.lastCorrect ? 'Good answer!' : 'Not quite. The answer is: ' + voiceQuizState.currentCard.answer.substring(0, 200);
+            var utter = new SpeechSynthesisUtterance(resultText);
+            utter.rate = 1;
+            speechSynthesis.speak(utter);
+
+            renderVoiceMode();
+        }
+
+        // ==================== CONVERSATION MODE (Study Buddy) ====================
+        function renderConvoMode() {
+            var html = '<div class="convo-container">';
+            html += '<p style="color:#888;font-size:13px;margin-bottom:12px;">Ask questions about papers, request explanations, or have the app quiz you. Type or use the mic.</p>';
+
+            // Messages
+            html += '<div class="convo-messages" id="convoMessages">';
+            if (walkState.convoHistory.length === 0) {
+                html += '<div class="convo-msg ai"><span class="msg-avatar">\uD83E\uDDE0</span><div class="msg-bubble">Hey Bhaskar! I\'m your study buddy. Ask me anything about the papers in this course. I can explain concepts, quiz you, or help you connect ideas across papers. What would you like to work on?</div></div>';
+            }
+            walkState.convoHistory.forEach(function(msg) {
+                html += '<div class="convo-msg ' + msg.role + '"><span class="msg-avatar">' + (msg.role === 'ai' ? '\uD83E\uDDE0' : '\uD83D\uDE4B') + '</span><div class="msg-bubble">' + msg.text + '</div></div>';
+            });
+            html += '</div>';
+
+            // Input
+            html += '<div class="convo-input-row">';
+            html += '<input type="text" id="convoInput" placeholder="Ask about a paper or concept..." onkeypress="if(event.key===\'Enter\')sendConvoMessage()">';
+            html += '<button class="convo-mic-btn" id="convoMicBtn" onclick="toggleConvoMic()">\uD83C\uDFA4</button>';
+            html += '<button class="convo-send-btn" onclick="sendConvoMessage()">\u27A1\uFE0F</button>';
+            html += '</div>';
+
+            html += '</div>';
+            return html;
+        }
+
+        function sendConvoMessage(text) {
+            var input = document.getElementById('convoInput');
+            var message = text || (input ? input.value.trim() : '');
+            if (!message) return;
+            if (input) input.value = '';
+
+            walkState.convoHistory.push({ role: 'user', text: message });
+
+            // Generate a response based on paper content
+            var response = generateStudyBuddyResponse(message);
+            walkState.convoHistory.push({ role: 'ai', text: response });
+
+            renderVoiceMode();
+
+            // Scroll to bottom
+            setTimeout(function() {
+                var msgs = document.getElementById('convoMessages');
+                if (msgs) msgs.scrollTop = msgs.scrollHeight;
+            }, 100);
+
+            // Speak the response
+            var utter = new SpeechSynthesisUtterance(response.replace(/<[^>]+>/g, ''));
+            utter.rate = 1;
+            var voices = speechSynthesis.getVoices();
+            var preferred = voices.find(function(v) { return v.name.indexOf('Samantha') >= 0 || v.name.indexOf('Daniel') >= 0; });
+            if (preferred) utter.voice = preferred;
+            speechSynthesis.speak(utter);
+
+            if (gameState) { awardXP(XP_REWARDS.reviewFlashcard, 'Study conversation'); }
+        }
+
+        function generateStudyBuddyResponse(query) {
+            var q = query.toLowerCase();
+
+            // Quiz request
+            if (q.includes('quiz') || q.includes('test me') || q.includes('ask me')) {
+                var allCards = [];
+                papersData.groups.forEach(function(g) { g.papers.forEach(function(p) {
+                    if (p.flashcards) p.flashcards.forEach(function(fc) { allCards.push({ q: fc.question, a: fc.answer, paper: p.title }); });
+                }); });
+                if (allCards.length > 0) {
+                    var card = allCards[Math.floor(Math.random() * allCards.length)];
+                    return 'Here\'s a question from <strong>' + card.paper + '</strong>:<br><br><strong>' + card.q + '</strong><br><br>Think about it, then type your answer or say \"show answer\" to reveal it.';
+                }
+                return 'No flashcards available for this course. Try switching to a different course.';
+            }
+
+            // Show answer request
+            if (q.includes('show answer') || q.includes('reveal') || q.includes('give up')) {
+                var lastQ = walkState.convoHistory.slice().reverse().find(function(m) { return m.role === 'ai' && m.text.includes('Here\'s a question'); });
+                if (lastQ) {
+                    // Find the matching card
+                    var allCards2 = [];
+                    papersData.groups.forEach(function(g) { g.papers.forEach(function(p) {
+                        if (p.flashcards) p.flashcards.forEach(function(fc) { allCards2.push({ q: fc.question, a: fc.answer }); });
+                    }); });
+                    for (var ci = 0; ci < allCards2.length; ci++) {
+                        if (lastQ.text.includes(allCards2[ci].q)) {
+                            return '<strong>Answer:</strong> ' + allCards2[ci].a + '<br><br>Want another question? Just say \"quiz me\".';
+                        }
+                    }
+                }
+                return 'I don\'t have a pending question. Say \"quiz me\" to get started!';
+            }
+
+            // Search for relevant paper
+            var bestMatch = null;
+            var bestScore = 0;
+            var queryWords = q.split(/\s+/).filter(function(w) { return w.length > 3; });
+
+            papersData.groups.forEach(function(g) { g.papers.forEach(function(p) {
+                var searchable = (p.title + ' ' + p.authors).toLowerCase();
+                var score = 0;
+                queryWords.forEach(function(w) { if (searchable.includes(w)) score++; });
+                if (score > bestScore) { bestScore = score; bestMatch = p; }
+            }); });
+
+            if (q.includes('explain') || q.includes('what is') || q.includes('how does') || q.includes('tell me about')) {
+                if (bestMatch && bestScore >= 1) {
+                    var summary = getReadableTextForPaper(bestMatch, 'summary');
+                    var snippet = summary.substring(0, 600);
+                    return '<strong>' + bestMatch.title + '</strong> (' + bestMatch.authors + ', ' + bestMatch.year + '):<br><br>' + snippet + '...<br><br>Want me to go deeper on any part of this paper?';
+                }
+            }
+
+            if (q.includes('connect') || q.includes('relate') || q.includes('compare') || q.includes('differ')) {
+                if (crossCourseConnections && crossCourseConnections.length > 0) {
+                    var conn = crossCourseConnections[Math.floor(Math.random() * crossCourseConnections.length)];
+                    if (conn.connections && conn.connections.length > 0) {
+                        var c = conn.connections[Math.floor(Math.random() * conn.connections.length)];
+                        return '<strong>Connection:</strong> ' + c.concept + '<br><br>' + (c.explanation || c.insight || 'These papers are connected through shared theoretical frameworks.') + '<br><br>Want to explore more connections?';
+                    }
+                }
+            }
+
+            // Default — try to be helpful
+            if (bestMatch && bestScore >= 1) {
+                return 'I found <strong>' + bestMatch.title + '</strong> by ' + bestMatch.authors + ' (' + bestMatch.year + '). What would you like to know? I can explain the core contribution, key findings, methodology, or quiz you on it.';
+            }
+
+            var tips = [
+                'Try asking me to \"explain\" a specific paper or concept.',
+                'Say \"quiz me\" and I\'ll test your knowledge with flashcard questions.',
+                'Ask me to \"compare\" two theories or approaches.',
+                'Say \"tell me about\" followed by an author name or topic.'
+            ];
+            return 'I\'m not sure what you mean. ' + tips[Math.floor(Math.random() * tips.length)] + '<br><br>I know about all ' + walkState.playlist.length + ' papers in this course!';
+        }
+
+        function toggleConvoMic() {
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                alert('Speech recognition is not supported in this browser. Try Chrome.');
+                return;
+            }
+            var btn = document.getElementById('convoMicBtn');
+            if (walkState.recognition) {
+                try { walkState.recognition.stop(); } catch(e) {}
+                walkState.recognition = null;
+                if (btn) btn.classList.remove('recording');
+                return;
+            }
+
+            var recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                sendConvoMessage(transcript);
+            };
+            recognition.onend = function() {
+                walkState.recognition = null;
+                if (btn) btn.classList.remove('recording');
+            };
+            recognition.onerror = function() {
+                walkState.recognition = null;
+                if (btn) btn.classList.remove('recording');
+            };
+
+            recognition.start();
+            walkState.recognition = recognition;
+            if (btn) btn.classList.add('recording');
+        }
+
 
         function safeInitialize() {
             loadGameState();
