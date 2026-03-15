@@ -521,7 +521,7 @@ body.dark-mode .convo-input-row input { background: #1a1a2e; border-color: #444;
                 <option value="corpfinance1">Corporate Finance I</option>
                 <option value="banking">Banking &amp; Financial Intermediation</option>
                 <option value="risk">Corporate Risk Management</option>
-                <option value="asset">Asset Pricing / Financial Econometrics</option>
+                <option value="asset">Financial Econometrics</option>
                 <option value="macro" disabled>Macroeconomics (Coming Soon)</option>
                 <option value="development" disabled>Development Economics (Coming Soon)</option>
             </select>
@@ -22829,7 +22829,7 @@ const apPapersData = {
                 accent: '#9c27b0',
                 accentLight: '#e1bee7',
                 hoverBg: '#f3e5f5',
-                name: 'Asset Pricing / Financial Econometrics'
+                name: 'Financial Econometrics'
             },
             corpfinance1: {
                 gradient: 'linear-gradient(135deg, #e65100 0%, #ff9800 50%, #ffb74d 100%)',
@@ -23658,7 +23658,7 @@ const apPapersData = {
         // ==================== ESSAYS ====================
         function renderEssays() {
             const contentArea = document.getElementById('contentArea');
-            const courseNames = { corporate: 'Empirical Corporate Finance II', corpfinance1: 'Corporate Finance I', banking: 'Banking & Financial Intermediation', risk: 'Corporate Risk Management', asset: 'Asset Pricing / Financial Econometrics' };
+            const courseNames = { corporate: 'Empirical Corporate Finance II', corpfinance1: 'Corporate Finance I', banking: 'Banking & Financial Intermediation', risk: 'Corporate Risk Management', asset: 'Financial Econometrics' };
             let html = '<div class="essay-container">';
             html += '<h2 style="margin-bottom:8px;">PhD Essay Questions - ' + (courseNames[currentCourse] || 'Finance') + '</h2>';
             html += '<p style="color:#666;margin-bottom:25px;">Essay questions organized by topic. Click a question to expand, write your answer, then reveal the model answer.</p>';
@@ -23719,7 +23719,7 @@ const apPapersData = {
         // ==================== CONNECTIONS ====================
         function renderConnections() {
             const contentArea = document.getElementById('contentArea');
-            const courseNames = { corporate: 'Empirical Corporate Finance II', corpfinance1: 'Corporate Finance I', banking: 'Banking & Financial Intermediation', risk: 'Corporate Risk Management', asset: 'Asset Pricing / Financial Econometrics' };
+            const courseNames = { corporate: 'Empirical Corporate Finance II', corpfinance1: 'Corporate Finance I', banking: 'Banking & Financial Intermediation', risk: 'Corporate Risk Management', asset: 'Financial Econometrics' };
             let html = '<h2 style="margin-bottom:8px;">Cross-Course Connections</h2>';
             html += '<p style="color:#666;margin-bottom:25px;">How ' + (courseNames[currentCourse] || 'these') + ' papers connect to your other PhD courses.</p>';
             html += '<div class="connections-grid">';
@@ -24136,7 +24136,7 @@ const apPapersData = {
                 { key: 'corpfinance1', name: 'Corporate Finance I', data: cf1PapersData, color: '#e67e22' },
                 { key: 'banking', name: 'Banking', data: bankPapersData, color: '#2196f3' },
                 { key: 'risk', name: 'Risk Management', data: rmPapersData, color: '#e53935' },
-                { key: 'asset', name: 'Asset Pricing', data: apPapersData, color: '#9c27b0' }
+                { key: 'asset', name: 'Financial Econometrics', data: apPapersData, color: '#9c27b0' }
             ];
 
             // Collect all papers with course info
@@ -24357,7 +24357,7 @@ const apPapersData = {
                 { name: 'Corp Finance I', essay: typeof cf1EssayQuestions !== 'undefined' ? cf1EssayQuestions : null },
                 { name: 'Banking', essay: typeof bankEssayQuestions !== 'undefined' ? bankEssayQuestions : null },
                 { name: 'Risk Management', essay: typeof rmEssayQuestions !== 'undefined' ? rmEssayQuestions : null },
-                { name: 'Asset Pricing', essay: typeof apEssayQuestions !== 'undefined' ? apEssayQuestions : null }
+                { name: 'Financial Econometrics', essay: typeof apEssayQuestions !== 'undefined' ? apEssayQuestions : null }
             ];
             courseData.forEach(cd => {
                 if (cd.essay && cd.essay.categories) {
@@ -24368,7 +24368,7 @@ const apPapersData = {
             // Get current course name
             var courseNames = {
                 'corporate': 'Corp Finance II', 'corpfinance1': 'Corp Finance I',
-                'banking': 'Banking', 'risk': 'Risk Management', 'asset': 'Asset Pricing'
+                'banking': 'Banking', 'risk': 'Risk Management', 'asset': 'Financial Econometrics'
             };
             var currentCourseName = courseNames[currentCourse] || 'Current Course';
 
@@ -24456,7 +24456,7 @@ const apPapersData = {
                 { key: 'corpfinance1', name: 'Corp Finance I', essay: typeof cf1EssayQuestions !== 'undefined' ? cf1EssayQuestions : null },
                 { key: 'banking', name: 'Banking', essay: typeof bankEssayQuestions !== 'undefined' ? bankEssayQuestions : null },
                 { key: 'risk', name: 'Risk Management', essay: typeof rmEssayQuestions !== 'undefined' ? rmEssayQuestions : null },
-                { key: 'asset', name: 'Asset Pricing', essay: typeof apEssayQuestions !== 'undefined' ? apEssayQuestions : null }
+                { key: 'asset', name: 'Financial Econometrics', essay: typeof apEssayQuestions !== 'undefined' ? apEssayQuestions : null }
             ];
 
             if (scope === 'current') {
