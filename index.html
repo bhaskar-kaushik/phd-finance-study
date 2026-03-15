@@ -6755,6 +6755,162 @@ const corpGroup17Papers = {
       ]
     },
     {
+      id: "p-diamond-dybvig-1983",
+      title: "Bank Runs, Deposit Insurance, and Liquidity",
+      authors: "Diamond, Douglas W.; Dybvig, Philip H.",
+      year: 1983,
+      journal: "Journal of Political Economy",
+      journalAbbr: "JPE",
+      volume: 91,
+      issue: 3,
+      pages: "401-419",
+      summary: `
+        <section class="summary-section">
+          <h3>Introduction to the Diamond-Dybvig Model</h3>
+          <p>Diamond and Dybvig's 1983 paper is one of the most influential works in banking theory, providing a rigorous theoretical explanation for bank runs and the role of deposit insurance. The paper addresses a fundamental puzzle: why do banks issue demand deposits that are inherently fragile, exposing themselves to the possibility of runs? The authors construct a model demonstrating that demand deposit contracts provide optimal risk-sharing between agents with uncertain liquidity needs, but this optimal arrangement simultaneously creates the possibility of a destructive bank run equilibrium. The model features three dates and agents who are uncertain about when they will need to consume. Banks offer demand deposit contracts that allow early withdrawal at par, providing insurance against liquidity shocks. This maturity transformation—funding illiquid long-term assets with liquid short-term liabilities—is the fundamental source of both the value banks create and the fragility they exhibit.</p>
+        </section>
+
+        <section class="summary-section">
+          <h3>The Liquidity Insurance Function of Banks</h3>
+          <p>The central insight of the Diamond-Dybvig model is that banks provide liquidity insurance to depositors who face uncertainty about their future consumption timing. In the model, agents do not know in advance whether they will be "early" consumers (needing funds at an intermediate date) or "late" consumers (able to wait for higher long-term returns). Without banks, agents must choose between holding liquid but low-return assets or illiquid but high-return assets before knowing their type. Banks improve on this autarky outcome by pooling deposits and offering demand deposit contracts that promise a fixed payment to early withdrawers while allowing late withdrawers to claim the residual. Because the fraction of early consumers is predictable in aggregate (by the law of large numbers), even though individual timing is uncertain, banks can hold an optimal mix of liquid and illiquid assets. This risk-sharing arrangement makes all depositors better off compared to direct market participation, providing the economic rationale for why demand deposits exist despite their inherent fragility.</p>
+        </section>
+
+        <section class="summary-section">
+          <h3>Multiple Equilibria and Bank Runs</h3>
+          <p>The most striking result of the Diamond-Dybvig model is the existence of multiple equilibria. In the "good" equilibrium, only genuinely early consumers withdraw their deposits at the intermediate date, and the bank operates smoothly, providing optimal risk-sharing. However, there also exists a "bad" equilibrium—a bank run—in which all depositors attempt to withdraw early, regardless of their actual liquidity needs. This occurs because demand deposit contracts operate on a sequential service constraint (first-come, first-served). If a late consumer believes other late consumers will withdraw early, it becomes rational for that agent to also withdraw early, since the bank may exhaust its reserves before serving all depositors. The bank run equilibrium is self-fulfilling: the expectation of a run causes the run. Crucially, the run occurs even though the bank is fundamentally solvent—its long-term assets are sufficient to pay all depositors if they wait. The problem is one of coordination failure, not insolvency. This distinction between liquidity crises and solvency crises has become foundational in financial economics and central banking.</p>
+        </section>
+
+        <section class="summary-section">
+          <h3>Deposit Insurance as a Solution</h3>
+          <p>Diamond and Dybvig demonstrate that government deposit insurance can eliminate the bank run equilibrium entirely. When the government credibly guarantees that all deposits will be honored, late consumers have no incentive to withdraw early even if they believe others will do so. The guarantee removes the coordination failure that drives runs. Importantly, if the guarantee is fully credible, it never needs to be exercised—the mere existence of the insurance eliminates the run equilibrium, making the insurance costless in expectation. The paper also considers suspension of convertibility as an alternative mechanism: if the bank can suspend withdrawals after a certain threshold, it can prevent a run from depleting its assets. However, suspension of convertibility is a less efficient solution than deposit insurance because it may prevent genuinely early consumers from accessing their funds. The analysis of deposit insurance has had profound policy implications, providing the theoretical foundation for deposit insurance systems worldwide and informing debates about moral hazard, coverage limits, and the design of bank safety nets.</p>
+        </section>
+
+        <section class="summary-section">
+          <h3>Implications for Financial Regulation and Crises</h3>
+          <p>The Diamond-Dybvig framework has far-reaching implications for understanding financial crises and designing regulatory policy. The model explains why banking panics can occur even in the absence of fundamental economic deterioration—coordination failures alone are sufficient. This insight has been applied to understand phenomena beyond traditional bank runs, including runs on money market funds, shadow banking entities, and sovereign debt crises. The framework highlights the tension between the benefits of maturity transformation (liquidity creation and risk-sharing) and the costs of fragility (susceptibility to runs). Regulators must balance these considerations when designing capital requirements, liquidity rules, and lender-of-last-resort facilities. The model also illuminates the moral hazard consequences of deposit insurance: while insurance eliminates runs, it may encourage excessive risk-taking by banks that no longer face the discipline of potential withdrawals. This trade-off between stability and moral hazard remains central to contemporary debates in banking regulation, including discussions about too-big-to-fail policies and the optimal scope of the financial safety net.</p>
+        </section>
+
+        <section class="summary-section">
+          <h3>Legacy and Extensions</h3>
+          <p>Diamond and Dybvig's 1983 paper, along with Diamond's 1984 delegated monitoring paper, established the modern theory of banking. The two papers are deeply complementary: Diamond (1984) explains why banks exist as monitors, while Diamond and Dybvig (1983) explains why banks are structured as they are (demand deposits funding illiquid loans) and why this structure is fragile. Together they provide a complete account of bank function and bank fragility. The Diamond-Dybvig model has been extended in numerous directions, including global games approaches that yield unique equilibria, models incorporating information-based runs where withdrawals are triggered by negative signals about asset quality, and dynamic models that examine the interaction between runs and macroeconomic fundamentals. The 2007-2009 financial crisis, which featured runs on shadow banks, money market funds, and repo markets, dramatically demonstrated the continued relevance of the Diamond-Dybvig framework. Philip Dybvig and Douglas Diamond were jointly awarded the Nobel Prize in Economics in 2022, alongside Ben Bernanke, for their foundational contributions to the understanding of banks and financial crises.</p>
+        </section>
+      `,
+      flashcards: [
+        {
+          question: "What is the fundamental source of bank fragility in the Diamond-Dybvig model?",
+          answer: "Maturity transformation—banks fund illiquid long-term assets with liquid demand deposits subject to a sequential service constraint (first-come, first-served), creating the possibility of self-fulfilling runs."
+        },
+        {
+          question: "What economic function do demand deposit contracts serve in the Diamond-Dybvig model?",
+          answer: "They provide liquidity insurance to depositors who are uncertain about when they will need to consume, achieving better risk-sharing than agents could obtain through direct market participation."
+        },
+        {
+          question: "Why can bank runs occur even when banks are fundamentally solvent?",
+          answer: "Runs are a coordination failure: if late consumers expect others to withdraw early, it is rational for them to also withdraw early before the bank exhausts its reserves, even though the bank's long-term assets could cover all claims."
+        },
+        {
+          question: "How does deposit insurance eliminate bank runs in the Diamond-Dybvig framework?",
+          answer: "Government guarantees remove the incentive for late consumers to withdraw early, eliminating the coordination failure. If credible, the insurance never needs to be exercised, making it costless in expectation."
+        },
+        {
+          question: "What is the distinction between suspension of convertibility and deposit insurance as run-prevention mechanisms?",
+          answer: "Suspension prevents runs by halting withdrawals after a threshold, but may block genuinely early consumers from accessing funds. Deposit insurance is more efficient because it eliminates the run equilibrium without restricting access."
+        },
+        {
+          question: "How does the law of large numbers enable banks to provide liquidity insurance?",
+          answer: "While individual liquidity needs are uncertain, the aggregate fraction of early consumers is predictable, allowing banks to hold an optimal mix of liquid and illiquid assets to serve both types."
+        },
+        {
+          question: "What is the moral hazard trade-off created by deposit insurance?",
+          answer: "Deposit insurance eliminates runs but removes depositor discipline, potentially encouraging banks to take excessive risks since they no longer face the threat of withdrawals in response to risky behavior."
+        },
+        {
+          question: "What recognition did Diamond and Dybvig receive for this work?",
+          answer: "They were awarded the 2022 Nobel Prize in Economics (jointly with Ben Bernanke) for their foundational research on banks and financial crises."
+        }
+      ],
+      econometrics: `
+        <div class="econometrics-section">
+          <h4>Theoretical Model Structure</h4>
+          <p>Diamond and Dybvig construct a three-period general equilibrium model (T=0, 1, 2) with a continuum of ex ante identical agents. At T=0, agents deposit their endowment in a bank. Between T=0 and T=1, each agent privately learns their type: "early" consumers (type 1) who derive utility only from consuming at T=1, or "late" consumers (type 2) who can wait until T=2. The fraction of type 1 agents, t, is known but individual types are private information. The production technology yields R>1 per unit invested if held to T=2, but only L≤1 if liquidated at T=1. The bank offers a demand deposit contract promising r₁ per unit at T=1 (where 1<r₁<R) to withdrawers, with remaining assets divided among those who wait until T=2.</p>
+          <p>The key analytical result is the characterization of Nash equilibria. In the good equilibrium, only type 1 agents withdraw at T=1, yielding consumption allocations c₁*=r₁ and c₂*=(R(1-tr₁))/(1-t) for early and late consumers respectively. The optimal contract maximizes expected utility EU=tU(c₁)+(1-t)U(c₂) subject to feasibility constraints. The bank run equilibrium arises because the sequential service constraint creates strategic complementarities: each agent's optimal withdrawal decision depends on what they expect others to do.</p>
+          <p><span class="method-badge">Theoretical Model</span> The paper employs Nash equilibrium analysis in a game of incomplete information with strategic complementarities, demonstrating multiple equilibria under demand deposit contracts.</p>
+<div class="assumption-box">Key Assumptions:</div>
+<p>Risk-averse agents with Diamond-Dybvig preferences (type uncertainty), a long-term technology yielding R>1, costly early liquidation (L≤1), sequential service constraint on withdrawals, and the fraction of early types being known in aggregate. The model assumes no aggregate uncertainty about the fraction of early consumers—only individual uncertainty.</p>
+<div class="threat-box">Identification Challenge:</div>
+<p>As a theoretical model, the key challenge is empirical: distinguishing between fundamental-based runs (where depositors withdraw because of genuine information about bank insolvency) and pure panic runs (coordination failures as in the model). Global games refinements by Morris and Shin (1998, 2003) and Goldstein and Pauzner (2005) address equilibrium selection by introducing small amounts of private information about fundamentals.</p>
+        </div>
+      `,
+      empirics: `
+        <div class="empirics-section">
+          <h4>Empirical Evidence on Bank Runs and Deposit Insurance</h4>
+          <p>Although Diamond and Dybvig (1983) is a theoretical paper, extensive empirical research has tested its predictions. Historical studies of pre-deposit-insurance banking panics provide strong evidence for the coordination failure mechanism. Calomiris and Mason (2003) examine individual bank failures during the Great Depression and find evidence of both fundamental-based and panic-based runs, consistent with the model's prediction that runs can occur even at solvent banks. Iyer and Puri (2012) study a natural experiment involving a bank run in India, finding that depositors who withdrew during the run included many who had no fundamental information about the bank, consistent with the panic equilibrium. They also find that social networks amplified the run, with connected depositors more likely to withdraw together.</p>
+          <p>The prediction that deposit insurance prevents runs has been tested extensively. Demirgüç-Kunt and Detragiache (2002) examine cross-country evidence and find that explicit deposit insurance reduces the incidence of banking crises, but also increases moral hazard as measured by risk-taking behavior. The 2007-2009 financial crisis provided dramatic evidence of Diamond-Dybvig dynamics outside traditional banking: the run on Northern Rock in the UK (2007), the money market fund "breaking the buck" after Lehman's failure (2008), and runs in the repo market demonstrated that maturity transformation creates fragility wherever it occurs, not just in insured deposit-taking institutions. Gorton and Metrick (2012) document the "run on repo" during the crisis, showing that increases in repo haircuts functioned exactly like deposit withdrawals in the Diamond-Dybvig framework.</p>
+<div class="result-highlight">Key Finding:</div>
+<p>Empirical evidence strongly supports the core Diamond-Dybvig predictions: bank runs can be self-fulfilling coordination failures unrelated to fundamental insolvency, and credible deposit insurance substantially reduces run risk. The 2007-2009 crisis demonstrated that run dynamics extend to any institution engaged in maturity transformation, including shadow banks and money market funds. <span class="method-badge">Natural Experiments</span> Researchers have exploited variation in deposit insurance coverage limits, sudden institutional failures, and regulatory changes to identify causal effects of deposit insurance on run probability and bank risk-taking.</p>
+<div class="assumption-box">Empirical Assumptions:</div>
+<p>Cross-country studies assume that deposit insurance adoption is not fully endogenous to crisis propensity, and natural experiment studies assume that the triggering events are exogenous to individual bank fundamentals. The challenge of distinguishing panic runs from information-based runs remains an active area of empirical research.</p>
+        </div>
+      `,
+      quiz: [
+        {
+          question: "What type of equilibrium characterizes a bank run in the Diamond-Dybvig model?",
+          options: [
+            "A unique Nash equilibrium driven by asymmetric information",
+            "A self-fulfilling prophecy arising from a coordination failure among depositors",
+            "An equilibrium where only insolvent banks experience withdrawals",
+            "A mixed-strategy equilibrium where depositors randomly choose to withdraw"
+          ],
+          correct: 1,
+          explanation: "Bank runs in the Diamond-Dybvig model are self-fulfilling: the expectation that others will withdraw causes rational depositors to withdraw early, even though the bank is fundamentally solvent. This is a coordination failure, not an information problem."
+        },
+        {
+          question: "Why is deposit insurance potentially costless in the Diamond-Dybvig framework?",
+          options: [
+            "The government can print money to cover any shortfall",
+            "If credible, the guarantee eliminates the run equilibrium so it never needs to be exercised",
+            "Banks pay insurance premiums that fully cover expected losses",
+            "Deposit insurance only covers small depositors who rarely withdraw"
+          ],
+          correct: 1,
+          explanation: "A credible government guarantee removes the incentive for late consumers to run, so the good equilibrium prevails. Since no run occurs, the government never needs to pay out, making the insurance costless in expectation."
+        },
+        {
+          question: "What economic service do banks provide in the Diamond-Dybvig model?",
+          options: [
+            "Monitoring borrowers on behalf of depositors",
+            "Liquidity insurance to agents uncertain about their future consumption timing",
+            "Price discovery for illiquid assets",
+            "Diversification of credit risk across borrowers"
+          ],
+          correct: 1,
+          explanation: "Banks offer demand deposit contracts that insure depositors against liquidity shocks. By pooling funds and exploiting the predictability of aggregate withdrawal demand, banks allow agents to achieve better risk-sharing than autarky."
+        },
+        {
+          question: "What is the 'sequential service constraint' and why does it matter?",
+          options: [
+            "Banks must serve corporate clients before retail depositors",
+            "Depositors are paid in the order they arrive, and the bank may run out of funds before serving everyone",
+            "Banks must maintain a specific sequence of asset maturities",
+            "Regulators require banks to process withdrawals in alphabetical order"
+          ],
+          correct: 1,
+          explanation: "The sequential service (first-come, first-served) constraint means that depositors who withdraw earlier are paid in full while those who come later may receive nothing if the bank's liquid reserves are exhausted. This creates the strategic incentive to run."
+        },
+        {
+          question: "How does the 2007-2009 financial crisis relate to the Diamond-Dybvig framework?",
+          options: [
+            "It showed that deposit insurance caused excessive risk-taking by banks",
+            "It demonstrated that run dynamics apply to any institution performing maturity transformation, including shadow banks and repo markets",
+            "It proved that bank runs only occur at insolvent institutions",
+            "It showed that the Diamond-Dybvig model is no longer relevant in modern financial systems"
+          ],
+          correct: 1,
+          explanation: "The crisis featured runs on shadow banks, money market funds, and repo markets—entities performing maturity transformation outside the insured banking system. This dramatically confirmed that Diamond-Dybvig fragility applies wherever illiquid assets are funded with runnable short-term liabilities."
+        }
+      ]
+    },
+    {
       id: "p-hochberg-2007",
       title: "VC Networks and Investment Performance",
       authors: "Hochberg, Yael; Ljungqvist, Alexander; Lu, Yang",
@@ -26825,6 +26981,7 @@ const apPapersData = {
             'corpfinance1_gompers2020vc': 'http://100.66.55.55:8888/pdfs/corpfinance1/Gompers%20%282020%29%20%E2%80%94%20How%20Do%20VCs%20Make%20Decisions%3F.pdf',
             'corpfinance1_kahle-stulz-2021': 'http://100.66.55.55:8888/pdfs/corpfinance1/Kahle%20%26%20Stulz%20%282021%29.pdf',
             'corpfinance1_p-diamond-1984': 'http://100.66.55.55:8888/pdfs/corpfinance1/Diamond%20%281984%29%20%E2%80%94%20Financial%20Intermediation%20and%20Delegated%20Monitoring.pdf',
+            'corpfinance1_p-diamond-dybvig-1983': 'http://100.66.55.55:8888/pdfs/corpfinance1/Diamond%20%26%20Dybvig%20%281983%29%20%E2%80%94%20%E2%80%9CBank%20Runs%2C%20Deposit%20Insurance%2C%20and%20Liquidity.pdf',
             'corpfinance1_p-gompers-2020': 'http://100.66.55.55:8888/pdfs/corpfinance1/Gompers%20%282020%29%20%E2%80%94%20How%20Do%20VCs%20Make%20Decisions%3F.pdf',
             'corpfinance1_p-sufi-2007': 'http://100.66.55.55:8888/pdfs/corpfinance1/Sufi%20%282007%29%20%E2%80%94%20Information%20Asymmetry%20and%20Syndicated%20Loans%20.pdf',
             'corpfinance1_rossi-volpin-2004': 'http://100.66.55.55:8888/pdfs/corpfinance1/Rossi%20%26%20Volpin%20%282004%29%20.pdf',
