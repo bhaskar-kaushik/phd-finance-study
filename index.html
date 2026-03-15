@@ -22881,6 +22881,17 @@ const apPapersData = {
         var conceptualCardIndex = 0;
         var conceptualDeck = [];
 
+
+        // ==================== ADHD AIDS STATE ====================
+        var focusState = { running: false, mode: 'work', timeLeft: 25*60, sessions: 0, interval: null };
+        var srsData = null; // loaded from localStorage
+        function loadSRS() {
+            try { srsData = JSON.parse(localStorage.getItem('srsData_' + currentCourse) || '{}'); } catch(e) { srsData = {}; }
+        }
+        function saveSRS() {
+            try { localStorage.setItem('srsData_' + currentCourse, JSON.stringify(srsData)); } catch(e) {}
+        }
+
         function switchCourse(course) {
             if (course === currentCourse) return;
             currentCourse = course;
@@ -22987,8 +22998,8 @@ const apPapersData = {
 
         function renderContentTabs() {
             const tabsContainer = document.getElementById('contentTabs');
-            const tabs = ['summary', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'methods', 'mock_exam', 'test', 'dashboard', 'planner'];
-            const labels = ['Summary', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Methods', 'Mock Exam', 'Test', 'Dashboard', 'Study Plan'];
+            const tabs = ['summary', 'recall', 'flashcards', 'conceptual', 'econometrics', 'empirics', 'quiz', 'essays', 'connections', 'methods', 'mock_exam', 'test', 'focus', 'srs', 'dashboard', 'planner'];
+            const labels = ['Summary', 'Recall', 'Cards', 'Synthesis', 'Econometrics', 'Empirics', 'Quiz', 'Essays', 'Connections', 'Methods', 'Mock Exam', 'Test', 'Focus', 'SRS', 'Dashboard', 'Study Plan'];
 
             tabsContainer.innerHTML = '';
             tabs.forEach((tab, i) => {
@@ -23023,6 +23034,9 @@ const apPapersData = {
                 case 'conceptual': renderConceptualCards(); break;
                 case 'methods': renderMethodsReference(); break;
                 case 'mock_exam': renderMockExam(); break;
+                case 'recall': renderQuickRecall(); break;
+                case 'focus': renderFocusTimer(); break;
+                case 'srs': renderSRS(); break;
                 case 'test': renderTestYourself(); break;
                 case 'dashboard': renderDashboard(); break;
                 case 'planner': renderStudyPlanner(); break;
@@ -24785,6 +24799,469 @@ const apPapersData = {
 
             html += '</div>';
             contentArea.innerHTML = html;
+        }
+
+
+        // ==================== QUICK RECALL ====================
+        function renderQuickRecall() {
+            var contentArea = document.getElementById('contentArea');
+
+            if (!currentPaper) {
+                // Show ALL papers quick recall for the course
+                renderCourseRecall();
+                return;
+            }
+
+            var p = currentPaper;
+            var summary = p.summary || '';
+
+            // Extract core question (first section)
+            var coreQ = '';
+            var coreMatch = summary.match(/Core Question[^<]*<\/h3>\s*([\s\S]*?)(?:<h3|$)/i);
+            if (coreMatch) {
+                coreQ = coreMatch[1].replace(/<[^>]+>/g, '').trim();
+                if (coreQ.length > 300) coreQ = coreQ.substring(0, 300) + '...';
+            }
+
+            // Extract key finding
+            var keyFind = '';
+            var findMatch = summary.match(/Key Finding[^<]*<\/h3>\s*([\s\S]*?)(?:<h3|$)/i);
+            if (findMatch) {
+                keyFind = findMatch[1].replace(/<[^>]+>/g, '').trim();
+                if (keyFind.length > 300) keyFind = keyFind.substring(0, 300) + '...';
+            }
+
+            var html = '<div style="max-width:800px;margin:0 auto;padding:20px;">';
+            html += '<h2 style="margin-bottom:4px;">' + p.title + '</h2>';
+            html += '<p style="color:#888;margin-bottom:24px;">' + (p.authors || '') + ' (' + (p.year || '') + ')</p>';
+
+            // ONE-LINER
+            html += '<div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);padding:20px;border-radius:12px;margin-bottom:16px;">';
+            html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#2d5016;margin-bottom:6px;font-weight:700;">This paper is about...</div>';
+            html += '<div style="font-size:16px;line-height:1.5;color:#1b5e20;">' + (coreQ || 'Select this paper to see its core question.') + '</div>';
+            html += '</div>';
+
+            // WHY SHOULD I CARE
+            html += '<div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);padding:20px;border-radius:12px;margin-bottom:16px;">';
+            html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#e65100;margin-bottom:6px;font-weight:700;">Why should I care?</div>';
+            html += '<div style="font-size:15px;line-height:1.5;color:#bf360c;">' + (keyFind || 'Key findings not yet extracted.') + '</div>';
+            html += '</div>';
+
+            // MNEMONIC HOOK
+            var mnemonic = generateMnemonic(p);
+            html += '<div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);padding:20px;border-radius:12px;margin-bottom:16px;">';
+            html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#1565c0;margin-bottom:6px;font-weight:700;">Memory Hook</div>';
+            html += '<div style="font-size:15px;line-height:1.5;color:#0d47a1;">' + mnemonic + '</div>';
+            html += '</div>';
+
+            // ACTIVE RECALL - hide/reveal
+            html += '<div style="background:#f5f5f5;padding:20px;border-radius:12px;margin-bottom:16px;">';
+            html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:12px;font-weight:700;">Test Yourself (tap to reveal)</div>';
+
+            var recalls = [
+                { q: 'What is the identification strategy?', field: 'econometrics' },
+                { q: 'What is the main empirical finding?', field: 'empirics' },
+                { q: 'What is the key threat to validity?', field: 'summary' }
+            ];
+
+            recalls.forEach(function(r, i) {
+                var fieldContent = p[r.field] || '';
+                var answer = fieldContent.replace(/<[^>]+>/g, '').trim();
+                if (answer.length > 250) answer = answer.substring(0, 250) + '...';
+
+                html += '<div style="margin-bottom:12px;">';
+                html += '<div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'" style="cursor:pointer;padding:12px;background:#fff;border-radius:8px;border:1px solid #e0e0e0;font-weight:500;">';
+                html += '<span style="margin-right:8px;">?</span> ' + r.q + '</div>';
+                html += '<div style="display:none;padding:12px;background:#fff;border-radius:0 0 8px 8px;border:1px solid #e0e0e0;border-top:none;font-size:14px;line-height:1.6;color:#555;">' + (answer || 'Not available') + '</div>';
+                html += '</div>';
+            });
+
+            html += '</div>';
+
+            // CONFIDENCE RATING
+            html += '<div style="text-align:center;padding:16px;">';
+            html += '<p style="font-size:13px;color:#888;margin-bottom:8px;">How well do you know this paper?</p>';
+            html += '<div style="display:flex;gap:8px;justify-content:center;">';
+            html += '<button onclick="ratePaperConfidence(1)" style="padding:10px 16px;border:none;border-radius:8px;background:#e53935;color:#fff;cursor:pointer;font-size:13px;">No clue</button>';
+            html += '<button onclick="ratePaperConfidence(2)" style="padding:10px 16px;border:none;border-radius:8px;background:#e67e22;color:#fff;cursor:pointer;font-size:13px;">Vaguely</button>';
+            html += '<button onclick="ratePaperConfidence(3)" style="padding:10px 16px;border:none;border-radius:8px;background:#2196f3;color:#fff;cursor:pointer;font-size:13px;">Decent</button>';
+            html += '<button onclick="ratePaperConfidence(4)" style="padding:10px 16px;border:none;border-radius:8px;background:#4a7c23;color:#fff;cursor:pointer;font-size:13px;">Solid</button>';
+            html += '</div></div>';
+
+            html += '</div>';
+            contentArea.innerHTML = html;
+        }
+
+        function renderCourseRecall() {
+            var contentArea = document.getElementById('contentArea');
+            loadSRS();
+
+            var allPapers = [];
+            if (papersData && papersData.groups) {
+                papersData.groups.forEach(function(g) {
+                    if (g.papers) g.papers.forEach(function(p) { allPapers.push(p); });
+                });
+            }
+
+            var html = '<div style="max-width:900px;margin:0 auto;padding:20px;">';
+            html += '<h2 style="margin-bottom:4px;">Quick Recall - All Papers</h2>';
+            html += '<p style="color:#666;margin-bottom:20px;">One-liner summaries for rapid review. Tap any paper to expand. Color = your confidence level.</p>';
+
+            // Stats
+            var known = 0, vague = 0, unknown = 0;
+            allPapers.forEach(function(p) {
+                var conf = srsData[p.id] ? srsData[p.id].confidence : 0;
+                if (conf >= 3) known++;
+                else if (conf >= 2) vague++;
+                else unknown++;
+            });
+
+            html += '<div style="display:flex;gap:12px;margin-bottom:20px;">';
+            html += '<div style="flex:1;padding:12px;background:#e8f5e9;border-radius:8px;text-align:center;"><div style="font-size:20px;font-weight:700;color:#2d5016;">' + known + '</div><div style="font-size:11px;color:#666;">Know well</div></div>';
+            html += '<div style="flex:1;padding:12px;background:#fff3e0;border-radius:8px;text-align:center;"><div style="font-size:20px;font-weight:700;color:#e65100;">' + vague + '</div><div style="font-size:11px;color:#666;">Vaguely</div></div>';
+            html += '<div style="flex:1;padding:12px;background:#fce4ec;border-radius:8px;text-align:center;"><div style="font-size:20px;font-weight:700;color:#c62828;">' + unknown + '</div><div style="font-size:11px;color:#666;">Need work</div></div>';
+            html += '</div>';
+
+            // Paper list
+            allPapers.forEach(function(p) {
+                var conf = srsData[p.id] ? srsData[p.id].confidence : 0;
+                var colors = ['#fce4ec','#fff3e0','#fff3e0','#e3f2fd','#e8f5e9'];
+                var borderColors = ['#e53935','#e67e22','#e67e22','#2196f3','#4a7c23'];
+                var bg = colors[conf] || colors[0];
+                var bc = borderColors[conf] || borderColors[0];
+
+                var summary = p.summary || '';
+                var coreQ = '';
+                var coreMatch = summary.match(/Core Question[^<]*<\/h3>\s*([\s\S]*?)(?:<h3|$)/i);
+                if (coreMatch) {
+                    coreQ = coreMatch[1].replace(/<[^>]+>/g, '').trim();
+                    if (coreQ.length > 200) coreQ = coreQ.substring(0, 200) + '...';
+                }
+
+                html += '<div style="margin-bottom:6px;border-left:4px solid ' + bc + ';background:' + bg + ';border-radius:0 8px 8px 0;overflow:hidden;">';
+                html += '<div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'" style="cursor:pointer;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">';
+                html += '<div style="font-weight:600;font-size:14px;">' + (p.authors || '').split(',')[0] + ' (' + (p.year || '') + ')</div>';
+                html += '<div style="font-size:11px;color:#888;">' + (conf > 0 ? ['','No clue','Vague','Decent','Solid'][conf] : 'Unrated') + '</div>';
+                html += '</div>';
+                html += '<div style="display:none;padding:0 16px 12px 16px;font-size:13px;line-height:1.6;color:#555;">';
+                html += '<strong>' + p.title + '</strong><br>';
+                html += coreQ || 'Core question not extracted.';
+                html += '<br><a href="#" onclick="event.preventDefault();selectPaperById(\'' + p.id + '\');currentTab=\'recall\';renderContent();" style="color:#2196f3;font-size:12px;">Open full recall card &rarr;</a>';
+                html += '</div></div>';
+            });
+
+            html += '</div>';
+            contentArea.innerHTML = html;
+        }
+
+        function selectPaperById(id) {
+            if (papersData && papersData.groups) {
+                papersData.groups.forEach(function(g) {
+                    if (g.papers) g.papers.forEach(function(p) {
+                        if (p.id === id) { currentPaper = p; }
+                    });
+                });
+            }
+        }
+
+        function generateMnemonic(p) {
+            var t = (p.title || '').toLowerCase();
+            var a = (p.authors || '').split(',')[0].trim();
+            var y = p.year || '';
+
+            // Generate a memory hook based on paper content
+            if (t.includes('hedge') || t.includes('hedging')) return a + ' (' + y + '): Think HEDGE FUND \u2192 Why do managers hedge? Not for shareholders \u2014 for their own stock options. Options = hedge less, stock = hedge more.';
+            if (t.includes('merger') || t.includes('m&a') || t.includes('acquisition')) return a + ' (' + y + '): Think WEDDING \u2192 Mergers are like marriages. Who proposes (overvalued firms)? Why now (waves)? Do they last (value creation)?';
+            if (t.includes('capital structure') || t.includes('leverage')) return a + ' (' + y + '): Think JENGA TOWER \u2192 How much debt can you stack before it falls? Each block = a tradeoff (tax shield vs. distress cost).';
+            if (t.includes('governance') || t.includes('board')) return a + ' (' + y + '): Think WATCHDOG \u2192 Does the board actually watch management, or is it a lap dog? Independent directors = sharper teeth.';
+            if (t.includes('invest') || t.includes('q theory')) return a + ' (' + y + '): Think THERMOSTAT \u2192 Q is the thermostat reading for investment. High q = too hot = invest more. But the thermostat was broken (mismeasured) until we added intangibles.';
+            if (t.includes('bank') || t.includes('lending')) return a + ' (' + y + '): Think PLUMBING \u2192 Banks are the pipes of the economy. When pipes clog (crisis), everything downstream dries up.';
+            if (t.includes('risk') || t.includes('var') || t.includes('volatil')) return a + ' (' + y + '): Think WEATHER FORECAST \u2192 Risk models predict storms. VaR says "worst case 95% of the time." But the other 5% is where catastrophe lives.';
+            if (t.includes('ceo') || t.includes('executive') || t.includes('compensation')) return a + ' (' + y + '): Think GOLDEN HANDCUFFS \u2192 Pay design shapes CEO behavior. Options = swing for fences. Stock = play it safe. Vesting = stay put.';
+            if (t.includes('private equity') || t.includes('buyout') || t.includes('lbo')) return a + ' (' + y + '): Think HOUSE FLIPPER \u2192 PE buys underperforming firms, renovates (cuts costs, improves ops), sells for profit. But who captures the value?';
+            if (t.includes('venture') || t.includes('startup') || t.includes('entrepreneur')) return a + ' (' + y + '): Think SHARK TANK \u2192 VCs bet on many startups, most fail, a few become unicorns. The game is selection + staging + exit timing.';
+            if (t.includes('asset pric') || t.includes('factor') || t.includes('capm')) return a + ' (' + y + '): Think RECIPE \u2192 Returns = ingredients (factors). CAPM had one ingredient (market). Fama-French added size + value. Each new factor is a new spice.';
+            if (t.includes('liquidity')) return a + ' (' + y + '): Think CROWD EXIT \u2192 Liquidity is fine until everyone runs for the door at once. The bid-ask spread is the width of that door.';
+
+            return a + ' (' + y + '): <em>' + (p.title || '').substring(0, 80) + '</em> \u2014 Create your own memory hook! Link it to something vivid and personal.';
+        }
+
+        function ratePaperConfidence(level) {
+            if (!currentPaper) return;
+            loadSRS();
+            if (!srsData[currentPaper.id]) srsData[currentPaper.id] = {};
+            srsData[currentPaper.id].confidence = level;
+            srsData[currentPaper.id].lastReview = Date.now();
+
+            // SM-2 inspired: set next review interval based on confidence
+            var intervals = [0, 1, 3, 7, 21]; // days until next review
+            srsData[currentPaper.id].nextReview = Date.now() + intervals[level] * 24 * 60 * 60 * 1000;
+            srsData[currentPaper.id].interval = intervals[level];
+
+            saveSRS();
+
+            // Visual feedback
+            var btns = document.querySelectorAll('[onclick^="ratePaperConfidence"]');
+            btns.forEach(function(b) { b.style.opacity = '0.4'; b.style.transform = 'scale(1)'; });
+            event.target.style.opacity = '1';
+            event.target.style.transform = 'scale(1.15)';
+            setTimeout(function() { event.target.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // ==================== POMODORO FOCUS TIMER ====================
+        function renderFocusTimer() {
+            var contentArea = document.getElementById('contentArea');
+            var f = focusState;
+
+            // Load session count
+            try {
+                var today = new Date().toDateString();
+                var saved = JSON.parse(localStorage.getItem('focusSessions') || '{}');
+                if (saved.date === today) f.sessions = saved.count || 0;
+                else f.sessions = 0;
+            } catch(e) {}
+
+            var minutes = Math.floor(f.timeLeft / 60);
+            var seconds = f.timeLeft % 60;
+            var isWork = f.mode === 'work';
+            var color = isWork ? '#e53935' : '#4a7c23';
+            var bgGrad = isWork ? 'linear-gradient(135deg,#fff5f5,#ffebee)' : 'linear-gradient(135deg,#f1f8e9,#e8f5e9)';
+            var pct = isWork ? ((25*60 - f.timeLeft) / (25*60)) * 100 : ((5*60 - f.timeLeft) / (5*60)) * 100;
+
+            var html = '<div style="max-width:600px;margin:0 auto;padding:20px;text-align:center;">';
+            html += '<h2 style="margin-bottom:4px;">Focus Timer</h2>';
+            html += '<p style="color:#666;margin-bottom:32px;">Pomodoro technique: 25 min focus, 5 min break. Stay on track.</p>';
+
+            // Timer circle
+            html += '<div style="background:' + bgGrad + ';border-radius:50%;width:280px;height:280px;margin:0 auto 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.08);">';
+            // Progress ring
+            html += '<svg style="position:absolute;top:0;left:0;transform:rotate(-90deg);" width="280" height="280"><circle cx="140" cy="140" r="130" fill="none" stroke="#e0e0e0" stroke-width="6"/>';
+            html += '<circle cx="140" cy="140" r="130" fill="none" stroke="' + color + '" stroke-width="6" stroke-dasharray="' + (2 * Math.PI * 130) + '" stroke-dashoffset="' + (2 * Math.PI * 130 * (1 - pct/100)) + '" stroke-linecap="round"/></svg>';
+            html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:' + color + ';font-weight:700;margin-bottom:4px;">' + (isWork ? 'Focus' : 'Break') + '</div>';
+            html += '<div style="font-size:56px;font-weight:300;color:#333;font-variant-numeric:tabular-nums;">' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + '</div>';
+            html += '</div>';
+
+            // Controls
+            html += '<div style="display:flex;gap:12px;justify-content:center;margin-bottom:24px;">';
+            if (!f.running) {
+                html += '<button onclick="startFocus()" style="padding:14px 32px;border:none;border-radius:10px;background:' + color + ';color:#fff;cursor:pointer;font-size:16px;font-weight:600;">Start</button>';
+            } else {
+                html += '<button onclick="pauseFocus()" style="padding:14px 32px;border:none;border-radius:10px;background:#666;color:#fff;cursor:pointer;font-size:16px;font-weight:600;">Pause</button>';
+            }
+            html += '<button onclick="resetFocus()" style="padding:14px 24px;border:1px solid #ddd;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;">Reset</button>';
+            html += '</div>';
+
+            // Session count
+            html += '<div style="display:flex;gap:8px;justify-content:center;margin-bottom:24px;">';
+            for (var i = 0; i < 8; i++) {
+                var filled = i < f.sessions;
+                html += '<div style="width:12px;height:12px;border-radius:50%;background:' + (filled ? '#4a7c23' : '#e0e0e0') + ';"></div>';
+            }
+            html += '</div>';
+            html += '<p style="font-size:13px;color:#888;">' + f.sessions + ' sessions today' + (f.sessions >= 4 ? ' \u2014 Great work!' : '') + '</p>';
+
+            // Quick tips
+            html += '<div style="margin-top:32px;text-align:left;background:#f8f9fa;padding:20px;border-radius:12px;">';
+            html += '<h4 style="margin-bottom:8px;">Focus Tips</h4>';
+            html += '<ul style="font-size:13px;line-height:1.8;color:#666;padding-left:18px;">';
+            html += '<li><strong>One paper per pomodoro</strong> \u2014 read the Recall tab first, then Summary, then test yourself</li>';
+            html += '<li><strong>During breaks:</strong> stand up, stretch, look away from screen. Do NOT check phone</li>';
+            html += '<li><strong>After 4 sessions:</strong> take a longer 15-20 min break</li>';
+            html += '<li><strong>If distracted:</strong> write the thought down on paper and return to studying. Process it during break</li>';
+            html += '<li><strong>Study order:</strong> hardest/weakest papers first when energy is highest</li>';
+            html += '</ul></div>';
+
+            html += '</div>';
+            contentArea.innerHTML = html;
+        }
+
+        function startFocus() {
+            focusState.running = true;
+            if (focusState.interval) clearInterval(focusState.interval);
+            focusState.interval = setInterval(function() {
+                focusState.timeLeft--;
+                if (focusState.timeLeft <= 0) {
+                    clearInterval(focusState.interval);
+                    focusState.running = false;
+                    if (focusState.mode === 'work') {
+                        focusState.sessions++;
+                        try {
+                            localStorage.setItem('focusSessions', JSON.stringify({ date: new Date().toDateString(), count: focusState.sessions }));
+                        } catch(e) {}
+                        focusState.mode = 'break';
+                        focusState.timeLeft = (focusState.sessions % 4 === 0) ? 15*60 : 5*60;
+                        try { new Audio('data:audio/wav;base64,UklGRl9vT19teleVlfQUFBSUhCZERiYmQ=').play(); } catch(e) {}
+                        alert(focusState.sessions % 4 === 0 ? 'Great job! Take a 15 min break.' : 'Nice! Take a 5 min break.');
+                    } else {
+                        focusState.mode = 'work';
+                        focusState.timeLeft = 25*60;
+                        alert('Break over! Time to focus.');
+                    }
+                }
+                renderFocusTimer();
+            }, 1000);
+            renderFocusTimer();
+        }
+
+        function pauseFocus() {
+            focusState.running = false;
+            if (focusState.interval) clearInterval(focusState.interval);
+            renderFocusTimer();
+        }
+
+        function resetFocus() {
+            focusState.running = false;
+            if (focusState.interval) clearInterval(focusState.interval);
+            focusState.mode = 'work';
+            focusState.timeLeft = 25*60;
+            renderFocusTimer();
+        }
+
+        // ==================== SPACED REPETITION SYSTEM ====================
+        function renderSRS() {
+            var contentArea = document.getElementById('contentArea');
+            loadSRS();
+
+            var allPapers = [];
+            if (papersData && papersData.groups) {
+                papersData.groups.forEach(function(g) {
+                    if (g.papers) g.papers.forEach(function(p) { allPapers.push(p); });
+                });
+            }
+
+            var now = Date.now();
+            var due = [], upcoming = [], mastered = [], unreviewed = [];
+
+            allPapers.forEach(function(p) {
+                var data = srsData[p.id];
+                if (!data || !data.lastReview) {
+                    unreviewed.push(p);
+                } else if (data.confidence >= 4 && data.interval >= 21) {
+                    mastered.push(p);
+                } else if (data.nextReview && data.nextReview <= now) {
+                    due.push(p);
+                } else {
+                    upcoming.push(p);
+                }
+            });
+
+            // Sort due by urgency (most overdue first)
+            due.sort(function(a, b) {
+                return (srsData[a.id].nextReview || 0) - (srsData[b.id].nextReview || 0);
+            });
+
+            var html = '<div style="max-width:900px;margin:0 auto;padding:20px;">';
+            html += '<h2 style="margin-bottom:4px;">Spaced Repetition</h2>';
+            html += '<p style="color:#666;margin-bottom:24px;">Papers are scheduled for review based on how well you know them. Review due papers first.</p>';
+
+            // Stats bar
+            html += '<div style="display:flex;gap:12px;margin-bottom:24px;">';
+            html += '<div style="flex:1;padding:14px;background:#fce4ec;border-radius:10px;text-align:center;cursor:pointer;" onclick="document.getElementById(\'srsDue\').scrollIntoView({behavior:\'smooth\'})">';
+            html += '<div style="font-size:28px;font-weight:700;color:#c62828;">' + due.length + '</div>';
+            html += '<div style="font-size:11px;color:#666;">Due Now</div></div>';
+            html += '<div style="flex:1;padding:14px;background:#fff3e0;border-radius:10px;text-align:center;">';
+            html += '<div style="font-size:28px;font-weight:700;color:#e65100;">' + unreviewed.length + '</div>';
+            html += '<div style="font-size:11px;color:#666;">Never Reviewed</div></div>';
+            html += '<div style="flex:1;padding:14px;background:#e3f2fd;border-radius:10px;text-align:center;">';
+            html += '<div style="font-size:28px;font-weight:700;color:#1565c0;">' + upcoming.length + '</div>';
+            html += '<div style="font-size:11px;color:#666;">Upcoming</div></div>';
+            html += '<div style="flex:1;padding:14px;background:#e8f5e9;border-radius:10px;text-align:center;">';
+            html += '<div style="font-size:28px;font-weight:700;color:#2d5016;">' + mastered.length + '</div>';
+            html += '<div style="font-size:11px;color:#666;">Mastered</div></div>';
+            html += '</div>';
+
+            // Forecast
+            html += '<div style="background:#f8f9fa;padding:16px;border-radius:10px;margin-bottom:24px;">';
+            html += '<h4 style="margin-bottom:8px;">7-Day Forecast</h4>';
+            html += '<div style="display:flex;gap:4px;align-items:end;height:60px;">';
+            for (var d = 0; d < 7; d++) {
+                var dayStart = now + d * 24*60*60*1000;
+                var dayEnd = dayStart + 24*60*60*1000;
+                var dayDue = 0;
+                allPapers.forEach(function(p) {
+                    var data = srsData[p.id];
+                    if (data && data.nextReview && data.nextReview >= dayStart && data.nextReview < dayEnd) dayDue++;
+                    if (!data && d === 0) dayDue++; // unreviewed count as due today
+                });
+                var h = Math.max(4, Math.min(60, dayDue * 6));
+                var dayLabel = d === 0 ? 'Today' : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date(dayStart).getDay()];
+                html += '<div style="flex:1;text-align:center;">';
+                html += '<div style="height:' + h + 'px;background:' + (d===0?'#e53935':'#90caf9') + ';border-radius:4px 4px 0 0;margin:0 2px;"></div>';
+                html += '<div style="font-size:10px;color:#888;margin-top:2px;">' + dayLabel + '</div>';
+                html += '<div style="font-size:10px;color:#666;font-weight:600;">' + dayDue + '</div>';
+                html += '</div>';
+            }
+            html += '</div></div>';
+
+            // Due now section
+            if (due.length > 0 || unreviewed.length > 0) {
+                html += '<div id="srsDue"><h3 style="margin-bottom:12px;color:#c62828;">Due for Review (' + (due.length + Math.min(5, unreviewed.length)) + ')</h3>';
+                var reviewList = due.concat(unreviewed.slice(0, 5));
+                reviewList.forEach(function(p) {
+                    var data = srsData[p.id] || {};
+                    var overdue = data.nextReview ? Math.floor((now - data.nextReview) / (24*60*60*1000)) : 0;
+                    html += '<div style="display:flex;align-items:center;gap:12px;padding:12px;margin-bottom:6px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer;" onclick="selectPaperById(\'' + p.id + '\');currentTab=\'recall\';renderContent();">';
+                    html += '<div style="width:8px;height:8px;border-radius:50%;background:' + (overdue > 3 ? '#e53935' : overdue > 0 ? '#e67e22' : '#2196f3') + ';flex-shrink:0;"></div>';
+                    html += '<div style="flex:1;min-width:0;">';
+                    html += '<div style="font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + (p.authors || '').split(',')[0] + ' (' + (p.year || '') + ')</div>';
+                    html += '<div style="font-size:12px;color:#888;">' + p.title + '</div>';
+                    html += '</div>';
+                    html += '<div style="font-size:11px;color:#888;flex-shrink:0;">';
+                    if (overdue > 0) html += overdue + 'd overdue';
+                    else if (!data.lastReview) html += 'New';
+                    else html += 'Due today';
+                    html += '</div></div>';
+                });
+                html += '</div>';
+            }
+
+            // Start review session button
+            if (due.length + unreviewed.length > 0) {
+                html += '<div style="text-align:center;margin:24px 0;">';
+                html += '<button onclick="startSRSReview()" style="padding:14px 32px;border:none;border-radius:10px;background:#4a7c23;color:#fff;cursor:pointer;font-size:16px;font-weight:600;">Start Review Session (' + Math.min(10, due.length + unreviewed.length) + ' papers)</button>';
+                html += '</div>';
+            }
+
+            html += '</div>';
+            contentArea.innerHTML = html;
+        }
+
+        function startSRSReview() {
+            loadSRS();
+            var allPapers = [];
+            if (papersData && papersData.groups) {
+                papersData.groups.forEach(function(g) {
+                    if (g.papers) g.papers.forEach(function(p) { allPapers.push(p); });
+                });
+            }
+
+            var now = Date.now();
+            var reviewable = allPapers.filter(function(p) {
+                var data = srsData[p.id];
+                if (!data || !data.lastReview) return true;
+                if (data.nextReview && data.nextReview <= now) return true;
+                return false;
+            });
+
+            // Sort: most overdue first, then unreviewed
+            reviewable.sort(function(a, b) {
+                var da = srsData[a.id] || {};
+                var db = srsData[b.id] || {};
+                if (!da.lastReview && db.lastReview) return 1;
+                if (da.lastReview && !db.lastReview) return -1;
+                return (da.nextReview || 0) - (db.nextReview || 0);
+            });
+
+            if (reviewable.length === 0) {
+                alert('No papers due for review! Check back tomorrow.');
+                return;
+            }
+
+            // Take first 10
+            var batch = reviewable.slice(0, 10);
+            currentPaper = batch[0];
+            currentTab = 'recall';
+            renderContent();
         }
 
         // Initialize with deferred execution and error handling
