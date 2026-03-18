@@ -4,7 +4,7 @@ A single-file interactive study platform for PhD finance comprehensive exam prep
 
 ## Live Site
 
-**[Open Study Platform](https://bhaskarkaushik.github.io/phd-finance-study/)**
+**[Open Study Platform](https://bhaskar-kaushik.github.io/phd-finance-study/)**
 
 ## Courses
 
