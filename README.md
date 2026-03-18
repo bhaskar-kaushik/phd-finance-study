@@ -1,6 +1,8 @@
 # PhD Finance Comprehensive Exam Study Platform
 
-A single-file interactive study platform for PhD finance comprehensive exam preparation, covering 158 papers across 5 courses.
+An interactive study platform I built to prepare for PhD finance comprehensive exams at the University of Oklahoma. It covers 158 papers from 5 doctoral courses in the Finance area, with structured summaries, flashcards, econometrics breakdowns, and practice exams.
+
+The papers listed here are from the reading lists of these PhD courses. I wrote the summaries and study materials to help myself (and potentially other students) study for comps.
 
 ## Live Site
 
@@ -12,29 +14,33 @@ A single-file interactive study platform for PhD finance comprehensive exam prep
 |--------|--------|-----------------|
 | Empirical Corporate Finance II | 40 | 36 |
 | Corporate Finance I | 62 | 18 |
-| Banking | 20 | 42 |
-| Risk Management | 11 | 4 |
-| Asset Pricing | 25 | 13 |
+| Banking & Financial Intermediation | 20 | 42 |
+| Corporate Risk Management | 11 | 4 |
+| Financial Econometrics | 25 | 13 |
 | **Total** | **158** | **113** |
 
-## Features
+## What's Included
 
-- **Paper Summaries**: 6-section structured summaries (Core Question, Theory, Data & Methods, Findings, Critique, Synthesis) with specific empirical magnitudes
-- **Flashcards**: Per-paper factual recall cards with Leitner spaced repetition (5-box system)
-- **Synthesis Cards**: Cross-paper conceptual cards testing methodology comparisons, critical thinking, and cross-course connections
-- **Econometrics & Empirics**: Dedicated tabs for identification strategies and key empirical results
-- **Quizzes**: Multiple-choice questions per paper
-- **Essay Questions**: 113 exam-style questions with model answers and rubrics across 5 courses
-- **Mock Exam Simulation**: Timed practice exams with configurable scope (single course or comprehensive), question count, and time limits. Self-grading with exam history tracking.
-- **Cross-Course Connections**: How papers relate across different fields
-- **Spaced Repetition Testing**: Cross-paper flashcard review with box-based scheduling
-- **Dashboard**: Progress tracking across all study activities
-- **Study Planner**: Daily study schedule with 4 papers/day rotating across courses, exam date countdown, and completion tracking
+For each paper:
+
+- Structured summary covering the core question, theory, data & methods, key findings, critique, and synthesis with related work
+- Flashcards for factual recall, using Leitner spaced repetition
+- Econometrics breakdown: identification strategy, assumptions, and threats
+- Empirics section: key results with specific magnitudes
+- Multiple-choice quiz questions
+- Cross-paper connections showing how papers relate across courses
+
+At the course level:
+
+- Essay questions with model answers and grading rubrics
+- Mock exam simulation with configurable scope and time limits
+- Dashboard tracking progress across all study activities
+- Daily study planner with exam countdown
 
 ## Tech
 
-Single HTML file (~3.7 MB), no external dependencies, no build step. All JavaScript and CSS inline. Data stored in localStorage for progress persistence.
+Single HTML file, no dependencies, no build step. Just open `index.html` in a browser or visit the link above.
 
-## Usage
+## License
 
-Just open `index.html` in any modern browser. Or visit the GitHub Pages link above.
+MIT — see [LICENSE](LICENSE).
