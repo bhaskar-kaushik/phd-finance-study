@@ -1,2 +1,12 @@
 # PDFs served locally via Tailscale - too large for GitHub
 pdfs/
+
+# LaTeX build artifacts in workbooks/ (keep .tex and .pdf, drop everything else)
+workbooks/*.aux
+workbooks/*.log
+workbooks/*.out
+workbooks/*.fls
+workbooks/*.fdb_latexmk
+workbooks/*.toc
+workbooks/*.synctex.gz
+workbooks/tmp*.tmp

@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\dP}{\Delta\%}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{Workbook W06: Tufano (1996, JF) \\
+``Who Manages Risk?'' -- Gold Mining Risk Management \\
+\large Active Recall (Rounds 1--5 + Speed Drills)}
+\author{PhD Finance -- Banking \& Risk Management, Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper:} Peter Tufano (1996), \emph{Who Manages Risk? An Empirical Examination of Risk Management Practices in the Gold Mining Industry}, Journal of Finance, Vol.\ LI, No.\ 4, Sept.\ 1996.\\[2pt]
+\textbf{One-line takeaway:} Cross-sectional variation in gold miners' hedging is explained by \emph{managerial risk aversion} (stock $+$, options $-$) and CFO tenure ($-$), \emph{not} by shareholder-value theories (distress, external-finance frictions, convex taxes).\\[2pt]
+\textbf{Why this matters for the exam:} First clean test of Smith--Stulz (1985) and Froot--Scharfstein--Stein (1993). Industry-specific continuous hedging measure (delta-\%), not derivatives dummy. Tobit methodology on censored dependent variable.
+\end{keybox}
+
+\section*{Round 1: Complete Exposition (Read Carefully, 30 min)}
+
+\subsection*{1.1 The Research Question and Why Gold Mining}
+Prior empirical risk-management work used a 0/1 ``firm uses derivatives'' dummy (Booth--Smith--Stolz 1984; Nance--Smith--Smithson 1993). Two problems: (i) cannot distinguish \emph{derivative user} from \emph{risk manager} (embedded derivatives in debt vs.\ swaps), (ii) cannot measure \emph{how much} risk is managed. Tufano solves both by using a single industry with (a) common exposure (gold price), (b) rich hedging toolkit (forwards, gold loans, swaps, spot-deferreds, puts, calls), (c) unusually detailed mandatory \emph{quarterly} disclosure in N.\ America, and (d) Ted Reeve's industry hedging surveys (First Boston, then Sanwa McCarthy, then Burns Fry) covering $\sim$70\% of N.\ American production in 1990 rising to $>$90\% by 1993.
+
+\subsection*{1.2 The Delta-Percentage Measure}
+For each firm-quarter, aggregate all forwards, futures, gold loans, swaps, spot-deferred contracts, long puts, short calls into a portfolio \emph{delta} (Black-Scholes-Merton delta for options; $\pm 1$ for forward-equivalent contracts), expressed in ounces of gold sold short. Scale by the firm's expected production over the \emph{next three calendar years} (the horizon over which hedging data is reported):
+\begin{align*}
+\dP_{it} \;=\; \frac{\text{Portfolio delta (oz.\ short)}_{it}}{\text{Expected 3-yr production (oz.)}_{it}}\; .
+\end{align*}
+\textbf{Sample calculation (Table I, firm as of March 30, 1991):} forwards 96{,}000 oz; gold loans 22{,}353 + 44{,}706 + 44{,}706 = 111{,}765 oz (all $\delta=-1$); 20{,}000 long puts (strike \$425, $S=\$367$, $\delta \approx -0.957$); 20{,}000 short calls (strike \$455, far OTM, $\delta \approx -0.003$). Aggregate short $= 226{,}965$ oz; production $= 1{,}066{,}524$ oz $\Rightarrow \dP = 21\%$.
+\begin{alertbox}
+\textbf{Why portfolio delta?} Because economically-equivalent positions (e.g., gold loan = dollar loan + forward sale) should be bundled. Scaling by production, \emph{not} value, tracks the FSS (1993) cash-flow framing, and matches what gold-mine CFOs actually talk about (``\% of next year's production hedged'').
+\end{alertbox}
+
+\subsection*{1.3 Distribution of Hedging (Table II)}
+48 firms, 1990--1993 averages: mean $\dP = 25.6\%$, median $= 22.9\%$, std.\ dev.\ $= 22.4$, min $= 0$, max $= 85.9\%$. \textbf{14.6\%} of firms hedge \emph{zero}; \textbf{16.8\%} hedge $>40\%$. No firm has negative $\dP$ (no speculation). Max quarterly (not average) $\dP = 146\%$. $\Rightarrow$ Dependent variable is (i) left-censored at 0, (ii) has a mass point at 0 $\Rightarrow$ motivates \textbf{Tobit}.
+
+\subsection*{1.4 Competing Hypotheses}
+\begin{center}
+\small
+\begin{tabular}{p{3.1cm}|p{3.3cm}|p{1.1cm}|p{5.5cm}}
+\toprule
+Class & Variable (Table III) & Pred.\ & Reference / rationale \\ \midrule
+\multicolumn{4}{l}{\textit{Shareholder-value maximization:}} \\ \midrule
+Financial distress & Cash costs (\$/oz) & $+$ & Smith--Stulz (1985): reduce DWL of distress\\
+                   & Leverage (D/V) & $+$ & More distress risk $\Rightarrow$ more hedging \\
+Investment / costly ext.\ finance & Exploration/$V$ & $+$ & FSS 1993: break $I$--CF link \\
+                   & Acquisitions/$V$ & $+$ & Avoid costly ext.\ finance\\
+                   & Firm value & $-$ & Smaller $\Rightarrow$ more info asymmetry\\
+                   & Reserves & $-$ & Less collateral $\Rightarrow$ hedge more\\
+Convex taxes & TLC forwards / $V$ & $+$ & Smith--Stulz 1985; Nance et al.\ 1993 \\ \midrule
+\multicolumn{4}{l}{\textit{Managerial utility maximization:}} \\ \midrule
+Mgr.\ risk aversion & $\log(\$$ stock owned$)$ & $+$ & Smith--Stulz: linear payoff $\Rightarrow$ hedge \\
+                    & \# options held & $-$ & Convex payoff $\Rightarrow$ prefer volatility \\
+                    & Large outside blocks & ? & Diversified $\Rightarrow$ less pressure to hedge \\
+Signaling skill & (not directly measurable) & $+$ & Breeden--Viswanathan; DeMarzo--Duffie \\ \midrule
+\multicolumn{4}{l}{\textit{Substitutes / controls:}} \\ \midrule
+Alternative hedges & Diversification (\% non-mining) & $-$ & Replaces financial hedging\\
+                   & Cash (quick ratio) & $-$ & Precautionary substitute\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{1.5 Econometric Specification}
+One-sided Tobit with latent $\dP^*_{it}$, observed $\dP_{it} = \max(0, \dP^*_{it})$:
+\begin{align*}
+\dP^*_{it} &= X_{i,t-1}'\beta + \varepsilon_{it},\qquad \varepsilon_{it}\sim\mathcal{N}(0,\sigma^2).
+\end{align*}
+Covariates are \emph{lagged} (prior-year) firm characteristics to blunt reverse-causality. Three econometric concerns, three fixes:
+\begin{enumerate}
+\item \textbf{Heteroscedasticity}: residual variance correlates with firm size. Fix: specify $\sigma_{it} = \exp(\alpha \cdot \log V_{i,t-1})$ and report alongside baseline.
+\item \textbf{Serial correlation} in pooled panel: 35--38 firms/year $\times$ 3 years. Fix: also report each year separately, losing efficiency but gaining clean inference.
+\item \textbf{Small sample}: random-effects Tobit (Avery--Hansen--Hotz 1983; Maddala 1991) does not converge on 105 obs.\ with 12 regressors. So Tufano reports (i) pooled (with \& w/o American Barrick), (ii) pooled $+$ hetero correction, (iii) year-by-year.
+\end{enumerate}
+Tobit \emph{slope coefficients} reported are marginal effects on observed $\dP$ evaluated at sample means (Greene 1993 pp.\ 694--695; McDonald--Moffitt 1980). N $= 108$ incl.\ American Barrick (ABX), $105$ excl.
+
+\subsection*{1.6 Main Findings (Table V, ABX excluded)}
+\begin{center}
+\small
+\begin{tabular}{l|rr|l}
+\toprule
+Variable & Slope (pooled) & $p$ & Interpretation \\ \midrule
+Managerial stock ownership (log \$) & $+0.014$ & $0.04$ & \textbf{Risk aversion supported} \\
+Options held (\# millions) & $-0.127$ & $0.01$ & \textbf{Risk aversion supported} \\
+Large outside block (\%) & $-0.0022$ & $0.01$ & Diversified owners want less hedging \\
+Cash balances (quick ratio) & $-0.026$ & $0.04$ & \textbf{Substitute} for hedging \\
+Leverage & $+0.0035$ & $0.14$ & Weak; $+0.011$ $(p<0.01)$ w/ hetero \\
+Exploration / $V$ & $-0.012$ & $0.04$ & \textbf{Wrong sign} vs.\ FSS prediction \\
+Cash costs \$/oz & $+0.0002$ & $0.76$ & Distress \textbf{not} supported \\
+Reserves & $-0.014$ & $0.09$ & Vanishes with hetero corr. (spurious) \\
+Firm value & $+0.00004$ & $0.37$ & Ext.\ finance \textbf{not} supported \\
+TLC forwards & $+0.0002$ & $0.82$ & Tax convexity \textbf{not} supported \\
+Diversification & $+0.0002$ & $0.92$ & Not a substitute in this industry \\
+Acquisitions & $-0.037$ & $0.65$ & Not supported \\ \midrule
+Chi-squared / $p$ & $30.4$ & $0.00$ & 105 firm-years\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertbox}
+\textbf{Economic magnitudes (Fig.\ 2, McDonald--Moffitt decomposition):} moving from 10th to 90th percentile in managerial \emph{options} holdings $\Rightarrow$ $\dP$ falls $\approx$12 pp and Pr(hedge$>$0) falls $\approx$11 pp. Same move in \emph{stock} $\Rightarrow$ only 6 pp and 5 pp. Options effect is roughly twice the stock effect in absolute magnitude.
+\end{alertbox}
+
+\subsection*{1.7 Robustness (Table VI, Section IV)}
+\begin{itemize}
+\item \textbf{Per-capita holdings (col.\ a):} Results \emph{strengthen} when scaled per manager (log top-4 exec shares: $+0.022$, $p=0.03$; per-capita options: $-2.41$, $p=0.00$) $\Rightarrow$ not a firm-size artifact.
+\item \textbf{Dollars vs.\ \%-ownership (col.\ b):} \$ holdings dominate \%-holdings ($p = 0.28$) $\Rightarrow$ \textbf{risk aversion}, not pure agency/alignment, is the driver.
+\item \textbf{CEO vs.\ other insiders (col.\ c):} Non-CEO officers'/directors' \$ stock drives the result ($+0.021$, $p<0.01$); CEO alone insignificant ($-0.005$, $p=0.11$). Hedging is a \textbf{team} decision.
+\item \textbf{Tenure (col.\ d):} CFO tenure $-0.020$ ($p<0.01$), CEO tenure $-0.013$ ($p=0.05$). Each extra year of CFO tenure $\Rightarrow$ $\dP$ lower by $\approx$2--2.4 pp. CEO/CFO \emph{age} is not significant.
+\item \textbf{``Equity-as-option'' interaction:} Cash-cost-top-quartile $\times$ log stock interaction is insignificant $\Rightarrow$ firms not near enough to distress to reverse the stock channel.
+\end{itemize}
+
+\subsection*{1.8 Linear vs.\ Nonlinear (Appendix)}
+Static: option-\% = $\delta$(puts $+$ calls)/$\delta$(portfolio). 75\% of hedging firms use linear instruments only (avg option share 16.1\%). Dynamic: estimate $\Delta\dP_{it} = \alpha_i + \Gamma_i \Delta P_{\text{gold},t} + u_{it}$. Gamma distribution across firms: 76\% $\Gamma = 0$ (hedge), 7\% $\Gamma<0$ (synthetic put), 17\% $\Gamma>0$ (\textbf{covered-call replication}). Option users 3$\times$ more likely to have $\Gamma\neq 0$.
+
+\subsection*{1.9 Bottom line and what Tufano does \emph{not} claim}
+\begin{keybox}
+\textbf{What the data support:} Managerial risk aversion (Smith--Stulz) + CFO tenure + cash substitution. Also: outside-block diversification matters (less hedging w/ large outside blocks).\\[1pt]
+\textbf{What the data do \emph{not} support:} Financial distress theory (cash costs, leverage weak), Froot--Scharfstein--Stein investment-finance theory (exploration wrong sign, size disappears w/ hetero), Smith--Stulz tax-convexity hypothesis.\\[1pt]
+\textbf{Endogeneity caveat (in Tufano's own words):} Compensation, risk management, leverage, and investment are set \emph{simultaneously}. Cannot tell whether option-heavy comp \emph{causes} less hedging or whether hedging firms self-select out of option comp.
+\end{keybox}
+
+\newpage
+\section*{Round 2: Level 1 Fill-in-the-Blanks (30\% missing, 30 min)}
+\begin{enumerate}
+\item The dependent variable $\dP_{it}$ equals $\dfrac{\blank{3.2cm}}{\blank{3.2cm}}$.
+\item The data source for hedging positions is \blank{3cm}'s quarterly ``Global Gold Hedge Survey,'' with 1993 coverage $\approx$ \blank{1cm}\% of N.\ American production.
+\item $\dP_{it}$ is censored at \blank{0.8cm} because no firm has negative \blank{3cm}, motivating the use of \blank{2cm} analysis.
+\item Smith \& Stulz (1985) predict: managers with more \emph{stock} hedge \blank{1.5cm}; managers with more \emph{options} hedge \blank{1.5cm}.
+\item Froot, Scharfstein \& Stein (1993) predict firms with more costly external financing hedge \blank{1.5cm}; empirically Tufano finds the exploration coefficient has the \blank{1.5cm} sign.
+\item Table V (pooled, ABX excluded): Options coefficient $=$ \blank{1cm} ($p = $ \blank{0.8cm}); Stock coefficient $=$ \blank{1cm} ($p = $ \blank{0.8cm}).
+\item Moving from 10th to 90th percentile in options ownership changes $\dP$ by approximately \blank{0.8cm} percentage points and changes Pr(hedge${>}0$) by approximately \blank{0.8cm} percentage points.
+\item CFO tenure has a \blank{0.8cm} effect on hedging; coefficient roughly $-0.02$, meaning each extra year of tenure $\Rightarrow$ $\dP$ lower by \blank{0.8cm} pp.
+\item The three econometric challenges Tufano addresses are: \blank{3cm}, \blank{3cm}, and \blank{3cm}.
+\item In the Appendix, a firm with portfolio $\Gamma < 0$ is effectively replicating a purchased \blank{1cm}; a firm with $\Gamma > 0$ is effectively writing \blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts (60\% missing, 30 min)}
+Answer each in 2--4 lines. No peeking.
+\begin{enumerate}
+\item Why is a continuous delta-percentage measure of hedging a meaningful improvement over a 0/1 derivative-use dummy? Give one concrete example.
+\item Write the Tobit setup (latent and observed equation). Why is a standard OLS regression of $\dP$ on $X$ inconsistent here?
+\item State the Smith--Stulz (1985) prediction for managerial stock vs.\ option holdings. Give the underlying intuition in terms of payoff convexity and expected utility.
+\item Which of the following hypotheses does the paper \emph{reject} empirically, and why is the rejection plausible for gold mining?\\
+ (a) Financial distress $\Rightarrow$ hedging; \quad (b) Convex taxes $\Rightarrow$ hedging; \quad (c) Froot--Scharfstein--Stein.
+\item Tufano reports both pooled and year-by-year Tobits. What bias/trade-off does each address?
+\item When heteroscedasticity is modeled as $\sigma_{it} = \exp(\alpha \log V_{i,t-1})$, the reserves coefficient ``vanishes.'' What does that tell us about the raw pooled result on firm size?
+\item Why does column (b) of Table VI (percentage ownership replacing dollar holdings) weaken the result? What does that pattern suggest about risk aversion vs.\ agency-alignment interpretations?
+\item Describe the static and dynamic tests for distinguishing hedging from insurance in the Appendix. What is a \emph{covered-call replication} strategy in this language?
+\item The paper's final caveat is about simultaneity between compensation and hedging. Explain in one sentence what a clean IV would need to satisfy and sketch one candidate instrument.
+\item Why does Tufano emphasize that ``managerial'' means the \emph{officer-and-director team}, not just the CEO? Cite the supporting column of Table VI.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding (80\% missing, 30 min)}
+On one blank page, write:
+\begin{enumerate}
+\item Construction of $\dP$ (formula + one-line sample calculation).
+\item Six competing hypotheses and the predicted sign on hedging for each.
+\item Three main results and three null results from Table V.
+\item Two robustness checks from Section IV and what they rule out.
+\item The Tobit log-likelihood form with censoring at 0 (you may use $\Phi$, $\phi$ freely).
+\end{enumerate}
+
+\section*{Round 5: Blank Page (Full Recall, 30 min)}
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\vspace{20em}\begin{center}\textit{Reproduce: question, data, measure, hypotheses with predicted signs, methodology, main findings, robustness, and caveats.}\end{center}\vspace{1em}}}
+\end{center}
+
+\newpage
+\section*{Speed Drills (20 min -- one-liner or number)}
+\begin{drillbox}
+\begin{enumerate}
+\item Sample size (firms / firm-years used in main regression, ABX excl.) $\Rightarrow$ \\[1.5em]
+\item Mean and median $\dP$ in the full sample $\Rightarrow$ \\[1.5em]
+\item Sign and significance on \emph{log managerial stock ownership} in pooled Tobit $\Rightarrow$ \\[1.5em]
+\item Sign and significance on \emph{number of managerial options} in pooled Tobit $\Rightarrow$ \\[1.5em]
+\item Sign and significance on \emph{cash costs} $\Rightarrow$ \\[1.5em]
+\item Sign and significance on \emph{exploration/$V$} and how it contradicts Froot--Scharfstein--Stein $\Rightarrow$ \\[1.5em]
+\item What is the ``right'' way to scale the firm's delta, per Tufano? \\[1.5em]
+\item Why is a one-sided Tobit preferred over OLS here? Give two reasons. \\[1.5em]
+\item In percentage-point terms, effect on $\dP$ of 10--90 pctile move in options vs.\ stock $\Rightarrow$ \\[1.5em]
+\item Which officer tenure (CEO or CFO) drives the negative tenure-hedging relation? \\[1.5em]
+\item What fraction of hedging firms use \emph{only} linear instruments (no options)? \\[1.5em]
+\item Firm with $\Gamma < 0$ in the Appendix dynamic test is replicating what? \\[1.5em]
+\item Two theoretical papers whose predictions are \emph{supported}; two \emph{rejected} $\Rightarrow$ \\[1.5em]
+\item Give the single biggest caveat to a causal reading of the options $\to$ less hedging finding. \\[1.5em]
+\item What data feature motivates Tobit? \\[1.5em]
+\item Biggest outlier firm, why excluded in baseline, and what it changes. \\[1.5em]
+\item Industry-level statistic: what \% of N.\ American gold production does Reeve's 1993 survey cover? \\[1.5em]
+\item Why scale delta by \emph{production} rather than \emph{firm value}? (one reason) \\[1.5em]
+\item Bottom-line sentence (one line): what drives cross-sectional hedging in gold mining? \\[1.5em]
+\end{enumerate}
+\end{drillbox}
+
+\newpage
+\section*{Answer Key}
+
+\begin{answerbox}
+\textbf{R2 key.} (1) portfolio delta (oz.\ short) / expected 3-yr production; (2) Ted Reeve, $>$90\%; (3) zero, exposure / delta-percentage, Tobit; (4) more, less; (5) more, wrong (negative); (6) $-0.127$ ($p=0.01$), $+0.014$ ($p=0.04$); (7) $\approx 12$, $\approx 11$; (8) negative, $\approx 2$--$2.4$; (9) heteroscedasticity, serial correlation, small sample; (10) put, calls.
+
+\medskip
+\textbf{R3 key (sketches).}
+(1) A firm using embedded derivatives in debt vs.\ standalone swaps looks different on a dummy but may hedge identically; $\dP$ measures economic exposure not instrument choice.
+(2) Latent $\dP^*=X'\beta+\varepsilon$, observed $\dP=\max(0,\dP^*)$, with $\varepsilon\sim\mathcal{N}(0,\sigma^2)$. OLS is inconsistent because conditional mean of observed $y$ is not linear in $X\beta$; marginal effects are $\Phi(X'\beta/\sigma)\cdot\beta$.
+(3) Stock $=$ linear payoff $\Rightarrow$ risk-averse manager prefers less variance $\Rightarrow$ hedge. Options $=$ convex payoff $\Rightarrow$ manager benefits from upside variance $\Rightarrow$ prefer less hedging.
+(4) (a) rejected: gold miners can shut-in production; few intangible-franchise DWL; commodity output is fungible. (b) rejected: little cross-sectional dispersion in tax loss carryforwards; industry mostly profitable. (c) rejected: exploration has wrong (negative) sign; size effect spurious (disappears with hetero).
+(5) Pooled: more power, but serial correlation in firm panel $\Rightarrow$ SEs too small. Year-by-year: clean inference but 35 obs vs.\ 12 regressors $\Rightarrow$ loses power.
+(6) The raw firm-size effect was driven by size-dependent variance, not by size's effect on the mean of hedging.
+(7) Dollar holdings reflect absolute wealth at risk (risk aversion); \%-ownership reflects agency/alignment. That \$ wins suggests the channel is managers' private utility, not firm-value-maximizing ownership alignment.
+(8) Static: option-\% = $\delta$(options)/$\delta$(portfolio). Dynamic: regress $\Delta\dP$ on $\Delta P_{\text{gold}}$ -- slope $\Gamma$. Covered-call replication: $\Gamma>0$, i.e., firm shorts \emph{more} when gold rises $\Rightarrow$ cuts hedging on the way up, expanding downside.
+(9) Need an instrument shifting comp \emph{structure} (e.g., option grants) that does not directly affect hedging policy, conditional on firm fundamentals. Candidates: peer-firm comp trends, board compensation-committee independence shocks.
+(10) Column (c), Table VI: non-CEO officer \& director shareholdings are the ones with the significant positive coefficient; CEO alone is insignificant $\Rightarrow$ risk management is a team-level decision.
+
+\medskip
+\textbf{Speed drills.}
+(1) 48 firms / 105 firm-years (108 incl.\ ABX).
+(2) Mean $25.6\%$, median $22.9\%$.
+(3) $+0.014$, $p=0.04$, supports Smith--Stulz.
+(4) $-0.127$, $p=0.01$, strong support for Smith--Stulz.
+(5) $+0.0002$, $p=0.76$, no support for distress.
+(6) $-0.012$, $p=0.04$; FSS predicts $+$ because costly external finance $\Rightarrow$ hedge to avoid raising costly capital -- wrong sign.
+(7) By expected production over the same 3-year horizon as the hedging data.
+(8) (i) Mass point at $\dP=0$ (14.6\% of firms hedge zero); (ii) no negatives observed $\Rightarrow$ one-sided censoring; OLS would bias $\beta$ toward zero.
+(9) $\approx 12$ pp (options) vs.\ $\approx 6$ pp (stock); $\approx 11$ pp vs.\ $\approx 5$ pp on probability.
+(10) CFO.
+(11) About 75\% (and 24.4\% use no options at all).
+(12) Purchased put (synthetic long insurance).
+(13) Supported: Smith--Stulz (1985) risk-aversion, Mayers--Smith (1990) diversification link. Rejected: Smith--Stulz tax convexity, Froot--Scharfstein--Stein (1993).
+(14) Simultaneity: comp structure, leverage, and hedging are jointly set; could equally well be that hedging firms choose less option-heavy comp.
+(15) Left-censoring at 0 with a mass point, strictly non-negative support.
+(16) American Barrick (ABX): hedges 100\% by policy, is a huge outlier on leverage and block-holdings; including it flips the large-block sign and inflates stock effect.
+(17) Over 90\%.
+(18) Managers describe policy as ``\% of next year's production hedged''; FSS is defined on cash flows, not total value.
+(19) Managerial risk aversion and CFO tenure dominate; shareholder-value theories have little predictive power.
+\end{answerbox}
+
+\vspace{1em}
+\begin{keybox}
+\textbf{30-second pitch to yourself in the exam:} ``Tufano (1996) uses Reeve's gold-hedge survey and Black-Scholes deltas to build a continuous hedging measure -- the delta-percentage -- for 48 N.\ American gold miners, 1990--1993. One-sided Tobit on lagged firm characteristics shows that \emph{managerial} traits (more stock $\Rightarrow$ more hedging, more options $\Rightarrow$ less, shorter CFO tenure $\Rightarrow$ more) drive the cross-section. \emph{Shareholder-value} theories (distress, external-finance costs, convex taxes) are not supported. The options effect is economically about twice the stock effect. The big caveat is that compensation and hedging are jointly set, so this is association, not identified causation.''
+\end{keybox}
+
+\end{document}

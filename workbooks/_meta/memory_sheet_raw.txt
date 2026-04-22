@@ -1,0 +1,310 @@
+
+===== PAGE 1 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 1
+Memory Sheet for the Course Paper List
+55 paper summaries in one place - each compressed to the single core point you should remember.
+Use this as a fast memorization aid, not as a substitute for the papers. For each entry, focus on three things:
+question, identification or mechanism, and main finding.
+For working papers, the citation reflects the latest public version or revision available when relevant.
+Format
+ID | date | journal
+Authors (year) - title
+Main point: one-sentence takeaway.
+Part I - Banking, Liquidity, Monetary Policy, and Crises
+W01-01 | 1/20/2026 | JF
+Anil K. Kashyap, Raghuram Rajan, and Jeremy C. Stein (2002) - Banks as Liquidity Providers: An Explanation for
+the Coexistence of Lending and Deposit-Taking
+Main point: Banks can efficiently combine deposit-taking and lending because withdrawal shocks and credit-line drawdowns are
+not perfectly correlated, so the same liquidity buffer can serve both sides of the balance sheet.
+W01-02 | 1/20/2026 | JF
+Evan Gatev and Philip E. Strahan (2006) - Banks' Advantage in Hedging Liquidity Risk: Theory and Evidence from
+the Commercial Paper Market
+Main point: When market liquidity dries up, firms draw on bank credit lines but deposits also tend to flow into banks, giving banks
+a natural hedge and a comparative advantage in supplying liquidity.
+W01-03 | 1/22/2026 | AER
+Adam B. Ashcraft (2005) - Are Banks Really Special? New Evidence from the FDIC-Induced Failure of Healthy
+Banks
+Main point: The failure of even healthy banks hurts local economic activity, showing that banks matter not only because of
+borrower quality but because relationship lending and credit supply have real effects.
+W01-04 | 1/22/2026 | RFS
+Allen N. Berger and Christa H. S. Bouwman (2009) - Bank Liquidity Creation
+Main point: This paper builds a broad measure of liquidity creation and shows that banks create liquidity by funding illiquid
+assets with liquid liabilities and off-balance-sheet commitments, with important links to bank capital and size.
+W02-01 | 1/27/2026 | AER
+Anil K. Kashyap and Jeremy C. Stein (2000) - What Do a Million Observations on Banks Say about the
+Transmission of Monetary Policy?
+Main point: Monetary tightening reduces lending more at smaller, less liquid banks, supporting the bank balance-sheet channel
+of monetary policy.
+
+
+===== PAGE 2 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 2
+W02-02 | 1/27/2026 | AER
+Gabriel Jimenez, Steven Ongena, Jose-Luis Peydro, and Jesus Saurina (2012) - Credit Supply and Monetary
+Policy: Identifying the Bank Balance-Sheet Channel with Loan Applications
+Main point: Using Spanish loan applications, the paper cleanly separates credit supply from credit demand and shows that
+tighter monetary policy cuts credit supply especially at weaker banks, with real effects on firms.
+W02-03 | 1/29/2026 | QJE
+Itamar Drechsler, Alexi Savov, and Philipp Schnabl (2017) - The Deposits Channel of Monetary Policy
+Main point: Banks with market power do not fully pass through rate hikes to depositors; instead they widen deposit spreads, lose
+deposits, and contract lending, creating a deposits channel of monetary policy.
+W02-04 | 1/29/2026 | RFS
+Alexander Rodnyansky and Olivier M. Darmouni (2017) - The Effects of Quantitative Easing on Bank Lending
+Behavior
+Main point: QE raised the value of banks' MBS holdings and effectively recapitalized exposed banks, which then expanded
+lending more than less-exposed banks.
+W03-01 | 2/3/2026 | QJE
+Jith Jayaratne and Philip E. Strahan (1996) - The Finance-Growth Nexus: Evidence from Bank Branch
+Deregulation
+Main point: Branch deregulation increased state growth, mainly by improving the quality and efficiency of bank lending rather
+than by simply raising the volume of credit.
+W03-02 | 2/3/2026 | AER
+Joe Peek and Eric S. Rosengren (2000) - Collateral Damage: Effects of the Japanese Bank Crisis on Real Activity
+in the United States
+Main point: A foreign banking shock transmitted to U.S. borrowers through Japanese bank affiliates, showing that bank distress
+can spill across borders and depress real activity.
+W03-03 | 2/5/2026 | AER
+Asim Ijaz Khwaja and Atif Mian (2008) - Tracing the Impact of Bank Liquidity Shocks: Evidence from an Emerging
+Market
+Main point: By comparing the same firm borrowing from different banks, the paper isolates bank-supply shocks and shows that
+a liquidity hit to a bank leads to a clear contraction in its lending.
+W03-04 | 2/5/2026 | QJE
+Mary Amiti and David E. Weinstein (2011) - Exports and Financial Shocks
+Main point: Deterioration in the health of banks providing trade finance causes exports to fall relative to domestic sales, helping
+explain why exports collapse so sharply in crises.
+W04-01 | 2/10/2026 | JFE
+Gary Gorton and Andrew Metrick (2012) - Securitized Banking and the Run on Repo
+Main point: The 2007-2008 crisis looked like a modern bank run in the repo market: wholesale short-term funding of securitized
+assets suddenly became unstable, triggering a systemic panic.
+
+
+===== PAGE 3 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 3
+W04-02 | 2/10/2026 | QJE
+Benjamin J. Keys, Tanmoy Mukherjee, Amit Seru, and Vikrant Vig (2010) - Did Securitization Lead to Lax
+Screening? Evidence from Subprime Loans
+Main point: Securitization weakened originators' screening incentives in subprime lending, and the effect was strongest where
+loans were easiest to sell rather than keep.
+W04-03 | 2/12/2026 | QJE
+Atif Mian and Amir Sufi (2009) - The Consequences of Mortgage Credit Expansion: Evidence from the U.S.
+Mortgage Default Crisis
+Main point: Mortgage credit expanded most in poorer and more levered zip codes, fueling a housing boom followed by
+especially severe defaults and household distress.
+W04-04 | 2/12/2026 | JFE
+Victoria Ivashina and David Scharfstein (2010) - Bank Lending During the Financial Crisis of 2008
+Main point: Syndicated lending collapsed during the crisis, with weaker and nonbank lenders pulling back most and credit
+concentrating more in stronger banks and existing relationships.
+W05-01 | 2/17/2026 | AER
+Rajkamal Iyer and Manju Puri (2012) - Understanding Bank Runs: The Importance of Depositor-Bank
+Relationships and Networks
+Main point: Depositor behavior in a run depends on information, relationships, and social networks: informed or connected
+depositors run earlier and panic spreads through local ties.
+W05-02 | 2/17/2026 | AER
+Mark Egan, Ali Hortacsu, and Gregor Matvos (2017) - Deposit Competition and Financial Fragility: Evidence from
+the US Banking Sector
+Main point: Competition for uninsured deposits creates fragility because uninsured depositors discipline weak banks and can
+run, giving the banking system multiple-equilibrium features.
+W05-03 | 2/19/2026 | AER
+Lawrence Schmidt, Allan Timmermann, and Russ Wermers (2016) - Runs on Money Market Mutual Funds
+Main point: Prime money market funds are vulnerable to strategic runs because early redeemers are protected while remaining
+investors absorb losses, recreating classic first-mover fragility.
+W05-04 | 2/19/2026 | JFE
+Erica Xuewei Jiang, Gregor Matvos, Tomasz Piskorski, and Amit Seru (2024) - Monetary Tightening and U.S. Bank
+Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?
+Main point: The paper shows that large unrealized asset losses made many banks vulnerable in 2023, but actual fragility
+depended crucially on uninsured deposit funding and the possibility of rapid depositor runs.
+Part II - Corporate Risk Management, Hedging, and Incentives
+W06-01 | 2/26/2026 | JF
+Peter Tufano (1996) - Who Manages Risk? An Empirical Examination of Risk Management Practices in the Gold
+Mining Industry
+Main point: Hedging choices in gold mining are shaped not just by firm fundamentals but also by managerial incentives:
+managers with more option-like pay hedge less, while those with more stock-based exposure hedge more.
+
+
+===== PAGE 4 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 4
+W07-01 | 3/3/2026 | JF
+Christopher C. Geczy, Bernadette A. Minton, and Catherine M. Schrand (1997) - Why Firms Use Currency
+Derivatives
+Main point: Firms are more likely to use currency derivatives when they face meaningful foreign exchange exposure and when
+financial frictions make cash-flow smoothing especially valuable.
+W07-02 | 3/3/2026 | JF
+John R. Graham and Daniel A. Rogers (2002) - Do Firms Hedge in Response to Tax Incentives?
+Main point: Hedging does not seem driven much by convex tax schedules, but it increases debt capacity and interest tax
+shields, linking risk management to capital structure.
+W07-03 | 3/5/2026 | JF
+David Haushalter (2000) - Financing Policy, Basis Risk, and Corporate Hedging: Evidence from Oil and Gas
+Producers
+Main point: Oil and gas firms hedge more when financial distress and underinvestment concerns are greater, but their choices
+are constrained by basis risk between their true exposures and available contracts.
+W07-04 | 3/5/2026 | RFS
+George Allayannis and James P. Weston (2001) - The Use of Foreign Currency Derivatives and Firm Market Value
+Main point: Firms using currency derivatives trade at higher values on average, consistent with hedging reducing costly
+exposure and supporting investment.
+W08-01 | 3/10/2026 | JF
+Yanbo Jin and Philippe Jorion (2006) - Firm Value and Hedging: Evidence from U.S. Oil and Gas Producers
+Main point: For oil and gas producers, hedging has little average effect on firm value, suggesting that the benefits of risk
+management are not automatically large or easy to detect in market values.
+W08-02 | 3/10/2026 | RFS
+Erik P. Gilje and Jerome P. Taillard (2017) - Does Hedging Affect Firm Value? Evidence from a Natural Experiment
+Main point: A shock that impaired hedging ability shows that hedging supports value and real activity by easing financing
+frictions and protecting investment when cash flows become riskier.
+W08-03 | 3/12/2026 | JFE
+Viral V. Acharya, Lars A. Lochstoer, and Tarun Ramadorai (2013) - Limits to Arbitrage and Hedging: Evidence
+from Commodity Markets
+Main point: Commodity futures prices reflect producers' hedging demand when intermediary capital is limited; arbitrageurs
+cannot fully absorb hedging pressure, so risk premia emerge endogenously.
+W08-04 | 3/12/2026 | RFS
+Michael Dewally, Louis H. Ederington, and Chitru S. Fernando (2013) - Determinants of Trader Profits in
+Commodity Futures Markets
+Main point: Trader profits in commodity futures are systematic rather than random: they differ across trader types because
+information, hedging needs, and market structure shape who earns rents.
+
+
+===== PAGE 5 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 5
+W09-01 | 3/24/2026 | JAE
+Todd A. Gormley, David A. Matsa, and Todd Milbourn (2013) - CEO Compensation and Corporate Risk: Evidence
+from a Natural Experiment
+Main point: A compensation shock that changes executives' risk-taking incentives leads firms to alter risk, showing that
+managerial pay design causally affects corporate risk choices.
+W09-02 | 3/24/2026 | JFE
+Tor-Erik Bakke, Hamed Mahmudi, Chitru S. Fernando, and Jesus M. Salas (2016) - The Causal Effect of Option
+Pay on Corporate Risk Management
+Main point: More convex option-based pay makes managers tolerate more firm risk and hedge less, providing causal evidence
+that executive compensation shapes corporate risk management.
+W09-03 | 3/26/2026 | JB
+Gregory W. Brown, Peter R. Crabb, and David Haushalter (2006) - Are Firms Successful at Selective Hedging?
+Main point: Firms do try to time markets with selective hedging, but on average they do not appear to generate economically
+meaningful gains from doing so.
+W09-04 | 3/26/2026 | JF
+Christopher C. Geczy, Bernadette A. Minton, and Catherine M. Schrand (2007) - Taking a View: Corporate
+Speculation, Governance, and Compensation
+Main point: Some firms use derivatives to speculate rather than hedge, and this behavior is related to governance and CFO
+incentives, especially when firms believe taking a view can be profitable.
+W10-01 | 3/31/2026 | JFE
+Tim Adam (2009) - Capital Expenditures, Financial Constraints, and the Use of Options
+Main point: Financially constrained firms are more likely to use nonlinear option strategies because options protect downside
+investment capacity while preserving upside exposure.
+W10-02 | 3/31/2026 | JFE
+Gerard Hoberg and S. Katie Moon (2017) - Offshore Activities and Financial vs Operational Hedging
+Main point: Firms can substitute operational hedges for financial hedges: offshore production and geographic flexibility reduce
+the need for derivative-based risk management.
+W10-03 | 4/2/2026 | JF
+Thomas W. Bates, Kathleen M. Kahle, and Rene M. Stulz (2009) - Why Do U.S. Firms Hold So Much More Cash
+than They Used To?
+Main point: The long-run rise in corporate cash mainly reflects a shift toward riskier, R&D-intensive firms with weaker internal
+cash flows, not simply managerial waste.
+W10-04 | 4/2/2026 | RFS
+Rudiger Fahlenbrach, Kevin Rageth, and Rene M. Stulz (2021) - How Valuable Is Financial Flexibility when
+Revenue Stops? Evidence from the COVID-19 Crisis
+Main point: During COVID, firms that entered the shock with more cash, less short-term debt, and stronger flexibility performed
+better, showing the value of balance-sheet slack in extreme downturns.
+
+
+===== PAGE 6 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 6
+Part III - ESG, Climate, Reputation, and Nonfinancial Risk
+W11-01 | 4/7/2026 | SMJ
+Mark P. Sharfman and Chitru S. Fernando (2008) - Environmental Risk Management and the Cost of Capital
+Main point: Better environmental risk management lowers firms' cost of capital by reducing both operating risk and financing
+frictions.
+W11-02 | 4/7/2026 | JFE
+Harrison Hong and Marcin Kacperczyk (2009) - The Price of Sin: The Effects of Social Norms on Markets
+Main point: Sin stocks are shunned by norm-constrained investors and institutions, receive less coverage, and therefore earn
+higher expected returns as compensation for neglect.
+W11-03 | 4/9/2026 | MS
+Sudheer Chava (2014) - Environmental Externalities and Cost of Capital
+Main point: Environmentally harmful firms face a higher cost of capital and tighter financing, especially in debt markets, because
+investors and lenders price environmental externalities.
+W11-04 | 4/9/2026 | JFQA
+Chitru S. Fernando, Mark P. Sharfman, and Vahap B. Uysal (2017) - Corporate Environmental Policy and
+Shareholder Value: Following the Smart Money
+Main point: The market tends to reward stronger environmental policy when sophisticated investors move first, suggesting that
+at least part of environmental policy is value-relevant rather than purely cosmetic.
+W12-01 | 4/14/2026 | JF
+Karl V. Lins, Henri Servaes, and Ane Tamayo (2017) - Social Capital, Trust, and Firm Performance: The Value of
+Corporate Social Responsibility during the Financial Crisis
+Main point: CSR acted like social capital during the financial crisis: high-CSR firms earned more trust, suffered less, and
+performed better when confidence in corporations collapsed.
+W12-02 | 4/14/2026 | JFE
+Brandon N. Cline, Ralph A. Walkling, and Adam S. Yore (2018) - The Consequences of Managerial Indiscretions:
+Sex, Lies, and Firm Value
+Main point: Personal misconduct by executives destroys firm value because markets infer weaker governance, poorer
+judgment, and reputational damage from private indiscretions.
+W12-03 | 4/16/2026 | JFE
+Asaf Bernstein, Matthew T. Gustafson, and Ryan Lewis (2019) - Disaster on the Horizon: The Price Effect of Sea
+Level Rise
+Main point: Real estate markets increasingly discount properties exposed to sea level rise, especially where investors are more
+sophisticated and climate risk is more salient.
+W12-04 | 4/16/2026 | JFE
+Asaf Bernstein, Stephen B. Billings, Matthew T. Gustafson, and Ryan Lewis (2022) - Partisan Residential Sorting
+on Climate Change Risk
+Main point: Beliefs matter for climate pricing: over time, climate-exposed properties are increasingly owned by people with
+different political views, showing that sorting helps shape who bears climate risk.
+
+
+===== PAGE 7 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 7
+W13-01 | 4/21/2026 | RFS
+Justin Murfin, Matthew Spiegel, and Jose A. Scheinkman (2020) - Is the Risk of Sea Level Rise Capitalized in
+Residential Real Estate?
+Main point: Using variation in local land subsidence, the paper finds limited average capitalization of sea-level-rise risk in home
+prices, emphasizing that climate pricing can be incomplete.
+W13-02 | 4/21/2026 | RFS
+Jawad M. Addoum, David T. Ng, Ariel Ortiz-Bobea, and Harrison Hong (2020) - Temperature Shocks and
+Establishment Sales
+Main point: Temporary temperature shocks reduce establishment sales and productivity, giving a direct firm-level channel
+through which climate exposure affects cash flows.
+W13-03 | 4/23/2026 | RFS
+Philipp Krueger, Zacharias Sautner, and Laura T. Starks (2020) - The Importance of Climate Risks for Institutional
+Investors
+Main point: Large investors view climate risk as financially material, especially over longer horizons, but they differ sharply in
+whether they see it as primarily a risk-management problem or a return opportunity.
+W13-04 | 4/23/2026 | JFE
+Alexander Dyck, Karl V. Lins, Lukas Roth, and Hannes F. Wagner (2019) - Do Institutional Investors Drive
+Corporate Social Responsibility? International Evidence
+Main point: Institutional investors appear to causally improve firms' environmental and social performance, implying that
+ownership can shape corporate behavior rather than merely select into it.
+W14-01 | 4/28/2026 | RFS
+Qing Li, Hongyu Shan, Yuehua Tang, and Vincent Yao (2024) - Corporate Climate Risk: Measurements and
+Responses
+Main point: Using earnings-call text, the paper builds firm-level measures of physical and transition climate risk and shows that
+exposed firms change disclosure, investment, and adaptation behavior.
+W14-02 | 4/28/2026 | JF
+Ran Duchin, Janet Gao, and Qiping Xu (2025) - Sustainability or Greenwashing: Evidence from the Asset Market
+for Industrial Pollution
+Main point: When pollutive assets are sold, pollution often shifts to private owners rather than disappearing, so some
+'sustainable' asset sales look more like greenwashing than genuine environmental improvement.
+W14-03 | 4/30/2026 | WP
+Benjamin J. Keys and Philip Mulder (working paper, revised 2025) - Property Insurance and Disaster Risk: New
+Evidence from Mortgage Escrow Data
+Main point: Using inferred insurance premiums from mortgage escrows, the paper shows homeowners insurance costs have
+risen rapidly and increasingly reflect local disaster and climate risk.
+W14-04 | 4/30/2026 | WP
+Olimpia Carradori, Felix von Meyerinck, and Zacharias Sautner (working paper, revised 2026) - Insurers' Carbon
+Underwriting Policies
+Main point: Large insurers are adopting carbon underwriting policies, but implementation is incomplete and heterogeneous, so
+climate commitments do not automatically translate into reduced real-economy fossil exposure.
+
+
+===== PAGE 8 =====
+Memory Sheet - Banking, Risk Management, ESG, and Climate
+Page 8
+W15-01 | 5/5/2026 | JFE
+Shinichi Kamiya, Jun-Koo Kang, Jungmin Kim, Andreas Milidonis, and Rene M. Stulz (2021) - Risk Management,
+Firm Reputation, and the Impact of Successful Cyberattacks on Target Firms
+Main point: Successful cyberattacks damage firm value far beyond direct costs because they hurt reputation; firms respond by
+increasing security and reputation-repair efforts.
+W15-02 | 5/5/2026 | RF
+Pat Akey, Stefan Lewellen, Inessa Liskovich, and Christoph Schiller (2026) - Hacking Corporate Reputations
+Main point: Unexpected data breaches destroy brand and equity value, increase customer churn, and induce firms to repair
+reputation through CSR, wages, political spending, and IT investment.
+
