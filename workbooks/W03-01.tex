@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W03-01: Jayaratne \& Strahan (1996, QJE) \\
+\large ``The Finance-Growth Nexus: Evidence from Bank Branch Deregulation'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} State-by-state branch-banking deregulation between 1970 and 1994 raised annual state GDP growth by roughly 0.5--1.2 pp per year, mostly by improving the \emph{quality} of lending (better screening, more efficient banks) rather than by boosting loan \emph{volume}.
+
+\textbf{Placement.} The cleanest natural experiment in the finance-growth literature. Uses plausibly-exogenous staggered policy changes, pre-dating DiD hygiene but substantively the same. A go-to reference in every banking-and-growth bibliography.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Policy background}
+US states historically restricted intrastate branching. Starting with Maine in 1975 and ending with Arkansas in 1994, 35 states removed branching restrictions in different years. These changes were driven by political and legal factors unrelated to state-specific growth prospects.
+
+\subsection*{1.2 Specification}
+Panel DiD on state-year data 1972--1992:
+\[
+\Delta\ln Y_{st}=\alpha_s+\delta_t+\beta\cdot D_{st}+X_{st}'\gamma+\varepsilon_{st},
+\]
+with $D_{st}=1$ if state $s$ had deregulated branching by year $t$. Key coefficient $\beta$ is the growth effect. $Y$ is real GSP per capita.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Real GSP per capita growth rises by $\sim$0.5--1.2 pp per year following deregulation.
+\item No effect on the \emph{volume} of lending relative to GSP --- surprising.
+\item Loan \emph{quality} rises: reduced loan losses and lower delinquencies.
+\item Effects concentrated in bank-dependent industries (small firms).
+\end{itemize}
+
+\subsection*{1.4 Channel: screening and allocation}
+\begin{itemize}
+\item Post-dereg, interstate acquirers bring better screening technology.
+\item More competitive lending markets discipline weak banks.
+\item The gain is one of \emph{allocative efficiency}, not capital deepening. This matters theoretically: it says finance raises growth by improving the mean return on capital, not by raising $K/L$.
+\end{itemize}
+
+\subsection*{1.5 Identification concerns}
+\begin{alertbox}
+\begin{itemize}
+\item Timing of deregulation could correlate with unobserved state trends. Placebo: growth effect is absent before dereg, appears sharply after.
+\item Reverse causation: slow-growth states might deregulate first? JS argue the opposite (fast-growth states lobbied, if anything).
+\item Modern DiD diagnostics (Goodman-Bacon decomposition, Sun-Abraham) would refine the staggered-treatment interpretation. The JS headline survives.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Policy: state-by-state removal of \blank{2cm} restrictions, 1970--1994.
+\item Sample: \blank{1cm} states $\times$ \blank{1cm} years, state and year FE.
+\item Growth effect: $\sim$\blank{1cm} to \blank{1cm} pp/year.
+\item Volume effect: approximately \blank{1cm}.
+\item Channel: improved loan \blank{2cm} (not volume).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the DiD spec and state the identifying assumption.
+\item Why does the ``quality, not volume'' result matter theoretically for finance-and-growth models?
+\item How would you revisit the result with modern staggered-DiD estimators?
+\item What sectors should gain most, and how could you test this?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) policy, (ii) sample \& FE, (iii) coefficient magnitude, (iv) quality vs.\ volume result, (v) two identification concerns.
+
+\section*{Round 5: Blank Page}
+Essay: does branch deregulation show that finance \emph{causes} growth? How tight is the evidence?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Years of the policy wave. (2) DV. (3) Key coefficient magnitude. (4) Why volume doesn't rise. (5) One caveat.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Policy.} Intrastate branch deregulation, state by state, 1975--1994.
+\item \textbf{Effect.} Real GSP per capita growth $+0.5$--$1.2$ pp/yr.
+\item \textbf{Mechanism.} Loan quality (not quantity).
+\item \textbf{Lesson.} Finance $\to$ growth via allocative efficiency, not capital deepening.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Jayaratne \& Strahan (1996) is the workhorse natural experiment in the finance-growth literature. US states removed intrastate branching restrictions in a staggered pattern 1975--1994, largely for political reasons orthogonal to state growth prospects. Panel DiD with state and year fixed effects shows that real GSP per capita growth rises by $0.5$--$1.2$ pp/yr following deregulation. Volume of lending relative to GSP is essentially unchanged; instead, the quality of lending improves --- lower loan losses, fewer delinquencies --- especially in bank-dependent sectors. The implication is theoretical as much as empirical: finance promotes growth by reallocating capital to higher-return projects, not by adding to aggregate capital. Modern staggered-DiD diagnostics have only sharpened the main finding.
+\end{keybox}
+
+\end{document}

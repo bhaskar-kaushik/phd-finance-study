@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W08-03: Acharya, Lochstoer \& Ramadorai (2013, JFE) \\
+\large ``Limits to Arbitrage and Hedging: Evidence from Commodity Markets'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} When commodity producers face capital constraints (measured by their \emph{default probability}), they hedge less; futures markets then clear at lower prices (higher risk premia) --- empirically confirming a \emph{producer-hedging pressure} theory of commodity risk premia. Data span 1990--2008 across crude oil, gas, and other commodities.
+
+\textbf{Placement.} Connects the risk-management-motives literature (Froot--Scharfstein--Stein, AW, JJ, GT) to the asset-pricing literature on commodities (Hirshleifer, Hong--Yogo, Gorton--Rouwenhorst).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Theory}
+If producers want to hedge their future output but speculators require risk premium to take the other side, futures prices are below expected spot (normal backwardation). When producers are capital-constrained, they hedge \emph{less}, net speculator demand \emph{falls}, futures-spot basis \emph{widens}, and realised returns to speculators \emph{rise} --- i.e., the hedging premium is endogenous in producer distress.
+
+\subsection*{1.2 Empirical design}
+Measure producer capital constraints with default-probability proxy (Moody's KMV $\text{EDF}$) at a commodity-specific level (aggregate across producers in oil, gas, etc.). Test:
+\[
+R^{\text{futures}}_{c,t+1}=\alpha_c + \beta\cdot \text{DefaultProb}_{c,t}+X_{c,t}'\gamma+\varepsilon_{c,t+1}.
+\]
+Expected $\beta>0$: higher producer default probability now predicts higher subsequent futures returns for commodity $c$.
+
+\subsection*{1.3 Data}
+Monthly futures returns on crude oil, natural gas, heating oil, and industrial metals, 1990--2008. Producer financials from Compustat. Producer default probabilities from Moody's KMV.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Producer default probability predicts futures returns with the expected positive sign and statistically significant magnitude ($\sim 5$--$10\%$ annualised risk premium differential between high- and low-constraint periods).
+\item Hedging activity (CFTC positions) falls when producers are more constrained.
+\item Effect is strongest in energy commodities (crude, natural gas) where producers are concentrated.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Supports a \emph{limits-to-arbitrage} view of commodity risk premia: speculators must be compensated when hedging supply is weak.
+\item Links corporate risk management directly to asset-pricing outcomes.
+\item Distinct from a pure-storage or pure-speculative view of commodity markets.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Default probability is proxied; noise attenuates estimates.
+\item CFTC-based hedging-activity data aggregates across reporting categories with possible misclassification.
+\item Endogeneity of default probability to commodity prices themselves (risk/return simultaneity); ALR use lagged measures and robustness checks.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Producer-constraint measure: \blank{2cm} default probability.
+\item Expected sign on $\beta$: \blank{1cm}.
+\item Hedging-activity data: \blank{1cm} positions.
+\item Strongest effect sector: \blank{1.5cm}.
+\item Sample period: \blank{1cm}--\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the producer-hedging-pressure story in words and equations.
+\item What role does limits-to-arbitrage play?
+\item Relate ALR to FSS (1993) and Allayannis--Weston (2001).
+\item Propose a test of causality rather than predictability.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) theory, (ii) empirical spec, (iii) headline sign and magnitude, (iv) interpretation, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: corporate hedging frictions and commodity risk premia.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Producer constraint measure. (2) Predicted sign. (3) Data category for hedging positions. (4) Asset-pricing implication. (5) Sample years.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Theory.} Constrained producers hedge less $\Rightarrow$ futures risk premium rises.
+\item \textbf{Proxy.} Producer KMV default probability, commodity-specific.
+\item \textbf{Result.} Positive predictive coefficient on futures returns; $5$--$10\%$ differential.
+\item \textbf{Implication.} Corporate financial frictions show up in commodity risk premia.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Acharya, Lochstoer \& Ramadorai (2013) bridge corporate risk management and asset pricing. The idea: when commodity producers are capital-constrained, they hedge less; with fewer natural sellers of futures, speculator risk premia must widen to clear the market. Using Moody's KMV default probabilities at the commodity-producer level as a constraint proxy, and CFTC-based hedging-position data, they show that producer distress positively predicts subsequent commodity futures returns, with magnitudes of 5--10\% annualised between high- and low-constraint periods. Effects are strongest in energy commodities where producer concentration is highest. The paper makes the limits-to-arbitrage / hedging-pressure theory of commodity risk premia operational and connects corporate-finance frictions to macro-asset-pricing outcomes.
+\end{keybox}
+
+\end{document}

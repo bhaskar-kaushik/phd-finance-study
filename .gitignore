@@ -10,3 +10,7 @@ workbooks/*.fdb_latexmk
 workbooks/*.toc
 workbooks/*.synctex.gz
 workbooks/tmp*.tmp
+workbooks/*.aux
+workbooks/*.log
+workbooks/*.out
+.DS_Store

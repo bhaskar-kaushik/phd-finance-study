@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W13-02: Addoum, Ng \& Ortiz-Bobea (2020, RFS) \\
+\large ``Temperature Shocks and Establishment Sales'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using county-level panel data on $\sim$900{,}000 US establishments 1990--2015 merged with daily temperature records, ANO show that hot days ($>90^\circ$F) reduce establishment sales in exposed industries by $\sim$0.2--0.5\% per extra hot day --- firm-level productivity evidence that physical climate damages are already materialising.
+
+\textbf{Placement.} Canonical climate-and-real-activity paper. Empirically quantifies physical-risk damage at the firm level, complementing the climate-pricing literature (BGL, BBGL, MS) with real-outcome estimates.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+Matched establishment-level sales from NETS (National Establishment Time Series) with county-level daily temperature records from PRISM. Industries classified by heat vulnerability (construction, agriculture, tourism more exposed; finance, professional services less).
+
+\subsection*{1.2 Empirical spec}
+Panel regression with establishment and year FE:
+\[
+\Delta\ln\text{Sales}_{it}=\alpha_i+\delta_t+\sum_k\beta_k\cdot\text{DaysInBin}_{k,ct}+X_{it}'\gamma+\varepsilon_{it},
+\]
+where DaysInBin$_{k,ct}$ is the number of days in county $c$, year $t$ in temperature bin $k$ (e.g., $80$--$85$F, $85$--$90$F, $>90$F). Reference bin is a moderate temperature range.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Each extra day above 90$^\circ$F reduces establishment sales by $\sim$0.2--0.5\% in exposed industries.
+\item Effect is concave (very hot days much worse than moderately hot days).
+\item Heterogeneity: agriculture, construction, tourism, retail most exposed; finance and professional services not.
+\item Aggregate: US establishment sales roughly 1\% lower per year of high-heat exposure.
+\end{itemize}
+
+\subsection*{1.4 Interpretation}
+\begin{itemize}
+\item Physical climate damages are firm-level and measurable.
+\item Adaptation is partial: A/C investment, shift scheduling, reducing outdoor work.
+\item Implications for forward-looking firm valuations and cost of capital.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item NETS data quality: sales are sometimes imputed.
+\item Climate change prediction would require extrapolating from observed weather shocks.
+\item Adaptation could reduce damages over longer horizons.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: $\sim$\blank{2cm} US establishments, \blank{1cm}--\blank{1cm}.
+\item Weather data source: \blank{1.5cm}.
+\item Per-hot-day effect: $\sim$\blank{1cm}--\blank{1cm}\%.
+\item Most exposed industries: \blank{2cm}, construction, tourism.
+\item Least exposed: \blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the binned-temperature specification and explain identification.
+\item Why is the effect concave in temperature?
+\item Discuss adaptation margins that firms might take.
+\item How do these results translate into long-run valuations?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) spec, (iii) magnitudes, (iv) heterogeneity, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: physical climate risk and firm-level real activity.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Sample size. (2) Per-hot-day magnitude. (3) Exposed industries. (4) Weather data. (5) Concavity finding.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} 900k establishments, 1990--2015, with PRISM weather.
+\item \textbf{Effect.} $\sim$0.2--0.5\% sales loss per extra day $>90^\circ$F.
+\item \textbf{Concavity.} Very hot days worst.
+\item \textbf{Industries.} Agriculture, construction, tourism most exposed.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Addoum, Ng \& Ortiz-Bobea (2020) document physical climate-risk damages at the firm level. Merging $\sim$900{,}000 US establishment records from NETS with county-level daily temperature from PRISM, 1990--2015, they estimate binned-temperature sales regressions with establishment and year FE. Each additional day above 90$^\circ$F cuts establishment sales by $\sim$0.2--0.5\% in exposed industries (agriculture, construction, tourism, retail); finance and professional services are largely unaffected. Effects are concave: extremely hot days are disproportionately damaging. Aggregating, US establishment sales are roughly 1\% lower per year of high-heat exposure. The paper is the canonical micro-level quantification of physical climate risk, showing that damages are already visible and that adaptation is only partial.
+\end{keybox}
+
+\end{document}

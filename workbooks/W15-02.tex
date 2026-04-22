@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W15-02: Akey, Lewellen, Liskovich \& Schiller (2026, RF) \\
+\large ``Hacking Corporate Reputations'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using consumer-review data, employee reviews, and product-market outcomes around data-breach events, ALLS show that cyberattacks cause measurable, persistent reputational damage --- customer sentiment worsens, employee ratings fall, product sales drop, and the reputational channel is \emph{distinct} from and larger than the direct financial-cost channel, making reputation a first-order risk-management object.
+
+\textbf{Placement.} Mechanism/refinement of Kamiya-Kang-Kim-Milidonis-Stulz (W15-01). Uses new data sources (customer reviews, Glassdoor, scanner data) to isolate the reputational channel. Exam-ready companion paper on cyber risk.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+Cyber-breach events linked to:
+\begin{itemize}
+\item Customer-review text (Yelp, Google, Trustpilot) and sentiment.
+\item Employee reviews (Glassdoor ratings and text).
+\item Retail-scanner data on product sales.
+\item Financial-market data (stock CAR, CDS spreads) for benchmarking.
+\end{itemize}
+
+\subsection*{1.2 Empirical design}
+DiD around breach event:
+\[
+Y_{it}=\alpha_i+\delta_t+\beta\cdot\text{PostBreach}_{it}+X_{it}'\gamma+\varepsilon_{it},
+\]
+where $Y$ is review sentiment, Glassdoor rating, or log-sales. Matched control firms by industry/size/pre-trend.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Customer-review sentiment falls $\sim$0.1--0.3 standard deviations after a breach.
+\item Negative-review frequency and explicit mentions of ``trust''/``privacy''/``breach'' spike.
+\item Product sales fall $\sim$1--3\% over 6--12 months, larger for consumer-facing firms.
+\item Employee reviews fall; attrition-proxy measures worsen.
+\item Financial losses (direct costs + CAR) are smaller than implied reputational loss $\Rightarrow$ reputation is a \emph{distinct, large} channel.
+\end{itemize}
+
+\subsection*{1.4 Reputation as a risk factor}
+\begin{itemize}
+\item Reputational damage persists for 12+ months, not a short news-shock.
+\item Industries with higher trust-sensitivity (finance, healthcare, retail) show larger effects.
+\item Firms with pre-existing reputation strength recover faster (insurance-like effect of reputation capital).
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item Cyber risk management must internalise reputation, not just direct costs.
+\item Insurance markets have priced direct costs but may under-price reputational tails.
+\item Complements KKKMS by showing the \emph{granular} reputation channel --- product-market, labour-market, and review-platform evidence.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Review platforms have selection (who reviews, when).
+\item Reputation effect could partly reflect operational disruption, not pure reputation.
+\item Some breaches are resolved quietly; attention matters.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: customer reviews (\blank{1.5cm}), employee reviews (\blank{1.5cm}), \blank{1cm} scanner data.
+\item Review-sentiment effect: fall of \blank{1cm}--\blank{1cm} s.d.
+\item Product-sales effect: $-$\blank{1cm}\% over 6--12 months.
+\item Persistence: \blank{1cm}+ months.
+\item High-sensitivity industries: finance, \blank{1.5cm}, retail.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Explain how customer-review and employee-review data isolate the reputation channel.
+\item Why is the reputation channel distinct from direct financial costs?
+\item Relate ALLS to KKKMS (2021).
+\item Discuss implications for cyber-insurance pricing and firm risk management.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) DiD, (iii) channels (reviews, sales, employees), (iv) persistence, (v) risk-mgmt implications.
+
+\section*{Round 5: Blank Page}
+Essay: cyberattacks and corporate reputation --- evidence from review, sales, and labour-market data.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data sources. (2) Sentiment effect size. (3) Sales effect. (4) Persistence. (5) Reputation vs.\ financial channel.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} Customer/employee reviews + scanner data around breaches.
+\item \textbf{Sentiment.} Falls 0.1--0.3 s.d.
+\item \textbf{Sales.} Fall 1--3\% over 6--12 months.
+\item \textbf{Reputation.} Distinct from, larger than, direct-cost channel.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Akey, Lewellen, Liskovich \& Schiller (2026) use granular reputation data --- customer reviews (Yelp/Google/Trustpilot), employee reviews (Glassdoor), and retail-scanner sales --- around cyber-breach events to isolate the reputational channel. Post-breach, customer-review sentiment falls 0.1--0.3 s.d., negative-review frequency jumps, employee ratings decline, and product sales drop 1--3\% over 6--12 months. Effects persist more than a year and are largest in trust-sensitive industries (finance, healthcare, retail). Firms with pre-existing reputation strength recover faster --- reputation capital acts as insurance. The reputational loss exceeds the direct financial loss + stock CAR, implying reputation is a distinct, first-order risk channel. Paired with Kamiya-Kang-Kim-Milidonis-Stulz (2021), the message is that cyber risk is fundamentally reputational, and firm risk management plus cyber insurance should price this distinct tail.
+\end{keybox}
+
+\end{document}

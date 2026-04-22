@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W14-04: Carradori, von Meyerinck \& Sautner (2026, WP) \\
+\large ``Firm Responses to Climate Regulation'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using plant-level emissions data around EU-ETS and related climate-regulation shocks, CvMS show multinational firms respond to tightening regulation primarily by \emph{reallocating} emissions across facilities and jurisdictions --- shifting production to less-regulated plants and countries --- rather than by cutting aggregate emissions, so firm-level emission declines overstate real-environment improvements.
+
+\textbf{Placement.} Leakage/reallocation paper. Extends DGX (W14-02) from asset-market greenwashing to within-firm production reallocation, and pairs with LSTY (W14-01) on firm responses to climate risk.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting and data}
+Plant-level emissions (EU-ETS registry for EU plants; EPA and similar for non-EU) linked to multinational parent firms. Event windows around regulatory tightening: Phase III of EU-ETS (2013--), national carbon taxes, Paris-related policy shifts. Sample covers global multinationals with at least one EU and one non-EU plant.
+
+\subsection*{1.2 Empirical design}
+Plant-level DiD:
+\[
+\ln\text{Emissions}_{pt}=\alpha_p+\delta_t+\beta\cdot\text{PostRegulation}_{pt}+X_{pt}'\gamma+\varepsilon_{pt}.
+\]
+Treatment plants are those in newly-regulated jurisdictions; control plants are same-firm plants elsewhere. Triple-difference with firm FE isolates within-firm reallocation.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item EU plants of regulated firms cut emissions modestly after regulation tightens.
+\item Non-EU plants of the same firms \emph{increase} emissions.
+\item Aggregate firm-level emissions barely fall; much of the reduction is offset by shifts abroad.
+\item Reallocation is stronger for firms with more geographic flexibility and with homogeneous products across plants.
+\end{itemize}
+
+\subsection*{1.4 Mechanisms}
+\begin{itemize}
+\item Carbon-leakage: regulation raises marginal cost at home, incentivising shifts to less-regulated jurisdictions.
+\item Production flexibility within multinational networks.
+\item Reporting boundaries and Scope-1 metrics miss the reallocation.
+\end{itemize}
+
+\subsection*{1.5 Policy implications}
+\begin{itemize}
+\item Carbon-border-adjustment mechanisms (CBAM) targeted to reduce leakage.
+\item Firm-level emission metrics should account for reallocation; scope and supply-chain-wide disclosure matters.
+\item Coordination of climate policy across jurisdictions is critical.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Reallocation measured with reporting data; under-reporting abroad plausible.
+\item Sample is multinationals; domestic-only firms are not in the treatment.
+\item Identification assumes no contemporaneous shocks to non-EU plants coincident with EU-ETS tightening.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Regulatory shocks: EU-ETS Phase \blank{1cm}, national \blank{1.5cm} taxes.
+\item Treated plants: \blank{1cm}; control: \blank{1cm} plants of same firm.
+\item EU plant emissions: \blank{1cm}; non-EU plants: \blank{1cm}.
+\item Aggregate firm-level change: roughly \blank{1cm}.
+\item Primary mechanism: carbon \blank{1.5cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the plant-level DiD and explain the triple-difference with firm FE.
+\item Discuss how multinational production flexibility drives leakage.
+\item Relate CvMS to DGX (2024) and Hoberg-Moon (2017).
+\item Evaluate CBAM as a response to the findings.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) regulatory setting, (ii) DiD, (iii) EU vs non-EU results, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: do firms reduce emissions in response to climate regulation? Evidence from multinational reallocation.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Treatment definition. (2) EU plant effect. (3) Non-EU plant effect. (4) Aggregate effect. (5) CBAM rationale.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Setting.} EU-ETS Phase III + related shocks, plant-level panel.
+\item \textbf{EU plants.} Emissions fall.
+\item \textbf{Non-EU plants.} Emissions rise (leakage).
+\item \textbf{Firm aggregate.} Little net change.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Carradori, von Meyerinck \& Sautner (2026) provide within-firm evidence on how multinationals respond to climate regulation. Using plant-level emissions data linked to parent firms and exploiting EU-ETS Phase III and related policy tightenings, they show treated EU plants cut emissions modestly, but the same firms' non-EU plants simultaneously increase emissions, so aggregate firm-level emissions barely change. The reallocation is stronger for firms with more geographic flexibility and homogeneous products. The mechanism is classic carbon leakage: regulation raises the marginal cost of emitting at home, incentivising shifts abroad. The paper complements Duchin-Gao-Xu (2024) asset-market greenwashing and Hoberg-Moon (2017) real-operational hedging, and motivates CBAM and supply-chain-wide emission disclosure. Firm-level ESG metrics overstate real environmental improvements when within-firm reallocation is ignored.
+\end{keybox}
+
+\end{document}

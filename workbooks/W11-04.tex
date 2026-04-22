@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W11-04: Fernando, Sharfman \& Uysal (2017, JFQA) \\
+\large ``Corporate Environmental Policy and Shareholder Value: Following the Smart Money'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} FSU show that institutional investors overweight firms with \emph{intermediate} environmental performance: they avoid environmental ``laggards'' (due to risk) and also under-weight ``leaders'' (whose environmental investment may be inefficient), consistent with institutions pricing environmental risk without endorsing over-investment.
+
+\textbf{Placement.} Distinguishes \emph{risk management} from \emph{moral preference} in institutional ESG allocation; a key counter to simple ``institutions love green'' narratives. Pairs with Chava (W11-03) and Sharfman-Fernando (W11-01).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data and measures}
+KLD environmental strengths and concerns for 1992--2008. Institutional holdings from Thomson 13-F. Define three bins: laggards (concerns $>$ strengths), neutral, leaders (strengths $>$ concerns).
+
+\subsection*{1.2 Central test}
+Compare institutional ownership across the three bins, controlling for firm characteristics.
+\[
+\text{InstOwn}_{it}=\alpha+\beta_L\cdot\text{Laggard}_{it}+\beta_H\cdot\text{Leader}_{it}+X_{it}'\gamma+\varepsilon_{it}.
+\]
+Reference is the neutral bin.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item $\beta_L < 0$: laggards are significantly \emph{underweighted} by institutions.
+\item $\beta_H < 0$ (milder): leaders are also underweighted relative to neutral.
+\item Effect stronger for pensions and long-horizon institutions than hedge funds.
+\item ``Smart money'' reaction: institutions treat environmental risk as a cost but do not pay a premium for best-in-class green performance.
+\end{itemize}
+
+\subsection*{1.4 Interpretation}
+\begin{itemize}
+\item Risk-management motive: avoid environmental tail risk (laggards) $\Rightarrow$ lower holdings.
+\item Efficiency motive: over-investment in environmental projects may destroy value; institutions reduce exposure.
+\item Consistent with ``risk premium, not ethical premium'' reading of institutional ESG behaviour.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item KLD binning is coarse; measurement of ``leader'' vs.\ ``neutral'' may be noisy.
+\item Results may have shifted post-2010 as ESG investing grew.
+\item Endogeneity: firms target their environmental profile to institutional preferences.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: KLD strengths minus concerns, \blank{1cm}--\blank{1cm}.
+\item Holdings source: Thomson \blank{1cm}-F.
+\item Bins: laggards / neutral / \blank{1cm}.
+\item Laggard coefficient: \blank{1cm} (negative/positive).
+\item Leader coefficient: \blank{1cm} (sign).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Explain the non-monotonic pattern across environmental bins.
+\item Why is ``smart money'' consistent with risk management without moral endorsement?
+\item Write the empirical spec.
+\item Contrast FSU with Hong-Kacperczyk (2009) on sin-stock exclusion.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) binning, (iii) results, (iv) interpretation, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: what does institutional ESG behaviour reveal about corporate environmental policy?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data years. (2) Three environmental bins. (3) Laggard holdings sign. (4) Leader holdings sign. (5) Smart-money reading.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} KLD 1992--2008, 13-F holdings.
+\item \textbf{Bins.} Laggard / neutral / leader.
+\item \textbf{Result.} Both laggards and leaders are underweighted; neutral is preferred.
+\item \textbf{Interpretation.} Risk-management, not moral endorsement.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Fernando, Sharfman \& Uysal (2017) challenge the simple ``institutions love green'' narrative. Using KLD environmental data 1992--2008 and Thomson 13-F institutional holdings, they classify firms as laggards, neutral, or leaders based on environmental strengths minus concerns. Institutional ownership is highest for \emph{neutral} firms: laggards are underweighted because of environmental tail-risk, and leaders are also underweighted (more mildly), likely reflecting concerns that aggressive environmental investment may be inefficient or destroy shareholder value. The pattern is strongest for long-horizon institutions (pensions). The paper reframes institutional ESG behaviour as risk management rather than moral endorsement --- institutions avoid environmental costs without necessarily paying a premium for best-in-class green performance.
+\end{keybox}
+
+\end{document}

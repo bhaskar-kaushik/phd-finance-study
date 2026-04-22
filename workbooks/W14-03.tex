@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W14-03: Keys \& Mulder (2025, WP) \\
+\large ``Neglected No More: Housing Markets, Mortgage Lending, and Sea Level Rise'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using 2011--2023 US housing transactions and mortgage data, KM show that the SLR discount in coastal home prices has \emph{grown} to $\sim$5--10\%, mortgage originations in SLR-exposed areas have slowed, and local banks charge higher rates --- so housing and mortgage markets are now adjusting to SLR risk, reversing Murfin-Spiegel's (2020) null.
+
+\textbf{Placement.} Dynamic update to the BGL vs.\ MS debate. Documents that climate-risk pricing evolves as information and attention improve; a crucial paper for the ``is climate risk priced?'' literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data and design}
+Housing transactions 2011--2023, extended past the MS sample. Mortgage data from HMDA (originations, loan terms). NOAA SLR inundation classifiers at property level. Hedonic within-ZIP-quarter specifications plus difference-in-differences using information shocks (major climate reports, FEMA updates).
+
+\subsection*{1.2 Headline pricing results}
+\begin{itemize}
+\item Full-sample SLR discount: $\sim$5--10\% (larger than BGL 2019 on later data).
+\item Time trend: discount grows 2011--2023, not flat.
+\item Still heterogeneous: high-belief coastal counties discount more (consistent with BBGL 2022).
+\end{itemize}
+
+\subsection*{1.3 Mortgage-market results}
+\begin{itemize}
+\item Origination volume in SLR-exposed areas grows more slowly than control areas.
+\item Loan rates modestly higher.
+\item Non-local lenders exit; local lenders remain but with more conservative underwriting.
+\end{itemize}
+
+\subsection*{1.4 Mechanism}
+\begin{itemize}
+\item Improved information (climate reports, news coverage, FEMA flood-map updates) shifts buyer and lender beliefs.
+\item Mortgage market is slower to adjust than housing but now exhibits clear pricing.
+\item Insurance markets are a parallel pressure point; NFIP premium increases feed through.
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item Reconciles BGL 2019, MS 2020, BBGL 2022, and newer data: discount is real and growing.
+\item Climate-risk pricing is dynamic; early-period null does not imply permanent null.
+\item Financial-stability implications: coastal-heavy banks face rising mortgage and property-collateral risk.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Estimation uses NOAA SLR mapping; alternative physical projections may give different exposures.
+\item Insurance-market effects are partly co-determined with housing, so mortgage effects may reflect insurance pass-through.
+\item Sample includes COVID-era housing boom, which could amplify measured changes.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample period: \blank{1cm}--\blank{1cm}.
+\item SLR discount: $\sim$\blank{1cm}--\blank{1cm}\%.
+\item Trend: \blank{1cm} (flat/growing).
+\item Mortgage origination in exposed areas: \blank{1cm} (faster/slower) growth.
+\item Reconciles with: Murfin--\blank{1cm} (2020).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the hedonic spec and discuss why 2011--2023 data yield different estimates than 2007--2016.
+\item Explain the mortgage-market evidence as evidence on lender beliefs.
+\item Discuss financial-stability implications of rising coastal-mortgage risk.
+\item How does KM reconcile with BGL, MS, and BBGL?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) pricing results, (iii) mortgage results, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: SLR risk is being priced --- what the housing and mortgage markets now show.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Sample years. (2) Discount magnitude. (3) Mortgage origination direction. (4) Belief-information mechanism. (5) Reconciles which prior paper?
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sample.} 2011--2023 housing + HMDA.
+\item \textbf{Discount.} $\sim$5--10\%, growing.
+\item \textbf{Mortgages.} Slower origination in exposed areas.
+\item \textbf{Reconciles.} Murfin--Spiegel 2020's null.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Keys \& Mulder (2025) update the climate-and-housing debate with 2011--2023 transaction and HMDA mortgage data. They find a sea-level-rise discount of $\sim$5--10\% in coastal home prices that has \emph{grown} over time, mortgage origination volume growing more slowly in SLR-exposed areas, higher loan rates, and a shift from non-local to local lenders who underwrite more conservatively. The discount is larger in high-climate-belief counties (Bernstein-Billings-Gustafson-Lewis 2022). The paper reconciles the BGL-MS debate: MS's 2020 null reflected an early sample when information was limited and subsidence dominated; as information has improved and beliefs have shifted, SLR risk is now visibly priced in both housing and mortgage markets. Financial-stability implication: coastal-heavy banks face rising mortgage and collateral risk as climate-risk pricing matures.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W09-03: Brown, Crabb \& Haushalter (2006, JB) \\
+\large ``Are Firms Successful at Selective Hedging?'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Gold-mining firms that adjust their hedge ratios based on price views (``selective hedging'') fail to add measurable value: their realised P\&L on speculative tilts is statistically indistinguishable from zero, but these tilts do add variability to cash flows --- so selective hedging is closer to rule-of-thumb than market-timing skill.
+
+\textbf{Placement.} The empirical referee's note on selective hedging and ``taking a view'' --- a critical complement to Géczy--Minton--Schrand (2007, W09-04) on speculation and governance and to the broader hedging-value literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+North American gold-mining firms 1994--1999. Sample of 44 firms. Each firm reports quarterly hedge positions on forward gold sales; hedge ratios vary over time and across firms. Gold prices are observable, so firm positions can be benchmarked.
+
+\subsection*{1.2 Measuring selective hedging}
+Define the firm's ``neutral'' or benchmark hedge ratio (e.g., 12-month industry average, or the firm's own mean). Deviations from the benchmark = selective hedging. Compute the \emph{P\&L of those deviations} using realised gold prices.
+
+\subsection*{1.3 Test}
+For each firm-quarter, compute $\Delta H_{it}=H_{it}-\bar H_i$ and the realised gold return. The selective P\&L is $\Delta H_{it}\cdot(-\Delta p_{g,t+1})$. Average across firms and time; test $H_0$: expected P\&L $= 0$.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Mean selective-P\&L is economically trivial and statistically insignificant.
+\item Cross-sectional distribution of selective skill: no firm earns significant alpha.
+\item Dispersion rises with selective activity: the variance of cash flow goes up, but mean return does not.
+\item Consistent with the argument that managers think they can time markets but cannot.
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item Undermines any ``add value by taking a view'' rationale for corporate hedging.
+\item Reinforces the Modigliani--Miller intuition: firms should hedge to reduce deadweight costs of financial distress, not to speculate.
+\item Combines naturally with Géczy--Minton--Schrand (2007) --- speculation is pervasive, disciplined by governance, but does not add value.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Small sample (44 firms, single commodity); low statistical power.
+\item Benchmark hedge ratio is itself estimated; noise in benchmark translates into noise in selective P\&L.
+\item Selective hedging may provide option-value (flexibility) not captured by point-in-time P\&L.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Industry: \blank{1cm}-mining firms, 1994--1999.
+\item Selective hedge measure: deviation from firm's \blank{2cm} hedge ratio.
+\item Mean selective P\&L: approximately \blank{1cm}.
+\item Cash-flow variability with selective hedging: \blank{1cm}.
+\item Related speculation paper: Géczy--Minton--Schrand (\blank{1cm}).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define the selective-hedging P\&L and state the null.
+\item Why does finding zero mean P\&L but higher variance undermine selective hedging?
+\item Discuss the implications for setting hedging policy at the board level.
+\item Compare BCH to the analogous question in equity (do managers time their stock?).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sample, (ii) P\&L calculation, (iii) headline null, (iv) variance result, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: should firms ``take a view''? The empirical case against selective hedging.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Industry and years. (2) Benchmark hedge ratio. (3) Mean P\&L finding. (4) Variance finding. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sample.} 44 North American gold miners 1994--1999.
+\item \textbf{Measure.} Selective hedge $=$ deviation from benchmark.
+\item \textbf{Mean P\&L.} Zero, not statistically distinguishable from noise.
+\item \textbf{Variance.} Higher with more selective activity.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Brown, Crabb \& Haushalter (2006) ask whether firms that ``take a view'' by tilting hedges away from a neutral benchmark actually make money. Using 44 North American gold-mining firms 1994--1999, they construct each firm's benchmark hedge ratio (firm or industry mean) and compute the realised P\&L on deviations from that benchmark. The mean P\&L is economically trivial and statistically indistinguishable from zero. However, selective activity raises cash-flow variability. In other words, firms engaging in selective hedging take on more risk without adding return --- closer to rule-of-thumb behaviour than market-timing skill. The paper disciplines the ``we can add value by speculating'' story, reinforcing the Modigliani--Miller intuition that hedging should reduce deadweight costs of financial distress, not attempt to time markets.
+\end{keybox}
+
+\end{document}

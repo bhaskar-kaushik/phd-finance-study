@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W10-04: Fahlenbrach, Rageth \& Stulz (2021, RFS) \\
+\large ``How Valuable is Financial Flexibility When Revenue Stops? Evidence from the COVID-19 Crisis'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} In the March--April 2020 COVID revenue shock, firms with greater ex-ante \emph{financial flexibility} (high cash-to-assets, low leverage, high credit-line availability) outperformed by $\sim$6--10 pp in cumulative stock returns --- revealing the \emph{option value} of liquidity in a genuine revenue-stop scenario.
+
+\textbf{Placement.} The cleanest evidence on the stock-market pricing of financial flexibility. Complements BKS (W10-03) on precautionary cash and KRS (W01-01) on credit-line liquidity insurance.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+Mid-February through April 2020: broad market collapse as the COVID-19 pandemic triggered shelter-in-place orders. Revenue for many sectors \emph{stopped}. Financial-flexibility measures ex-ante (end of 2019): cash/assets, leverage, undrawn credit-line capacity.
+
+\subsection*{1.2 Data}
+US firm returns from CRSP. Financial-flexibility covariates from Compustat and Capital IQ. Sample: non-financial, non-utility US firms.
+
+\subsection*{1.3 Empirical spec}
+Cross-sectional regression of cumulative stock returns during the COVID crash on ex-ante flexibility measures plus controls:
+\[
+R_{i,\text{COVID}}=\alpha+\beta_1\cdot\text{Cash/Assets}_i+\beta_2\cdot\text{Leverage}_i+\beta_3\cdot\text{CreditLineCap}_i+X_i'\gamma+\varepsilon_i.
+\]
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item High-cash firms outperformed low-cash peers by $\sim$7 pp cumulative returns during the initial crash.
+\item Low-leverage firms outperformed by $\sim$5--10 pp.
+\item Undrawn credit-line capacity partially substitutes for cash but is weaker.
+\item Effects concentrated in sectors hardest hit by revenue stops (travel, hospitality, retail).
+\item The effect is robust to industry, size, and prior-year performance controls.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Financial flexibility has a large ex-post \emph{option} value that is under-priced in normal times.
+\item FSS (1993) / precautionary-savings theory: cash and unused debt capacity let firms maintain operations and investment when external finance is unavailable.
+\item BKS (2009): the upward trend in cash hoarding is rational precaution, as COVID shows.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Single-event; generalisation requires care.
+\item Reverse causality: firms anticipating trouble may have built up cash.
+\item Ex-ante flexibility correlates with other firm traits (size, industry) --- controls important.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Shock window: \blank{1cm} through \blank{1cm} 2020.
+\item Main flexibility measures: \blank{1cm}/assets, \blank{1cm}, credit-line capacity.
+\item High-cash vs.\ low-cash return differential: $\sim$\blank{1cm} pp.
+\item Sectors most affected: \blank{1.5cm}, hospitality, retail.
+\item Theoretical anchor: \blank{1cm} precautionary savings.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Explain why financial flexibility is an ``option'' on continuing operations.
+\item Write the cross-sectional regression and state the identifying concern.
+\item Discuss whether COVID generalises to other revenue-stop shocks.
+\item Connect FRS to BKS (2009) and KRS (2002).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) flexibility measures, (iii) regression, (iv) magnitudes, (v) interpretation.
+
+\section*{Round 5: Blank Page}
+Essay: what COVID teaches us about corporate financial flexibility.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Shock window. (2) Three flexibility measures. (3) Cash vs.\ no-cash differential. (4) Most-affected sectors. (5) Theoretical anchor paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} COVID-19 revenue stop, Feb--Apr 2020.
+\item \textbf{Measures.} Cash, leverage, credit-line capacity.
+\item \textbf{Effect.} High-flexibility firms outperform by $\sim$6--10 pp.
+\item \textbf{Theory.} Option value of liquidity; FSS precautionary savings.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Fahlenbrach, Rageth \& Stulz (2021) study the COVID-19 revenue shock as a natural experiment on the value of financial flexibility. In February--April 2020, when many US firms saw revenue collapse, those entering the shock with more ex-ante financial flexibility --- high cash-to-assets, low leverage, and available credit-line capacity --- dramatically outperformed peers in stock returns by roughly 6--10 percentage points cumulative. The return premium is largest in sectors with the sharpest revenue stops (travel, hospitality, retail). Read with Bates--Kahle--Stulz (2009), which documented the secular rise in corporate cash as a precautionary response to rising idiosyncratic risk, the COVID episode shows the option value is real. Flexibility is under-priced in normal times and acutely valuable in tail-risk states, validating the Froot--Scharfstein--Stein precautionary-savings logic of corporate liquidity.
+\end{keybox}
+
+\end{document}

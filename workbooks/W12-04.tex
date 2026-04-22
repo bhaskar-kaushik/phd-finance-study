@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W12-04: Bernstein, Billings, Gustafson \& Lewis (2022, JFE) \\
+\large ``Nature or Nurture? The Source of Climate Risk Beliefs'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} The SLR discount in coastal home prices (BGL 2019) tracks buyers' \emph{beliefs} --- specifically the interaction of political identity (Democratic vs.\ Republican share), local personal experience with climate, and news/social-media exposure --- not just physical exposure: beliefs \emph{cause} the discount, not objective risk alone.
+
+\textbf{Placement.} Follow-up to BGL (2019, W12-03) that sharpens the \emph{mechanism}: beliefs, not physics, drive the pricing. Key companion to Krueger-Sautner-Starks (W13-03) on institutional-investor climate beliefs.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setup}
+BGL (2019) showed SLR-exposed coastal homes trade at $\sim$7\% discount. This paper decomposes the discount by buyer and area characteristics plausibly correlated with \emph{beliefs about climate risk}.
+
+\subsection*{1.2 Belief proxies}
+\begin{itemize}
+\item Local Democrat vs.\ Republican vote share (county-level, orthogonal to SLR exposure).
+\item Google Trends indices for climate-change searches.
+\item Local news coverage intensity of climate change.
+\item Personal experience: recent coastal flooding events, hurricanes.
+\end{itemize}
+
+\subsection*{1.3 Triple-difference spec}
+Extends the BGL hedonic spec:
+\[
+\ln P_i = \alpha_{z,t} + \beta_1\cdot\text{SLR}_i + \beta_2\cdot\text{SLR}_i\cdot\text{Belief}_z + X_i'\gamma + \varepsilon_i.
+\]
+$\beta_2>0$ (more negative discount in high-belief areas).
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item SLR discount is close to zero in low-climate-belief counties.
+\item SLR discount reaches $\sim$12--14\% in high-climate-belief counties.
+\item Personal experience with flooding amplifies the discount.
+\item News coverage intensifies the discount with a lag.
+\item Political-identity heterogeneity is first-order.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Observed SLR discount is a \emph{belief-weighted} response, not solely an objective-risk response.
+\item Prices aggregate heterogeneous climate beliefs.
+\item Policy implication: information/education interventions could shift prices and allocation.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Beliefs proxies are imperfect; political identity correlates with other variables.
+\item Selection: climate-concerned buyers may sort into climate-concerned areas.
+\item Short horizon; beliefs evolve, so the cross-section may change.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Prior finding (BGL 2019): $\sim$\blank{1cm}\% discount on SLR-exposed coastal homes.
+\item Belief proxy 1: \blank{2cm} vote share.
+\item Belief proxy 2: \blank{2cm} Trends climate queries.
+\item High-belief areas: discount $\sim$\blank{1cm}--\blank{1cm}\%.
+\item Low-belief areas: discount $\sim$\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the triple-difference spec and state identifying concerns.
+\item Why is political identity a credible belief proxy?
+\item Discuss the welfare implications of belief-driven mispricing.
+\item Contrast with pure-efficient-markets pricing of climate risk.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) prior result, (ii) belief proxies, (iii) spec, (iv) magnitude across belief, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: does climate-risk pricing reflect beliefs or physical exposure? BBGL's answer.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) BGL 2019 baseline discount. (2) Political proxy. (3) High-belief discount. (4) Low-belief discount. (5) Implication for pricing efficiency.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Baseline.} BGL 2019: $\sim$7\% SLR discount.
+\item \textbf{Heterogeneity.} Belief-driven.
+\item \textbf{High belief.} $\sim$12--14\% discount.
+\item \textbf{Low belief.} Near zero.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bernstein, Billings, Gustafson \& Lewis (2022) sharpen the BGL (2019) SLR-pricing finding by showing that \emph{beliefs} drive the discount. Using county-level Democrat/Republican vote share, Google Trends climate queries, local news coverage, and personal flood experience as belief proxies, they estimate a triple-difference hedonic spec that interacts SLR exposure with belief intensity. The SLR discount is essentially zero in low-climate-belief counties and rises to $\sim$12--14\% in high-belief counties. Prices are therefore belief-weighted rather than objective-risk-weighted. Policy implication: information interventions that shift beliefs could reprice housing stock and redirect real-estate allocation. The paper is also the bridge to the Krueger-Sautner-Starks (2020) finding that institutional investors' climate beliefs drive their risk-management motives in portfolio construction.
+\end{keybox}
+
+\end{document}

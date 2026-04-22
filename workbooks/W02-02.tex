@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W02-02: Jim\'enez, Ongena, Peydr\'o, Saurina (2012, AER) \\
+\large ``Credit Supply and Monetary Policy: Identifying the Bank Balance-Sheet Channel with Loan Applications'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using the universe of Spanish loan \emph{applications} 2002--2008 and exploiting firms that apply to multiple banks in the same quarter, JOPS hold borrower credit demand fixed and show that tighter overnight rates reduce loan \emph{supply} especially at low-capital, low-liquidity banks --- a clean identification of the bank balance-sheet channel that Kashyap--Stein could only suggest.
+
+\textbf{Placement.} The Khwaja--Mian (2008) within-firm methodology applied to monetary policy. Direct sequel to KS (W02-01) and a model for later credit-supply papers.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+Spanish credit register with \emph{all loan applications} by non-financial firms 2002--2008: firm ID, bank ID, date, loan amount, rate, grant/reject decision. Matched to bank balance sheets and to firm characteristics.
+
+\subsection*{1.2 Identification: within-firm-quarter}
+A firm $f$ that applies to multiple banks in the same quarter $t$ has one common credit demand. So estimating the probability of loan grant as
+\[
+\Pr(\text{grant}_{fbt}=1) = \alpha_{ft} + \beta\cdot \mathrm{MP}_t\cdot Z_b + \gamma X_{bt} + \varepsilon_{fbt},
+\]
+with firm-quarter fixed effects $\alpha_{ft}$, absorbs all demand variation. $Z_b$ are bank characteristics (capital, liquidity). $\beta$ identifies how the bank-specific response to monetary policy depends on $Z_b$ --- pure \emph{supply}.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item When overnight rates rise, banks with lower capital and/or lower liquidity are \emph{significantly less} likely to grant loans to any given firm (within firm-quarter).
+\item When GDP growth weakens, the same low-capital/liquidity banks tighten more --- business-cycle channel reinforces the policy channel.
+\item The balance-sheet channel is economically meaningful: a 1 pp rise in the Spanish overnight rate lowers the probability of grant by $\sim$0.8--1 pp more at weak banks.
+\end{itemize}
+
+\subsection*{1.4 Why this is the clean test}
+\begin{keybox}
+Firm-time FE absorb every firm-level demand shock, seasonal effect, borrower-risk change, or macro news. What remains varies \emph{only} across banks within a firm at a point in time. Hence $\beta$ is a pure bank-side (supply) response. This is the single most important identification step in the modern credit-supply literature.
+\end{keybox}
+
+\subsection*{1.5 Extensive-margin vs.\ intensive-margin}
+JOPS also study (i) loan amounts conditional on grant and (ii) interest rates charged, with the same within-firm design. The extensive-margin (grant/reject) result is the strongest; intensive-margin effects are present but smaller.
+
+\subsection*{1.6 Econometric caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Firms that apply to \emph{one} bank drop out of the within-firm estimator --- selection on multi-homing.
+\item Nonlinear probit/logit within-fixed-effects has incidental parameters issues; JOPS use linear probability for identification and check with conditional logit.
+\item External validity: Spanish banking 2002--2008 includes the Euro-boom period and the onset of the euro-crisis. Generalisation to other regimes needs care.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: Spanish loan \blank{2cm} 2002--2008 plus bank and firm characteristics.
+\item Within-firm-quarter FE absorbs \blank{2cm} variation.
+\item Bank characteristics interacted with MP: \blank{2cm} and \blank{2cm}.
+\item Key coefficient: $\beta$ in $\Pr(\text{grant})=\alpha_{ft}+\beta\cdot\mathrm{MP}_t\cdot Z_b+\dots$.
+\item A 1 pp rise in overnight rate cuts grant probability by $\sim$\blank{1cm} pp more at weak banks.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the full within-firm-quarter specification and state what each fixed effect absorbs.
+\item Why does KS (2000) only \emph{suggest} the balance-sheet channel while JOPS \emph{identify} it?
+\item Discuss the Khwaja--Mian (2008) analogy: same trick, different shock.
+\item Extensive-margin vs.\ intensive-margin: which is more informative for the bank-capital channel and why?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) within-firm-quarter design, (iii) spec, (iv) headline magnitude, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: how within-firm-quarter FE revolutionised credit-supply identification.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) The unit of observation. (2) The key fixed effect. (3) Two bank characteristics used. (4) Why multi-homing firms matter. (5) One external-validity concern.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Design.} Firm-quarter FE absorbs demand; identification comes from cross-bank differences in response to MP within the same borrower.
+\item \textbf{Bank characteristics.} Capital ratio, liquidity ratio, (size as secondary).
+\item \textbf{Magnitude.} $\sim$0.8--1 pp extra reduction in grant probability per 1 pp overnight-rate rise at weak banks.
+\item \textbf{Intellectual lineage.} Khwaja--Mian (2008, AER) $\to$ JOPS (2012, AER) $\to$ subsequent credit-supply literature.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} JOPS (2012) turn the bank lending channel into a clean causal statement. Using the Spanish credit register's universe of loan applications 2002--2008 and firms that apply to multiple banks in the same quarter, they absorb all demand variation with firm-quarter fixed effects and identify the supply-side response to monetary policy from cross-bank differences within the same borrower. Result: when overnight rates rise, low-capital/low-liquidity banks grant significantly fewer loans even to the \emph{same} firm. The effect is $\sim$1 pp per 1 pp rate move, economically material. The design is the textbook within-borrower strategy imported from Khwaja--Mian (2008) and has become the standard identification in credit-supply work.
+\end{keybox}
+
+\end{document}

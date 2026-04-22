@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W01-02: Gatev \& Strahan (2006, JF) \\
+\large ``Banks' Advantage in Hedging Liquidity Risk'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Empirical confirmation of KRS: when commercial-paper (CP) spreads widen, \emph{corporate firms draw their bank credit lines and simultaneously deposits flow into banks}, giving banks a natural hedge. The deposit-to-commitment correlation is \emph{negative} in market-stress states --- exactly the negative-$\rho$ condition KRS need.
+
+\textbf{Placement.} Empirical companion to W01-01 (KRS). Motivates later crisis-era work (Ivashina--Scharfstein W04-04, Drechsler--Savov--Schnabl W02-03).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research design}
+\begin{itemize}
+\item Sample: US bank holding companies, 1990--2002.
+\item Key stress variable: \emph{CP spread} $=$ (commercial-paper rate $-$ T-bill rate). A widening CP spread signals that firms are losing access to CP markets.
+\item Outcome variables at the bank level: (a) total deposits, (b) unused commitments drawn, (c) liquid-asset holdings.
+\item Design is essentially a panel of bank-week or bank-quarter observations with time-series variation in the stress indicator.
+\end{itemize}
+
+\subsection*{1.2 Testable predictions from KRS}
+\begin{enumerate}
+\item When CP spreads widen (firms locked out of CP market), \emph{commitment drawdowns} rise.
+\item At the same time \emph{deposit inflows} rise (flight to quality).
+\item The two movements offset, so bank \emph{liquid assets} are relatively stable even in stress.
+\item Banks with transaction-deposit-heavy bases receive the largest deposit inflows.
+\end{enumerate}
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Strong, statistically significant negative correlation between deposit growth and drawdowns of credit lines in high-CP-spread weeks.
+\item During the 1998 Russia/LTCM crisis: CP spreads spiked; firms tapped credit lines; deposits surged into banks, especially large banks with retail branch networks.
+\item Transaction deposits explain the hedging: banks with high \emph{demand-deposit} shares show the strongest inflows under stress.
+\item Liquid-asset buffers at banks remain stable --- consistent with internal offsetting.
+\end{itemize}
+
+\subsection*{1.4 Specification}
+Panel regression of the form
+\[
+y_{bt} = \alpha_b + \delta_t + \beta\cdot \text{CP\_spread}_t + \gamma\cdot (\text{CP\_spread}_t\times \text{DepositMix}_b) + \varepsilon_{bt},
+\]
+with $y_{bt}$ alternately deposits, drawn commitments, or liquid assets. The interaction term identifies which banks capture the flight-to-quality deposits.
+
+\subsection*{1.5 Identification \& econometric concerns}
+\begin{alertbox}
+\begin{itemize}
+\item CP spread could reflect \emph{demand} shocks (firms doing worse) or \emph{supply} shocks (investors pulling out). GS argue either interpretation works for the deposit-hedge story.
+\item Deposit growth at large banks could be driven by branching, M\&A, or other time trends --- hence bank fixed effects ($\alpha_b$) and time fixed effects ($\delta_t$).
+\item External validity: 1990--2002 is pre-GFC. The Ivashina--Scharfstein (2010) and Acharya--Mora (2015) papers reassess this mechanism during 2008, with qualified support.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Stress indicator: \blank{2cm} spread $=$ CP rate $-$ \blank{1cm} rate.
+\item In stress, firms draw \blank{2cm} and deposits flow \blank{1cm} banks.
+\item Banks with more \blank{2cm} deposits see the largest inflows.
+\item Bank \blank{2cm} assets remain stable even in high-stress weeks.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write GS's headline panel specification and explain every fixed effect.
+\item Why does flight-to-quality generate negative $\rho$ between $\tilde W$ (deposit outflows) and $\tilde D$ (commitment drawdowns)?
+\item How would you reproduce GS using 2008--09 crisis data? Which results strengthen, which weaken?
+\item What role does deposit insurance play in this mechanism?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sample and stress variable, (ii) four KRS predictions being tested, (iii) what is found, (iv) spec, (v) two external-validity concerns.
+
+\section*{Round 5: Blank Page}
+Why is GS the natural empirical follow-up to KRS? Write an essay linking the two.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Definition of CP spread. (2) Why deposits flow \emph{in} when firms draw lines. (3) Which bank type benefits most. (4) One sentence on the 1998 LTCM episode. (5) Why liquid assets stay stable.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{CP spread.} Commercial paper rate minus T-bill rate; rises when investors leave the CP market.
+\item \textbf{Flight-to-quality.} Investors pulling out of CP deposit with banks for safety; simultaneously firms that relied on CP draw their bank credit lines.
+\item \textbf{Negative $\rho$.} Deposit inflow is positive \emph{exactly} when drawdowns are positive, giving internal offsetting $\Rightarrow$ $\rho<0$ in bad states.
+\item \textbf{Cross-section.} Large, transaction-deposit banks are the ``liquidity providers of last resort'' for the non-bank corporate sector.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Gatev--Strahan (2006) is the empirical proof of KRS. Using weekly bank-level data 1990--2002 and the commercial-paper spread as the stress variable, they show that when firms lose access to CP markets they draw their bank credit lines --- and at the same moment deposits flow \emph{into} banks, especially large banks with transaction-deposit bases. The two flows offset, so bank liquid assets stay stable. Economically, $\rho(\tilde W,\tilde D)<0$ in stress states. The paper explains why the modern US banking system is dominated by large, diversified, transaction-deposit-funded institutions: they are the natural liquidity insurer for the rest of the economy. Caveats: pre-GFC sample; later work (Ivashina--Scharfstein 2010, Acharya--Mora 2015) shows the hedge partially breaks down when the shock hits the banking system itself.
+\end{keybox}
+
+\end{document}

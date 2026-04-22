@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W13-04: Dyck, Lins, Roth \& Wagner (2019, JFE) \\
+\large ``Do Institutional Investors Drive Corporate Social Responsibility? International Evidence'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} In a global panel of 41 countries, firms with higher institutional ownership --- especially \emph{foreign} institutional ownership from countries with stronger CSR norms --- have significantly higher environmental and social (E\&S) performance scores, even controlling for firm and country characteristics, consistent with institutions \emph{causing} CSR rather than \emph{selecting} high-CSR firms.
+
+\textbf{Placement.} The cross-country empirical counterpart to KSS (W13-03) survey. Canonical evidence that institutions push portfolio companies toward CSR/ESG; pairs with LST (W12-01) on CSR value during crises.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+Thomson Reuters ASSET4 environmental and social scores for firms in 41 countries, $\sim$40{,}000 firm-years 2004--2013. Institutional ownership from FactSet; split into domestic vs.\ foreign, and by origin-country CSR norms.
+
+\subsection*{1.2 Central test}
+\[
+\text{ES}_{it}=\alpha_i+\delta_{c,t}+\beta_1\cdot\text{ForIO}_{it}+\beta_2\cdot\text{DomIO}_{it}+X_{it}'\gamma+\varepsilon_{it},
+\]
+with firm FE and country-year FE to absorb country-level shocks. Foreign ownership weighted by origin-country CSR norm.
+
+\subsection*{1.3 Identification}
+\begin{itemize}
+\item Firm FE control for time-invariant firm traits.
+\item Country-year FE absorb local shocks.
+\item Instrument: MSCI index inclusion for exogenous variation in foreign ownership (robustness).
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Foreign institutional ownership positively predicts E\&S scores; coefficient is economically large.
+\item Domestic institutional ownership has weaker or no effect.
+\item Effect is stronger when the foreign owners come from high-CSR-norm countries (e.g., Nordic).
+\item IV using index inclusion supports a causal interpretation: passive foreign ownership increases still raise E\&S.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Foreign investors export their home-country CSR norms through engagement, voting, and informal pressure.
+\item Firms adapt to attract and retain foreign capital.
+\item Consistent with ``norms travel with capital'' view.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item ES scores have measurement issues; cross-country comparability is imperfect.
+\item Foreign ownership may correlate with other governance features.
+\item The IV is imperfect; some index decisions are endogenous.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: \blank{1cm}-country panel, $\sim$\blank{1cm} firm-years, 2004--2013.
+\item Key split: foreign vs.\ \blank{1cm} institutional ownership.
+\item E\&S score source: Thomson Reuters \blank{1.5cm}.
+\item Foreign effect on E\&S: \blank{1cm} (sign).
+\item Instrument: MSCI \blank{1.5cm} inclusion.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the DLRW spec and state the identification strategy.
+\item Explain the ``norms travel with capital'' story.
+\item Why is the MSCI-inclusion instrument useful?
+\item How does DLRW complement KSS (2020)?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) spec, (iii) identification, (iv) results, (v) mechanism.
+
+\section*{Round 5: Blank Page}
+Essay: institutional investors as agents of corporate CSR --- global evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Countries in sample. (2) Foreign vs.\ domestic finding. (3) IV source. (4) Mechanism statement. (5) Companion survey paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Panel.} 41 countries, 2004--13, ASSET4 E\&S.
+\item \textbf{Foreign IO.} Positive, large coefficient.
+\item \textbf{Domestic IO.} Weaker / null.
+\item \textbf{Instrument.} MSCI inclusion.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Dyck, Lins, Roth \& Wagner (2019) provide the cross-country empirical case that institutional investors \emph{drive} corporate social responsibility. Using ASSET4 environmental-and-social scores for firms in 41 countries, 2004--2013, and decomposing institutional ownership into foreign vs.\ domestic and by origin-country CSR norms, they find that foreign institutional ownership positively predicts ES scores, particularly when owners come from high-CSR-norm countries (e.g., Nordics). Domestic ownership has weaker or no effect. An MSCI-index-inclusion IV supports a causal reading. Mechanism: foreign investors export home-country CSR norms through engagement and voting, and firms adapt to attract and retain foreign capital. The paper is the canonical cross-country complement to Krueger-Sautner-Starks (2020): institutions care about climate and ESG (survey), and their ownership correlates with measurable improvements in firm ES performance (panel).
+\end{keybox}
+
+\end{document}

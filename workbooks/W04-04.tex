@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W04-04: Ivashina \& Scharfstein (2010, JFE) \\
+\large ``Bank Lending During the Financial Crisis of 2008'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using Dealscan syndicated-lending data, IS document that new loan origination collapsed by $\sim 47\%$ in the peak of the 2008 crisis (Q4 2008 vs.\ Q2 2007), and that \emph{banks with more exposure to Lehman co-syndications} and \emph{less stable deposit funding} cut lending the most --- pinning the collapse on bank balance-sheet stress rather than solely on borrower demand.
+
+\textbf{Placement.} The textbook ``lending during the 2008 crisis'' paper. Complements Gorton--Metrick (W04-01) on the wholesale-funding shock and Mian--Sufi (W04-03) on household credit. Central reference for bank-supply effects in the Great Recession.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Context}
+The 2008 crisis culminated with Lehman's bankruptcy (15 Sept 2008) and a broad collapse in wholesale funding: ABCP, repo, and interbank markets froze. Bank balance sheets were strained by falling asset values and rising liquidity demand from drawn credit lines.
+
+\subsection*{1.2 Data}
+Dealscan loan-level syndicated-lending data: deal origination, participants, lead bank, size, purpose. Quarterly aggregates Q3 2007--Q4 2008.
+
+\subsection*{1.3 Aggregate facts}
+\begin{itemize}
+\item New loan volume falls steadily through 2008 and \emph{collapses} 47\% in Q4 2008 vs.\ the Q2 2007 peak.
+\item Investment-grade and non-investment-grade lending both fall, though the composition tilts more conservatively.
+\item Existing \emph{drawn} credit lines spike (firms drawing down as liquidity insurance).
+\end{itemize}
+
+\subsection*{1.4 Cross-sectional identification}
+Two main tests:
+\begin{enumerate}
+\item \textbf{Lehman-co-syndication exposure.} Banks that had co-syndicated more with Lehman were arguably more affected by Lehman's collapse. These banks cut new origination significantly more after September 2008.
+\item \textbf{Deposit vs.\ wholesale funding mix.} Banks with more stable deposit funding cut lending less; banks reliant on wholesale funding cut more. (An early test of the deposits-channel intuition later formalised by DSS.)
+\end{enumerate}
+
+\subsection*{1.5 Drawn-line channel}
+Firms with existing credit lines drew them down during the crisis to hoard liquidity. This raised \emph{actual} bank lending even as origination collapsed --- a distinct margin that IS emphasise.
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Syndicated lending is only a slice of total bank credit; SME lending is not directly observed.
+\item Selection: only firms that successfully close a deal appear; unmet demand is unobserved.
+\item Demand shifts during the crisis (firms cutting investment) could account for part of the volume decline. IS handle this by focusing on cross-bank variation.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data source: \blank{2cm} syndicated-loan data.
+\item Volume collapse: $\sim$\blank{1cm}\% Q4 2008 vs.\ Q2 2007.
+\item Cross-bank treatment 1: \blank{2cm} co-syndication exposure.
+\item Cross-bank treatment 2: reliance on \blank{2cm} funding (vs.\ deposits).
+\item Drawn-line effect: \emph{actual} lending can \blank{1cm} as origination falls.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Why does comparing Lehman-exposed to non-Lehman-exposed banks help identify a supply channel?
+\item Why do firms rush to draw credit lines during a crisis? What does this reveal about bank balance-sheet dynamics?
+\item How does IS relate to KRS (2002) on the synergy of deposits and credit lines?
+\item What data would you need to test for the same effects at the SME-lending margin?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) aggregate collapse, (iii) two cross-bank tests, (iv) drawn-line channel, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: the 2008 lending collapse as a bank-supply shock.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Dataset. (2) Peak-to-trough origination decline. (3) Lehman exposure test. (4) Funding-mix test. (5) What drawn lines do to realised credit.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Aggregate.} New syndicated lending $\downarrow$ $\sim 47\%$ Q2 07 $\to$ Q4 08.
+\item \textbf{Supply evidence.} Lehman-exposed banks and wholesale-funded banks cut more.
+\item \textbf{Drawn lines.} Firms hoard liquidity by drawing existing commitments.
+\item \textbf{Lesson.} Bank-balance-sheet stress is a first-order driver of the lending collapse.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Ivashina \& Scharfstein (2010) document the 2008 lending collapse using Dealscan syndicated-lending data. New-loan origination falls by nearly half from the Q2 2007 peak to Q4 2008. The decline is sharpest at banks with two signs of balance-sheet stress: (i) more co-syndication exposure to Lehman, and (ii) more reliance on wholesale (non-deposit) funding. Meanwhile, firms drew down existing credit lines en masse, so realised bank credit could rise even as origination cratered --- a channel that disciplines naive reading of aggregate bank credit during a crisis. The paper is the bank-supply bookend of the 2008 story: Gorton--Metrick on the repo run, Mian--Sufi on household credit, and IS on the corresponding contraction in corporate credit from stressed banks.
+\end{keybox}
+
+\end{document}

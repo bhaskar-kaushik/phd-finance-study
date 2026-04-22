@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W11-02: Hong \& Kacperczyk (2009, JFE) \\
+\large ``The Price of Sin: The Effects of Social Norms on Markets'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} ``Sin'' stocks --- publicly traded firms in alcohol, tobacco, and gaming --- earn risk-adjusted abnormal returns of $\sim 2.5$--$3$\% per year 1965--2006 and are less held by norm-constrained investors (mutual funds, pensions) and less covered by analysts --- a pricing premium that compensates for social-norm-based exclusion.
+
+\textbf{Placement.} The canonical ``neglected stocks'' result in the ESG-pricing literature. Complements Chava (2014) and Sharfman-Fernando (2008) on environmental performance and cost of capital, from the \emph{exclusion} perspective rather than the \emph{performance} one.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Sin classification}
+Hong-Kacperczyk (HK) define sin stocks as firms in alcohol (SIC), tobacco, and gaming (casinos). These industries face explicit exclusions by many institutional investors (pension funds, religious funds, some mutual funds).
+
+\subsection*{1.2 Return tests}
+Fama-French-Carhart 4-factor alphas on long portfolios of sin stocks and on long-sin / short-control portfolios. 1965--2006 monthly.
+
+\subsection*{1.3 Holdings and coverage}
+\begin{itemize}
+\item Mutual fund and pension holdings of sin stocks: significantly lower than comparable non-sin firms.
+\item Hedge funds and individual investors hold them more than proportional.
+\item Analyst coverage of sin stocks: lower.
+\item Implication: sin stocks are \emph{neglected} by norm-constrained institutions.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Sin stocks earn $\sim 2.5$--$3$ pp annualised 4-factor alpha.
+\item Alpha is robust to additional controls (litigation risk, industry factors).
+\item Neglect and return premium are cross-sectionally correlated.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Norm-based exclusion segments the market: sin stocks held by a smaller set of risk-bearers.
+\item Under Merton (1987) segmented-market logic, limited risk-sharing generates an equilibrium premium.
+\item Quantitative mapping to social-norm intensity works well.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Sin classification is discrete and may miss related firms.
+\item Litigation risk (tobacco) could alone account for part of the alpha.
+\item Out-of-sample: post-2006 performance has been mixed, suggesting the premium may decay as norms shift.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sin industries: \blank{1cm}, \blank{1cm}, and \blank{1cm}.
+\item Alpha magnitude: $\sim$\blank{1cm}--\blank{1cm} pp/yr.
+\item Factor model: Fama-French-\blank{1cm} 4-factor.
+\item Institutional holdings: \blank{1cm} (higher/lower) for sin stocks.
+\item Theoretical mapping: \blank{1cm} (1987) segmented-market model.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define sin stocks and describe the excluded-investor population.
+\item Derive the intuition for a Merton-style segmentation premium.
+\item Why could litigation-risk explanation be partial?
+\item Discuss post-2006 evidence on the sin premium.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sin definition, (ii) 4-factor test, (iii) holdings/coverage, (iv) magnitude, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: social norms and equilibrium asset pricing --- the sin premium and its limits.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Three sin industries. (2) Alpha magnitude. (3) Factor model. (4) Institutional holding direction. (5) Theoretical anchor.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sin.} Alcohol, tobacco, gaming.
+\item \textbf{Alpha.} $\sim$2.5--3 pp/yr (4-factor).
+\item \textbf{Holdings.} Lower by norm-constrained institutions.
+\item \textbf{Theory.} Merton (1987) segmentation.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Hong \& Kacperczyk (2009) provide the classic evidence that social norms affect asset prices. Public firms in alcohol, tobacco, and gaming --- ``sin stocks'' --- are excluded by many pension funds, religious funds, and some mutual funds. HK show that such stocks earn $\sim$2.5--3 pp annualised 4-factor alpha 1965--2006 and are also less covered by analysts and more concentrated in hedge-fund and individual-investor portfolios. Under Merton's (1987) segmented-market logic, a subset of investors bearing the residual risk demand extra return --- a norm-driven premium. The paper established the norm-pricing channel in the ESG literature and provided the template for later work on climate-and-sin exclusion effects, though post-2006 evidence suggests the premium may evolve as norms and institutional exclusion patterns shift.
+\end{keybox}
+
+\end{document}

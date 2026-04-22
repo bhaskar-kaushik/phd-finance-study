@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W02-03: Drechsler, Savov, Schnabl (2017, QJE) \\
+\large ``The Deposits Channel of Monetary Policy'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Banks with more local deposit-market power widen their \emph{deposit spreads} (Fed funds rate minus deposit rate) when the Fed tightens; this triggers deposit outflows into money-market substitutes, forcing those banks to contract lending. The deposits channel, not the reserve-requirement channel, is the modern mechanism for monetary transmission through banks.
+
+\textbf{Placement.} Reframes KS (W02-01) in the post-1990 world where reserve requirements are non-binding. Complements JOPS (W02-02) and sets up Rodnyansky--Darmouni (W02-04) on QE.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+By the 1990s reserve requirements are non-binding for most US banks; the classic Bernanke--Blinder (1988) reserve-channel story is mechanically weak. Yet empirical evidence still shows large aggregate effects of monetary policy on bank lending. DSS offer a new mechanism with two ingredients:
+\begin{enumerate}
+\item Banks have \emph{local market power} in deposits (differentiated product, switching costs, limited branch entry).
+\item Deposit demand is convex in the deposit spread --- savers substitute into money-market funds once the spread gets wide enough.
+\end{enumerate}
+
+\subsection*{1.2 Model in one equation}
+Deposit rate $r_d$ is set by a monopolistically competitive bank facing demand $D(r_f - r_d)$ where $r_f$ is the Fed funds rate. Optimal markdown:
+\[
+r_f - r_d^*=\frac{\eta}{1+\eta},
+\]
+where $\eta$ is the deposit elasticity. If $\eta$ is bounded but not tiny, the spread \emph{moves less than one-for-one} with $r_f$, and deposit quantities fall when $r_f$ rises. Banks with more market power (higher Herfindahl on deposit branches) have lower $\eta$ and wider spreads.
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Branch-level deposit rate data (RateWatch) and county-level Herfindahl indices from branch-level deposits (Summary of Deposits).
+\item Exploit cross-sectional variation in \emph{local} deposit-market concentration.
+\item Key regression: change in deposit spread on change in Fed funds, interacted with county Herfindahl.
+\end{itemize}
+Headline: banks in high-Herfindahl counties raise their deposit spreads by roughly twice as much as banks in low-Herfindahl counties for a given Fed funds change.
+
+\subsection*{1.4 Quantity effects}
+\begin{itemize}
+\item Deposit growth falls in high-Herfindahl counties when Fed funds rise.
+\item Lending at banks in high-Herfindahl markets contracts correspondingly --- deposits are \emph{the} source of funding for these banks.
+\item Funds flow into money market funds, which are the chief substitutes.
+\end{itemize}
+
+\subsection*{1.5 Identification}
+Cross-sectional IV design: the high-vs-low Herfindahl cut within the \emph{same} county provides an asymmetric supply shock. Firm-bank matched data (in the extensions) hold credit demand fixed similar to JOPS style.
+
+\subsection*{1.6 Econometric caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Herfindahl is endogenous to bank entry; DSS use historical county concentration as a more-exogenous instrument.
+\item Cross-county variation in banking competition could correlate with unobserved county characteristics. Time-series within-county FE and county trends help.
+\item Extrapolation to zero-lower-bound regime requires care; the convexity of deposit demand is sharpest at moderate rates.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Markdown formula: $r_f-r_d^*=\blank{2cm}$.
+\item $\eta$ is the \blank{2cm} of deposit demand.
+\item High-Herfindahl banks: \blank{2cm} market power, \blank{2cm} spread response to Fed funds.
+\item Deposits substitute into \blank{3cm} when the spread widens.
+\item The deposits channel replaces the \blank{2cm}-channel logic of Bernanke--Blinder.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Derive the monopolistic bank's deposit-rate-setting first-order condition.
+\item Why is the reserve-requirement channel weak after the mid-1990s?
+\item How do DSS hold demand fixed? Compare with JOPS.
+\item What prediction does the deposits channel make at the ZLB?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) two ingredients, (ii) markdown equation, (iii) Herfindahl cross-section, (iv) quantity flow, (v) two critiques.
+
+\section*{Round 5: Blank Page}
+Essay: the deposits channel --- how DSS reframe the bank lending channel for the modern era.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Markdown formula. (2) Two data sources. (3) High-Herfindahl banks' spread response. (4) Where deposits flow when spreads widen. (5) The chief substitute for bank deposits.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Markdown.} $r_f-r_d^*=\eta/(1+\eta)$; wider with lower $\eta$ $=$ more market power.
+\item \textbf{Data.} RateWatch (branch-level rates), Summary of Deposits (branch-level deposits, Herfindahl).
+\item \textbf{Cross-sectional result.} High-concentration counties: larger spread response, larger deposit outflow, larger lending contraction.
+\item \textbf{Substitutes.} Money-market mutual funds absorb the outflow.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Drechsler--Savov--Schnabl (2017) propose the deposits channel of monetary policy. When the Fed tightens, banks with local deposit-market power widen their deposit spreads (monopolistic markdown $\eta/(1+\eta)$); savers substitute into money-market funds; deposits flow out; lending at market-power banks contracts. Cross-sectional evidence uses county Herfindahl indices from branch data and branch-level rate data: high-Herfindahl counties show larger spread increases, larger deposit outflows, and larger lending contractions per Fed-funds change. The mechanism replaces the now-defunct reserve-requirement story and is quantitatively large. DSS become the textbook modern account of why monetary policy still matters for bank behaviour.
+\end{keybox}
+
+\end{document}

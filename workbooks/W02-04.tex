@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W02-04: Rodnyansky \& Darmouni (2017, RFS) \\
+\large ``The Effects of Quantitative Easing on Bank Lending Behavior'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Banks with larger MBS holdings received bigger valuation gains when the Fed bought MBS under QE1 and QE3 (but not QE2, which targeted Treasuries); those banks subsequently expanded commercial \& industrial lending more. A clean cross-sectional test of the bank lending channel of QE.
+
+\textbf{Placement.} Closes W02: the deposits channel of DSS (W02-03) is the \emph{tightening} story; R\&D is the \emph{easing} story via balance-sheet recapitalisation. Anchors later discussions of monetary-policy-through-bank-balance-sheets.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Policy backdrop}
+\begin{itemize}
+\item QE1 (Nov 2008--Mar 2010): Fed bought \$1.25T MBS + \$175B agency debt + \$300B Treasuries.
+\item QE2 (Nov 2010--Jun 2011): Fed bought \$600B Treasuries only. No MBS.
+\item QE3 (Sep 2012--Oct 2014): Fed bought \$40B/month MBS + \$45B/month Treasuries.
+\end{itemize}
+So QE1 and QE3 directly affect the value of MBS-heavy bank balance sheets; QE2 does not. This asymmetry is the identification.
+
+\subsection*{1.2 Hypothesis}
+If QE works through the bank lending channel, the \emph{direct recapitalisation} of MBS holders should raise their lending capacity. Banks with more MBS pre-QE should expand C\&I lending more during QE1 and QE3, but \emph{not} during QE2.
+
+\subsection*{1.3 Specification}
+Difference-in-differences with bank $\times$ QE-episode interactions:
+\[
+\ln L_{bt}=\alpha_b+\delta_t+\beta_1\,(\mathrm{MBS}_b\cdot QE1_t)+\beta_2\,(\mathrm{MBS}_b\cdot QE2_t)+\beta_3\,(\mathrm{MBS}_b\cdot QE3_t)+X_{bt}'\gamma+\varepsilon_{bt}.
+\]
+Predictions: $\beta_1,\beta_3>0$ (MBS-heavy banks lend more during QE1/3); $\beta_2\approx 0$ (no effect during Treasury-only QE).
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item During QE1 and QE3, banks in the top MBS-holding quartile expand C\&I lending by $\sim$3--6 pp more than banks in the bottom quartile.
+\item During QE2, the same cross-section shows \emph{no} differential effect --- consistent with QE operating through MBS prices rather than Treasuries.
+\item Magnitudes are robust to adding bank controls, size bins, and state-time FE.
+\end{itemize}
+
+\subsection*{1.5 Mechanism evidence}
+\begin{itemize}
+\item MBS-heavy banks' book equity improved more during QE1/3 (paper-gain channel).
+\item Securities-trading and AFS portfolios show valuation changes consistent with MBS price moves.
+\item No analogous differential for real-estate loans --- the effect is specifically on C\&I lending capacity.
+\end{itemize}
+
+\subsection*{1.6 Identification / caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Banks self-select MBS holdings; pre-QE MBS share might correlate with other traits. R\&D show pre-QE parallel trends and use size-by-time FE as robustness.
+\item Aggregate demand during QE periods could co-move across banks. The QE2 placebo controls for this.
+\item Some banks hedge MBS exposure; unhedged measure may mismeasure effective shock. Paper discusses.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item QE1 and QE3 targeted \blank{1cm}; QE2 targeted \blank{1cm} only.
+\item Treatment: pre-QE bank holdings of \blank{1cm}.
+\item Predicted signs: $\beta_1,\beta_3$ \blank{0.6cm}; $\beta_2$ \blank{0.6cm}.
+\item Differential C\&I growth: $\sim$\blank{1cm} pp between top and bottom MBS quartile during QE1/3.
+\item Placebo: no differential during \blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the R\&D DiD specification and explain every fixed effect.
+\item Why is QE2 a clean placebo for the MBS-holdings channel?
+\item Connect this result to the ``reserves-as-tax'' argument in the old bank lending channel literature.
+\item What would be needed to move from bank-level to borrower-level identification here?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) three QE episodes, (ii) asset-composition difference, (iii) DiD spec, (iv) headline magnitudes, (v) placebo logic.
+
+\section*{Random 5: Blank Page}
+Essay: did QE work through banks? Summarise R\&D's argument and critique.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Asset type bought in QE2. (2) Sign of $\beta_2$. (3) Sign of $\beta_1,\beta_3$. (4) Treatment variable. (5) Mechanism one-liner.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Asymmetry.} QE1/3 $=$ MBS; QE2 $=$ Treasuries only. MBS-heavy banks benefit only in 1/3.
+\item \textbf{Main coefficient.} $\sim$3--6 pp more C\&I lending at high-MBS banks during QE1/3; $\approx 0$ in QE2.
+\item \textbf{Mechanism.} Direct recapitalisation: higher MBS prices $\to$ higher bank equity $\to$ more risk-taking capacity.
+\item \textbf{Placebo-first design.} QE2's null result is the reason to believe QE1/3's positive result.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} R\&D (2017) identifies the bank-balance-sheet channel of QE by exploiting that QE1 and QE3 bought MBS while QE2 bought only Treasuries. Banks with higher pre-QE MBS holdings experienced larger valuation gains in QE1/3 and expanded C\&I lending by 3--6 pp more than low-MBS banks. Crucially, no such differential exists during QE2 --- a clean placebo for the mechanism. The paper shows that \emph{which asset} the Fed buys matters: unconventional monetary policy transmits through the balance sheets of the banks holding the targeted assets, giving QE a concrete bank-level footprint rather than a purely macro signalling role. Caveats: MBS-share is not randomly assigned, but the QE2 placebo and parallel-trend checks go a long way.
+\end{keybox}
+
+\end{document}

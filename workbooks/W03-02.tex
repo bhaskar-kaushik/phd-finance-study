@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W03-02: Peek \& Rosengren (2000, AER) \\
+\large ``Collateral Damage: Effects of the Japanese Bank Crisis on Real Activity in the US'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} In the 1990s Japanese banks cut lending to their US branches and subsidiaries because of shocks at the parent level (Nikkei collapse, regulatory capital constraints); P\&R show this reduced commercial real-estate activity in US states that depended heavily on Japanese-bank lending --- a clean \emph{cross-border} test of the bank lending channel.
+
+\textbf{Placement.} Identification template for credit-supply effects: use shocks to banks' \emph{home} balance sheets to explain lending in \emph{foreign} markets. Precursor to Khwaja--Mian (W03-03) and Amiti--Weinstein (W03-04).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The shock}
+The Nikkei-225 fell roughly 60\% 1990--1992. Japanese banks faced Basel-I-enforced capital pressure because their unrealised gains on equity holdings (part of Tier 2 capital) collapsed. Parents pulled funding from their US affiliates to shore up capital at home. This home-shock is \emph{plausibly exogenous} to US state conditions.
+
+\subsection*{1.2 Identification}
+Japanese-bank market share in commercial real-estate (CRE) lending varied across US states for historical reasons (California and Hawaii had the largest presence; Midwest had little). P\&R use this pre-existing exposure as treatment intensity:
+\[
+\Delta\ln Y_{st}=\alpha_s+\delta_t+\beta\cdot (\text{JapShare}_s\cdot \text{Shock}_t)+X_{st}'\gamma+\varepsilon_{st},
+\]
+with $Y_{st}$ CRE activity in state $s$ year $t$; $\text{JapShare}_s$ the pre-crisis Japanese share of CRE lending; Shock$_t$ an indicator (or time trend) for the Japanese banking crisis.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Japanese-bank US lending falls sharply 1990--1995.
+\item States with larger Japanese presence experience significantly weaker CRE activity: construction starts, prices, and employment in building trades all decline relative to low-exposure states.
+\item Implied elasticity: $\sim$one dollar of lost Japanese lending reduces US CRE activity by roughly one dollar (complete pass-through, no offsetting by US banks).
+\end{itemize}
+
+\subsection*{1.4 Why US banks do not offset}
+\begin{itemize}
+\item Relationship-specific information: Japanese banks knew their borrowers; US banks face screening cost.
+\item Real-estate-specific expertise.
+\item Implicit message: bank-borrower relationships are not frictionlessly substitutable.
+\end{itemize}
+
+\subsection*{1.5 Identification concerns}
+\begin{alertbox}
+\begin{itemize}
+\item Pre-existing Japanese share could correlate with unobserved state CRE conditions. P\&R check pre-trends and use industry-by-state controls.
+\item Shock timing: the Nikkei crash is macro; P\&R use the cross-sectional interaction with state exposure for identification.
+\item Real-estate demand cycles are state-specific; state and year FE absorb common and state-constant factors.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Shock: collapse of the \blank{1.5cm} index, 1990--1992.
+\item Mechanism: Japanese banks' \blank{1cm}-II capital constrained by unrealised \blank{1cm} gains.
+\item Treatment intensity: state-level \blank{1.5cm} share of CRE lending.
+\item Outcome: state \blank{2cm} activity.
+\item Implied pass-through: $\sim$\blank{1cm} US CRE dollar per Japanese-bank dollar lost.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the P\&R specification and explain why it is a DiD-by-exposure design.
+\item Why do US banks fail to substitute fully for lost Japanese-bank lending?
+\item How does this result relate to the bank lending channel in KS (2000)?
+\item What does it say about the riskiness of concentrated foreign-bank exposure?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) identification (treatment $=$ exposure $\times$ shock), (iii) magnitude, (iv) why US banks don't offset, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: bank capital and cross-border credit supply --- what P\&R teach us.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Source of shock. (2) Basel-I capital fact. (3) Treatment variable. (4) Implied pass-through. (5) Why no US-bank offset.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} Nikkei collapse 1990--92 $\Rightarrow$ Japanese-bank Tier-2 capital (incl.\ latent equity gains) falls $\Rightarrow$ parent banks repatriate funding.
+\item \textbf{Design.} State-level pre-crisis Japanese CRE share $\times$ shock timing.
+\item \textbf{Magnitude.} $\sim$1:1 pass-through from lost Japanese lending to US CRE.
+\item \textbf{Mechanism.} Relationship-specific information; US banks do not fill the gap.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Peek--Rosengren (2000) give the first clean cross-border bank-lending-channel result. When the Nikkei collapsed and squeezed Japanese banks' Basel-I capital, their US branches cut lending. States with larger pre-crisis Japanese-bank shares of CRE lending saw proportionate declines in commercial real-estate activity --- with roughly one-for-one pass-through, because US banks did not step in to replace the lost Japanese lending. The paper teaches that bank-borrower relationships are specific, shocks propagate across borders through bank balance sheets, and the Basel capital framework has real-economy consequences. Identification rests on pre-existing cross-state differences in exposure interacted with the macro shock timing; pre-trends and FE address the main threats.
+\end{keybox}
+
+\end{document}

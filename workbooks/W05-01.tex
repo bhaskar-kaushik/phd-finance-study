@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W05-01: Iyer \& Puri (2012, AER) \\
+\large ``Understanding Bank Runs: The Importance of Depositor-Bank Relationships and Networks'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using minute-by-minute depositor-level data from a 2001 run on a failing Indian cooperative bank, IP show that (i) insured depositors still run, (ii) longer relationships and depositor loans \emph{reduce} run probability, and (iii) social network links (same ethnicity, same branch, introducer ties) transmit the run --- modern empirical backing of Diamond--Dybvig, with behavioural and network dimensions absent in the theory.
+
+\textbf{Placement.} The cleanest depositor-level run study. Complements Gorton--Metrick (W04-01) on wholesale runs with a \emph{retail} run story and adds a network/behavioural angle.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The bank and the shock}
+A cooperative bank in India (``Bank A'') fails in early 2001 amid fraud revelations at a peer bank. On run days, depositors queue to withdraw. Over subsequent weeks partial withdrawal restrictions apply. Deposits are partly insured up to 100{,}000 INR (then about \$2{,}200) by the DICGC.
+
+\subsection*{1.2 Data}
+Minute-level withdrawal records: account-holder ID, amount withdrawn, branch, demographic info, relationship length, loan status, same-branch introducer. IP hand-collect a depositor-to-depositor introducer network and proxy ethnicity.
+
+\subsection*{1.3 Central findings}
+\begin{itemize}
+\item \textbf{Deposit insurance is not a full firewall.} Fully insured depositors \emph{also} run, although less than uninsured.
+\item \textbf{Relationships matter.} Longer account tenure reduces run probability $\Rightarrow$ ``soft information'' and switching costs help.
+\item \textbf{Loan relationships.} Depositors who \emph{also borrow} from the bank run much less --- another friction against running.
+\item \textbf{Network contagion.} A depositor is more likely to run if their \emph{introducer} ran, or if depositors at their branch in the same ethnic group ran: social transmission of the run is econometrically identifiable.
+\end{itemize}
+
+\subsection*{1.4 Estimation}
+Hazard / linear probability models:
+\[
+\text{Run}_{it}=\alpha + \beta_1\cdot\text{Insured}_i+\beta_2\cdot\text{Tenure}_i+\beta_3\cdot\text{Loan}_i+\beta_4\cdot\text{IntroducerRan}_{it}+X_i'\gamma+\varepsilon_{it}.
+\]
+$\beta_4>0$: depositors imitate their referrer. Time-dependent covariates (``introducer ran in the last 30 minutes'') rule out common-shock stories.
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Single-bank study; external validity is limited to similar retail settings.
+\item Network measures are noisy (introducer information is self-reported at account opening).
+\item Social transmission could partly reflect common information arriving via friends, not pure contagion; IP discuss this carefully.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Setting: \blank{1cm} cooperative bank, year \blank{1cm}.
+\item Data granularity: \blank{1cm}-level withdrawals.
+\item Relationship protection: longer \blank{1.5cm} and having a \blank{1cm} reduce running.
+\item Network variable: depositor's \blank{2cm} ran.
+\item Insured depositors: do \blank{1cm} run (yes/no).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write a simple run-hazard specification and state what each covariate identifies.
+\item Why do insured depositors run? What does this say about the micro foundations of deposit insurance?
+\item How do IP disentangle common-information shocks from pure social contagion?
+\item Link IP to Diamond--Dybvig; what dimensions does IP add?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting and data, (ii) four central findings, (iii) hazard spec, (iv) network-contagion story, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: what do the Indian retail-run data teach about modern bank-run models?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Country/year. (2) Granularity. (3) Two ``relationship'' protections. (4) Network variable. (5) Fact about insured depositors.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Setting.} Indian cooperative bank, 2001 failure.
+\item \textbf{Relationships.} Longer tenure and loan ties cut run probability.
+\item \textbf{Insurance.} Not a perfect firewall --- insured depositors also run.
+\item \textbf{Networks.} Introducer-ran and same-ethnicity-ran effects: social transmission.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Iyer \& Puri (2012) provide the cleanest depositor-level evidence on bank runs. Minute-by-minute data from an Indian cooperative bank that failed in 2001 shows that (i) even fully insured depositors run --- deposit insurance is an imperfect firewall; (ii) longer account tenure and having a loan with the bank reduce run probability, reflecting relationship-based soft-information frictions; (iii) social networks transmit the run --- depositors are more likely to withdraw after their introducer or same-ethnicity neighbours withdraw. The paper puts empirical teeth on Diamond--Dybvig at the retail level and integrates behavioural and social-network amplification into the bank-run literature. Policy message: insurance alone does not stop runs; relationships and community ties shape both the run's spread and its containment.
+\end{keybox}
+
+\end{document}

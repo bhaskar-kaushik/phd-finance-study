@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W05-02: Egan, Hortaçsu \& Matvos (2017, AER) \\
+\large ``Deposit Competition and Financial Fragility: Evidence from the US Banking Sector'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} EHM estimate a structural model of US deposit competition combining a depositor discrete-choice demand model with a global-games bank-solvency model: insured and uninsured depositors differ in sensitivity to bank risk, banks face multiple equilibria (``good''/``bad'') in deposit rates, and the model delivers quantitative counterfactuals --- e.g., removing deposit insurance triples fragility-linked welfare costs.
+
+\textbf{Placement.} The structural-IO take on bank runs and deposit markets. Pairs with Iyer--Puri (W05-01) on depositor behaviour and with DSS (W02-03) on the market power of deposits.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Framework}
+Depositors choose banks based on rate, branch network, and \emph{perceived failure probability}. Banks set deposit rates given depositor demand and a solvency condition that can be characterised by a global-games threshold (Goldstein--Pauzner style): failure occurs if enough uninsured depositors run.
+
+\subsection*{1.2 Demand side}
+Two depositor types:
+\begin{itemize}
+\item \emph{Insured} (retail, below \$250k): rate-sensitive, low sensitivity to bank failure risk.
+\item \emph{Uninsured} (large corporates, above \$250k): strongly sensitive to failure probability.
+\end{itemize}
+Discrete-choice logit with bank-region-time fixed effects. Elasticity of uninsured-deposit share to perceived failure probability is large and negative.
+
+\subsection*{1.3 Supply side and equilibrium}
+Each bank chooses a deposit rate trading off higher rates (more deposits) against higher funding cost and higher failure probability (endogenous through leverage). With global games, the model can support multiple equilibria: a ``good'' low-rate, low-failure equilibrium and a ``bad'' high-rate, high-failure equilibrium.
+
+\subsection*{1.4 Estimation}
+Structural estimation on US bank Call-Report and RateWatch data 2002--2013. Identify (i) demand parameters from cross-bank variation in rates/shares, (ii) supply parameters from rate-setting responses to shocks.
+
+\subsection*{1.5 Headline results}
+\begin{itemize}
+\item Uninsured depositors' demand is highly elastic to perceived bank risk; insured much less.
+\item Multiple equilibria appear empirically for realistic parameter regions.
+\item Counterfactual: removing deposit insurance triples the welfare costs associated with bank failures (run-driven losses).
+\item Counterfactual: a regulator-imposed rate cap narrows the ``bad'' equilibrium region and stabilises the system.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Structural model is stylised; many simplifications (homogeneous banks within region, etc.).
+\item Counterfactuals are only as valid as the model; large extrapolations require caution.
+\item Global-games selection is a theoretical device, not directly observed in data; EHM use the model's implications.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Model blocks: \blank{2cm}-choice depositor demand $+$ \blank{2cm}-games bank solvency.
+\item Insured vs.\ uninsured: differ in sensitivity to \blank{2cm} risk.
+\item Equilibrium multiplicity: \blank{1cm} rate-low failure and \blank{1cm} rate-high failure.
+\item Data span: \blank{1cm}--\blank{1cm}.
+\item Counterfactual: remove insurance $\Rightarrow$ welfare cost \blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the depositor logit demand and explain identification of the failure-probability coefficient.
+\item Why can multiple equilibria arise in the deposit market?
+\item Give the intuition for the ``triple welfare cost'' counterfactual.
+\item How does EHM's framework connect to DSS's deposits channel?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) demand block, (ii) supply block, (iii) multiple-equilibria result, (iv) headline counterfactual, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: EHM's structural view of financial fragility --- what does the IO lens add to Diamond--Dybvig?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Two modelling blocks. (2) Insured vs.\ uninsured sensitivity. (3) Multiple-equilibria statement. (4) Counterfactual without insurance. (5) Data period.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Model.} Logit demand $+$ global-games solvency.
+\item \textbf{Depositor types.} Insured low-sensitivity, uninsured high-sensitivity to risk.
+\item \textbf{Equilibria.} Multiple: good / bad high-rate.
+\item \textbf{Counterfactual.} No insurance $\Rightarrow$ $\sim 3\times$ fragility welfare cost.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Egan, Hortaçsu \& Matvos (2017) bring IO structural methods to the bank-run literature. Depositor demand is logit over rates and failure-probability perceptions, with insured depositors essentially insensitive to failure risk and uninsured depositors highly responsive. Banks set deposit rates under a global-games solvency condition, which in realistic parameter regions gives rise to multiple equilibria: a good low-rate/low-failure equilibrium and a bad high-rate/high-failure equilibrium. Structural estimation on 2002--2013 US Call-Report and RateWatch data recovers the key elasticities. Counterfactuals quantify policy: eliminating deposit insurance roughly triples the welfare cost of fragility; rate caps stabilise by shrinking the bad-equilibrium region. The paper is the canonical demonstration that deposit competition and financial fragility must be analysed jointly.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W14-01: Li, Shan, Tang \& Yao (2024, RFS) \\
+\large ``Corporate Climate Risk: Measurements and Responses'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} LSTY build firm-level climate-risk measures (physical, transition, regulatory) from 10-K text using supervised ML trained on a dictionary of climate terms, and show firms with higher measured climate risk \emph{raise cash} holdings, \emph{cut capex}, and \emph{alter capital structure} --- real adjustments consistent with precautionary-savings and optionality-value arguments.
+
+\textbf{Placement.} Text-measurement-of-climate-risk paper; extends Sautner et al.\ 2023 and related climate-risk-text work. Pairs with KSS (W13-03) on institutional climate attitudes.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Measurement}
+Parse 10-K text; classify climate-related sentences into physical, transition, and regulatory risks. Supervised ML with hand-coded training set. Construct firm-year climate-risk score for 2000--2020. Sample $\sim$6{,}000 US firms.
+
+\subsection*{1.2 Validation}
+\begin{itemize}
+\item Correlates with objective exposures (coastal siting, emissions-intensive industries).
+\item Correlates with analyst-discussed climate sections in conference calls.
+\item Correlates with CDP/TCFD disclosure intensities.
+\end{itemize}
+
+\subsection*{1.3 Central tests}
+Panel regression with firm and year FE:
+\[
+Y_{it}=\alpha_i+\delta_t+\beta\cdot\text{ClimateRisk}_{it-1}+X_{it-1}'\gamma+\varepsilon_{it}.
+\]
+$Y_{it}$ includes cash/assets, capex/assets, leverage, dividend policy.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Firms with higher lagged climate-risk score hold more cash (+0.5--1 pp of assets).
+\item They cut capex by $\sim$0.3--0.5 pp.
+\item Leverage declines modestly.
+\item Dividend payout is less affected.
+\item Effects are concentrated in physical-risk-exposed firms.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Firms \emph{actively manage} perceived climate risk via financial flexibility (BKS 2009 precautionary cash extended to climate).
+\item Investment option-value: wait-and-see under regulatory uncertainty reduces capex.
+\item Complements BMFS (2016) on hedging adjustments and FRS (2021) on flexibility premium.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Text measures depend on disclosure choices, which change over time and are endogenous.
+\item Causality is not identified; firm FE mitigate but do not remove concern.
+\item Climate-risk scores may capture generic ``risk'' rather than climate specifically.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Measurement: text in \blank{1cm}-K filings, supervised ML.
+\item Three risk categories: physical, \blank{1.5cm}, regulatory.
+\item Cash effect: +\blank{1cm}--\blank{1cm} pp of assets.
+\item Capex effect: $-$\blank{1cm}--\blank{1cm} pp.
+\item Sample years: \blank{1cm}--\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Discuss the text-measurement methodology and validation strategy.
+\item Why do firms increase cash and cut capex in response to climate risk?
+\item Relate LSTY to BKS (2009) and FRS (2021).
+\item Discuss causal identification in this kind of text-based climate-risk panel.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) measurement, (ii) validation, (iii) spec, (iv) headline magnitudes, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: how do firms respond to climate risk? LSTY evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Text source. (2) Three risk categories. (3) Cash response. (4) Capex response. (5) Sample size.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Measure.} 10-K text, supervised ML, three risk subtypes.
+\item \textbf{Cash.} Rises modestly with climate risk.
+\item \textbf{Capex.} Falls.
+\item \textbf{Leverage.} Declines modestly.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Li, Shan, Tang \& Yao (2024) build text-based firm-level climate-risk scores from 10-K filings, split into physical, transition, and regulatory categories, validated against objective and disclosure-based exposures. In a US panel of $\sim$6{,}000 firms 2000--2020, firms with higher lagged climate-risk score hold more cash ($+0.5$--$1$ pp of assets), cut capex ($-0.3$--$0.5$ pp), and reduce leverage. Physical-risk-exposed firms drive most of the effect. The interpretation is that firms actively manage climate risk via financial flexibility (BKS 2009 precautionary cash extended to a new risk dimension) and via investment option value (wait-and-see under regulatory uncertainty). The paper is a leading template for text-based climate-risk measurement and shows that climate risk is already reshaping real corporate decisions.
+\end{keybox}
+
+\end{document}

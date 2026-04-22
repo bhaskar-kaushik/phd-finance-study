@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W12-01: Lins, Servaes \& Tamayo (2017, JF) \\
+\large ``Social Capital, Trust, and Firm Performance: The Value of Corporate Social Responsibility during the Financial Crisis'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Firms with high CSR ratings entering the 2008--09 crisis outperformed low-CSR peers by $\sim$4--7 pp in stock returns --- CSR acts as \emph{insurance} that pays off when trust in markets collapses, because customers/suppliers/employees remain loyal to firms with reputational social capital.
+
+\textbf{Placement.} The canonical ``CSR insurance'' paper. Links Hong-Kacperczyk (W11-02) norm pricing with a fundamental performance channel. A keystone of the CSR-as-risk-management literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+MSCI (formerly KLD) CSR ratings; stock returns from CRSP; firm fundamentals from Compustat. Sample: US firms with CSR data, 2008--2009 crisis window (August 2008--March 2009).
+
+\subsection*{1.2 Central test}
+\[
+R_{i,\text{Crisis}}=\alpha+\beta\cdot\text{CSR}_i+X_i'\gamma+\varepsilon_i,
+\]
+where CSR is the pre-crisis level; controls include industry, size, leverage, B/M, momentum.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item High-CSR firms outperform low-CSR firms by 4--7 pp cumulative during the crisis window.
+\item Effect is absent in non-crisis periods --- the premium is state-contingent.
+\item Robust across CSR dimensions (community, employees, products) but strongest on \emph{social} ones.
+\item Placebo periods show no effect.
+\end{itemize}
+
+\subsection*{1.4 Mechanism: trust and social capital}
+\begin{itemize}
+\item In a general trust collapse, stakeholders (customers, suppliers, employees, lenders) discriminate in favour of firms with established social capital.
+\item High-CSR firms retain customers, employees, and lender support; their real operations hold up better.
+\item Consistent with Guiso--Sapienza--Zingales general-trust literature.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Pre-crisis CSR could correlate with other strengths (governance, management quality).
+\item Reverse causality: firms expecting to do better in a crisis may have invested more in CSR.
+\item Single crisis; may not generalise to other tail events.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item CSR rating source: \blank{1cm} (formerly KLD).
+\item Crisis window: Aug \blank{1cm} -- March \blank{1cm}.
+\item Outperformance: $\sim$\blank{1cm}--\blank{1cm} pp.
+\item Non-crisis premium: \blank{1cm} (absent/present).
+\item Theoretical anchor: \blank{1cm}-Sapienza-Zingales trust.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the LST central regression and state identifying concerns.
+\item Explain the social-capital / trust mechanism.
+\item Why is the effect state-contingent?
+\item Contrast LST's ``CSR as insurance'' with HK's ``sin as premium''.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) central regression, (iii) magnitude, (iv) mechanism, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: CSR as insurance during crises --- LST evidence and limits.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Crisis window. (2) Outperformance magnitude. (3) CSR rating source. (4) State-contingency fact. (5) Trust-literature anchor.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Window.} GFC: Aug 2008 -- March 2009.
+\item \textbf{Outperformance.} $\sim$4--7 pp for high-CSR firms.
+\item \textbf{Non-crisis.} No premium.
+\item \textbf{Mechanism.} Social capital / trust.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Lins, Servaes \& Tamayo (2017) show that Corporate Social Responsibility paid off during the 2008--09 financial crisis as a form of insurance. Using MSCI (KLD) CSR ratings from before the crisis and cumulative stock returns over the August 2008--March 2009 window, high-CSR firms outperformed low-CSR peers by 4--7 percentage points, controlling for industry, size, leverage, and book-to-market. The premium is absent in non-crisis periods --- CSR's value is state-contingent. The mechanism draws on the Guiso--Sapienza--Zingales trust literature: when general trust in markets collapses, stakeholders (customers, employees, suppliers, lenders) discriminate in favour of firms with established social capital, supporting their real operations. LST is the canonical CSR-as-insurance result and motivates stakeholder-centric theories of corporate risk management.
+\end{keybox}
+
+\end{document}

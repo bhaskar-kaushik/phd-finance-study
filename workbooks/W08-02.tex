@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W08-02: Gilje \& Taillard (2017, RFS) \\
+\large ``Does Hedging Affect Firm Value? Evidence from a Natural Experiment'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using the 2008 price collapse of \emph{regional} natural gas in the Marcellus shale as a natural experiment, GT show that hedged gas producers invested 12--13\% more, drilled more wells, and had 4\% higher Tobin's Q than unhedged peers --- causally identifying a hedging-value premium by exploiting a plausibly-exogenous financial-distress shock to unhedged firms.
+
+\textbf{Placement.} The cleanest causal evidence for Froot--Scharfstein--Stein (1993) risk-management value: hedging supports investment in down-states by preserving internal cash. Complements Jin--Jorion (W08-01), which found no Q-premium in a broader O\&G sample.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The natural experiment}
+In 2008 and into 2009, Marcellus-basin (PA, WV) natural-gas producers saw their regional (Dominion South, Leidy) prices collapse by $\sim 50\%$ due to basis widening (pipeline capacity constraints). This was \emph{region-specific} and unrelated to firm characteristics --- a clean exogenous negative cash-flow shock.
+
+\subsection*{1.2 Data and hedging measure}
+Firm-level hedging collected from 10-Ks: percentage of expected production hedged. Firms classified as hedgers (above median) or non-hedgers.
+
+\subsection*{1.3 Identification}
+Difference-in-differences: hedgers vs.\ non-hedgers, pre vs.\ post the gas-price crash.
+\[
+Y_{it}=\alpha_i+\delta_t+\beta\cdot (\text{Hedger}_i\cdot\text{Post}_t)+X_{it}'\gamma+\varepsilon_{it}.
+\]
+$\beta$ captures the differential response of hedgers.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item \textbf{Investment.} Hedgers spent 12--13\% more on capex / drilled more wells than non-hedgers post-crash.
+\item \textbf{Q.} Hedgers had $\sim 4\%$ higher Tobin's Q than non-hedgers after the crash.
+\item \textbf{Mechanism.} FSS 1993: hedging preserves internal cash in down-states; firms with hedges self-fund investment; unhedged firms cut capex.
+\item \textbf{Acquisitions.} Hedgers also bought acreage from distressed non-hedgers --- consistent with fire-sale discounts.
+\end{itemize}
+
+\subsection*{1.5 Why this is cleaner than AW/JJ}
+\begin{alertbox}
+\begin{itemize}
+\item AW's cross-industry Q premium and JJ's null in O\&G both rely on observational variation; confounding from omitted governance is a concern.
+\item GT use a regional \emph{shock} orthogonal to hedging choice, so identification of causal hedging effect is much stronger.
+\item Still, hedging choice was pre-determined; GT also run a placebo in Oklahoma firms where basis did not widen.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Shock: 2008 crash in \blank{2cm} natural-gas basis.
+\item DiD: hedgers vs.\ non-hedgers, pre vs.\ post the crash.
+\item Investment effect: \blank{1cm}--\blank{1cm}\% higher capex for hedgers.
+\item Tobin's Q effect: $\sim$\blank{1cm}\% higher.
+\item Mechanism: preserves \blank{2cm} cash for investment (Froot--Scharfstein--Stein).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the DiD specification and explain the identifying assumption.
+\item Why does the Marcellus basis widening provide a cleaner shock than firm-level commodity-price exposure?
+\item Connect GT's result to Froot--Scharfstein--Stein (1993) theory.
+\item How should one reconcile GT with Jin \& Jorion (2006)?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) DiD, (iii) investment magnitude, (iv) Q magnitude, (v) mechanism.
+
+\section*{Round 5: Blank Page}
+Essay: does hedging cause firm value? The best causal evidence and what it tells us.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Shock region/year. (2) Treatment. (3) Capex magnitude. (4) Q magnitude. (5) Theory paper matched.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} Marcellus regional gas basis collapse, 2008--09.
+\item \textbf{Design.} DiD hedgers vs.\ non-hedgers.
+\item \textbf{Effects.} Capex $+12$--$13\%$; Q $+4\%$ for hedgers.
+\item \textbf{Mechanism.} FSS: hedging $\Rightarrow$ internal cash $\Rightarrow$ investment maintained.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Gilje \& Taillard (2017) provide the cleanest causal test of the hedging-value hypothesis. In 2008 the Marcellus-shale regional natural gas price collapsed because of pipeline capacity constraints --- a regional shock unrelated to firm hedging choices. Hedgers entered this shock with price protection and ample internal cash. Relative to non-hedgers, hedgers' capital expenditure rose 12--13\%, they drilled more wells, and Tobin's Q rose about 4\%; they even bought acreage from distressed non-hedgers. The mechanism matches Froot--Scharfstein--Stein (1993): hedging preserves internal cash in down-states, supporting investment when external finance is costly or unavailable. GT's natural experiment disciplines the ambiguity between Allayannis--Weston (cross-industry premium) and Jin--Jorion (O\&G null): hedging does create value when financing frictions bite.
+\end{keybox}
+
+\end{document}

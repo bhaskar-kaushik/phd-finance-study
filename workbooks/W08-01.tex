@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W08-01: Jin \& Jorion (2006, JF) \\
+\large ``Firm Value and Hedging: Evidence from U.S.\ Oil and Gas Producers'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} In a sample of 119 US oil-and-gas producers 1998--2001, JJ find that \emph{hedging reduces a firm's stock-price sensitivity to oil and gas prices} as theory predicts, but \emph{does not raise firm value} (no Allayannis--Weston-style hedging premium in this industry) --- so hedging-value evidence is industry-specific.
+
+\textbf{Placement.} Canonical rebuttal/complement to Allayannis--Weston (W07-04): same design, different industry, opposite Tobin's-Q result. Highlights the need to interpret hedging premia cautiously.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+US oil-and-gas (O\&G) producers 1998--2001. Firms hedge with forwards, swaps, and options on oil and gas prices. Hedging intensity hand-collected from 10-K filings --- notional amount relative to expected production.
+
+\subsection*{1.2 Central tests}
+\textbf{Test 1 (sensitivities).} Regress daily stock returns on oil and gas price returns, interacted with hedge ratio:
+\[
+r_{it}=\alpha_i+(\beta_{oi}+\gamma_o H_{it})\cdot r^o_t+(\beta_{gi}+\gamma_g H_{it})\cdot r^g_t+\varepsilon_{it}.
+\]
+Expected: $\gamma_o,\gamma_g<0$ --- hedging \emph{reduces} exposure.
+
+\textbf{Test 2 (value).} Allayannis--Weston-style Tobin's Q regression:
+\[
+Q_{it}=\alpha + \beta\cdot H_{it}+X_{it}'\gamma+\varepsilon_{it}.
+\]
+Expected under AW logic: $\beta>0$ hedging premium.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Hedging reduces stock price sensitivity roughly one-for-one with reported hedge ratios: the sensitivity test works.
+\item \emph{No} Tobin's-Q hedging premium: $\beta$ is small and statistically zero --- sometimes even slightly negative.
+\item Robust to alternative hedge-intensity measures, FE, and controls.
+\end{itemize}
+
+\subsection*{1.4 Interpretation}
+\begin{itemize}
+\item In a single-industry sample, investors can undo commodity risk themselves; hedging saves little on financial-distress cost at the margin.
+\item AW's cross-industry estimate may reflect an endogenous bundling of hedging with other good governance traits; in a more homogeneous sample this disappears.
+\item O\&G hedging does what the textbook says --- reduces exposure --- but does \emph{not} mechanically raise Q.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Single-industry, short panel: power to detect a premium is limited.
+\item Hedge ratio is partially endogenous to firm characteristics (leverage, investment).
+\item Time-series is short (4 years); if premium is volatile, JJ may miss it.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: $n=\blank{1cm}$ O\&G producers, \blank{1cm}--\blank{1cm}.
+\item Test 1 expected sign on $\gamma$: \blank{1cm}.
+\item Hedging-premium coefficient $\beta$: approximately \blank{1cm}.
+\item Interpretation vs.\ AW: premium is \blank{2cm}-specific.
+\item Canonical comparison paper: Allayannis--\blank{1.5cm} (2001).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the interacted-sensitivity regression and state what each coefficient measures.
+\item Why might AW find a premium across industries but JJ not find one within O\&G?
+\item What does the JJ result imply about the ``hedging raises Q because it lowers distress cost'' argument?
+\item Design a JJ-style test using a different industry (airlines, banks).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sample, (ii) two tests, (iii) sensitivity result, (iv) value result, (v) interpretation.
+
+\section*{Round 5: Blank Page}
+Essay: does corporate hedging create value? Contrast AW (2001) and JJ (2006).
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Industry. (2) Sample size. (3) Sensitivity-test sign. (4) Hedging-premium value. (5) Comparison paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Industry.} US oil-and-gas producers.
+\item \textbf{Sensitivity test.} $\gamma<0$: hedging reduces exposure as expected.
+\item \textbf{Value test.} $\beta\approx 0$: no Tobin's-Q hedging premium.
+\item \textbf{Lesson.} AW's cross-industry premium is not universal.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Jin \& Jorion (2006) run the Allayannis--Weston hedging-premium test in a clean single-industry setting: 119 US oil-and-gas producers, 1998--2001. The sensitivity test confirms that hedging does reduce stock-price exposure to oil and gas prices roughly one-for-one with reported hedge ratios. The value test is the surprise: no hedging premium in Tobin's Q. Investors can hedge commodity risk themselves when they hold a portfolio of O\&G firms, and the incremental financial-distress benefit of firm-level hedging is small. The JJ result disciplines the AW cross-industry premium: hedging does what it says on the tin --- lowers risk --- but does not mechanically lift valuation in industries where risk can be undone at the investor level. The sensible read is that AW's premium bundles hedging with other governance attributes.
+\end{keybox}
+
+\end{document}

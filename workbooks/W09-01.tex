@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W09-01: Gormley, Matsa \& Milbourn (2013, JAE) \\
+\large ``CEO Compensation and Corporate Risk: Evidence from a Natural Experiment'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} After unexpected EPA regulatory actions added a large \emph{left-tail liability risk} to certain industries (mid-1980s to early 1990s), boards at affected firms reduced CEO compensation \emph{vega} (risk-taking incentive) by roughly 20\% relative to unaffected firms --- showing that boards \emph{do} adjust risk-taking incentives in response to exogenous increases in downside risk.
+
+\textbf{Placement.} Canonical evidence that executive compensation convexity (vega, delta) is \emph{endogenous} to the firm's risk environment. Pairs with Bakke et al.\ (W09-02) on FAS 123R as a different comp-shock.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The shock}
+Between 1986 and 1990, EPA actions (CERCLA/Superfund, expanded enforcement) significantly raised liability risk for firms in certain chemical-using industries (SIC-based classification). The extra risk is heavily \emph{left-tailed}: rare but catastrophic litigation/cleanup outcomes.
+
+\subsection*{1.2 Compensation measures}
+\begin{itemize}
+\item \textbf{Delta.} Sensitivity of CEO portfolio value to 1\% change in stock price. Rewards performance.
+\item \textbf{Vega.} Sensitivity of CEO portfolio value to 1\% change in stock volatility. Rewards risk-taking.
+\end{itemize}
+ExecuComp data.
+
+\subsection*{1.3 Identification}
+DiD across affected vs.\ unaffected SIC codes, pre vs.\ post regulatory event:
+\[
+\text{Vega}_{it}=\alpha_i+\delta_t+\beta\cdot(\text{Affected}_i\cdot\text{Post}_t)+X_{it}'\gamma+\varepsilon_{it}.
+\]
+Expected $\beta<0$: boards cut vega to reduce risk-taking incentives in now-riskier firms.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Vega at affected firms falls by $\sim 20\%$ post-shock relative to control firms.
+\item Delta moves little --- boards still care about performance alignment.
+\item Result is driven by \emph{new} grants, not vesting of legacy grants (consistent with active board re-optimisation).
+\item Placebos on pseudo-events find no effect.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Endogeneity of comp-structure is first-order: regressions that treat vega/delta as exogenous will be misspecified.
+\item Supports a view that comp-design is an active \emph{risk-management} tool of the board.
+\item Links neatly to Smith-Stulz (1985) / Stulz (1996) on value of risk management under downside costs.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Identification relies on the orthogonality of EPA-affected-industry assignment to comp trends.
+\item DiD pre-trend check is necessary.
+\item CEO compensation is a slow-moving contract; short-run effects may understate long-run.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Shock: \blank{1cm} regulation raising \blank{2cm}-tail liability risk.
+\item Vega change at affected firms: $\sim$\blank{1cm}\% \blank{1cm}.
+\item Delta change: approximately \blank{1cm}.
+\item Design: \blank{1cm}-in-\blank{1cm} across industries.
+\item Data source for comp: \blank{2cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define delta and vega formally and explain what each incentivises.
+\item Write the DiD specification and state the identifying assumption.
+\item Why do boards cut vega but leave delta alone?
+\item What does GMM imply for papers that treat comp vega as exogenous?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) vega/delta definitions, (iii) DiD, (iv) headline magnitude, (v) implication for endogeneity of comp.
+
+\section*{Round 5: Blank Page}
+Essay: is CEO compensation a risk-management tool? GMM evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Regulatory source. (2) Tail targeted. (3) Vega change direction and magnitude. (4) Delta change. (5) Data source.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} EPA/CERCLA raising left-tail liability risk, late 1980s.
+\item \textbf{Design.} DiD affected vs.\ unaffected SIC industries.
+\item \textbf{Vega.} $\sim\!20\%$ fall in affected firms.
+\item \textbf{Delta.} Unchanged.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Gormley, Matsa \& Milbourn (2013) use a natural experiment --- the late-1980s EPA/CERCLA expansion that abruptly raised left-tail liability risk for firms in certain chemical-using industries --- to show that boards actively retune CEO compensation in response to risk. Vega (sensitivity of CEO wealth to volatility) falls by about 20\% in affected firms relative to unaffected peers after the shock, while delta (performance sensitivity) is unchanged. The result comes from new grants, consistent with deliberate rebalancing. Implication: CEO compensation structure is endogenous to the firm's risk environment, and regressions that treat comp as exogenous are misspecified. Theoretically, the result is in the Smith--Stulz tradition: boards use comp-convexity to align the CEO's risk-taking incentives with the value of corporate risk management.
+\end{keybox}
+
+\end{document}

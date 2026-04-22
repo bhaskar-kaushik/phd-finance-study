@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W10-02: Hoberg \& Moon (2017, JFE) \\
+\large ``Offshore Activities and Financial vs.\ Operational Hedging'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using a text-based 10-K measure of US firms' \emph{offshore operations}, HM show that firms with more offshore \emph{inputs} hedge FX more operationally (natural hedging from foreign input costs) while firms with more offshore \emph{outputs} (foreign sales) rely more on \emph{financial} derivatives --- operational and financial hedging are \emph{substitutes}.
+
+\textbf{Placement.} Resolves a key old question in the international corporate-finance literature: are operational and financial hedging complements or substitutes? Via text-analysis, HM operationalise the concept in a way earlier studies could not.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Measurement innovation}
+Parse 10-K filings to extract firm-specific mentions of offshore activity (inputs, outputs, operations, sales), by country and type. Construct vectors of offshore input/output exposures at the firm-year level. Data cover $\sim$50{,}000 firm-years, 1997--2014.
+
+\subsection*{1.2 Theory}
+Operational hedging: producing inputs abroad matches foreign-denominated output, internalising FX risk. Financial hedging: derivatives transfer FX risk to counterparties. If operational hedging already reduces FX exposure, incremental financial hedging is less valuable --- \emph{substitutes}.
+
+\subsection*{1.3 Empirical spec}
+\[
+\text{FXHedgeUse}_{it}=\alpha+\beta_1\cdot\text{OffshoreOutputs}_{it}+\beta_2\cdot\text{OffshoreInputs}_{it}+\beta_3\cdot(\text{Inputs}\times\text{Outputs})_{it}+X_{it}'\gamma+\varepsilon_{it}.
+\]
+Expected: $\beta_1>0$ (output exposure raises need), $\beta_2<0$ (inputs provide natural hedge), $\beta_3<0$ (interaction confirms substitution).
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item More offshore outputs $\Rightarrow$ more financial FX hedging.
+\item More offshore inputs $\Rightarrow$ \emph{less} financial FX hedging (natural hedge).
+\item Interaction (outputs $\times$ inputs) is negative: firms with balanced offshore inputs and outputs need little financial hedging.
+\item Quantitatively: a 1-SD shift in offshore-input share cuts financial hedging by $\sim 8\%$.
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item Operational and financial hedging are substitutes, not complements.
+\item Misclassification of natural hedges can bias earlier hedging regressions.
+\item Text-based measurement of firm operations is a useful alternative to proprietary or survey data.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Text-based measures are noisy; classification errors remain.
+\item 10-K disclosures evolve over time; measurement reliability varies.
+\item Causal interpretation requires assuming offshore activity is exogenous to derivative choice.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Measurement: text-based parsing of \blank{1cm}-K filings.
+\item Output exposure effect on financial hedging: \blank{1cm}.
+\item Input exposure effect: \blank{1cm}.
+\item Interaction sign: \blank{1cm}.
+\item Magnitude: 1-SD input share $\to$ $\sim$\blank{1cm}\% cut in financial hedging.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the HM specification and explain each coefficient's theoretical prediction.
+\item Why can offshore inputs serve as a natural FX hedge? Give an example.
+\item Discuss measurement noise in text-based measures and how HM address it.
+\item Propose a test using HM's data on the shareholder-value implications.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) measurement, (ii) theory, (iii) spec, (iv) results, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: natural vs.\ financial hedging --- evidence and implications.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Measurement source. (2) Output effect. (3) Input effect. (4) Interaction sign. (5) Substitutes or complements?
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Measure.} Text-based offshore-activity from 10-Ks.
+\item \textbf{Outputs.} Positive coefficient on financial hedging.
+\item \textbf{Inputs.} Negative coefficient; natural hedge.
+\item \textbf{Conclusion.} Operational and financial hedging are substitutes.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Hoberg \& Moon (2017) innovate on measurement: they parse 10-K filings to construct firm-year-level measures of offshore activity, separated into \emph{inputs} (foreign-denominated costs) and \emph{outputs} (foreign-denominated revenues). The analysis addresses a classic question --- are operational and financial hedging complements or substitutes? Regressing financial FX-hedging on offshore-input/output shares, they find: more offshore outputs raise financial hedging; more offshore inputs lower it; the interaction is negative, meaning balanced offshore inputs and outputs largely eliminate the need for financial derivatives. A 1-SD rise in input share cuts financial hedging by about 8\%. The clear takeaway: operational and financial hedging are substitutes --- a result earlier studies could not identify without text-based offshore measures. The paper is a template for text-measurement in corporate finance.
+\end{keybox}
+
+\end{document}

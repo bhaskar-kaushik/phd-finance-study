@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W10-03: Bates, Kahle \& Stulz (2009, JF) \\
+\large ``Why Do U.S.\ Firms Hold So Much More Cash Than They Used To?'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Average cash-to-assets ratio of US industrials \emph{more than doubled} from $\sim 10\%$ in 1980 to $\sim 23\%$ in 2006; BKS show the rise reflects a \emph{precautionary motive} driven by higher R\&D intensity, higher idiosyncratic cash-flow volatility, and lower inventory/receivables --- structural changes in the US firm, not a simple governance or tax story.
+
+\textbf{Placement.} The canonical paper on the secular cash-holding trend; a natural anchor for precautionary-savings interpretations of corporate liquidity and risk management.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The fact}
+From Compustat, the average cash-to-assets ratio of US industrial firms rises from $\approx 10.5\%$ in 1980 to $\approx 23.2\%$ in 2006. This holds across size bins; median and mean both rise.
+
+\subsection*{1.2 Framework}
+Precautionary cash: firms hold cash to cover future cash-flow shortfalls and to preserve investment. The Opler-Pinkowitz-Stulz-Williamson (1999) cash regression:
+\[
+\text{Cash/Assets}_{it}=\alpha + \beta_1\cdot\text{R\&D/Assets}_{it} + \beta_2\cdot\text{CFVolatility}_{it} + \beta_3\cdot\text{Size}_{it} + \cdots + \varepsilon_{it}.
+\]
+BKS estimate the regression within years and use the coefficients to quantify how much of the time-trend is explained by changes in the covariates.
+
+\subsection*{1.3 Headline findings}
+\begin{itemize}
+\item R\&D intensity rises markedly over the sample, and is strongly positively related to cash.
+\item Idiosyncratic cash-flow volatility rises, and is positively related to cash.
+\item Inventories and receivables fall (just-in-time technologies), reducing non-cash liquidity; firms substitute cash.
+\item Net-debt ratios fall --- cash rises faster than gross debt rises.
+\item Time-fixed-effects regression: R\&D, volatility, inventories explain most of the cash increase.
+\end{itemize}
+
+\subsection*{1.4 Alternative explanations ruled out}
+\begin{itemize}
+\item Agency costs: cash rise is not concentrated in poorly governed firms.
+\item Taxes/repatriation: effect remains after excluding multinationals.
+\item Regulation: secular, not policy-specific.
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item US firms became \emph{riskier} at the cash-flow level; cash hoarding is rational precaution.
+\item Links to the FSS (1993) framework and Bolton-Chen-Wang dynamic cash models.
+\item Important context for Fahlenbrach-Rageth-Stulz (2021, W10-04) on COVID cash value.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Cross-sectional covariates may not fully capture time-series variation.
+\item R\&D intensity itself is endogenous to cash availability.
+\item Panel could have survivorship bias.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Cash ratio: \blank{1cm}\% in 1980 $\to$ \blank{1cm}\% in 2006.
+\item Main drivers: R\&D, \blank{2cm}, and \blank{1cm}/receivables.
+\item OPSW (\blank{1cm}) cash regression template.
+\item Agency story: \blank{1cm} (confirmed/ruled out).
+\item Net debt: \blank{1cm} (up/down) over the period.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the OPSW-style cash regression and identify the key covariates.
+\item Explain how BKS decompose the time trend into covariate changes.
+\item Why is the agency story insufficient?
+\item Link BKS to Fahlenbrach-Rageth-Stulz (2021) on COVID.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) secular fact, (ii) framework, (iii) drivers, (iv) ruled-out alternatives, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: why do US firms hoard cash? The BKS structural explanation.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) 1980 vs.\ 2006 cash ratios. (2) Three drivers. (3) Cash regression template paper. (4) Agency story status. (5) Net-debt trend.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Fact.} Cash/assets $\sim 10\%\to\sim 23\%$, 1980--2006.
+\item \textbf{Drivers.} R\&D intensity $\uparrow$; idiosyncratic cash-flow volatility $\uparrow$; inventories/receivables $\downarrow$.
+\item \textbf{Interpretation.} Precautionary, not agency/tax.
+\item \textbf{Net debt.} Actually falls --- cash rises faster than debt.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bates, Kahle \& Stulz (2009) document and explain the secular rise in US corporate cash holdings from about 10\% of assets in 1980 to about 23\% in 2006. Using the Opler--Pinkowitz--Stulz--Williamson cash-determinants regression within years and decomposing the time trend, they show the rise is driven by (i) higher R\&D intensity, (ii) higher idiosyncratic cash-flow volatility, and (iii) declining inventories and receivables (just-in-time management). The increase is a precautionary response to a riskier cash-flow environment, not a governance failure, tax/repatriation artefact, or regulatory effect. Net debt actually declines as cash rises faster than gross debt. The paper reframes US corporate liquidity: firms hoard cash because they have become structurally riskier, in line with Froot--Scharfstein--Stein (1993) precautionary-savings logic.
+\end{keybox}
+
+\end{document}

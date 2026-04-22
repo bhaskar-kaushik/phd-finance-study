@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W04-02: Keys, Mukherjee, Seru \& Vig (2010, QJE) \\
+\large ``Did Securitization Lead to Lax Screening? Evidence from Subprime Loans'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Subprime mortgages with FICO scores just above the ad-hoc securitisation threshold of 620 were $\approx 20\%$ more likely to be securitised and had \emph{higher} default rates than otherwise-similar loans just below the cutoff --- a regression-discontinuity test showing that the ability to sell loans caused lenders to screen them less carefully.
+
+\textbf{Placement.} The canonical RD identification of a securitisation $\Rightarrow$ moral-hazard effect. Pairs with Mian--Sufi (W04-03) on credit-expansion-driven default, and with Gorton--Metrick (W04-01) on the run on the assets ultimately built from these loans.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+Subprime mortgage market, loans originated 2001--2006. Underwriting-industry rule of thumb: FICO $\geq 620$ ``safe to securitise'' (low-documentation loans), FICO $< 620$ more difficult. The threshold is \emph{ad hoc} --- not based on a genuine discontinuity in borrower quality --- so credit quality should vary smoothly across the cutoff, but the securitisation-ease does not.
+
+\subsection*{1.2 Data}
+Loan-level low-doc subprime originations (LoanPerformance ABS dataset). Key variables: FICO at origination, securitisation status, ex-post default (60+ days, foreclosure, etc.). Sample $\approx 1$ million loans.
+
+\subsection*{1.3 RD design}
+Run
+\[
+Y_i = \alpha + \beta\cdot\mathbf{1}[\text{FICO}_i\geq 620]+ f(\text{FICO}_i)+\varepsilon_i,
+\]
+with flexible controls for FICO (polynomial, local-linear). Outcome $Y_i$ is: (i) probability of securitisation, (ii) default within 10--24 months.
+
+\begin{keybox}
+\textbf{Key logic.} If securitisation were neutral for screening, the jump in securitisation probability at 620 should not produce any corresponding jump in default. If lenders screen less when they can offload, we should see a jump up in default at the 620 cutoff. That is exactly what KMSV find.
+\end{keybox}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Probability of securitisation jumps by $\approx 20$ percentage points at the 620 threshold.
+\item Default rates jump by $\approx 10$--$25\%$ for loans just above 620 vs.\ just below, despite no jump in observable borrower quality.
+\item Effect is \emph{largest} for low-documentation (``liar'') loans where soft information matters most.
+\item No discontinuity in loan terms (LTV, rate) --- so the channel is screening effort, not worse loan structure.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item The 620 rule is not the only cutoff; other thresholds exist and the evidence is most robust at 620.
+\item RD identifies a local effect near the cutoff; extrapolation to the full subprime market is an assumption.
+\item Bubet-Morrison-Zimmerman and others argue some jump could reflect borrower self-selection around the cutoff; KMSV show no bunching (McCrary test).
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Cutoff: FICO $=$ \blank{1cm}; jump in securitisation $\approx$ \blank{1cm} pp.
+\item Default jump at threshold: $\approx$ \blank{1cm}--\blank{1cm}\%.
+\item Identification strategy: \blank{2cm} design.
+\item Loans most affected: \blank{2cm}-documentation subprime.
+\item No bunching test: \blank{2cm} (2008) density test.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the RD specification and state the identifying assumption.
+\item Why does the jump in default at 620 identify a moral-hazard effect of securitisation?
+\item How would you interpret a negative default jump? (i.e., what would it falsify?)
+\item Design a placebo using the same dataset.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) RD spec, (iii) headline magnitudes, (iv) why the cutoff is exogenous, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: securitisation and screening incentives --- the KMSV evidence and its policy implications.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) The cutoff. (2) Jump in securitisation prob. (3) Default-rate jump. (4) Identification method. (5) Why 620 is exogenous.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Cutoff.} FICO 620.
+\item \textbf{Jumps.} Securitisation $+\sim 20$ pp; default $+\sim 10$--$25\%$.
+\item \textbf{Method.} Regression discontinuity at 620.
+\item \textbf{Interpretation.} Easier securitisation $\Rightarrow$ laxer screening $\Rightarrow$ worse loans.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Keys, Mukherjee, Seru \& Vig (2010) exploit an \emph{ad hoc} industry rule that FICO $\geq 620$ loans are easier to securitise than those below. Using loan-level subprime data 2001--2006 and a regression-discontinuity design, they show that at 620 the probability of securitisation jumps by $\sim 20$ pp. Default rates, which should be smooth in borrower quality across a scoring threshold, instead jump upward by $10$--$25\%$. Because borrower observables are continuous through the cutoff, the jump is interpreted as evidence that the ability to offload a loan reduces screening effort --- a moral-hazard cost of securitisation. The effect is strongest in low-documentation loans where soft-information screening matters most. The paper is the cleanest causal test of the screening-securitisation link and a key input to the GFC narrative.
+\end{keybox}
+
+\end{document}

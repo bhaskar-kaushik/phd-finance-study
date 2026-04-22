@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W15-01: Kamiya, Kang, Kim, Milidonis \& Stulz (2021, JFE) \\
+\large ``Risk Management, Firm Reputation, and the Impact of Successful Cyberattacks on Target Firms'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using a hand-collected sample of disclosed successful cyberattacks on US public firms (2005--2017), KKKMS show that attacks involving loss of personal financial information cause a significant negative announcement return ($-1.1$\% CAR), large declines in sales growth and reputation (customer satisfaction), and lead target firms to increase risk management (cyber insurance, IT spending, board risk committees) --- evidence that cyber risk is material and affects real decisions.
+
+\textbf{Placement.} Canonical cyber-risk-as-corporate-risk paper. The empirical complement to theories of reputational-risk management; pairs with Akey-Lewellen-Liskovich-Schiller (W15-02) on reputation channels.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data}
+Hand-collected sample of 480+ successful cyberattacks on US public firms 2005--2017. Sources: Privacy Rights Clearinghouse, SEC 8-K filings, news searches. Classify attacks by whether personal financial information (PFI) was lost.
+
+\subsection*{1.2 Event-study spec}
+\[
+\text{CAR}_i(t_1,t_2)=\sum_{\tau=t_1}^{t_2}\!\big(R_{i\tau}-\EV[R_{i\tau}\mid \text{FF4}]\big).
+\]
+Windows around attack-disclosure date. Split by PFI-loss vs.\ not.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Average $[-1,1]$ CAR: $\sim -0.8$\% for all attacks.
+\item Attacks with PFI loss: $\sim -1.1$\% CAR; without PFI: insignificant.
+\item Sales growth declines by $\sim 1$--$3$ pp over subsequent 2--3 years.
+\item Reputation (ACSI customer satisfaction) falls.
+\item Target firms increase cyber insurance, IT security spending, and board risk committees post-attack.
+\item CFO turnover increases; CEO turnover not.
+\end{itemize}
+
+\subsection*{1.4 Reputation channel}
+\begin{itemize}
+\item Direct financial costs of breaches are modest relative to market-cap loss.
+\item The gap is explained by reputational damage --- lost customer trust, brand value.
+\item Product-market customers discipline targets: sales decline in B2C firms, less in B2B.
+\end{itemize}
+
+\subsection*{1.5 Risk-management response}
+\begin{itemize}
+\item Firms learn: post-attack investments in security/insurance rise.
+\item Board-level risk oversight emerges (cyber-risk committees).
+\item Consistent with optimal response to revealed exposure.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Disclosure is endogenous; undisclosed attacks are missing.
+\item PFI-loss attacks may cluster in certain industries.
+\item Short panel for some risk-management outcomes.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: \blank{1cm} US attacks, \blank{1cm}--\blank{1cm}.
+\item CAR for PFI-loss attacks: $\sim$\blank{1cm}\%.
+\item Sales-growth impact: $-$\blank{1cm} pp over 2--3 years.
+\item Reputation measure: \blank{1.5cm} customer-satisfaction index.
+\item Post-attack risk mgmt: cyber \blank{1.5cm}, IT spending, board \blank{1.5cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Discuss the event-study and the PFI split.
+\item Explain the reputation channel and why CAR $>$ direct cost.
+\item How do firms respond post-attack? What does this imply for optimal risk management?
+\item Relate KKKMS to Akey-Lewellen-Liskovich-Schiller (2026).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sample, (ii) event study, (iii) PFI heterogeneity, (iv) reputation/sales, (v) risk-mgmt response.
+
+\section*{Round 5: Blank Page}
+Essay: cyberattacks as a test of corporate risk management --- evidence from KKKMS.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Sample size. (2) CAR for PFI attacks. (3) Sales-growth impact. (4) Reputation measure. (5) Post-attack risk-mgmt actions.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sample.} $\sim$480 US disclosed cyberattacks 2005--17.
+\item \textbf{CAR.} $-1.1$\% for PFI-loss attacks.
+\item \textbf{Sales.} Down 1--3 pp over 2--3 years.
+\item \textbf{Response.} Insurance, IT, board committees up.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Kamiya, Kang, Kim, Milidonis \& Stulz (2021) hand-collect $\sim$480 disclosed successful cyberattacks on US public firms, 2005--2017, to study the material impact of cyber risk. Attacks involving loss of personal financial information generate a significant $\sim -1.1$\% $[-1,1]$ CAR; attacks without PFI loss do not move stocks. The market-cap loss exceeds direct breach costs, revealing a large reputation channel: customer satisfaction (ACSI) falls, and sales growth declines by 1--3 pp over subsequent years, especially in B2C firms. Target firms respond by increasing cyber insurance, IT security spending, and board-level risk oversight; CFO turnover rises. The paper is the canonical empirical demonstration that cyber risk is a first-order material risk, affecting stock price, product-market outcomes, and real risk-management decisions --- a modern analogue to operational-risk management in financial firms.
+\end{keybox}
+
+\end{document}

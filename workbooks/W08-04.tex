@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W08-04: Dewally, Ederington \& Fernando (2013, RFS) \\
+\large ``Determinants of Trader Profits in Commodity Futures Markets'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using unique trader-level CFTC data, DEF document that commodity producers (hedgers) \emph{lose} money to speculators on average: hedgers pay an insurance premium of $\approx 1$--$3\%$ per year, and the premium is higher when producers are more financially constrained --- a trader-level empirical counterpart of the Acharya-Lochstoer-Ramadorai risk-premium story.
+
+\textbf{Placement.} Companion to W08-03 (ALR 2013): same hedging-pressure narrative but using \emph{trader-level} P\&L rather than commodity futures returns. Directly tests who bears the cost of hedging.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data and scope}
+Non-public CFTC trader-level positions and P\&L in US crude oil, natural gas, heating oil, and gasoline futures 2003--2008. Traders classified by CFTC as hedgers (commercial) or speculators (non-commercial).
+
+\subsection*{1.2 Central quantities}
+\begin{itemize}
+\item Hedger average P\&L per year, normalised by size of hedging position.
+\item Speculator average P\&L, similarly normalised.
+\item Dispersion in P\&L across trader type.
+\end{itemize}
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Hedgers (commercials) lose on average $\sim 1$--$3\%$ per year on their futures positions; speculators earn a symmetric positive return --- consistent with producers paying an \emph{insurance premium}.
+\item Losses are larger for more financially constrained hedgers: firms with higher leverage, lower credit ratings, or higher default probability pay more.
+\item Within speculators, commodity-specialist traders earn the highest profits; index investors earn much less.
+\item Effects are robust to alternative measures of position size and to controlling for market conditions.
+\end{itemize}
+
+\subsection*{1.4 Interpretation}
+\begin{itemize}
+\item Direct trader-level evidence for the hedging-pressure theory of commodity risk premia.
+\item Hedgers willingly pay an insurance premium, consistent with Froot--Scharfstein--Stein rationale.
+\item Speculators who can absorb price risk earn the premium; capital-constrained speculators leave money on the table.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item CFTC data are proprietary; replication constrained.
+\item Hedger/speculator classification is imperfect.
+\item Short sample (2003--2008) includes a boom and crash; dynamics may not generalise.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: trader-level CFTC positions and \blank{1cm}.
+\item Hedger average P\&L sign: \blank{1cm}; magnitude: \blank{1cm}--\blank{1cm}\%/yr.
+\item Most profitable speculator type: \blank{2cm} specialist.
+\item More constrained hedgers pay \blank{1cm} insurance premium.
+\item Sample years: \blank{1cm}--\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Why is an average hedger loss consistent with rational hedging?
+\item Which specification identifies ``constraint makes premium larger''?
+\item Connect DEF to ALR (W08-03): what does each paper add?
+\item Does DEF's evidence support or contradict Allayannis--Weston (2001)?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) central comparison, (iii) magnitudes, (iv) constraint interaction, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: hedgers, speculators, and the price of commodity insurance.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data type. (2) Hedger P\&L sign and magnitude. (3) Most profitable speculator subclass. (4) Constraint effect. (5) Sample years.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} Trader-level CFTC positions and P\&L in energy commodities.
+\item \textbf{Hedgers.} Lose $\sim 1$--$3\%$/yr on futures --- an insurance premium.
+\item \textbf{Constraint.} More constrained hedgers pay more.
+\item \textbf{Speculators.} Specialists earn; index investors earn less.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Dewally, Ederington \& Fernando (2013) test the hedging-pressure theory at the trader level. Using CFTC position and P\&L data for energy-futures traders 2003--2008, they show that commercial hedgers lose on average 1--3\% per year on their futures exposure --- a clear insurance premium paid to speculators. Losses are larger for hedgers with more financial constraints (higher leverage, higher default probability), consistent with Froot--Scharfstein--Stein logic that willingness to pay for insurance rises with distress cost. Speculator earnings mirror hedger losses; commodity-specialist speculators capture more than passive index investors. The paper is the trader-level counterpart to Acharya--Lochstoer--Ramadorai (2013): both confirm that hedging-pressure / limits-to-arbitrage shape commodity risk premia and that capital-constrained producers pay more for insurance.
+\end{keybox}
+
+\end{document}

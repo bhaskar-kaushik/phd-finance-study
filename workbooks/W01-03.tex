@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W01-03: Ashcraft (2005, AER) \\
+\large ``Are Banks Really Special? New Evidence from the FDIC-Induced Failure of Healthy Banks'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Ashcraft exploits a 1980s quirk where FDIC closed two \emph{healthy} Texas subsidiaries of a failed holding company, and shows that local real economic activity (employment, income) declined in the affected counties for several years --- proof that bank-borrower relationships matter beyond borrower quality.
+
+\textbf{Placement.} Core ``banks are special'' paper for Part~I. Natural experiment answers the identification challenge that plagues the earlier bank-specialness literature (Bernanke 1983, James 1987).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Natural experiment}
+In July 1988 First RepublicBank Corporation (Texas) failed. FDIC resolved the failure by (i) opening-bank assistance to most of its subsidiaries but (ii) closing two otherwise-\emph{healthy} subsidiaries in Abilene and Lubbock --- forcing their depositors and borrowers into new relationships. Because the closures were driven by the parent's failure rather than by local economic conditions, Ashcraft treats them as an exogenous shock to the \emph{supply} of local banking services.
+
+\subsection*{1.2 Identification logic}
+\begin{itemize}
+\item \textbf{Treatment:} counties in Texas whose dominant bank was one of the two FDIC-closed healthy subsidiaries.
+\item \textbf{Control:} otherwise-similar Texas counties without FDIC-closed banks.
+\item \textbf{Outcome:} county-level personal income, employment, and wages over 1987--1992.
+\item \textbf{Design:} difference-in-differences with pre-trends, event-study graphs, and synthetic-control-like matching.
+\end{itemize}
+The trick is that \emph{these particular banks were healthy}, so the closure is not a response to local deterioration. This breaks the reverse-causation problem that undermined earlier cross-sectional work.
+
+\subsection*{1.3 Specification}
+\[
+Y_{ct} = \alpha_c + \delta_t + \sum_{\tau=-k}^{+k}\beta_\tau\cdot\mathbf 1\{t-T_c^* = \tau\}\cdot Treat_c + X_{ct}'\gamma + \varepsilon_{ct}.
+\]
+$Y_{ct}$ is log personal income (or log employment) in county $c$, year $t$; $T_c^*$ is closure date; $\alpha_c$ and $\delta_t$ are county and year fixed effects. The coefficients $\beta_\tau$ for $\tau\ge 0$ identify the treatment effect.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Treated counties lose roughly 3\% of personal income over 3--4 years post-closure relative to controls.
+\item Employment effect is smaller and slower; unemployment rate rises modestly.
+\item Pre-trends are flat $\Rightarrow$ parallel-trends assumption plausible.
+\item Effects persist: bank relationships take time to rebuild.
+\end{itemize}
+
+\subsection*{1.5 Identification concerns}
+\begin{alertbox}
+\begin{itemize}
+\item \textbf{Selection of which subsidiaries FDIC closed.} Ashcraft documents institutional reasons unrelated to local fundamentals.
+\item \textbf{Small sample of treated counties} --- inference uses clustered standard errors and placebo tests.
+\item \textbf{Spillover to neighbouring counties} if borrowers switch banks across county lines; Ashcraft shows effects concentrated in the treated county.
+\item \textbf{External validity.} Texas 1988, oil-price aftermath. Generalisation to modern large-bank failures is not automatic.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Experiment: FDIC closes two \blank{2cm} subsidiaries of \blank{2cm} Corporation in \blank{2cm}.
+\item Outcome variables: log county-level \blank{2cm} and \blank{2cm}.
+\item Treated counties lose $\sim$ \blank{1cm}\% of personal income over 3--4 years.
+\item Identification: \blank{2cm}-in-differences with \blank{2cm} fixed effects.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the event-study specification and state the parallel-trends assumption.
+\item Why does ``closing a \emph{healthy} bank'' break the reverse-causation problem? Contrast with Bernanke (1983) and James (1987).
+\item How would you check for spillovers to adjacent counties?
+\item What magnitude of effect would you expect if bank relationships were irrelevant? (The null hypothesis.)
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) experiment, (ii) counties/outcomes/timing, (iii) spec, (iv) three headline numbers, (v) two identification concerns.
+
+\section*{Round 5: Blank Page}
+Essay: ``banks are special'' --- what does Ashcraft add beyond Bernanke and James?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Name the holding company. (2) Why were the two subsidiaries closed? (3) County-level DV. (4) Pre-trend test. (5) Magnitude of income loss.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{First RepublicBank Corporation} (Texas, 1988); FDIC closed the Abilene and Lubbock subsidiaries despite their individual solvency.
+\item \textbf{Outcome:} log county personal income falls $\sim 3\%$ over 3--4 years; employment effect smaller and slower.
+\item \textbf{Design:} event-study DiD with county and year FEs; pre-trends flat.
+\item \textbf{Mechanism:} destruction of bank-borrower relationships $\Rightarrow$ borrowers face higher search/monitoring costs.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Ashcraft (2005) is the cleanest ``banks are special'' natural experiment. When First RepublicBank Corporation failed in 1988, FDIC closed two otherwise-healthy Texas subsidiaries in Abilene and Lubbock. Because closure was driven by the parent's failure, not local deterioration, it is a plausibly exogenous shock to banking services in the affected counties. Event-study DiD shows treated counties lose $\sim 3\%$ of personal income over 3--4 years and experience persistent employment declines, with flat pre-trends. The paper breaks the reverse-causation problem that troubled Bernanke (1983) and James (1987) and establishes that bank-borrower relationships have real economic content beyond borrower quality. Caveats: small treated sample, Texas-specific, 1980s oil context; still the textbook reference.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W01-01: Kashyap, Rajan, Stein (2002, JF) \\
+\large ``Banks as Liquidity Providers: An Explanation for the Coexistence of Lending and Deposit-Taking'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Deposits and loan-commitment (credit-line) drawdowns are \emph{imperfectly correlated}, so a single pool of liquid assets can back both: that \emph{synergy} is why lending and deposit-taking co-exist inside the same institution.
+
+\textbf{Placement.} Foundational paper for Part~I of the course: provides the modern theoretical rationale for the bank as a combined deposit-and-loan franchise. Direct empirical sequel is Gatev--Strahan (W01-02).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Core insight}
+Historically banks were explained either as \emph{liquidity providers to depositors} (Diamond--Dybvig) or as \emph{monitors of borrowers} (Diamond 1984). KRS ask: why the same firm? Their answer: a bank makes liquidity promises on \emph{both sides} of its balance sheet --- to depositors who may withdraw and to firms that hold undrawn credit lines. If withdrawals $W$ and drawdowns $D$ are \emph{less than perfectly correlated}, the liquidity reserve needed to back both is less than the sum of what two separate institutions would need.
+
+\subsection*{1.2 Model sketch}
+Let a bank hold liquid asset $L$, face stochastic deposit outflows $\tilde W$ and commitment drawdowns $\tilde D$. The bank is solvent if
+\[
+L \ge \tilde W + \tilde D.
+\]
+If $\rho = \text{Corr}(\tilde W, \tilde D) < 1$, then for a given failure probability the required $L^*$ satisfies
+\[
+L^* \;<\; L^*_W + L^*_D,
+\]
+because $\Var(\tilde W + \tilde D) = \sigma_W^2 + \sigma_D^2 + 2\rho\sigma_W\sigma_D < \sigma_W^2 + \sigma_D^2$ when $\rho<0$ or small. The synergy is economically meaningful especially when $\rho$ is \emph{negative} --- i.e., when deposits flow \emph{in} at the same time firms draw down lines.
+
+\subsection*{1.3 Empirical content}
+\begin{itemize}
+\item Cross-section of US banks 1992--1996: deposit-to-commitment ratio is strongly positive across banks, and banks with more transaction deposits also have more unused commitments.
+\item During periods of tight liquidity (e.g., 1998 LTCM episode hinted at but Gatev--Strahan nails this), deposit inflows and commitment drawdowns move in \emph{opposite} directions $\Rightarrow$ the synergy is maximal exactly when it is most needed.
+\item Banks with transaction deposits (checking accounts) hold less liquid securities relative to commitments than banks with time deposits --- consistent with the hedging story.
+\end{itemize}
+
+\subsection*{1.4 Identification / econometric considerations}
+\begin{alertbox}
+\begin{itemize}
+\item Endogeneity: bank capital structure and commitment volume are jointly chosen. Cross-sectional correlations are suggestive, not causal.
+\item The model predicts a \emph{diversification benefit} only when $\rho(\tilde W,\tilde D)$ is low. Would fail in a systemic-run state ($\rho\to 1$) --- consistent with why 2008 crisis forced government backstops.
+\item Deposit insurance and the discount window make deposits \emph{sticky}, which raises the correlation of ``effective'' liquidity shocks. The synergy is largest in insured banks.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item A bank is solvent iff $L \ge \blank{1cm} + \blank{1cm}$.
+\item $\Var(\tilde W + \tilde D) = \sigma_W^2 + \sigma_D^2 + \blank{2cm}$.
+\item Synergy is largest when $\rho(\tilde W,\tilde D)$ is \blank{1.5cm}.
+\item Banks with more \blank{1.5cm} deposits have a stronger deposit-commitment hedge.
+\item Period when deposits flow in while lines are drawn: \blank{2cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Derive the required liquid-asset buffer $L^*(\alpha)$ such that $\Pr(L<\tilde W+\tilde D)=\alpha$, assuming $(\tilde W,\tilde D)$ joint-normal. Show that $\partial L^*/\partial\rho > 0$.
+\item Explain why Diamond--Dybvig alone cannot justify deposit-plus-lending inside a single bank.
+\item What breaks the KRS synergy during a systemic run? Draw the implications for optimal regulatory capital.
+\item Relate KRS to the later Gatev--Strahan (2006) empirical finding.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page, reproduce: (i) the core synergy argument, (ii) the variance-of-sum decomposition, (iii) three empirical predictions, (iv) two regulatory implications.
+
+\section*{Round 5: Blank Page}
+Why is the deposit-plus-loan-commitment bank the \emph{natural} institutional form in a world where liquidity shocks are imperfectly correlated? Write a one-page essay.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Variance of sum formula. (2) Sign of $\rho$ needed for synergy. (3) Why transaction deposits are the right hedge. (4) What happens to the synergy in a systemic run? (5) Diamond--Dybvig vs.\ KRS rationale in one sentence each.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Core identity.} $\Var(\tilde W + \tilde D) = \sigma_W^2 + \sigma_D^2 + 2\rho\sigma_W\sigma_D$.
+\item \textbf{Synergy.} $L^*(\rho)<L^*_W+L^*_D$ whenever $\rho<1$; strongest for $\rho<0$.
+\item \textbf{Empirical support.} Banks with more demand/transaction deposits have \emph{more} unused loan commitments; in flights-to-quality, deposits rise while lines are drawn.
+\item \textbf{KRS vs.\ alternatives.} Diamond--Dybvig (1983) explains deposits only; Diamond (1984) explains loan-monitoring only. KRS is the joint explanation.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} KRS (2002) is the theoretical anchor for treating banks as combined liquidity providers on both sides of the balance sheet. Deposits can be withdrawn on demand; loan commitments can be drawn on demand. Because the two liquidity shocks are imperfectly --- and often \emph{negatively} --- correlated, a single liquid-asset buffer backs both at lower cost than two separate institutions would require. The variance-of-sum identity $\Var(\tilde W+\tilde D)=\sigma_W^2+\sigma_D^2+2\rho\sigma_W\sigma_D$ makes the mechanism transparent. Empirically, transaction-deposit-heavy banks hold relatively more undrawn commitments, and during flights-to-quality deposits flow in while credit lines are drawn --- exactly the negative-$\rho$ state in which the synergy is largest. The synergy breaks in a systemic run where $\rho\to 1$, which is why the backstop (deposit insurance, discount window, LOLR) is integral to the combined institution.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W10-01: Adam (2009, JFE) \\
+\large ``Capital Expenditures, Financial Constraints, and the Use of Options'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Gold-mining firms with tighter financial constraints use \emph{options} (rather than linear forwards/swaps) disproportionately more, to insure planned capital expenditure while preserving upside --- Froot--Scharfstein--Stein investment-motive hedging, operationalised in derivative \emph{instrument choice}.
+
+\textbf{Placement.} Extends FSS (1993) from hedge-quantity to hedge-\emph{structure}. Complements the risk-management-and-investment literature (GT W08-02) and the financing-constraints literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Context and data}
+North American gold-mining firms, 1989--1999. Hand-collected disclosure data on \emph{type} of hedging instrument (linear: forwards, swaps, fixed-price contracts; convex: options, collars, spot-deferred forwards). Firm fundamentals from Compustat.
+
+\subsection*{1.2 Theoretical prediction}
+Firms with higher investment hedging needs and tighter financial constraints face asymmetric costs: on the downside, distress / under-investment; on the upside, they wish to retain the option to invest in high-NPV projects when gold prices are favourable. Options (or combinations) give asymmetric payoffs; linear hedges do not.
+
+\subsection*{1.3 Empirical spec}
+Logit / probit:
+\[
+\text{OptionUse}_{it} = \alpha + \beta_1 \cdot \text{FinConstraints}_{it} + \beta_2 \cdot \text{InvestmentNeed}_{it} + X_{it}'\gamma + \varepsilon_{it}.
+\]
+Expected: $\beta_1, \beta_2 > 0$.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Financially constrained firms (high leverage, low dividend coverage, high KZ index) use options and convex hedging structures more.
+\item Firms with larger planned capex use options more.
+\item Firms that hedge using mostly forwards tend to be large, well-established, unconstrained.
+\item Results are robust across instrument-type classifications.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Options insure the downside (protect capex and distress costs) while preserving upside exposure, which constrained firms value.
+\item Linear hedges lock in cash flow but forgo upside; unconstrained firms view them as acceptable.
+\item The choice is consistent with FSS's investment-motivated hedging extended to instrument design.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Single industry; external validity limited.
+\item Option use is also correlated with sophistication of treasury function.
+\item Constraint measures are proxies, potentially noisy.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Industry/period: North American \blank{1cm}-mining, \blank{1cm}--\blank{1cm}.
+\item Expected sign on FinConstraints: \blank{1cm}.
+\item Convex hedge example: \blank{1cm}, collars.
+\item Linear hedge example: \blank{1.5cm}, swaps.
+\item Theory paper matched: \blank{2cm} (1993).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Why do constrained firms prefer options over forwards?
+\item State the FSS (1993) theory in a sentence and map it to this paper.
+\item Write the logit and explain identification.
+\item How would the result change if investors could costlessly hedge themselves?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) theory, (iii) specification, (iv) results, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: does the instrument matter? Hedging structure and financial constraints.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Industry. (2) Sample years. (3) Constrained firms prefer which instrument? (4) Theory paper. (5) Two linear hedges.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sample.} Gold miners 1989--99.
+\item \textbf{Prediction.} Constrained firms use more convex hedges.
+\item \textbf{Result.} Confirmed; options/collars concentrated in constrained firms.
+\item \textbf{Link.} FSS (1993) investment-motivated hedging.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Adam (2009) examines derivative \emph{instrument} choice in North American gold-mining firms, 1989--1999, using hand-collected disclosure data. The prediction, grounded in Froot--Scharfstein--Stein (1993), is that financially constrained firms with large planned capex should prefer convex hedging structures (options, collars) to linear hedges (forwards, swaps), because they need to insure the downside of gold prices against distress and under-investment while preserving the upside to capture high-NPV investment opportunities. Empirically, constrained firms (high leverage, low dividend coverage, high KZ score) and firms with bigger capex plans use options more. Unconstrained firms hedge mostly with forwards. The paper extends hedging-quantity models to hedging-structure and sharpens the FSS view of corporate risk management.
+\end{keybox}
+
+\end{document}

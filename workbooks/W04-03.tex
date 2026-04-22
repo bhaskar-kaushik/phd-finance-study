@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W04-03: Mian \& Sufi (2009, QJE) \\
+\large ``The Consequences of Mortgage Credit Expansion: Evidence from the U.S. Mortgage Default Crisis'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} ZIP codes with the \emph{largest expansion of mortgage credit to ex-ante high-denial-rate borrowers} between 2002--2005 experienced the largest subsequent default rates 2006--2008, despite the \emph{decline} in borrower-income growth in those same ZIPs --- direct evidence that a credit-supply outward shift (not a demand/income story) drove the subprime boom and the default crisis.
+
+\textbf{Placement.} The companion to Keys et al.\ (W04-02): KMSV gives the micro screening-vs-securitisation channel; MS shows the macro geography of the credit supply expansion and its default consequences. Keystone of the household-debt literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Empirical puzzle}
+Between 2002 and 2005, mortgage credit expanded most in ZIP codes that had \emph{high denial rates} in the 1990s (subprime-prone neighbourhoods). This is striking because ZIP-level income growth in those neighbourhoods was \emph{negative or zero} --- the outward shift in credit cannot be demand-driven.
+
+\subsection*{1.2 Data}
+HMDA (Home Mortgage Disclosure Act) ZIP-code panel: originations, denials, borrower-income measures. Default and price data from LoanPerformance and Zillow. Sample: $\approx 3{,}000$ ZIP codes across 2001--2008.
+
+\subsection*{1.3 Identification --- supply vs.\ demand}
+The MS insight: if the credit expansion were demand-driven (more borrower income or wealth), origination and income should move \emph{together}. MS document the opposite in subprime ZIPs: originations up, income flat or down. This \emph{negative correlation} of origination growth and income growth is the signature of a supply shock.
+\[
+\Delta\ln\text{Orig}_{z,02\text{-}05}=\alpha + \beta\cdot\text{HighDenial90s}_z + \gamma\cdot\Delta\ln\text{Income}_{z,02\text{-}05}+\varepsilon_z.
+\]
+The coefficient $\beta$ is positive, and the simple correlation with income growth is \emph{negative} in subprime ZIPs.
+
+\subsection*{1.4 Default consequences}
+Same-ZIP regressions in 2006--2008:
+\[
+\text{DefaultRate}_{z}= a + b\cdot\Delta\ln\text{Orig}_{z,02\text{-}05}+\text{controls}+u_z.
+\]
+High-credit-growth subprime ZIPs have by far the highest default rates in the subsequent bust; the relationship is linear and strong.
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Securitisation finance (via private-label MBS) flows disproportionately to subprime ZIPs from 2002.
+\item MS show that non-GSE securitisation is the marginal funding source.
+\item House prices rise in these ZIPs, then crash more dramatically (housing-bubble amplification).
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item ZIP-level analysis may mask within-ZIP heterogeneity; MS supplement with loan-level HMDA.
+\item The counterfactual ``what would defaults look like without supply shift'' is not observed; MS use cross-sectional variation.
+\item Reverse causality --- defaults driving credit policy --- is unlikely given the timing (2002--2005 expansion precedes 2006--2008 defaults).
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Expansion period: \blank{1cm}--\blank{1cm}; default period: \blank{1cm}--\blank{1cm}.
+\item Treatment: ZIPs with high ex-ante \blank{1.5cm} rate.
+\item Demand-side test: origination growth vs.\ \blank{1.5cm} growth is \blank{1cm}.
+\item Marginal funding source: non-GSE \blank{1.5cm}.
+\item Outcome: ZIP-level default rate 2006--\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Why does the sign of origination-vs-income correlation identify supply vs.\ demand?
+\item Relate MS to Keys et al.\ (2010) and Gorton--Metrick (2012). How does the story fit together?
+\item How would MS's evidence change if non-GSE securitisation had been absent?
+\item Discuss implications for macroprudential policy.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) empirical puzzle, (ii) data and geography, (iii) supply vs.\ demand argument, (iv) default consequences, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: the subprime boom as a credit-supply shift --- MS evidence and its implications.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Expansion years. (2) Treatment variable. (3) Sign of origination--income correlation in subprime ZIPs. (4) Default years. (5) Funding source identified.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Puzzle.} Subprime ZIPs: mortgage credit $\uparrow$ 2002--05 while income $\downarrow$.
+\item \textbf{Inference.} Supply shift, not demand, drives the expansion.
+\item \textbf{Default.} Same ZIPs have the highest 2006--08 default rates.
+\item \textbf{Channel.} Non-GSE (private-label) securitisation as the marginal funder.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Mian \& Sufi (2009) pin down the supply-side origins of the US mortgage default crisis. Between 2002 and 2005, mortgage credit expanded most in ZIP codes that had been the \emph{hardest} to borrow in during the 1990s --- high ex-ante denial-rate neighbourhoods. At the same time, income growth in those ZIPs was flat or negative, ruling out a demand-driven expansion. The marginal funding source was non-GSE (private-label) securitisation. These same ZIPs went on to have the highest default rates in 2006--2008. The paper is the macro counterpart to Keys et al.\ (2010): it shows that the screening-lax securitisation channel manifested in a geographic pattern where credit expansion was decoupled from income fundamentals, and the reversal drove the household-debt collapse.
+\end{keybox}
+
+\end{document}

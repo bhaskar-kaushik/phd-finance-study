@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W03-03: Khwaja \& Mian (2008, AER) \\
+\large ``Tracing the Impact of Bank Liquidity Shocks: Evidence from an Emerging Market'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} After Pakistan's 1998 nuclear tests, the government froze dollar-denominated deposits; banks with higher ex-ante dollar-deposit shares lost more funding and cut lending more, even to the \emph{same firm} borrowing from multiple banks. KM introduce the ``within-firm'' estimator that absorbs demand and isolates pure credit-supply --- and further show that firms cannot fully substitute across banks, so bank-supply shocks have real output effects.
+
+\textbf{Placement.} The identification template imported into the modern credit-supply literature (JOPS 2012 W02-02; countless others). Essential reading for any applied banking paper.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The shock}
+May 1998: India and Pakistan test nuclear weapons. Pakistan's government responds to a currency crisis by freezing foreign-currency deposits. Banks that had financed themselves with dollar deposits suddenly lose access to those funds --- a differential liquidity shock across banks within the same country.
+
+\subsection*{1.2 Data}
+Pakistan credit register: every bank-loan-firm observation. Firms typically borrow from several banks. Sample $\approx 80{,}000$ bank-firm-quarter observations surrounding the shock.
+
+\subsection*{1.3 Two-step estimation}
+\textbf{Step 1 --- bank-level effect of deposit freeze on lending:}
+\[
+\Delta \ln L_{bft} = \alpha_{ft} + \beta\cdot \text{DollarShare}_b + \gamma X_{bf} + \varepsilon_{bft}.
+\]
+The firm-time FE $\alpha_{ft}$ absorbs all demand; $\beta$ identifies the \emph{bank supply} response.
+\textbf{Step 2 --- from loan-level to firm-level:} aggregate to the firm, regress firm total borrowing on its exposure to dollar-deposit banks, and test whether firms can offset by borrowing more elsewhere. KM find only partial substitution --- small firms especially cannot.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Banks with 1 pp higher dollar-deposit share cut lending to the \emph{same} firm by $\sim$0.6--0.8 pp more post-shock.
+\item At the firm level, loss from weak banks is not fully offset by borrowing at strong banks; total firm borrowing falls, especially at small firms with few banking relationships.
+\item Real effect: firms exposed to high-dollar-deposit banks subsequently show lower investment, consistent with a real friction from the credit-supply shock.
+\end{itemize}
+
+\subsection*{1.5 Why this paper is canonical}
+\begin{keybox}
+The within-firm-quarter fixed-effect absorbs \emph{all} firm-level shocks to demand --- demand shifts, risk news, technology, macro conditions. Identification of $\beta$ rests on the differential response of different banks to a common shock, for the \emph{same} borrower. This is the textbook method for separating bank-supply from borrower-demand in credit data.
+\end{keybox}
+
+\subsection*{1.6 Identification caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Firms with only one bank relationship drop out of the within-firm estimator (selection).
+\item Differential bank characteristics could correlate with types of borrowers they serve. KM show bank observables are balanced post-FE.
+\item Generalisation from Pakistan 1998 to other settings needs care, but the identification method is general.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Shock: May \blank{1cm} nuclear tests $\Rightarrow$ Pakistan freezes \blank{2cm} deposits.
+\item Treatment: bank-level ex-ante \blank{2cm} share.
+\item Absorbing FE: firm-\blank{1cm} fixed effect.
+\item Coefficient magnitude: $\sim$\blank{1cm}--\blank{1cm} pp cut per 1 pp dollar-deposit share.
+\item Substitution across banks: \blank{1cm} offset (not full).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the two-step specification and state what each fixed effect absorbs.
+\item Why does within-firm identification \emph{not} solve the firm-level aggregation problem? What does KM do instead?
+\item Contrast KM with Kashyap--Stein (2000) on identification.
+\item Suppose you wanted to apply KM's method to study credit-supply in the 2008 US crisis. What dataset would you need?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) two-step spec, (iii) coefficient magnitudes, (iv) real effects at firm level, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: the KM ``within-firm'' identification and its legacy in applied banking research.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Year of the shock. (2) Treatment variable. (3) Absorbing fixed effect. (4) Why single-bank firms drop out. (5) Real-effects finding.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} Pakistan 1998 foreign-currency-deposit freeze $\Rightarrow$ differential bank-funding shock.
+\item \textbf{Within-firm.} $\alpha_{ft}$ absorbs demand; $\beta$ on bank exposure identifies supply.
+\item \textbf{Magnitude.} 0.6--0.8 pp loan-cut per 1 pp dollar-deposit share.
+\item \textbf{Aggregation.} Partial offset across banks; net firm-level credit falls, especially for small firms.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Khwaja--Mian (2008) is the methodological cornerstone of modern credit-supply identification. They use Pakistan's 1998 freeze on foreign-currency deposits as an exogenous, differential shock to banks with different ex-ante dollar-deposit shares. With firm-quarter fixed effects in a bank-firm-quarter panel, they absorb all demand variation and identify pure credit-supply from the response of different banks to the shock \emph{within the same borrower}. Loans fall 0.6--0.8 pp per 1 pp dollar-deposit share. Aggregating to the firm, only partial substitution across banks is possible, so total firm borrowing falls, with real effects on investment. The within-firm-quarter estimator has become the standard tool in applied banking.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W03-04: Amiti \& Weinstein (2011, QJE) \\
+\large ``Exports and Financial Shocks'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using Japanese firm-bank matched data 1990--2010 and an exporter-specific trade-finance channel, AW show that shocks to firms' main banks' health \emph{cut exports} more than they cut domestic sales --- trade finance is a distinct bank-supply channel, and bank-health shocks can explain a meaningful share of the trade collapse during crises (notably 2008--09).
+
+\textbf{Placement.} Extends the Khwaja--Mian within-firm identification strategy to firm-level outcomes (exports), and is a touchstone for the ``great trade collapse'' literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting and data}
+Matched firm-bank data from Japanese Ministry of Finance and TSR 1990--2010. Each firm has a ``main bank'' relationship. Key outcomes: exports vs.\ domestic sales at the firm level; annualised. Bank health measured by abnormal equity returns and by capital ratios.
+
+\subsection*{1.2 Identification: within-firm, exports vs.\ domestic}
+\[
+\Delta \ln S^k_{ft}=\alpha_{ft}+\beta^k\cdot\text{BankHealth}_{b(f)t}+X_{ft}'\gamma+\varepsilon_{ft}^k,
+\]
+for $k\in\{\text{export},\text{domestic}\}$, with firm-time FE $\alpha_{ft}$. Identification: the \emph{difference} $\beta^{\text{export}}-\beta^{\text{domestic}}$ is the trade-finance effect because any shock that hurts both sales identically is absorbed.
+
+\subsection*{1.3 Why trade finance matters}
+Exports require letters of credit, pre-shipment financing, and forex hedging, most of which are provided by banks. If a firm's main bank becomes unhealthy, it cuts trade-finance services faster than general working-capital loans, disproportionately hurting exports.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item A 1-standard-deviation deterioration in main-bank health cuts exports by $\sim$4 pp more than domestic sales, year-over-year.
+\item Effect is concentrated in firms that are \emph{heavy users} of trade finance (inferred from industry characteristics).
+\item Aggregating up: bank-health shocks explain a non-trivial share (roughly 15--20\%) of Japan's trade collapse in 2008--09.
+\end{itemize}
+
+\subsection*{1.5 Identification concerns}
+\begin{alertbox}
+\begin{itemize}
+\item ``Main bank'' choice is endogenous; AW show that results are robust to using each firm's historical main-bank relationship.
+\item Unobserved firm shocks that affect exports and domestic differently would contaminate the difference estimator.
+\item Selection: only multi-bank firms identified from switch events; AW discuss robustness.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: Japanese \blank{1.5cm}-matched firm-bank panel, 1990--2010.
+\item Identification uses the difference between \blank{1cm} and \blank{1cm} sales within the same firm-year.
+\item Trade finance examples: \blank{1cm}, pre-shipment financing, FX hedging.
+\item Magnitude: $\sim$\blank{1cm} pp larger export cut than domestic.
+\item Share of 2008--09 Japan trade collapse explained: $\sim$\blank{1cm}\%.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the firm-level difference specification and state the identifying assumption.
+\item Why is a within-firm-year difference between exports and domestic sales a clean identification of trade finance?
+\item Discuss the 2008--09 ``great trade collapse'' and AW's contribution to that debate.
+\item Design an analogous test using US firm-bank data for 2008--09.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data, (ii) identification, (iii) magnitudes, (iv) aggregation to trade collapse, (v) two caveats.
+
+\section*{Round 5: Blank Page}
+Essay: trade finance as a distinct bank channel and its macro implications.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Country and years. (2) Outcome variables. (3) Magnitude differential. (4) One trade-finance instrument. (5) Share of 2008--09 collapse explained.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Design.} $\Delta\ln$ exports minus $\Delta\ln$ domestic within firm-year, regressed on main-bank health.
+\item \textbf{Magnitude.} $\sim$4 pp differential per 1-sigma worse bank health.
+\item \textbf{Interpretation.} Trade finance is a distinct bank-supply channel; it collapses faster than working-capital lending when banks weaken.
+\item \textbf{Aggregate importance.} Roughly 15--20\% of Japan's 2008--09 trade collapse attributable to bank-health shocks.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Amiti--Weinstein (2011) identify a trade-finance channel of bank supply using matched Japanese firm-bank data 1990--2010. Exports disproportionately require letters of credit and similar bank instruments, so when a firm's main bank weakens, exports fall more than domestic sales. The within-firm-year difference between export and domestic growth, regressed on bank health, gives a clean causal estimate: a 1-sigma worse main-bank health cuts exports by $\sim$4 pp more than domestic sales. Aggregated, bank-health shocks explain roughly one-sixth to one-fifth of Japan's 2008--09 trade collapse. The paper inserts banks into the trade literature and the identification template --- within-firm differences between outcomes that share a common demand shock --- generalises to many contexts.
+\end{keybox}
+
+\end{document}

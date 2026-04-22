@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W02-01: Kashyap \& Stein (2000, AER) \\
+\large ``What Do a Million Observations on Banks Say About the Transmission of Monetary Policy?'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using $\sim$one million bank-quarter observations 1976--1993, KS show that monetary tightening cuts lending \emph{more} at small, illiquid banks than at large, liquid ones --- a balance-sheet-channel signature: small banks cannot easily replace lost insured deposits with uninsured wholesale funding.
+
+\textbf{Placement.} Canonical evidence for the bank lending channel of monetary policy. Sets up Jim\'enez--Ongena--Peydr\'o--Saurina (W02-02) for cleaner identification, Drechsler--Savov--Schnabl (W02-03) for the modern deposits-channel, and Rodnyansky--Darmouni (W02-04) on QE.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Hypothesis}
+A ``bank lending channel'' exists if monetary tightening differentially reduces loan supply at banks whose external funding alternatives are more costly. Small, illiquid banks rely on insured deposits. Tight policy drains these deposits; such banks cannot frictionlessly issue uninsured CDs or wholesale debt; lending must contract. Large, liquid banks are more insulated.
+
+\subsection*{1.2 Specification --- two-stage approach}
+\textbf{First stage (per bank):} regress loan growth on monetary policy and controls:
+\[
+\Delta \ln L_{it} = \alpha_i + \sum_{j=0}^{J}\beta_{ij}\Delta \mathrm{MP}_{t-j} + \gamma_i X_{it} + u_{it}.
+\]
+\textbf{Second stage (cross-section):} regress the bank-specific monetary sensitivity $\hat\beta_i=\sum_j\hat\beta_{ij}$ on bank liquidity:
+\[
+\hat\beta_i = a + b\cdot\text{Liquidity}_i + c\cdot\text{Size}_i + w_i.
+\]
+The coefficient $b$ is the object of interest: if $b<0$, more liquid banks are \emph{less} affected by tightening (in absolute value), supporting the balance-sheet channel.
+
+\subsection*{1.3 Sample and liquidity measure}
+\begin{itemize}
+\item Call Report quarterly data, all US commercial banks, 1976:Q1--1993:Q2. About 1 million bank-quarter observations.
+\item Liquidity $=$ (cash + securities) $/$ assets.
+\item Size $=$ log of assets; usually split into sub-sample groupings.
+\item Monetary policy: Fed Funds rate (Bernanke--Blinder style) or nonborrowed reserves shocks (Strongin).
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Effect of tightening on loan growth is \emph{strongest} (most negative) for \emph{small, illiquid} banks. The interaction Size $\times$ Liquidity $\times$ MP is the key sufficient statistic.
+\item Large banks: monetary policy has near-zero effect on lending (they offset with wholesale funding).
+\item Small, liquid banks: near-zero effect (they have buffers).
+\item Small, illiquid banks: large, negative, significant effect --- the marginal bank.
+\end{itemize}
+
+\subsection*{1.5 Identification issues}
+\begin{alertbox}
+\begin{itemize}
+\item Cannot separate loan \emph{supply} shifts from loan \emph{demand} shifts at the bank level (same firm may borrow from multiple banks, or not). Khwaja--Mian (2008) and Jim\'enez et al.\ (2012) fix this with matched borrower-bank data.
+\item Two-step SE understated; Shiller-style or bootstrap SE needed.
+\item Liquidity is endogenous: banks that expect future credit demand may hold more liquid assets in advance. KS argue size\,$\times$\,liquidity is less endogenous than either alone.
+\item Endogenous monetary policy: Fed responds to the economy. KS assume MP shocks exogenous at the monthly/quarterly horizon.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Bank lending channel $\Rightarrow$ tight policy cuts loans more at \blank{2cm}, \blank{2cm} banks.
+\item Liquidity $=$ (\blank{2cm}) / assets.
+\item Key sufficient statistic: interaction of \blank{2cm}, \blank{2cm}, and \blank{2cm}.
+\item Sample: US Call Reports, \blank{2cm} to \blank{2cm}, $\sim$\blank{1cm} bank-quarter obs.
+\item Most-affected banks: small and \blank{2cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the KS two-stage specification and state the identifying assumption in each stage.
+\item Why cannot one identify the lending channel with aggregate data alone?
+\item How does Khwaja--Mian (2008) improve on KS's identification?
+\item Contrast the bank lending channel with the \emph{deposits} channel of DSS (2017).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) hypothesis, (ii) two-stage spec, (iii) liquidity measure, (iv) size $\times$ liquidity bifurcation, (v) three identification concerns.
+
+\section*{Round 5: Blank Page}
+Essay: the bank lending channel --- theory, evidence, and why it partially survives modern reassessments.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Liquidity ratio definition. (2) Sample size. (3) Which bank-type is most affected? (4) The key triple interaction. (5) Why simple aggregate regressions fail.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Two-stage.} Stage 1: per-bank MP-sensitivity $\hat\beta_i$; stage 2: $\hat\beta_i$ on liquidity $\times$ size.
+\item \textbf{Liquidity.} Cash $+$ securities over assets.
+\item \textbf{Headline.} Small illiquid banks cut lending most after tightening; large banks essentially unaffected.
+\item \textbf{Key identifying assumption.} Within a size group, cross-sectional variation in liquidity is not driven by differences in the demand for loans.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} KS (2000) give the workhorse cross-bank evidence for the bank lending channel. Using roughly one million bank-quarter Call Report observations 1976--1993, they estimate a per-bank sensitivity of loan growth to monetary policy, then explain those sensitivities with bank liquidity and size. The headline: tightening cuts lending more at small, illiquid banks, because they cannot cheaply replace lost deposits with wholesale funding. Large banks and small \emph{liquid} banks are near-unaffected. The paper survives as textbook evidence of the lending channel; modern follow-ups (Jim\'enez et al.~2012, Khwaja--Mian~2008) sharpen identification by using borrower-level data, and DSS (2017) repackage the mechanism as a deposits channel.
+\end{keybox}
+
+\end{document}

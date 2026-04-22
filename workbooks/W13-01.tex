@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W13-01: Murfin \& Spiegel (2020, RFS) \\
+\large ``Is the Risk of Sea Level Rise Capitalized in Residential Real Estate?'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Once one controls for local ground subsidence (which is highly correlated with SLR exposure), the Bernstein-Gustafson-Lewis $\sim$7\% price discount on SLR-exposed coastal homes falls essentially to zero --- MS argue the housing market does \emph{not} meaningfully price long-horizon SLR risk in the US cross-section they examine.
+
+\textbf{Placement.} The canonical critical counterpoint to Bernstein-Gustafson-Lewis (W12-03). Keys-Mulder (W14-03) provides updated evidence that markets are slowly adjusting as information improves.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Critical idea}
+Some coastal areas are exposed to SLR partly because they are physically \emph{sinking} (subsidence) --- e.g., Louisiana, parts of Florida, Virginia. Subsidence is itself a strong predictor of house prices (structural damage, flooding) and is correlated with NOAA SLR inundation maps. Omitting subsidence could upward-bias the SLR discount.
+
+\subsection*{1.2 Data and design}
+Same housing-transaction data as BGL (ZIP-level), 2007--2016, combined with US Geological Survey subsidence estimates at fine spatial resolution. Augmented hedonic regression:
+\[
+\ln P_i=\alpha_{z,t}+\beta\cdot\text{SLR}_i+\delta\cdot\text{Subsidence}_i+X_i'\gamma+\varepsilon_i.
+\]
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Without subsidence control: SLR discount $\sim$$-7\%$ (matching BGL).
+\item With subsidence control: SLR discount falls to $\sim$$-1$ to $-2\%$, often statistically indistinguishable from zero.
+\item Subsidence itself carries a large, significant negative coefficient.
+\item Interpretation: the ``SLR discount'' in BGL largely reflects subsidence-driven present damage, not future climate risk.
+\end{itemize}
+
+\subsection*{1.4 Implication}
+\begin{itemize}
+\item Long-horizon SLR risk is under-priced in the 2007--2016 cross-section.
+\item Consistent with MS's earlier work on under-pricing of long-horizon risks generally.
+\item Suggests belief / time-horizon / information frictions in climate-risk pricing.
+\end{itemize}
+
+\subsection*{1.5 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Subsidence and SLR projections have physical commonalities; decomposition is imperfect.
+\item Sample ends 2016; later data (Keys-Mulder 2025) show growing discounts.
+\item Bayesian interpretation: results depend on how much weight one puts on long-horizon versus present risk.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Omitted variable flagged by MS: \blank{2cm}.
+\item Baseline (BGL-style) discount: $\sim$\blank{1cm}\%.
+\item With subsidence control: $\sim$\blank{1cm}--\blank{1cm}\%.
+\item Interpretation: SLR risk is \blank{1cm}-priced.
+\item Updated evidence in Keys-\blank{1.5cm} (2025).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the augmented hedonic and identify the potential bias in BGL.
+\item Why is subsidence so strongly correlated with SLR exposure?
+\item Discuss implications for welfare calculations of climate adaptation.
+\item How do Bernstein-Billings-Gustafson-Lewis (2022) reconcile their discount with MS's null?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) omitted-variable argument, (ii) spec, (iii) magnitude comparison, (iv) interpretation, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: is climate risk priced in US residential real estate? BGL vs.\ MS.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Omitted variable. (2) Baseline discount. (3) Controlled discount. (4) Implication for pricing. (5) Comparison paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Omitted variable.} Ground subsidence.
+\item \textbf{Baseline.} $\sim$$-7\%$ (BGL 2019).
+\item \textbf{Controlled.} $\sim$$-1$ to $-2\%$, often $\approx 0$.
+\item \textbf{Read.} SLR risk is under-priced in 2007--16 data.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Murfin \& Spiegel (2020) re-examine the Bernstein-Gustafson-Lewis $\sim$7\% sea-level-rise discount in coastal home prices and find that once one controls for local ground subsidence (using USGS data), the SLR discount shrinks to $-1$ to $-2\%$, often statistically indistinguishable from zero. The insight is that subsidence correlates strongly with SLR-inundation classification: the BGL discount largely reflects present subsidence-driven damage, not forward-looking SLR expectations. MS argue that long-horizon climate risk is under-priced in the 2007--2016 US cross-section, consistent with belief, information, and time-horizon frictions. The paper is the key critical counterpoint to BGL; Bernstein-Billings-Gustafson-Lewis (2022) reconciles by emphasizing that belief heterogeneity, not just physical risk, drives pricing, and Keys-Mulder (2025) shows more recent data indicate slow catch-up as information improves.
+\end{keybox}
+
+\end{document}
