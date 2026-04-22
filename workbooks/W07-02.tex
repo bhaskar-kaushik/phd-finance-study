@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W07-02: Graham \& Rogers (2002, JF) \\
+\large ``Do Firms Hedge in Response to Tax Incentives?'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} 442 firms with SFAS~119 disclosures (fiscal 1994--95), simultaneous Tobit-for-hedging and OLS-for-debt: tax-function convexity (the Smith--Stulz rationale) is \emph{rejected} --- the coefficient on the Graham--Smith (1999) convexity proxy is small and insignificant --- but hedging \emph{does} allow firms to carry more debt, and the resulting interest-tax-shield benefit is about \textbf{1.1\% of firm value}. Delta of CEO compensation has a weak positive effect on hedging; vega is insignificant.
+
+\textbf{Placement.} Converts the Smith--Stulz (1985) tax-convexity story and the FSS (1993) underinvestment story into a \emph{joint} structural test. Direct sequel to G\'eczy--Minton--Schrand (W07-01) and Tufano (W06).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Why SFAS~119 mattered}
+Before SFAS~119 (effective fiscal years ending after 15~Dec~1994) firms reported a single aggregate notional. SFAS~119 required separate disclosure by \emph{instrument} (forward, swap, option\ldots) and \emph{risk} (FX, IR, commodity). Graham--Rogers exploit this to build the first data set where the \emph{total notional of hedging} can be measured for a broad sample. Sample: 442 firms with ex-ante exposure and complete SFAS~119 data.
+
+\subsection*{1.2 The Graham--Smith (1999) tax-convexity measure}
+Simulate the firm's future taxable-income path, compute the discounted expected tax liability with and without a 5\% reduction in income volatility, and report the \$ saving per \$1 of expected income. Under \emph{Smith--Stulz} this should be \emph{strictly positive} and \emph{large} for firms whose taxable income fluctuates around the kink of the progressive tax schedule (NOLs, ITCs, AMT). Graham--Rogers (GR) use exactly this as their key regressor (\(TAX\_CONVEXITY\)).
+
+\subsection*{1.3 Simultaneous equations system}
+\begin{align*}
+DEBT_i &= \alpha_0 + \alpha_1 HEDGE_i + \alpha_2 MTR_i + \alpha_3 (HEDGE_i\times MTR_i) + \gamma^\top Z_i^{D} + u_i, \\
+HEDGE_i &= \beta_0 + \beta_1 DEBT_i + \beta_2 TAX\_CONVEXITY_i + \beta_3 \Delta_i + \beta_4 \nu_i + \delta^\top Z_i^{H} + v_i.
+\end{align*}
+$HEDGE$ (total notional $/$ assets) is Tobit-censored at zero; $DEBT$ is OLS. Estimation: 2SLS/3SLS-style simultaneous Tobit--OLS. Instruments for $HEDGE$ in the debt equation include firm-level exposures and industry hedging intensity; instruments for $DEBT$ in the hedging equation include lagged leverage and non-debt tax shields.
+
+\subsection*{1.4 Headline coefficients}
+\begin{tabular}{p{5.8cm}p{3.5cm}p{2cm}p{1.8cm}}
+\toprule
+\textbf{Coefficient} & \textbf{Meaning} & \textbf{Value} & \textbf{p-value} \\
+\midrule
+$\beta_2$ on $TAX\_CONVEXITY$ & Smith--Stulz tax story & $-2.79$ & $0.45$ \\
+$\alpha_1$ on $HEDGE$ in debt eq. & Hedging $\to$ more debt & $+0.32$ & $0.05$ \\
+$\alpha_3$ on $HEDGE \times MTR$ & Benefit scales with tax rate & $+4.25$ & $<0.01$ \\
+$\beta_3$ on Delta (CEO) & Shareholder alignment & $+0.0036$ & $0.08$ \\
+$\beta_4$ on Vega (CEO) & Risk-taking incentive & $\approx 0$ & ns \\
+\bottomrule
+\end{tabular}
+
+\subsection*{1.5 Economic magnitudes}
+\begin{itemize}
+\item Hedging firms carry roughly $3\%$ higher debt ratios than otherwise-identical non-hedging firms.
+\item Under the firm's marginal tax rate, the incremental interest tax shield $\approx 1.1\%$ of firm value.
+\item So the \emph{indirect} tax benefit of hedging (through higher debt capacity) dominates the direct Smith--Stulz convexity benefit, which the data reject.
+\end{itemize}
+
+\subsection*{1.6 Identification worries}
+\begin{alertbox}
+\begin{itemize}
+\item Joint endogeneity of $HEDGE$ and $DEBT$ --- the whole point of the simultaneous system. OLS on either alone is biased.
+\item Measurement error in $TAX\_CONVEXITY$: any mis-specification of the tax-function simulation shrinks $\beta_2$ toward zero, so failure to reject the null could reflect measurement error rather than absence of the Smith--Stulz channel.
+\item Tobit assumes \emph{one} latent process censored at zero; hedge-ratio distributions often show both an extensive-margin (hedge/not) and an intensive-margin decision (cf.\ Haushalter W07-03 Tables~VII--VIII).
+\item SFAS~119 notionals conflate short and long positions and can be affected by disclosure discretion.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: \blank{1cm} firms with SFAS~\blank{1cm} disclosures for fiscal \blank{1.5cm}.
+\item Graham--Smith (1999) convexity: simulate tax liability with volatility shocked by \blank{0.8cm}\%.
+\item GR's system: $HEDGE$ is a \blank{1cm} model, $DEBT$ is an \blank{1cm} model, estimated \blank{2cm}.
+\item Coefficient on $TAX\_CONVEXITY$ is \blank{1cm}, $p=\blank{1cm}$.
+\item Hedging raises debt ratio by about \blank{1cm}\%, giving a tax-shield benefit of \blank{1cm}\% of firm value.
+\item CEO delta has sign \blank{0.8cm}; CEO vega has sign \blank{0.8cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the two-equation simultaneous system with all variables defined in one paragraph of prose.
+\item Explain the Graham--Smith (1999) tax-convexity thought experiment step by step. Why is it better than a dummy for ``has NOL''?
+\item Why does the \emph{interaction} $HEDGE \times MTR$ enter the debt equation? Interpret its coefficient economically.
+\item Under what conditions would GR's rejection of the Smith--Stulz tax channel be spurious? (Hint: measurement error, specification of the tax schedule, sample period.)
+\item How is a simultaneous Tobit--OLS system identified? What instruments does each equation need?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page, write: (i) sample, (ii) system equations, (iii) the Graham--Smith convexity proxy, (iv) 5 headline coefficients, (v) the 1.1\% tax-shield magnitude, (vi) three referee-style objections.
+
+\section*{Round 5: Blank Page}
+Write, in continuous prose, why Graham--Rogers ``resolves'' the GMS puzzle on taxes: GMS found weak tax variables because they measured the \emph{wrong} channel. Explain how GR keeps the tax benefit (via debt capacity) while rejecting the convexity channel.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill (60 seconds each).}
+\begin{enumerate}
+\item Why a progressive tax schedule creates a convex objective for the firm (draw $T(\pi)$ and apply Jensen's).
+\item The Tobit log-likelihood with censoring at zero.
+\item Why an OLS regression of $DEBT$ on $HEDGE$ would be biased even with perfect data.
+\item Delta vs.\ vega: which incentivises hedging, which incentivises gambling, and why.
+\item The back-of-envelope from ``hedging raises debt by 3\%'' to ``tax shield $\approx 1.1\%$ of firm value''.
+\end{enumerate}
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Smith--Stulz tax channel.} $\EV[T(\pi)]$ convex $\Rightarrow$ reducing Var$(\pi)$ reduces $\EV[T]$. GR test this directly via the Graham--Smith (1999) simulation, with a 5\% volatility shock.
+\item \textbf{Key number.} Tax-shield benefit of hedging via higher debt capacity $\approx 1.1\%$ of firm value.
+\item \textbf{Coefficients to memorise.} $TAX\_CONVEXITY$: $-2.79$ ($p=0.45$); $HEDGE$ in $DEBT$ eq.: $+0.32$ ($p=0.05$); $HEDGE\times MTR$: $+4.25$ ($p<0.01$); $\Delta$: $+0.0036$ ($p=0.08$); $\nu$: ns.
+\item \textbf{Delta vs.\ vega.} Delta $\equiv \partial(CEO~wealth)/\partial(stock~price)$, aligns with shareholders, so $+$ on hedge. Vega $\equiv \partial(CEO~wealth)/\partial(volatility)$, creates risk-taking, so $-$ on hedge (ns here).
+\item \textbf{Mechanism take-away.} Hedging $\Rightarrow$ higher debt capacity $\Rightarrow$ larger interest tax shield $\Rightarrow$ value gain. Smith--Stulz's direct convexity channel is rejected in this sample.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Graham--Rogers (2002) is the clean joint test of the two leading tax theories of hedging. They use the post-SFAS-119 disclosure window, 442 firms, and estimate a simultaneous Tobit (hedging) and OLS (debt) system. The Graham--Smith (1999) tax-convexity measure enters with the expected sign but is small and insignificant ($-2.79$, $p=0.45$): the direct Smith--Stulz channel is \emph{rejected}. What they \emph{do} find is that hedging raises firm debt ratios by about 3\%, generating an interest-tax-shield benefit of $1.1\%$ of firm value. CEO delta has a weak positive effect; vega is null. The paper reframes the tax rationale as \emph{indirect}: hedging creates debt capacity, and the value comes through the capital structure, not through curvature of the tax schedule. This is the modern consensus answer to ``why hedge?''.
+\end{keybox}
+
+\end{document}

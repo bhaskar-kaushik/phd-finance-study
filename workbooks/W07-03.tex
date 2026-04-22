@@ -1,0 +1,164 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W07-03: Haushalter (2000, JF) \\
+\large ``Financing Policy, Basis Risk, and Corporate Hedging: Evidence from Oil \& Gas Producers'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} 100 oil \& gas producers (SIC 1311), 1992--1994: the fraction of annual production hedged is (i) \emph{increasing} in financial leverage --- Tobit coefficient $\approx +0.21$, $p=0.002$ --- consistent with costly external finance / distress-cost theories, and (ii) \emph{decreasing} in basis risk (firms whose local spot prices correlate poorly with exchange-traded benchmarks hedge less), which is the first clean \emph{cost-side} story in the hedging literature.
+
+\textbf{Placement.} Industry-study cousin of Tufano (W06, gold mining): same Tobit framework, new industry, and a first-class identification trick --- using geographic production location as an exogenous proxy for basis risk.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Sample and dependent variable}
+\begin{itemize}
+\item 100 US oil \& gas producers, SIC 1311, 1992--1994 (pooled 285--290 firm-years).
+\item $DV=$ fraction of annual production hedged $=$ barrels-equivalent (BOE) protected by derivatives, fixed-price contracts, or volumetric production payments, divided by total annual BOE production.
+\item Strongly censored at zero: 43\%, 49\%, 57\% of firms hedge \emph{any} production in 1992/93/94; hedgers hedge a mean $\approx 30\%$, median $\approx 24\%$.
+\end{itemize}
+
+\subsection*{1.2 Hypotheses and variables}
+\begin{tabular}{p{3.4cm}p{3.8cm}p{4.6cm}p{1.5cm}}
+\toprule
+\textbf{Variable} & \textbf{Proxy for} & \textbf{Rationale} & \textbf{Pred.} \\
+\midrule
+Debt ratio & Financing costs / distress & Leverage raises external-finance premium and expected distress cost $\Rightarrow$ hedge & $+$ \\
+Debt constraint (dummy) & Binding constraint & Together with leverage identifies financially constrained firms & $+$ \\
+Bond rating (AAA--BBB vs.\ unrated) & Capital-market access & Rated firms have cheaper external funds $\Rightarrow$ hedge less & $-$ \\
+Investment expenditure & Growth options (FSS) & Hedge to preserve internal funds for investment & $+$ \\
+Dividend payout & Liquidity commitment & Ambiguous & ? \\
+Marginal tax rate & Tax-convexity (Smith--Stulz) & Higher expected tax $\Rightarrow$ hedge & $+$ \\
+CEO compensation / insider ownership & Managerial risk aversion \& incentives & High ownership concentrates wealth $\Rightarrow$ hedge & $+/-$ \\
+Exercisable options per insider & Convex payoff & More options $\Rightarrow$ less hedging & $-$ \\
+\textbf{Basis risk: production location} & \textbf{Correlation of local spot with NYMEX} & \textbf{Higher correlation $\Rightarrow$ cheaper hedge $\Rightarrow$ more hedging} & $+$ \\
+Production mix (oil/gas) & Basis risk differential & Gas has higher basis risk than oil $\Rightarrow$ hedge less & $-$ \\
+\bottomrule
+\end{tabular}
+
+\subsection*{1.3 Specification}
+Tobit with left-censoring at zero:
+\[
+y_i^* = \bm\beta^\top \mathbf x_i + \varepsilon_i,\qquad y_i=\max(0,y_i^*),\qquad \varepsilon_i\sim N(0,\sigma^2).
+\]
+Log-likelihood:
+\[
+\ell(\bm\beta,\sigma)=\sum_{y_i=0}\ln\Phi\!\left(-\tfrac{\bm\beta^\top \mathbf x_i}{\sigma}\right)+\sum_{y_i>0}\left[\ln\phi\!\left(\tfrac{y_i-\bm\beta^\top \mathbf x_i}{\sigma}\right)-\ln\sigma\right].
+\]
+Haushalter reports \emph{marginal effects} on $\EV[y_i|\mathbf x_i]$ rather than latent $\bm\beta$ (McDonald--Moffitt style decomposition). Heteroskedasticity in size: Haushalter rejects homoskedasticity in log-assets and corrects via a multiplicative-heteroskedasticity Tobit.
+
+\subsection*{1.4 Headline Tobit results (Tables~VII \& VIII, pooled)}
+\begin{tabular}{p{6.5cm}p{2.3cm}p{1.5cm}}
+\toprule
+\textbf{Variable} & \textbf{Marg.\ eff.} & \textbf{p-value} \\
+\midrule
+Debt ratio & $+0.213$ to $+0.252$ & $0.001$--$0.002$ \\
+Debt-constraint dummy & $+0.047$ & $0.024$ \\
+Bond rating (has rating) & $-0.054$ to $-0.081$ & $0.013$--$0.057$ \\
+AAA (investment-grade) & $-0.106$ & $0.008$ \\
+CCC (junk) & $-0.020$ & $0.537$ (ns) \\
+Log of total assets & $\approx 0$ & ns \\
+Investment expenditure & $+0.075$ to $+0.105$ & $0.04$--$0.24$ \\
+Marginal tax rate & $+0.178$ to $+0.205$ & $0.036$--$0.052$ \\
+Fraction of shares owned by insiders & $-0.146$ & $0.040$ \\
+Exercisable options per insider & $-0.060$ & $0.034$ \\
+CEO compensation & $+0.023$ & $0.025$ \\
+\textbf{Location of production} (high-correlation region) & $\mathbf{+0.143\ to\ +0.204}$ & $\mathbf{0.001}$ \\
+\textbf{Production mix} (more gas) & $-0.112$ to $-0.132$ & $0.016$--$0.051$ \\
+\bottomrule
+\end{tabular}
+
+\subsection*{1.5 The basis-risk contribution}
+\begin{itemize}
+\item Ederington (1979): variance reduction from a futures hedge is $\rho^2$, where $\rho$ is the correlation between local spot returns and futures returns. A local price that moves poorly with NYMEX has large \emph{residual} (basis) variance, so the hedge is less effective.
+\item Haushalter measures $\rho$ for eight regional spot markets vs.\ NYMEX WTI. Midcontinent and Gulf Coast are highly correlated ($\rho > 0.8$); Rocky Mountains much less ($\rho \approx 0.33$ for Henry Hub in 1993--94).
+\item \emph{Location} is a firm-level dummy equal to 1 if production sits in a high-correlation region. Positive, highly significant ($+0.14$ to $+0.20$, $p<0.001$). Economic magnitude: moving from low- to high-correlation region raises expected hedge ratio by $\sim 20$ pp --- the single largest effect in the paper.
+\item \emph{Production mix} (oil share): firms with more natural-gas exposure face greater basis risk and hedge less ($-0.11$ to $-0.13$).
+\end{itemize}
+
+\subsection*{1.6 Why this paper matters}
+\begin{keybox}
+Tufano (1996) and GMS (1997) focus on \emph{benefit-side} determinants (distress costs, tax, underinvestment). Haushalter is the first paper to take the \emph{cost side} seriously: hedging costs through basis risk systematically limit how much a firm wants to hedge. Two firms with identical leverage and identical growth options can have very different optimal hedge ratios simply because one sells at Henry Hub and the other in the Rockies. That is the essential cross-sectional insight.
+\end{keybox}
+
+\subsection*{1.7 Econometric notes}
+\begin{alertbox}
+\begin{itemize}
+\item Tobit assumes a \emph{single} decision censored at zero. Haushalter acknowledges this explicitly: ``the tobit model does not accommodate the possibility that the extent of hedging depends on two decisions: first, whether to hedge; and second, how much.'' A Cragg two-part or Heckman selection model would separate these. Signs are robust across specifications.
+\item Pooling 1992--94 violates independence. He therefore reports annual regressions in Table~VIII --- signs preserved, significance somewhat weaker.
+\item Heteroskedasticity in log-assets rejected; corrects via multiplicative-heteroskedasticity Tobit.
+\item No instrument for leverage --- the Graham--Rogers simultaneous approach is a direct improvement.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: \blank{1cm} oil \& gas producers, SIC \blank{1cm}, years \blank{2cm}.
+\item Dependent variable: fraction of annual production \blank{1.5cm}, censored at \blank{0.7cm}.
+\item Tobit marginal effect on debt ratio $\approx +\blank{1cm}$, $p\approx\blank{1cm}$.
+\item Ederington variance-reduction ratio from a hedge: $\blank{1cm}$.
+\item Location dummy coefficient: $+\blank{1cm}$, $p<\blank{1cm}$.
+\item Production mix coefficient: \blank{1cm}, $p\in(\blank{1cm},\blank{1cm})$.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Write the full Tobit log-likelihood and the McDonald--Moffitt decomposition of $\partial\EV[y|\mathbf x]/\partial x_k$ into extensive- and intensive-margin components.
+\item Derive Ederington's (1979) hedge-effectiveness result: given spot $s$ and futures $f$, the variance-minimising hedge ratio is $h^*=\text{Cov}(s,f)/\text{Var}(f)$ and the residual variance is $\sigma_s^2(1-\rho^2)$.
+\item Explain \emph{why} location of production is a valid exogenous regressor here --- what would break its exogeneity?
+\item Contrast the sign and significance of the marginal-tax-rate coefficient here with Graham--Rogers's rejection of tax convexity. Are they inconsistent?
+\item Explain the AAA vs.\ CCC asymmetry: rated firms hedge less, but the effect is driven almost entirely by AAA.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page reproduce: (i) sample, (ii) variable list with predicted signs, (iii) Tobit specification, (iv) six headline numbers, (v) the basis-risk insight, (vi) two econometric critiques.
+
+\section*{Round 5: Blank Page}
+Write, from memory, why Haushalter (2000) is the ``cost-side'' turning point in the hedging literature, and how it complements Tufano (W06) and GMS (W07-01).
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill (60 seconds each).}
+\begin{enumerate}
+\item State and derive the variance-minimising hedge ratio $h^*$ and show that residual variance is $\sigma_s^2(1-\rho^2)$.
+\item Why is a Tobit preferable to OLS here? One-sentence answer.
+\item Give the McDonald--Moffitt decomposition in words.
+\item Why does oil hedge more than gas in this sample? One sentence.
+\item One-sentence rebuttal to the claim that location is endogenous.
+\end{enumerate}
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Sample.} 100 SIC~1311 firms, 1992--94; DV $=$ fraction of BOE production hedged; mean $\approx 15\%$, conditional-on-hedging $\approx 30\%$.
+\item \textbf{Top marginal effects.} Debt ratio $+0.21\ (p=0.002)$; Location $+0.20\ (p=0.001)$; Bond-rated $-0.07\ (p=0.05)$; Marginal tax $+0.20\ (p=0.04)$; Production mix $-0.13\ (p=0.02)$; Insider shares $-0.15\ (p=0.04)$; Options per insider $-0.06\ (p=0.03)$; CEO comp $+0.02\ (p=0.03)$.
+\item \textbf{Ederington.} $h^*=\text{Cov}(s,f)/\text{Var}(f)$; residual variance $=\sigma_s^2(1-\rho^2)$.
+\item \textbf{Tobit log-likelihood.} $\ell = \sum_{y_i=0}\ln\Phi(-\bm\beta^\top\mathbf x_i/\sigma) + \sum_{y_i>0} [\ln\phi((y_i-\bm\beta^\top \mathbf x_i)/\sigma)-\ln\sigma]$.
+\item \textbf{Tufano comparison.} Gold producers (all NYMEX-referenced, so basis risk uniform) vs.\ oil \& gas (varies by geography) --- Haushalter's cross-sectional variation in basis risk is what Tufano cannot study.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Haushalter uses 100 oil \& gas producers 1992--94 to run a Tobit of the fraction of production hedged. Two findings dominate: (1) leverage is strongly positive ($+0.21$, $p=0.002$), confirming the costly-external-finance story from Tufano; (2) basis risk --- proxied by geographic production location and by oil/gas mix --- materially reduces hedging. Rocky-Mountain producers, whose local spot has $\rho\approx 0.33$ with NYMEX WTI, hedge about 15--20 pp less than Midcontinent producers, holding everything else fixed. The paper delivers the first clean cost-side result in the corporate hedging literature and establishes that optimal hedge ratios are bounded by the quality of available hedging instruments, not by benefit-side motives alone. Econometric caveats: single-equation Tobit conflates the hedge-or-not and how-much decisions (Cragg two-part would separate them) and leverage is taken as exogenous --- Graham--Rogers (W07-02) corrects the latter.
+\end{keybox}
+
+\end{document}

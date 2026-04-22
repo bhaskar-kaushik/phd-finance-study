@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W07-04: Allayannis \& Weston (2001, RFS) \\
+\large ``The Use of Foreign Currency Derivatives and Firm Market Value'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} 720 large US nonfinancial firms, 1990--1995, $4\,320$ firm-years: among firms with \emph{ex-ante} FX exposure (foreign sales $>0$), users of FX derivatives trade at a Tobin's~Q roughly \textbf{4.87\% higher} than non-users (pooled OLS: 3.62\%; fixed-effects: 4.87\%; censored-regression robustness: 5.34\%); no premium among firms with zero foreign sales. The \emph{hedging premium} is the paper's name-brand statistic.
+
+\textbf{Placement.} Completes the benefit-side arc: if Tufano (W06) and Haushalter (W07-03) tell us \emph{who} hedges and GMS (W07-01) / Graham--Rogers (W07-02) tell us \emph{why}, AW tells us \emph{what it is worth in market-value terms}.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Sample}
+\begin{itemize}
+\item 720 US nonfinancial firms with assets $> \$500$m, 1990--1995, $4\,320$ firm-years.
+\item Data on FX derivatives use, notional, and instrument types from annual reports.
+\item Subsamples: with foreign sales $>0$ ($\approx 2\,074$ firm-years) and no foreign sales ($\approx 2\,246$).
+\item About 51\% of firm-years use \emph{some} derivative; 37\% use FX derivatives specifically.
+\end{itemize}
+
+\subsection*{1.2 Tobin's Q construction}
+\[
+Q_i=\frac{MV(\text{assets})_i}{RC(\text{assets})_i}\approx \frac{MV(\text{equity})+BV(\text{debt})+BV(\text{preferred})}{BV(\text{assets})}.
+\]
+Replacement cost of assets uses the ``state-of-the-art'' construction with depreciation schedules for PP\&E. Because $Q$ is right-skewed (mean $1.18$, median $0.95$), AW use $\ln Q$ in multivariate regressions.
+
+\subsection*{1.3 Industry adjustment}
+63\% of AW's firms are multi-segment. To purge industry effects they construct an \emph{industry-adjusted} $Q$: for a multi-segment firm, compute the weighted ``pure-play'' industry $Q$ from single-segment peers at the four-digit SIC level and take $\ln Q_i - \ln \overline Q^{\text{pure-play}}_i$. This is the Lang--Stulz (1994) diversification-discount machinery applied to hedging.
+
+\subsection*{1.4 Main specification}
+\begin{align*}
+\ln Q_{it}=&\;\alpha + \gamma\cdot FCD_{it} + \text{controls}_{it}+\eta_t+\delta_{SIC}+\varepsilon_{it},\\
+\text{Premium} &\approx e^{\gamma}-1.
+\end{align*}
+Controls include size (log assets), foreign sales ratio, ROA, debt/equity, capex/sales, industry diversification dummy, dividend payout, advertising/sales, R\&D/sales, year dummies, SIC dummies, credit-quality dummies. Firm fixed effects used as the main robustness (Hausman--Taylor style).
+
+\subsection*{1.5 Headline numbers}
+\begin{tabular}{p{5.8cm}p{2.6cm}p{2.2cm}p{1.8cm}}
+\toprule
+\textbf{Specification} & \textbf{$\hat\gamma$} & \textbf{Premium} & \textbf{$t$-stat} \\
+\midrule
+Pooled OLS (industry dummies), foreign sales $>0$ & $0.053$ & $5.3\%$ & significant \\
+Fixed effects (firm-level), foreign sales $>0$ & $0.045$ & $4.5\%$ & significant \\
+Industry-adjusted $Q$, pooled & $0.048$ & $4.80\%$ & $2.44^{**}$ \\
+Industry-adjusted $Q$, fixed effects & $0.036$ & $3.66\%$ & $1.37$ \\
+Censored regression, pooled (ind.-adj.) & $\approx 0.036$ & $3.62\%$ & $1.97^{**}$ \\
+Censored regression, fixed effects (ind.-adj.) & $\approx 0.049$ & $\mathbf{4.87\%}$ & $2.08^{**}$ \\
+Median (LAD) regression, pooled & $0.053$ & $5.34\%$ & $3.09^{***}$ \\
+No-foreign-sales sample (placebo) & $\approx 0$ & ns & ns \\
+\bottomrule
+\end{tabular}
+Headline: the \textbf{hedging premium ranges from 3.62\% to 5.34\%}, with the canonical fixed-effects estimate \textbf{4.87\%}. For a firm with market value \$3.79 billion, that is roughly \$150--\$200 million per year.
+
+\subsection*{1.6 Identification worries addressed}
+\begin{itemize}
+\item \textbf{Reverse causation.} High-$Q$ firms might self-select into hedging. AW test whether firms that \emph{begin} a hedging policy experience an increase in $Q$ relative to those that do not and find evidence consistent with hedging $\to Q$, not $Q \to$ hedging.
+\item \textbf{Omitted variables.} Firm fixed effects absorb time-invariant unobservables (including managerial quality). Premium survives.
+\item \textbf{Outliers.} Skewness in $Q$ handled via $\ln Q$, industry adjustment, censored regression, and median regression; premium is robust.
+\item \textbf{Scope of ``hedging.''} FCD users may also hedge interest-rate and commodity exposure; Geczy et~al.~(1995) show 78\% of FX-derivative users also use some other derivative. The premium may thus reflect a \emph{bundle} of risk-management practices, not FX hedging alone.
+\end{itemize}
+
+\subsection*{1.7 Are 4.87\% reasonable? Plausibility calculation}
+AW enumerate theoretical channels and sum them:
+\begin{itemize}
+\item Taxes (Graham--Rogers, 2000): $\approx 0.5\%$ of value.
+\item Reduced bankruptcy costs: $\approx 0.1$--$0.2\%$ (probability of default $\times$ deadweight cost).
+\item Reduced underinvestment (from capex--cash-flow sensitivity): $\approx 4.3\%$ at a capex-to-sales coefficient of $\sim 0.25$.
+\end{itemize}
+Total $\approx 5\%$ --- essentially matching the estimated 4.87\% premium.
+
+\subsection*{1.8 Econometric / referee-level concerns}
+\begin{alertbox}
+\begin{itemize}
+\item \textbf{Selection on observables.} Matching on observables alone leaves room for unobserved differences correlated with both hedging and $Q$. A propensity-score-matching or Heckman two-step would formalise this; AW's fixed-effects approach is a partial fix.
+\item \textbf{``Hedging'' vs.\ ``derivatives use.''} FCDs can be used for speculation. AW have no test to separate the two.
+\item \textbf{Survivorship bias.} The panel sample of 720 large firms with Q data tilts toward survivors.
+\item \textbf{$Q$ is not a clean welfare metric.} Managerial empire-building and market mispricing can both move $Q$ without a real value change.
+\item \textbf{External validity.} Large US firms, 1990--1995. The result has been replicated in many settings but contested in others (Jin--Jorion W08-01 finds no hedging premium for oil \& gas producers; different industry, different story).
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: \blank{1cm} US nonfinancial firms, years \blank{2cm}, $\blank{1.5cm}$ firm-years.
+\item Dependent variable: $\ln$(Tobin's~$Q$), where $Q=\blank{3cm}$.
+\item Industry adjustment: log difference between $Q$ and the \blank{1.5cm} industry $Q$ of single-segment peers.
+\item Canonical fixed-effects premium (industry-adjusted censored regression): \blank{1cm}\%.
+\item Placebo test: firms with \blank{1.5cm} show no premium.
+\item Back-of-envelope: taxes \blank{0.5cm}\% + bankruptcy \blank{0.8cm}\% + underinvestment \blank{0.8cm}\% $\approx$ total estimated premium.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Derive the relationship between the regression coefficient $\hat\gamma$ on the FCD dummy in a $\ln Q$ regression and the percentage hedging premium. Why is $e^\gamma-1$ preferred to $\gamma$ for reporting?
+\item Explain the Lang--Stulz (1994) industry-adjusted $Q$ construction in one paragraph, and state why AW replicate it.
+\item Write the fixed-effects estimator for their panel. What exactly does firm fixed effects absorb that industry dummies do not?
+\item How do AW test reverse causation (the ``firms that begin hedging'' test)? What would you do if you wanted a harder identification?
+\item Is the AW hedging premium consistent with Graham--Rogers's 1.1\% tax-shield benefit? Reconcile them.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) sample, (ii) $Q$ construction and industry adjustment, (iii) main specification, (iv) six headline numbers across robustness, (v) the three channels summing to $\approx 5\%$, (vi) four identification worries.
+
+\section*{Round 5: Blank Page}
+From memory, write why the AW hedging-premium result is the single-most-cited empirical fact in corporate hedging, and why later papers (e.g., Jin--Jorion) needed to push back on it.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill (60 seconds each).}
+\begin{enumerate}
+\item State Tobin's $Q$ and one reason its mean exceeds 1.
+\item Why firm fixed effects \emph{reduce} $R^2$ but improve identification.
+\item Reverse-causation test: how AW exploit ``hedging initiators.''
+\item Why a median (LAD) regression is useful when $Q$ is skewed.
+\item One sentence on why the premium is zero among firms with no foreign sales.
+\end{enumerate}
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Hedging premium (canonical):} $4.87\%$ of firm value, fixed-effects censored regression on industry-adjusted $Q$ (Table~9). Range across specs: $3.62\%$ to $5.34\%$.
+\item \textbf{$Q$ definition:} $Q=[MV(\text{equity})+BV(\text{debt})+BV(\text{pref})]/BV(\text{assets})$; use $\ln Q$ for symmetry.
+\item \textbf{Industry adjustment:} $\ln Q_i - \ln \overline Q^{\text{pure-play}}_i$ (Lang--Stulz 1994).
+\item \textbf{Placebo:} no premium for firms with zero foreign sales, confirming the FX channel.
+\item \textbf{Channel sums to $\approx 5\%$:} taxes 0.5\% + bankruptcy 0.2\% + underinvestment 4.3\%.
+\item \textbf{Reverse-causation test:} initiators' $Q$ rises \emph{after} starting to hedge.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Allayannis--Weston (2001) estimate the market-value benefit of foreign-currency hedging. 720 large US nonfinancial firms 1990--1995; dependent variable is log industry-adjusted Tobin's $Q$; key regressor is a dummy for FX-derivative use. In the subsample of firms with actual FX exposure (foreign sales $>0$) the hedging premium is 3.62\%--5.34\% depending on estimator, canonically 4.87\% in the industry-adjusted fixed-effects censored regression. The premium is economically large (about \$150m for a median \$3.79b firm), statistically robust to outliers and fixed effects, and absent (placebo) in firms with no foreign sales. Reverse-causation and matching checks support a causal reading. Channel decomposition (taxes, bankruptcy, underinvestment) sums to a theoretically plausible $\approx 5\%$. Caveats: ``FCD use'' conflates hedging with speculation; survivorship; fixed effects only absorb \emph{time-invariant} unobservables. Later work (e.g., Jin--Jorion, 2006) shows the premium is not universal across industries.
+\end{keybox}
+
+\end{document}

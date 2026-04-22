@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{W07-01: G\'eczy, Minton, Schrand (1997, JF) \\
+\large ``Why Firms Use Currency Derivatives'' --- Active Recall Workbook}
+\author{Banking \& Risk Management --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} 372 Fortune~500 nonfinancial firms in 1990: 41\% use FX derivatives; logit with 75--78\% correct-classification shows usage rises with R\&D (underinvestment / growth options), falls with the quick ratio (internal liquidity), rises with size (scale economies in hedging), and \emph{foreign-denominated debt substitutes for FX derivatives as a natural hedge}.
+
+\textbf{Placement.} Empirical sequel to Smith--Stulz (1985) and Froot--Scharfstein--Stein (1993). Direct cousin of Tufano (1996): same Tobit/logit style, but FX rather than gold, and focused on the \emph{decision} to hedge rather than the \emph{extent}.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through (read carefully once)}
+
+\subsection*{1.1 Sample and stylised facts}
+\begin{itemize}
+\item 372 Fortune~500 nonfinancial firms with \emph{ex-ante} FX exposure (foreign sales, foreign-denominated debt, foreign subsidiaries, or foreign income tax); fiscal year-end 1991 derivative disclosures.
+\item 41.4\% use some FX derivative; 59.1\% use some derivative overall; usage is concentrated in Chemicals, Computers/Electronics, Pharmaceuticals.
+\item Forwards are by far the most common instrument; swaps and options are secondary.
+\end{itemize}
+
+\subsection*{1.2 Hypotheses mapped to rationales}
+\begin{tabular}{p{3.4cm}p{3.6cm}p{4.8cm}p{1.6cm}}
+\toprule
+\textbf{Variable} & \textbf{Proxy for} & \textbf{Rationale} & \textbf{Pred.} \\
+\midrule
+R\&D / sales & Growth options, \newline underinvestment (FSS) & Firms with high convex future investment want cash in bad states; hedge to avoid costly external finance & $+$ \\
+Capex / sales & Investment opportunities & Same FSS logic & $+$ \\
+Quick ratio & Internal liquidity & Already cash-rich firms can self-insure, less need to hedge & $-$ \\
+Book leverage & Financial distress & Higher expected bankruptcy cost $\Rightarrow$ hedge & $+$ \\
+Size (log assets) & Scale economies in hedging & Large fixed cost of running a hedging program & $+$ \\
+Interest coverage & Distress (inverse) & Low coverage $\Rightarrow$ hedge more & $-$ \\
+Foreign debt / assets & Natural hedge of foreign revenue & If you already have FX debt, you don't \emph{need} FX derivatives & $-$ \\
+Foreign pretax income / sales & Exposure / natural hedge & Exposed firms hedge more, but only once you control for natural hedges & ambig. \\
+Dividend payout & Internal funds & Mixed --- either distress proxy or commitment to pay out & $-/+$ \\
+Tax convexity (NOL, ITC) & Smith--Stulz tax argument & Convexity of tax $\Rightarrow$ hedge to cut expected tax & $+$ \\
+\bottomrule
+\end{tabular}
+
+\subsection*{1.3 Specification: logit for the hedge/no-hedge decision}
+\[
+\Pr(HEDGE_i=1)=\Lambda\bigl(\beta_0+\bm{\beta}^\top \mathbf{x}_i\bigr),\qquad \Lambda(z)=\frac{e^z}{1+e^z}.
+\]
+Marginal effect at the mean: $\partial\Pr/\partial x_k=\Lambda'(\bar z)\,\beta_k$, where $\Lambda'(\bar z)=\bar p(1-\bar p)$. GMS report the marginal effects $\Delta\!\Pr$ rather than raw $\beta_k$ (they are easier to interpret).
+
+\subsection*{1.4 Headline results (Table~IV logit)}
+\begin{itemize}
+\item R\&D/sales: $\beta\approx 7$, marginal effect $\approx +2.5\%$ per 1 pp of R\&D --- \emph{highly} significant.
+\item Quick ratio: $\beta\approx -1.9$, marginal effect $\approx -0.5$ --- significant negative.
+\item Size (log assets): positive and significant --- supports scale economies.
+\item Foreign debt: firms with foreign-denominated debt have materially \emph{lower} probability of using FX derivatives, controlling for exposure.
+\item Tax variables (NOL carryforwards, ITCs): weak; they become meaningful mostly when interacted with income near the convex kink.
+\item Correct-classification rate $\approx 75$--$78\%$.
+\end{itemize}
+
+\subsection*{1.5 Key identification / econometrics caveats}
+\begin{alertbox}
+\begin{itemize}
+\item \textbf{Selection on exposure.} Sample conditions on having some FX exposure. Extending to all Fortune~500 would add mechanical zeros; GMS deliberately prune to get a cleaner decision problem.
+\item \textbf{Endogeneity of leverage.} Leverage is a choice; simultaneous equations would be preferable (cf.\ Graham--Rogers W07-02).
+\item \textbf{Intensity vs.\ extensive margin.} GMS estimate a binary hedge/no-hedge logit, so they can say \emph{who} hedges but not \emph{how much} --- contrast Tufano's fraction-of-production Tobit and Graham--Rogers' Tobit.
+\item \textbf{Notional misclassification.} Pre-SFAS 119 disclosures are noisy; a firm reporting a forward of \$1 million and one reporting \$1 billion look identical on the binary DV.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in (30\% missing)}
+\begin{enumerate}
+\item Sample: \blank{1.5cm} Fortune 500 nonfinancial firms with ex-ante FX exposure in fiscal year-end \blank{1.5cm}.
+\item Among these, \blank{1cm}\% use FX derivatives.
+\item The logit specifies $\Pr(HEDGE_i=1)=\Lambda(\beta_0+\bm\beta^\top \mathbf x_i)$ with $\Lambda(z)=\blank{2cm}$.
+\item Marginal effect at the mean: $\partial\Pr/\partial x_k=\bar p(1-\bar p)\cdot\blank{1.5cm}$.
+\item Sign predictions: R\&D/sales \blank{0.8cm}; quick ratio \blank{0.8cm}; size \blank{0.8cm}; foreign debt \blank{0.8cm}.
+\item Correct-classification rate roughly \blank{1cm}\%.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts (60\% missing)}
+\begin{enumerate}
+\item In $\le 4$ lines, state the FSS (1993) mechanism linking \emph{R\&D intensity} to currency hedging. Why is R\&D a sharper proxy for the underinvestment problem than capex?
+\item Why should foreign-denominated debt reduce the probability of using FX derivatives? Write the accounting identity implicitly being exploited.
+\item Explain why GMS's logit cannot separate ``firm $i$ hedges 1\% of exposure'' from ``firm $i$ hedges 100\% of exposure.'' What estimator would be correct if you had notional amounts (pre- or post-SFAS~119)?
+\item Give the logit log-likelihood $\ell(\bm\beta)$ for $n$ independent observations and state the first-order condition.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding (80\% missing)}
+From a blank page, reconstruct:
+\begin{enumerate}
+\item Sample construction rule (what ``ex-ante FX exposure'' operationally means).
+\item The full list of proxies with their theoretical mapping.
+\item The logit model, marginal effect formula, and reporting convention.
+\item The five most important numerical findings (signs and relative magnitudes).
+\item Three econometric critiques an AER referee would raise.
+\end{enumerate}
+
+\section*{Round 5: Blank Page}
+Write, in continuous prose, what GMS (1997) contributes to the risk-management literature, how it differs from Tufano (1996), and why Graham--Rogers (2002) is its natural sequel.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill (60 seconds each).}
+\begin{enumerate}
+\item Definition of quick ratio and why it proxies for internal liquidity.
+\item The sign of R\&D/sales in GMS's logit.
+\item Derivation of $\Lambda'(z)=\Lambda(z)(1-\Lambda(z))$.
+\item Why ``foreign debt substitutes for FX forwards'' is an identity, not a finding.
+\item One reason 41\% usage in 1990 might overstate the economic importance of hedging.
+\end{enumerate}
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Key formula.} $\Lambda(z)=e^z/(1+e^z)$;\ $\Lambda'(z)=\Lambda(z)(1-\Lambda(z))$; marginal effect at mean $=\bar p(1-\bar p)\beta_k$.
+\item \textbf{Quick ratio} $=$ (cash $+$ short-term investments) $/$ current liabilities.
+\item \textbf{Headline signs:} R\&D $(+)$, size $(+)$, quick ratio $(-)$, foreign debt $(-)$, leverage $(+)$ but modest, interest coverage $(-)$.
+\item \textbf{Mechanism (FSS).} Cash flow correlated with investment opportunities $\Rightarrow$ high-growth-option firms suffer underinvestment in bad states $\Rightarrow$ hedge to keep internal funds available.
+\item \textbf{Graham--Smith-style tax convexity.} Not strong in GMS; Graham--Rogers (W07-02) builds the right measure and \emph{rejects} it.
+\item \textbf{Classification.} 75--78\%.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} GMS is the first clean cross-sectional test of why the \emph{typical} large US firm uses FX derivatives. Using 372 Fortune~500 firms with ex-ante FX exposure in 1990, they estimate a logit for the hedge/no-hedge decision. The strongest predictor is R\&D/sales (FSS underinvestment), followed by size (scale economies) and the quick ratio (negative: firms already liquid don't need to hedge). Crucially, foreign-denominated debt is a substitute for FX derivatives, making a pure ``hedging'' reading of derivative use misleading. Logit correctly classifies 75--78\% of firms. Limitations: binary DV ignores intensity; pre-SFAS~119 disclosures are noisy; leverage is treated as exogenous. Graham--Rogers (2002) fixes the last of these by modelling debt and hedging simultaneously.
+\end{keybox}
+
+\end{document}
