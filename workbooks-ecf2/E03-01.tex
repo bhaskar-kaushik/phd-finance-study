@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E03-01: Faleye, Hoitash \& Hoitash (2011, JFE) \\
+\large ``The costs of intense board monitoring'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Boards on which a majority of independent directors serve on all three monitoring committees (audit, compensation, nominating) --- labelled ``monitoring-intensive'' --- produce higher financial-statement quality but are associated with lower R\&D, fewer acquisitions, and lower firm value, especially in innovation-dependent firms, showing that monitoring has real costs as well as benefits.
+
+\textbf{Placement.} Canonical paper on the \emph{trade-off} view of board monitoring vs.\ advising. Contrast with Sarbanes-Oxley's monitoring-heavy prescription. Paired with Masulis-Mobbs (E03-04) on director effort allocation.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Measurement of monitoring intensity}
+A board is ``monitoring-intensive'' (MIB) if a majority of independent directors sit on all three principal monitoring committees: audit, compensation, and nominating/governance. This operationalizes Adams-Ferreira (2007) monitoring-advising trade-off.
+
+\subsection*{1.2 Sample and spec}
+\begin{itemize}
+\item US listed firms, 1998--2006.
+\item Board-committee data from proxy filings + IRRC.
+\item Main spec: firm FE, year FE, firm controls; $Y_{it}=\alpha_i+\delta_t+\beta\cdot \text{MIB}_{it}+X_{it}'\gamma+\varepsilon_{it}$.
+\item Outcomes: earnings-management proxies, R\&D, acquisitions, Tobin's Q.
+\end{itemize}
+
+\subsection*{1.3 Headline findings: benefits}
+\begin{itemize}
+\item MIB firms have \emph{lower} discretionary accruals (better reporting).
+\item Lower probability of restatements.
+\item CEO pay is more performance-sensitive.
+\item Consistent with MIB boards exercising monitoring function.
+\end{itemize}
+
+\subsection*{1.4 Headline findings: costs}
+\begin{itemize}
+\item R\&D intensity lower at MIB firms; innovation output (patents) lower.
+\item Fewer acquisitions; when they occur, lower announcement returns.
+\item Tobin's Q lower, especially in innovation-heavy industries.
+\item Intuition: monitoring-intense boards crowd out advising and long-term risk-taking.
+\end{itemize}
+
+\subsection*{1.5 Heterogeneity}
+\begin{itemize}
+\item Costs are concentrated in R\&D-intensive and young firms.
+\item Benefits are widespread but modest in size.
+\item Net effect varies by firm type: MIB helps transparency-needy firms, hurts innovation-needy firms.
+\end{itemize}
+
+\subsection*{1.6 Policy implications}
+\begin{itemize}
+\item One-size-fits-all monitoring rules (e.g.\ SOX) can harm innovation-focused firms.
+\item Board design should match firm informational needs.
+\item Motivates a board-type-heterogeneity view of governance.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item MIB is endogenous: firms choose committee structure.
+\item Some identification via within-firm variation from post-SOX adjustments; but no clean IV.
+\item Patent-count measures of innovation are noisy.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Monitoring-intensive board: majority of independent directors on all \blank{1cm} monitoring committees.
+\item Benefit: lower discretionary \blank{2cm} and fewer restatements.
+\item Cost: lower \blank{1cm}\&D, fewer \blank{2cm}, lower Tobin's Q.
+\item Costs concentrated in \blank{2cm}-heavy / young firms.
+\item Policy lesson: \blank{2cm}-fits-all monitoring rules can harm innovation.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define monitoring-intensive boards and explain the monitoring-advising trade-off.
+\item Describe the spec and the main empirical findings (benefits and costs).
+\item Discuss the heterogeneity result and its policy implications.
+\item Relate FHH to Adams-Ferreira (2007) and to SOX.
+\item What endogeneity issues arise, and how does the paper address them?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) MIB definition, (ii) benefits, (iii) costs, (iv) heterogeneity, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: monitoring vs.\ advising --- the costs of intense board monitoring.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) MIB definition. (2) Accounting benefit. (3) Innovation cost. (4) Heterogeneity group. (5) Policy lesson.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Definition.} Majority indep. on all 3 monitoring committees.
+\item \textbf{Benefit.} Better reporting.
+\item \textbf{Cost.} Lower R\&D, fewer M\&A, lower Q.
+\item \textbf{Heterogeneity.} Costs bite in innovation-heavy firms.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Faleye, Hoitash \& Hoitash (2011) operationalize the board monitoring--advising trade-off of Adams-Ferreira (2007): a ``monitoring-intensive board'' (MIB) has a majority of independent directors on all three monitoring committees (audit, compensation, nominating). Using US panel data 1998--2006 with firm and year fixed effects, MIB firms produce \emph{better} financial-statement quality (lower discretionary accruals, fewer restatements) and more-performance-sensitive CEO pay --- the monitoring benefit --- but \emph{worse} real outcomes: lower R\&D, fewer acquisitions, lower Tobin's Q, concentrated in R\&D-intensive and young firms. Intense monitoring crowds out advising and risk-taking needed for innovation. The paper cautions against one-size-fits-all monitoring mandates (SOX) and supports firm-type-specific board design. FHH is the empirical benchmark for the cost-of-monitoring thesis and pairs naturally with Masulis-Mobbs (2014) on director effort allocation.
+\end{keybox}
+
+\end{document}

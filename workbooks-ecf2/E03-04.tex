@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E03-04: Masulis \& Mobbs (2014, JFE) \\
+\large ``Independent Director Incentives: Where Do Talented Directors Spend Their Limited Time and Energy?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Independent directors serving on multiple boards allocate effort toward the \emph{most prestigious / largest} firms in their portfolio: attendance, committee assignments, and value-impact are higher at the prestigious firms and lower at smaller/less-prestigious firms, confirming that busy-director attention is a scarce resource directed by career incentives.
+
+\textbf{Placement.} Key evidence on the \emph{quality} rather than \emph{quantity} of independent-director monitoring. Links to the governance / busy-boards literature (Fich-Shivdasani 2006) and to Faleye-Hoitash-Hoitash (E03-01) on monitoring intensity.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Core insight}
+A given director often sits on several boards simultaneously. If effort is costly, the director must allocate limited attention across their boards. Incentives (reputation, future directorship opportunities) would steer attention toward the firms with the greatest reputational payoff --- typically the largest and most prestigious.
+
+\subsection*{1.2 Empirical strategy}
+\begin{itemize}
+\item US S\&P 1500 firms, 1996--2010.
+\item Data on director-level attendance, committee assignments, and firm characteristics.
+\item For each director-firm-year observation, classify the firm as ``most prestigious in the director's portfolio'' (biggest, best-reputed) vs.\ secondary.
+\item Compare director behavior across ``prestigious'' vs.\ ``secondary'' assignments for the \emph{same director-year}.
+\end{itemize}
+
+\subsection*{1.3 Headline findings}
+\begin{itemize}
+\item Attendance rates higher at prestigious firms; poor-attendance dummy lower.
+\item Directors more likely to hold committee chair / monitoring-intensive roles at prestigious firms.
+\item Firm-level outcomes tied to the director at prestigious firms: better announcement returns on CEO appointments, better alignment of pay; not at secondary firms.
+\item Departures from secondary firms more common when directors face time pressure.
+\end{itemize}
+
+\subsection*{1.4 Mechanism}
+\begin{itemize}
+\item Career-concerns model: future board seats flow from visible performance at prestigious boards.
+\item Prestige-driven effort allocation consistent with Hermalin-Weisbach (1998) bargaining and Fama-Jensen (1983) signaling.
+\end{itemize}
+
+\subsection*{1.5 Implications}
+\begin{itemize}
+\item Monitoring quality is heterogeneous across the portfolio of a ``busy'' director.
+\item Board-composition studies should weight by director attention, not count.
+\item Governance reform: restrict multi-boarding only to the extent prestige-driven mis-allocation matters.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Prestige ranking is based on size and reputation proxies; some mis-classification inevitable.
+\item Alternative explanation: selection --- talented directors match to prestigious firms; effect is not purely behavioral.
+\item Attendance is a noisy proxy for effort.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Directors allocate effort toward the \blank{2cm} firms in their portfolio.
+\item Sample: US S\&P \blank{1cm}, years 1996--\blank{1cm}.
+\item Measure: \blank{2cm}, committee chair, outcome effects.
+\item Mechanism: \blank{2cm} concerns --- future board seats.
+\item Implication: monitoring \blank{2cm} is heterogeneous within a director's portfolio.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the career-concerns hypothesis and how it applies to director effort.
+\item Describe the empirical design used to isolate within-director variation.
+\item Report the main findings on attendance, committees, and outcomes.
+\item Relate MM to the ``busy director'' literature (Fich-Shivdasani).
+\item Discuss implications for board design and multi-boarding rules.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) puzzle, (ii) design, (iii) results, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: where do talented directors spend their time? Masulis-Mobbs evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Main question. (2) Within-director test. (3) Attendance finding. (4) Mechanism. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Question.} Within-director effort allocation.
+\item \textbf{Design.} Prestigious vs.\ secondary in same director-year.
+\item \textbf{Finding.} Attendance + impact higher at prestigious.
+\item \textbf{Mechanism.} Career concerns.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Masulis \& Mobbs (2014) examine how independent directors allocate limited attention across their multiple boards. Using S\&P 1500 data 1996--2010 and within-director-year comparisons, they find that directors allocate more effort --- measured by attendance, committee-chair roles, and firm-level outcomes tied to the director --- to the most prestigious and largest firms in their portfolios. The mechanism is career concerns: future board seats accrue from visible performance at prestigious firms, so directors rationally tilt effort there. Directors preferentially depart from smaller ``secondary'' boards when time pressure mounts. The paper shifts the governance debate from director quantity (count of independents) to quality (director attention), complements Faleye-Hoitash-Hoitash (2011) on monitoring intensity, and qualifies the ``busy director'' literature (Fich-Shivdasani 2006): busy directors are not uniformly bad; they are bad at their lower-prestige seats and better at their higher-prestige ones.
+\end{keybox}
+
+\end{document}

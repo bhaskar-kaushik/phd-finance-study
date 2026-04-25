@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E07-01: Bharath, Dittmar \& Sivadasan (2014, RFS) \\
+\large ``Do Going-Private Transactions Affect Plant Efficiency and Investment?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using Census plant-level data on firms that went private via LBO or management buyout 1980--2007, BDS find that going-private transactions \emph{do not} substantially improve plant-level TFP or investment relative to matched controls --- challenging the classical Jensen (1989) view that leverage and concentrated ownership drive efficiency gains.
+
+\textbf{Placement.} Direct test of Jensen's ``eclipse of the public corporation.'' Paired with plant-level M\&A studies (Maksimovic-Phillips). Important revisionist paper in the LBO-efficiency literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Jensen (1989) argued that LBOs concentrate ownership and impose leverage discipline, producing real efficiency gains. Early studies (Kaplan 1989, Smith 1990) showed operating margins rise post-LBO. But are these firm-level gains real productivity improvements or accounting/financial effects?
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item Longitudinal Business Database (LBD) + Annual Survey of Manufactures (ASM).
+\item 317 going-private deals 1980--2007 matched to $\sim$3,000 similar public firms.
+\item Plant-level TFP, investment, capital-labor ratios, employment.
+\item Follow plants 5--10 years post-deal; compare to matched-plant controls.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+Matched-sample DiD at the plant level:
+\[
+\text{TFP}_{pt}=\alpha_p+\delta_t+\beta\cdot\text{Post-Private}_{pt}+X_{pt}'\gamma+\varepsilon_{pt}.
+\]
+Matching on pre-deal plant characteristics, industry, size, and age.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Minimal and statistically insignificant post-deal TFP gains at the plant level (average $<1$ pp vs.\ controls).
+\item Investment and capital-labor ratios also show no meaningful relative change.
+\item Employment declines modestly in some specifications but not robustly.
+\item Earlier firm-level margin findings may reflect selection (best-managed targets), divestitures, or accounting rather than plant productivity.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Leverage + concentrated ownership do not automatically generate plant-level efficiency gains.
+\item Jensen's ``eclipse of the public corporation'' view requires revision: PE benefits, if any, operate through asset reshuffling and deal restructuring, not plant productivity.
+\item Consistent with LBOs as a financial reorganization, not a real-economy upgrade.
+\end{itemize}
+
+\subsection*{1.6 Relation to prior literature}
+\begin{itemize}
+\item Kaplan (1989): post-LBO operating margins rise; BDS explains this as selection and divestiture rather than productivity.
+\item Davis-Haltiwanger-Jarmin-Lerner-Miranda (2014): job creation at PE-owned firms is not much different.
+\item Antoni-Maug-Obernberger (2019) and subsequent work: PE ownership linked to modest restructuring gains but not uniform TFP growth.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item LBD plant-level TFP is noisy; small real gains may be undetectable.
+\item Sample is manufacturing; services PE deals differ.
+\item Measurement of ``going private'' pools LBOs and management buyouts.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: \blank{1cm}BD + ASM, \blank{1cm}--\blank{1cm}.
+\item Deal count: $\sim$\blank{1cm}.
+\item Post-deal plant TFP change: \blank{2cm}.
+\item Challenge to \blank{2cm} 1989 view.
+\item Interpretation: LBOs are a \blank{2cm} reorganization, not productivity upgrade.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State Jensen's 1989 hypothesis and prior empirical findings.
+\item Describe the Census-LBD data and matching strategy.
+\item Report main findings on plant-level TFP, investment, employment.
+\item Discuss the reconciliation with firm-level margin studies.
+\item What are the implications for PE industry research?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) Jensen view, (ii) data, (iii) null results, (iv) reconciliation, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: does going private improve plant productivity?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data. (2) Sample size. (3) TFP result. (4) Investment result. (5) Jensen revision.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} LBD+ASM plant panel.
+\item \textbf{Sample.} 317 deals, 1980--2007.
+\item \textbf{Result.} Null/insignificant plant TFP gains.
+\item \textbf{Lesson.} Rethink Jensen's efficiency story.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bharath, Dittmar \& Sivadasan (2014) use Census LBD + ASM plant-level data to test Jensen's (1989) hypothesis that going-private transactions (LBOs and MBOs) improve plant productivity through leverage discipline and concentrated ownership. With 317 deals 1980--2007 matched to similar public controls and followed for 5--10 years, they find minimal and statistically insignificant changes in plant-level TFP, investment, or capital-labor ratios, with only modest employment effects in some specifications. Earlier firm-level operating-margin gains likely reflect selection, divestitures, or accounting effects rather than real productivity growth. The paper revises the ``eclipse of the public corporation'' view: LBOs may be a financial reorganization rather than a real-economy efficiency upgrade, and research should distinguish plant-level productivity from firm-level accounting margins. It motivates modern PE-and-productivity studies that parse channels more carefully.
+\end{keybox}
+
+\end{document}

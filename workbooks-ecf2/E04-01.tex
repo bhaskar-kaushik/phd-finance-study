@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E04-01: Low (2009, JFE) \\
+\large ``Managerial risk-taking behavior and equity-based compensation'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Exploiting a 1995 Delaware court decision that made hostile takeovers harder, Low shows that after takeover pressure drops, CEOs --- who are naturally risk-averse --- reduce firm risk (equity-return vol, leverage), and this decline is mitigated for CEOs with higher compensation vega (option-induced risk incentives), providing quasi-experimental evidence that managerial risk-aversion is economically relevant and convex compensation matters for risk-taking.
+
+\textbf{Placement.} Canonical identification paper linking takeover pressure, compensation convexity, and risk-taking. Paired with Hayes-Lemmon-Qiu (E04-02) which questions the option-to-risk link using FAS 123R.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+CEOs are typically risk-averse; without counteracting incentives, they may take less risk than shareholders want. What disciplines this? Two candidates: (i) the external takeover market, (ii) convex pay (options). Low uses a natural experiment to distinguish.
+
+\subsection*{1.2 Natural experiment}
+The 1995 Unitrin v. American General Delaware case increased target-board defensive latitude, reducing the threat of hostile takeovers for DE-incorporated firms. This is an exogenous reduction in takeover-market discipline.
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Sample: ExecuComp firms 1992--2003, focusing on DE-incorporated vs.\ other firms.
+\item DiD around 1995:
+\[
+Y_{it}=\alpha_i+\delta_t+\beta\cdot\text{Post}_t\cdot \text{DE}_i+\gamma X_{it}+\varepsilon_{it}.
+\]
+\item Outcomes: equity-return vol, leverage, R\&D intensity, diversification.
+\item Interaction: vega of CEO compensation (sensitivity of wealth to stock vol).
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item After 1995, DE firms reduce equity-return vol by $\sim$10--15\% relative to non-DE.
+\item Leverage declines; R\&D falls; firm focus (less diversification) rises.
+\item Effect is attenuated for CEOs with higher vega: option-based pay partly offsets the takeover-pressure drop.
+\item Effect is larger at firms with less independent boards and weaker governance.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Managerial risk-aversion is a first-order corporate-finance force.
+\item External disciplining (takeovers) and internal disciplining (convex pay) are partial substitutes.
+\item Board-level governance matters for how pay and takeover pressure interact.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item DE vs.\ non-DE differ on many dimensions; identification hinges on parallel-trends assumption.
+\item Vega is computed under Black-Scholes assumptions.
+\item Later work (Hayes-Lemmon-Qiu) on FAS 123R challenges the vega-to-risk link.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Natural experiment: \blank{1cm} court decision \blank{1cm} making hostile takeovers harder for DE firms.
+\item Design: DiD with DE vs.\ non-\blank{1cm}, pre vs.\ post-\blank{1cm}.
+\item Post-shock risk change: \blank{1cm}--\blank{1cm}\% decline in vol.
+\item Offset: high-\blank{1cm} CEO compensation.
+\item Interpretation: takeover pressure and \blank{2cm} pay are partial substitutes.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the natural experiment and why it identifies takeover-pressure effects.
+\item Write out the DiD spec with vega interaction.
+\item Report headline results on vol, leverage, and R\&D.
+\item Explain the substitute view of takeover vs.\ compensation discipline.
+\item Relate Low (2009) to Hayes-Lemmon-Qiu (2012).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) experiment, (iii) DiD, (iv) results, (v) interpretation.
+
+\section*{Round 5: Blank Page}
+Essay: takeover pressure, compensation vega, and managerial risk-taking.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Natural experiment. (2) Sample. (3) Risk-vol change. (4) Vega role. (5) Counterpart paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} 1995 Unitrin (DE takeover barrier).
+\item \textbf{Design.} DE vs.\ non-DE DiD.
+\item \textbf{Finding.} Vol $-10$--$15$\%; mitigated by high vega.
+\item \textbf{Lesson.} Takeover pressure + convex pay = partial substitutes.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Low (2009) uses the 1995 Delaware Unitrin decision --- which strengthened target-board defensive powers and thus reduced takeover pressure on DE-incorporated firms --- as a natural experiment to identify how managerial risk-aversion responds to external discipline. Using a DiD with DE vs.\ non-DE firms around 1995 and ExecuComp compensation data, she finds that post-shock DE firms cut equity-return volatility 10--15\%, reduce leverage, lower R\&D, and increase focus, consistent with risk-averse CEOs easing off risk when takeover pressure fades. The decline is attenuated for CEOs with high vega (option-induced risk incentives), implying that takeover discipline and convex compensation are partial substitutes. Low's paper is the canonical identification that managerial risk-aversion is economically important and that compensation design matters for risk-taking, paired with Hayes-Lemmon-Qiu (2012) which challenges the option--risk link with FAS 123R.
+\end{keybox}
+
+\end{document}

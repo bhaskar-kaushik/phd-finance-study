@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E02-04: Lewellen \& Lowry (2021, JFE) \\
+\large ``Does common ownership really increase firm coordination?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} LL directly test the behavioral mechanisms that AST and Backus-Conlon-Sinkinson claim link common ownership to anticompetitive outcomes --- voting, engagement, compensation design, industry-coordination proxies --- and find little evidence that common owners actively coordinate portfolio firms, casting doubt on the supposed mechanism behind the AST price findings.
+
+\textbf{Placement.} Key counterweight to Azar-Schmalz-Tecu (2018). Together they define the common-ownership debate: AST document the correlation with prices; LL finds no behavioral smoking gun for how institutions could cause it.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+AST (2018) propose that common institutional owners cause softer competition by inducing managers to internalize rival firms' profits. What would owners need to \emph{do} to implement this? LL test whether they do it.
+
+\subsection*{1.2 Behavioral channels tested}
+\begin{itemize}
+\item \textbf{Voting.} Do common owners vote differently on compensation, M\&A, or strategy in ways that dampen competition?
+\item \textbf{Engagement / meetings.} Are common owners more likely to meet with or pressure managers toward industry-wide objectives?
+\item \textbf{CEO compensation.} Are pay structures at commonly-owned firms more tied to industry profits than to relative performance?
+\item \textbf{Industry coordination proxies.} Do common owners reduce product-market rivalry at firms where they hold rivals?
+\end{itemize}
+
+\subsection*{1.3 Data and sample}
+\begin{itemize}
+\item 13F holdings 1980--2017 (ensuring large coverage).
+\item ISS voting data, CEO-compensation data, conference-call transcripts, engagement events.
+\item Ownership overlap measured consistently with AST.
+\end{itemize}
+
+\subsection*{1.4 Headline findings}
+\begin{itemize}
+\item No robust evidence that common owners vote differently in ways that would soften competition.
+\item Engagement activity is dominated by governance (not industry-coordination) themes.
+\item CEO pay at commonly-owned firms shows \emph{more} relative-performance evaluation, not less --- opposite to mechanism prediction.
+\item Net: behavioral evidence does not support the anticompetitive-coordination story.
+\end{itemize}
+
+\subsection*{1.5 Reconciling with AST}
+\begin{itemize}
+\item Price-level correlation may reflect unobserved heterogeneity.
+\item Or may reflect investor preferences but without active coordination.
+\item LL suggest the AST causal mechanism is weakly supported, so antitrust remedies should be evaluated with care.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Null findings: absence of evidence is not evidence of absence.
+\item Coordination may happen through subtle, unobserved informal channels.
+\item Selection: firms with common ownership may be systematically different in ways LL cannot fully absorb.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item LL tests the \blank{2cm} of common ownership, not the correlation.
+\item Channels: voting, engagement, CEO \blank{1.5cm}, industry coordination.
+\item CEO pay at commonly-owned firms: \blank{1cm} RPE (not less).
+\item Overall finding: \blank{1cm} support for active coordination.
+\item Implication: AST correlation may reflect \blank{2cm} heterogeneity.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item List the behavioral channels LL tests.
+\item Summarize the main findings on each channel.
+\item How does LL cast doubt on AST's mechanism without refuting the price correlation?
+\item What alternative explanations could reconcile AST prices with LL null findings?
+\item Discuss antitrust-policy implications.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) channels tested, (iii) main findings, (iv) AST reconciliation, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: common ownership and coordination --- is there a mechanism?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) AST claim. (2) LL test approach. (3) Four channels. (4) Main null. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Target.} AST 2018 mechanism.
+\item \textbf{Channels tested.} Voting, engagement, pay, coordination.
+\item \textbf{Finding.} No behavioral support for active coordination.
+\item \textbf{Implication.} AST correlation $\ne$ active coordination.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Lewellen \& Lowry (2021) directly interrogate the behavioral mechanism proposed by Azar-Schmalz-Tecu (2018) to explain the anticompetitive effects of common institutional ownership. Using 13F holdings 1980--2017 combined with voting, engagement, compensation, and industry-coordination proxies, they test whether common owners actually do the things the mechanism requires. The behavioral evidence is null or opposite: voting patterns do not favor softer competition, engagement is dominated by governance rather than industry themes, and CEO pay at commonly-owned firms shows \emph{more} relative-performance evaluation (opposite prediction). LL concludes that the AST price-level correlation, if causal, operates through subtler or unobserved channels --- or may reflect omitted variables. The paper anchors the skeptical side of the common-ownership debate and motivates more direct empirical searches for (or against) coordination mechanisms, and it cautions antitrust regulators against acting on AST correlations alone.
+\end{keybox}
+
+\end{document}

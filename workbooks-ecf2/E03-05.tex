@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E03-05: Erel, Stern, Tan \& Weisbach (2021, RFS) \\
+\large ``Selecting Directors Using Machine Learning'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using machine learning (random forests) trained on director characteristics and subsequent firm outcomes, ESTW build a model that \emph{out-performs} actual board-director choices: had firms followed the model's recommendations, predicted poor performers would have been deselected, suggesting boards make systematic selection mistakes that data-driven methods could correct.
+
+\textbf{Placement.} Pioneering application of ML to governance-selection questions. Connects corporate governance to the algorithmic-decision-making literature (Kleinberg et al.\ 2018).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research design}
+\begin{itemize}
+\item Sample: US public-firm directors and CEOs 2000--2014.
+\item Features: demographics, education, prior boards, industry experience, connections, past performance.
+\item Target: future director-quality outcomes (e.g., shareholder votes against, probability of removal, firm-level misstatements).
+\item Split sample; train random forest on early years, test on later years.
+\end{itemize}
+
+\subsection*{1.2 Model approach}
+\begin{itemize}
+\item Random forests and gradient-boosted trees predict whether a nominee will under-perform.
+\item Compare to actual nomination outcomes.
+\item Quantify: how many of the worst-10\% predicted directors were actually chosen?
+\end{itemize}
+
+\subsection*{1.3 Headline findings}
+\begin{itemize}
+\item Firms chose directors the model predicted would be in the worst decile $\sim$1.5--2x more often than would occur if ML-ranked.
+\item Predicted ``bad'' directors are more likely to receive low shareholder votes, leave under pressure, and coincide with governance failures.
+\item Improvement from using the model: replacing the bottom-10\% would reduce bad-director incidence by $\sim$15--20\%.
+\end{itemize}
+
+\subsection*{1.4 Mechanism / features}
+\begin{itemize}
+\item Predictive features: prior-board performance, network position, demographic fit to board.
+\item Boards appear to over-weight easily-observed features (connections, CEO tenure) and under-weight predictive ones.
+\item Suggests behavioral biases in director selection, not just noise.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Governance failures reflect selection errors as much as (or more than) monitoring effort.
+\item ML can augment human judgment in board appointments.
+\item Consistent with broader Kleinberg et al.\ (2018) result that algorithms improve on human prediction.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Training targets are imperfect proxies for director quality.
+\item External validity: test-sample features change over time.
+\item Potential legal/ethical concerns about algorithmic director selection.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Method: \blank{2cm} forests on director features.
+\item Sample: US directors \blank{1cm}--\blank{1cm}.
+\item Target: predicted \blank{2cm} performance.
+\item Finding: firms chose predicted-bad directors \blank{1cm}x more than random.
+\item Gain: replacing bottom 10\% reduces bad incidence by \blank{1cm}--\blank{1cm}\%.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the training/testing ML design.
+\item Report the main predictive performance findings.
+\item Discuss what features drive under-performance predictions.
+\item Relate ESTW to Kleinberg et al.\ (2018) and the algorithmic-judgment literature.
+\item Evaluate ethical and legal implications of ML-based director selection.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) design, (ii) model, (iii) key finding, (iv) mechanism, (v) interpretation.
+
+\section*{Round 5: Blank Page}
+Essay: can machine learning improve board-director selection?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Method. (2) Training data. (3) Target variable. (4) Main finding. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Method.} Random forests on director features.
+\item \textbf{Target.} Director-quality outcomes.
+\item \textbf{Finding.} Firms pick predicted-bad directors $\sim$2x more than random.
+\item \textbf{Gain.} Replace bottom 10\% $\to$ $-15$--$20$\% bad incidence.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Erel, Stern, Tan \& Weisbach (2021) apply machine learning (random forests, gradient-boosted trees) to the problem of director selection. Using US public-firm director data 2000--2014, with features including demographics, education, network position, prior-board experience, and targets including future low shareholder-vote receipt, misstatement likelihood, and forced turnover, they show that firms disproportionately select directors whom the model predicts will under-perform --- roughly $1.5$--$2\times$ more often than random, with gains from replacing the bottom-10\% predicted of $\sim$15--20\%. Boards appear to over-weight easily-observed features (connections, CEO tenure) and under-weight predictive ones. The paper extends Kleinberg et al.\ (2018)'s algorithms-beat-humans result to corporate governance: governance failures reflect selection errors as much as monitoring effort, and data-driven methods can augment director selection. It raises normative questions about algorithmic governance decisions.
+\end{keybox}
+
+\end{document}

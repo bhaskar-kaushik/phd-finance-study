@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E06-03: Li, Taylor \& Wang (2018, JFE) \\
+\large ``Inefficiencies and Externalities from Opportunistic Acquirers'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} LTW identify ``opportunistic acquirers'' --- firms that buy underperforming targets more for managerial/agency reasons than for synergy --- and show that their deals underperform, create negative externalities on peer firms in the target's industry (by depressing peer prices), and that these inefficiencies concentrate in industries with weak governance.
+
+\textbf{Placement.} Agency-cost side of the M\&A debate; complements Harford-style wave studies with evidence that some M\&A is value-destroying and has spillover effects on competitors.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+If M\&A is always efficient reallocation (Maksimovic-Phillips), why do many acquirers underperform? LTW model ``opportunistic'' acquirers who pursue deals that benefit managers (e.g., empire-building, entrenchment) rather than shareholders, and quantify the resulting inefficiency.
+
+\subsection*{1.2 Identification of opportunistic deals}
+\begin{itemize}
+\item Define an acquirer as opportunistic when pre-deal governance is weak, target is poorly matched on synergy proxies, and announcement CAR is significantly negative.
+\item Alternatively, use deal-level characteristics: diversifying, cash-financed, high market-to-book acquirer buying low market-to-book target without product-market link.
+\item Classify with a probabilistic model of deal quality.
+\end{itemize}
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item SDC M\&A 1990--2014; CRSP returns; Compustat fundamentals.
+\item Peer firms identified via SIC or TNIC.
+\item Cross-sectional regressions of acquirer and peer CARs and long-run operating performance on opportunistic-deal indicators.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Opportunistic acquirers show significant negative long-run operating performance (ROA $-2$ to $-3$ pp over 3 years).
+\item Peers of opportunistic acquirers earn negative abnormal returns at deal announcement (spillover).
+\item Weak-governance firms are much more likely to engage in opportunistic deals.
+\item Classification model is predictive out-of-sample: top-quartile predicted-opportunistic deals have lower acquirer and peer returns.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Opportunistic consolidation can reduce competitive discipline on peers (if synergies absent but scale rises), lowering industry-wide efficiency.
+\item Alternatively, poor deals signal negative information about industry prospects.
+\item Weak governance enables managerial entrenchment via value-destroying M\&A.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item M\&A is not uniformly efficient; agency-motivated deals coexist with synergy-driven ones.
+\item Peers bear costs of opportunistic deals; externalities warrant governance scrutiny.
+\item Governance reforms can reduce value-destroying M\&A.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Opportunism classification is model-dependent.
+\item Peer-firm CARs may reflect revaluation rather than externality.
+\item Pre-deal-governance endogenous to prior management decisions.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Opportunistic acquirer: weak \blank{2cm}, poor synergy match.
+\item Acquirer long-run ROA: $-$\blank{1cm} to $-$\blank{1cm} pp.
+\item Peer-firm CARs: \blank{1cm} abnormal returns.
+\item Deals concentrated in \blank{2cm} industries.
+\item Implication: governance reduces value-\blank{2cm} M\&A.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define opportunistic acquirers and discuss identification.
+\item Report main findings on acquirer, peer, and long-run performance.
+\item Discuss the externality mechanism.
+\item Contrast LTW with Maksimovic-Phillips and Harford views.
+\item What governance reforms follow from the findings?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) motivation, (ii) identification, (iii) findings, (iv) externality, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: opportunistic M\&A, externalities, and governance.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Classification. (2) Acquirer performance. (3) Peer performance. (4) Industry pattern. (5) Policy.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Def.} Weak-governance + poor-synergy deals.
+\item \textbf{Acquirer.} Negative long-run ROA.
+\item \textbf{Peer.} Negative CARs at announcement.
+\item \textbf{Lesson.} Value-destroying M\&A has externalities.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Li, Taylor \& Wang (2018) identify ``opportunistic acquirers'' --- firms that pursue value-destroying M\&A driven by agency motives rather than synergy --- and show the resulting inefficiency spreads to competitors. Using SDC mergers 1990--2014 with a classification based on governance weakness, poor synergy fit, and negative announcement CARs, they find opportunistic deals exhibit significant negative long-run acquirer ROA ($-2$ to $-3$ pp over 3 years), peer firms in the target's industry suffer negative announcement-window abnormal returns, and such deals concentrate in weak-governance industries. The classification predicts underperformance out of sample. The paper formalizes the agency-cost side of M\&A --- complementing Maksimovic-Phillips (efficient reallocation) and Harford (2005) (wave timing) with evidence that agency-motivated deals impose externalities on peer firms, giving a clear governance rationale for scrutinizing manager-serving acquisitions.
+\end{keybox}
+
+\end{document}

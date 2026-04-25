@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E02-03: Azar, Schmalz \& Tecu (2018, JF) \\
+\large ``Anticompetitive Effects of Common Ownership'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using US airline route-level data 2001--2014, AST show that ticket prices are 3--7\% higher on routes where competing airlines share more institutional-investor owners, and propose a Modified-HHI (MHHI) that measures market power under common ownership --- suggesting that diversified index funds create implicit anticompetitive incentives.
+
+\textbf{Placement.} Canonical ``common ownership'' paper in corporate finance and IO. Generated the antitrust debate on horizontal shareholding. Paired with Lewellen-Lowry (E02-04) which challenges the coordination mechanism.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setup}
+\begin{itemize}
+\item Route level panel of US domestic airlines, 2001--2014, quarterly.
+\item Institutional-holdings data (13F) identify which institutions hold each airline.
+\item Construct the Modified Herfindahl-Hirschman Index (MHHI) that adds a ``common-ownership'' term to standard HHI.
+\end{itemize}
+
+\subsection*{1.2 Modified HHI}
+Let $s_i$ be firm $i$'s market share and $\beta_{if}$ institution $f$'s equity stake in firm $i$. Then
+\[
+\text{MHHI} = \underbrace{\sum_i s_i^2}_{\text{HHI}} + \underbrace{\sum_{i\ne j} s_i s_j \,\frac{\sum_f \beta_{if}\beta_{jf}}{\sum_f \beta_{if}^2}}_{\text{common ownership term}}.
+\]
+The second term captures the degree to which rival firms $i,j$ share owners.
+
+\subsection*{1.3 Identification}
+\begin{itemize}
+\item Panel with route + time FE.
+\item Primary worry: MHHI correlates with unobserved demand. Instruments: BlackRock-BGI merger (2009) as exogenous shock to common ownership.
+\item IV sign supports causal effect of MHHI on prices.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Moving from zero common ownership to sample average raises route prices 3--7\%.
+\item Effect robust to route FE, time FE, standard covariates.
+\item IV using BlackRock-BGI merger: airlines with greater post-merger common ownership raise prices more on affected routes.
+\end{itemize}
+
+\subsection*{1.5 Proposed mechanisms}
+\begin{itemize}
+\item Managers internalize common owners' preference for higher industry profits (not firm-specific profits).
+\item Through voting, engagement, and compensation committees, common owners tilt firms toward softer competition.
+\item Informal norms, analyst conferences, and industry meetings also transmit preferences.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Mechanism not directly observed; correlation vs.\ causation debated (see Lewellen-Lowry 2021).
+\item MHHI construction sensitive to normalization choices.
+\item Price effects may reflect alternative channels (quality, network structure).
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: US \blank{1.5cm} routes, 2001--\blank{1cm}.
+\item Index constructed: \blank{1cm}HHI.
+\item Price effect from zero to mean common ownership: \blank{1cm}--\blank{1cm}\%.
+\item Key IV: \blank{1.5cm}--BGI merger 2009.
+\item Proposed mechanism: managers internalize \blank{2cm} owners' preferences.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define MHHI and state the common-ownership term's intuition.
+\item Describe the empirical design and identification strategy.
+\item Discuss proposed mechanisms for how common ownership affects prices.
+\item Relate AST to Lewellen-Lowry (2021).
+\item Evaluate antitrust-policy implications.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) MHHI formula, (iii) identification, (iv) results, (v) mechanism.
+
+\section*{Round 5: Blank Page}
+Essay: common ownership and product-market competition --- evidence from airline routes.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data. (2) MHHI formula. (3) Price effect. (4) IV. (5) Mechanism claim.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Setting.} US airline routes, 2001--14.
+\item \textbf{Tool.} MHHI adds common-ownership term.
+\item \textbf{Effect.} $+3$--$7$\% prices.
+\item \textbf{IV.} BlackRock-BGI merger.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Azar, Schmalz \& Tecu (2018) document that US airline-route ticket prices are 3--7\% higher where competing airlines share more institutional-investor owners. They construct a Modified Herfindahl-Hirschman Index (MHHI) that augments standard market-concentration measures with a common-ownership term reflecting how much rivals share owners. Using airline route-quarter panels 2001--2014 with route and time fixed effects, and an IV from the 2009 BlackRock-BGI merger, they argue the relationship is causal: more common ownership raises ticket prices. Proposed mechanism: managers internalize common owners' preference for softer industry-wide competition through voting, engagement, and compensation. The paper launches the 2010s common-ownership debate in antitrust and corporate governance, motivating policy proposals to restrict horizontal shareholding. It is paired with Lewellen-Lowry (2021), which questions whether common owners actively coordinate firms.
+\end{keybox}
+
+\end{document}

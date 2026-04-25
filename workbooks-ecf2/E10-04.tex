@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E10-04: Ewens, Nanda \& Rhodes-Kropf (2018, JFE) \\
+\large ``Cost of Experimentation and the Evolution of Venture Capital'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} ENRK argue that a technology-induced fall in the cost of experimentation (cloud computing, open-source tools, lean-startup methods) transformed VC financing: more startups attempt bold early-stage experiments, financing rounds are smaller and more staged, success rates fall but expected returns rise, and VC portfolios shift toward many small bets with richer-options structure.
+
+\textbf{Placement.} Important paper explaining the modern VC-industry structure (seed vs.\ late-stage). Connects innovation economics to financing contracts and real-options theory.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+In the 2000s, cloud computing and open-source tooling sharply reduced the cost of launching a tech startup. What effect did this have on the structure of VC investment and on startup outcomes?
+
+\subsection*{1.2 Theory}
+Lower experimentation cost $\Rightarrow$ cheaper to gain information. Real-options view predicts:
+\begin{itemize}
+\item More startups attempt radical experiments.
+\item Investors fund smaller seed rounds to learn before committing.
+\item More startups fail at an early stage (``fail fast'').
+\item Those that succeed scale more aggressively (larger follow-on rounds).
+\end{itemize}
+
+\subsection*{1.3 Data}
+\begin{itemize}
+\item VentureSource + AngelList + Crunchbase US seed-stage IT companies, 1995--2014.
+\item Compared across pre-cloud (1995--2004) and post-cloud (2005--2014) periods.
+\item Financing-round size, startup outcomes (IPO, acquisition, failure), follow-on funding.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Seed investment counts rise $\sim$2--3x; seed round sizes fall.
+\item Failure rates rise at seed stage; conditional-on-survival revenue growth higher.
+\item Portfolio returns are more skewed: many more total failures, but successes larger.
+\item VC industry bifurcates: seed VCs, growth VCs.
+\item Consistent with the real-options, lower-experimentation-cost hypothesis.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Technology reduces the marginal cost of testing startup concepts.
+\item Investors can gather information cheaply through staged experiments.
+\item Portfolio optimization favors a larger, more diversified book of small seed bets.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item VC industry structure co-evolves with technology.
+\item Policymakers should view startup failure rates in the context of cheaper experimentation.
+\item Innovation economics must incorporate experimentation costs explicitly.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Cross-period identification, not a clean natural experiment.
+\item Measurement of ``experimentation cost'' is indirect.
+\item Industry-specific shocks could confound.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Technology shock: \blank{2cm} computing + open-source tools.
+\item Pre-cloud: \blank{1cm}--\blank{1cm}; post-cloud: \blank{1cm}--\blank{1cm}.
+\item Seed deal count: $\times$\blank{1cm}--\blank{1cm}.
+\item Round size trend: \blank{2cm}.
+\item Portfolio distribution: more \blank{2cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the theory linking experimentation cost to VC structure.
+\item Describe the data and period comparisons.
+\item Report main findings on seed rounds, failure, and success.
+\item Discuss mechanism: real-options optimization.
+\item Policy and industry implications.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) theory, (ii) data, (iii) findings, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: cost of experimentation and the modern VC industry.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Shock. (2) Seed-count change. (3) Round-size trend. (4) Failure pattern. (5) Industry implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} Cloud + open-source reduce exp cost.
+\item \textbf{Seed.} More, smaller rounds.
+\item \textbf{Failure.} Rises early, successes bigger.
+\item \textbf{Structure.} Seed vs.\ growth VC bifurcation.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Ewens, Nanda \& Rhodes-Kropf (2018) argue that the 2000s decline in startup-experimentation costs (cloud computing, open-source, lean-startup methods) transformed VC financing. Using VentureSource/AngelList/Crunchbase data 1995--2014, they compare pre- and post-cloud periods: seed-stage deal counts rise 2--3x, round sizes fall, failure rates at seed rise, but conditional-on-survival growth accelerates; portfolio returns skew more sharply, with many more failures offset by larger successes. The VC industry bifurcates into seed and growth funds. This matches a real-options model where lower experimentation cost favors many small, staged bets with richer learning value. The paper provides a technology-driven explanation for the structure of modern VC, with implications for innovation economics and startup policy: failure-rate increases do not imply declining efficiency --- they signal cheaper information acquisition.
+\end{keybox}
+
+\end{document}

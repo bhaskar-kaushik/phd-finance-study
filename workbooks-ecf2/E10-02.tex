@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E10-02: Lerner \& Malmendier (2013, RFS) \\
+\large ``With a Little Help from My (Random) Friends: Success and Failure in Post-Business School Entrepreneurship'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Exploiting the random assignment of Harvard Business School students to sections and the ensuing cohort peer groups, LM show that having more peers with prior entrepreneurial experience \emph{reduces} the probability that a student becomes an entrepreneur but \emph{improves} the average success conditional on entering, evidencing a peer-learning channel in career choice.
+
+\textbf{Placement.} Canonical quasi-experimental paper on peer effects in entrepreneurship; highlights the role of information and social learning in professional networks.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+HBS assigns incoming MBAs to sections of $\sim$90 students each, quasi-randomly conditional on gender and nationality. Students share classes, projects, and social networks within the section. Section assignment provides exogenous variation in peer composition.
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item HBS MBA classes 1997--2004.
+\item Detailed pre-MBA backgrounds: prior industry, entrepreneurial experience, financial industry.
+\item Post-MBA career choices and outcomes.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Outcome: whether student starts a firm within 3 years of graduation.
+\item Treatment: fraction of section peers with prior entrepreneurial experience.
+\item Regressions include year-cohort fixed effects; identification from within-cohort section-level variation.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item More entrepreneurial peers reduces probability of entering entrepreneurship by $\sim$1--2 pp per peer (vs.\ baseline $\sim$10\%).
+\item But conditional on entering, performance (firm survival, growth) improves.
+\item Interpretation: peer information corrects overoptimism; those who still enter are better-matched.
+\item Effect is asymmetric: peers with financial-industry background increase entry but do not affect performance.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Peer learning and screening: experienced peers share honest information about entrepreneurial costs.
+\item Reduces excessive entry among over-optimistic students.
+\item Raises quality of those who do enter.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Peer effects in career choice are significant and information-based.
+\item Entrepreneurship support programs may benefit from experienced mentors.
+\item Challenges simple ``more exposure = more entrepreneurs'' narratives.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Harvard MBA students are non-representative.
+\item Sample size within-cohort limits power.
+\item Outcomes (firm survival) are crude proxies for success.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Exogenous variation: HBS \blank{2cm} assignment.
+\item Sample: MBA classes \blank{1cm}--\blank{1cm}.
+\item Entry effect: $-$\blank{1cm}--\blank{1cm} pp per peer.
+\item Performance effect: \blank{2cm} improves.
+\item Channel: peer \blank{2cm} corrects overoptimism.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the HBS section setting and identification.
+\item Report main findings on entry and performance.
+\item Discuss the peer-learning mechanism.
+\item Differentiate from simple ``exposure increases entry'' views.
+\item Evaluate external validity.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) data, (iii) findings, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: peer effects in entrepreneurial career choice.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Identification. (2) Sample. (3) Entry effect. (4) Performance effect. (5) Mechanism.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Setting.} Randomized HBS sections.
+\item \textbf{Entry.} Falls with entrepreneurial peers.
+\item \textbf{Performance.} Rises conditional on entry.
+\item \textbf{Lesson.} Peer learning corrects overoptimism.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Lerner \& Malmendier (2013) use the quasi-random assignment of HBS MBA students to sections (1997--2004) to identify peer effects on entrepreneurial career choice. With within-cohort, cross-section variation in peers with prior entrepreneurial experience, they find a counter-intuitive result: more entrepreneurial peers reduce the probability that a given student enters entrepreneurship by 1--2 pp per peer (vs.\ a 10\% baseline), yet conditional on entering, performance (survival, growth) improves. The interpretation is a peer-learning channel: experienced peers honestly share costs and risks, deterring over-optimistic entry while raising the quality of those who do enter. The paper is a clean quasi-experimental demonstration of information-based peer effects in career choice and has influenced entrepreneurship-mentorship and business-school-program design debates.
+\end{keybox}
+
+\end{document}

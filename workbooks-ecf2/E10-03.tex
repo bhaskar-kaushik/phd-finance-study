@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E10-03: Howell (2017, AER) \\
+\large ``Financing Innovation: Evidence from R\&D Grants'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using a regression-discontinuity around SBIR-grant award thresholds, Howell shows that US DOE Small Business Innovation Research (SBIR) Phase I grants \emph{cause} a $\sim$30\% increase in patenting and $\sim$20--60\% increase in follow-on private investment for small R\&D firms, with effects concentrated among young, financially-constrained firms --- government grants \emph{do} alleviate financial frictions in innovation.
+
+\textbf{Placement.} Landmark quasi-experimental paper on public R\&D grants and innovation; anchor for innovation-finance research and innovation-policy debates. Strong identification via RD design.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Do public R\&D grants generate additional innovation that would not otherwise occur, or do they crowd out private investment? Most previous work lacked clean identification.
+
+\subsection*{1.2 Setting: SBIR grants}
+\begin{itemize}
+\item US DOE Small Business Innovation Research program.
+\item Phase I: up to \$150K feasibility grants; Phase II: up to \$1M development grants.
+\item Applications ranked by DOE review panel on technical merit; threshold cutoff funds top applicants.
+\item Sharp RDD: firms just above cutoff get grant, firms just below do not.
+\end{itemize}
+
+\subsection*{1.3 Data}
+\begin{itemize}
+\item DOE SBIR applications 1983--2013.
+\item Patents from USPTO; follow-on VC from VentureSource.
+\item Firm survival, revenue growth, acquisitions.
+\end{itemize}
+
+\subsection*{1.4 Empirical design}
+Regression discontinuity in the scored-rank at the award cutoff:
+\[
+Y_i=\alpha+\beta\cdot\mathbb{1}(\text{Rank}_i>c)+f(\text{Rank}_i-c)+\varepsilon_i,
+\]
+with standard RD bandwidth choice and local linear estimates.
+
+\subsection*{1.5 Headline results}
+\begin{itemize}
+\item Phase I award raises patent counts by $\sim$30\%.
+\item Phase I award raises follow-on VC funding probability by 10--30 pp.
+\item Phase II effects smaller; diminishing returns at larger grant sizes.
+\item Effects concentrated in young, financially-constrained firms --- no effect for well-funded or mature firms.
+\item Consistent with relaxing financial constraints, not pure substitution.
+\end{itemize}
+
+\subsection*{1.6 Mechanism}
+\begin{itemize}
+\item Phase I reduces a binding constraint at the prototype / feasibility stage.
+\item Grant creates credible signal that reduces private-capital screening frictions.
+\item Phase II crowds out private investment partly because selected firms have already found backers.
+\end{itemize}
+
+\subsection*{1.7 Implications}
+\begin{itemize}
+\item Government R\&D grants can generate real innovation at the margin.
+\item Program design matters: small early-stage grants more effective than larger later-stage.
+\item Provides an identification benchmark for other innovation-policy research.
+\end{itemize}
+
+\subsection*{1.8 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Generalizability beyond DOE-SBIR questionable.
+\item External validity limited to small, innovative firms.
+\item RD design assumes continuity at cutoff --- strategic application-gaming could bias.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Setting: DOE \blank{2cm} program.
+\item Identification: \blank{2cm} discontinuity.
+\item Phase I patent effect: $+$\blank{1cm}\%.
+\item VC follow-on effect: $+$\blank{1cm}--\blank{1cm} pp.
+\item Effect concentrated in \blank{2cm}-constrained firms.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the SBIR program and RD design.
+\item Report main findings on patents and follow-on capital.
+\item Discuss mechanism: financial-constraint relaxation vs.\ signaling.
+\item Compare Phase I and Phase II.
+\item Policy implications.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) RD design, (iii) results, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: can public R\&D grants cause innovation? Evidence from SBIR.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Program. (2) Identification. (3) Patent effect. (4) VC effect. (5) Who benefits.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Program.} DOE SBIR Phase I/II.
+\item \textbf{Design.} Rank-based RD.
+\item \textbf{Phase I.} Patents $+30\%$, VC $+10$--$30$ pp.
+\item \textbf{Lesson.} Grants relax constraints for young firms.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Howell (2017) uses a regression-discontinuity design around SBIR Phase I/II grant award cutoffs in DOE applications 1983--2013 to identify causal effects of public R\&D funding. Phase I grants (up to \$150K) raise recipient firms' patent counts by $\sim$30\% and follow-on VC probability by 10--30 pp; Phase II effects are smaller, indicating diminishing returns. Benefits concentrate in young, financially-constrained firms consistent with relaxing financial constraints at the feasibility stage, rather than pure substitution. The paper delivers a clean quasi-experimental estimate of grant-caused innovation and informs program design: small, early-stage grants are more effective than large, late-stage subsidies. It anchors the empirical innovation-finance literature and has become the canonical RD-based innovation-policy evaluation.
+\end{keybox}
+
+\end{document}

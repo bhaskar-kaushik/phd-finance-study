@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E05-02: Harford (2005, JFE) \\
+\large ``What Drives Merger Waves?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Harford shows that industry-level merger waves are driven by economic, regulatory, and technological shocks \emph{combined} with sufficient capital liquidity: shocks generate the reallocation motive, while loose capital markets (low spreads, high valuations) supply the financing. Behavioral/misvaluation alone cannot explain waves --- the neoclassical plus capital-liquidity view fits the data better.
+
+\textbf{Placement.} Canonical paper on the determinants of industry merger waves, paired with Rhodes-Kropf et al.\ (2005) which emphasizes misvaluation. Builds on Mitchell-Mulherin (1996) industry-shock evidence.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Why do mergers cluster in industry-level waves, and what triggers them: real economic shocks (neoclassical) or market misvaluation (behavioral)?
+
+\subsection*{1.2 Competing theories}
+\begin{itemize}
+\item \textbf{Neoclassical (Mitchell-Mulherin 1996, Jovanovic-Rousseau 2002):} industry shocks create reallocation opportunities; waves follow economic/regulatory/technological change.
+\item \textbf{Misvaluation (Shleifer-Vishny 2003, Rhodes-Kropf et al.\ 2005):} overvalued stock markets let managers buy real assets with overpriced equity.
+\item Harford proposes both matter, but specifically that capital-market liquidity acts as a necessary condition.
+\end{itemize}
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item Industry-level data, 1981--2000.
+\item Identify merger waves: periods with abnormal industry merger activity (top-quartile merger count years concentrated in a window).
+\item Shocks measured by industry-level changes in: sales, employment, R\&D, capital expenditure, profitability, net-income volatility, ROA dispersion.
+\item Capital-market liquidity: C\&I spreads, GDP growth, aggregate M\&A.
+\item Misvaluation: market-to-book, prior returns, analyst-forecast revisions.
+\end{itemize}
+
+\subsection*{1.4 Empirical specification}
+Multinomial logit predicting whether an industry-year is part of a merger wave, on:
+\[
+\Pr(\text{Wave}_{it})=f(\text{Shock}_{it},\,\text{CapLiquidity}_t,\,\text{Misvaluation}_{it}).
+\]
+
+\subsection*{1.5 Headline results}
+\begin{itemize}
+\item Industry shocks (economic, regulatory, technological) strongly predict waves.
+\item Capital-market liquidity is required: shocks without loose capital don't produce waves.
+\item Misvaluation measures lose significance after controlling for shocks and capital liquidity.
+\item Waves cluster in industries with large shocks in years of high aggregate liquidity (1980s deregulation, 1990s tech boom).
+\end{itemize}
+
+\subsection*{1.6 Interpretation}
+\begin{itemize}
+\item Supports a neoclassical-plus-capital-liquidity view: reallocation needs both a shock and cheap capital.
+\item Misvaluation may matter for \emph{type} (stock vs.\ cash) of mergers but not for wave \emph{timing}.
+\item Explains historical waves (railroad consolidation, conglomerate era, 1980s takeover wave, 1990s tech).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Variables are correlated: separating shocks from misvaluation is hard.
+\item Sample is US-centric and pre-dates major 2000s regulatory shifts.
+\item Wave identification uses statistical cutoffs; alternative thresholds may affect inference.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Two competing theories: \blank{2cm} vs.\ misvaluation.
+\item Capital-market \blank{2cm} required for waves to occur.
+\item Shocks: economic, \blank{2cm}, technological.
+\item Sample period: \blank{1cm}--\blank{1cm}.
+\item Misvaluation loses \blank{2cm} after controls.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the two competing theories of merger waves.
+\item Describe the variables and empirical specification.
+\item Report the main findings on shocks, liquidity, and misvaluation.
+\item Discuss the implications for the neoclassical-vs-behavioral debate.
+\item Relate Harford (2005) to Rhodes-Kropf-Robinson-Viswanathan (2005).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) waves, (ii) theories, (iii) specification, (iv) results, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: why do merger waves cluster in industries and time?
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Two theories. (2) Necessary condition. (3) Shock types. (4) Effect of misvaluation controls. (5) Policy lesson.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Theories.} Neoclassical vs.\ misvaluation.
+\item \textbf{Finding.} Shocks + capital liquidity drive waves.
+\item \textbf{Misvaluation.} Insignificant after controls.
+\item \textbf{Lesson.} Neoclassical + liquidity $>$ pure behavioral.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Harford (2005) asks what causes industry merger waves and tests two theories: neoclassical (economic/regulatory/technological shocks drive reallocation) vs.\ misvaluation (overvalued equity lets managers cheaply buy real assets). Using industry-year data 1981--2000, with shocks measured by changes in sales, R\&D, capex, profitability, and employment, and capital-market liquidity proxied by C\&I spreads and aggregate M\&A, he runs multinomial logits predicting wave years. Shocks strongly predict waves, and capital-market liquidity is a near-necessary condition: shocks without loose capital do not produce waves. Misvaluation measures lose significance once shocks and liquidity are controlled for. The paper establishes the ``neoclassical-plus-capital-liquidity'' view of waves and contextualizes historical merger episodes (1980s deregulation, 1990s tech). It complements Rhodes-Kropf et al.\ (2005) on wave \emph{composition} while reassigning wave \emph{timing} to real shocks and liquidity.
+\end{keybox}
+
+\end{document}

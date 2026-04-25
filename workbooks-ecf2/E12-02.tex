@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E12-02: Bonaim\'e, Hankins \& Harford (2014, RFS) \\
+\large ``Financial Flexibility, Risk Management, and Payout Choice'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} BHH show that firms prefer share repurchases over dividends because buybacks preserve financial flexibility --- they can be cut without signaling costs, they complement hedging and cash-holding policies, and firms with higher cash-flow volatility or greater financial-flexibility needs tilt toward repurchases over commitments like dividends.
+
+\textbf{Placement.} Standard reference on payout-policy choice and financial flexibility. Extends Jagannathan-Stephens-Weisbach (2000) and links to the Lintner (1956) dividend-smoothing tradition.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Firms can return cash via dividends (committed, sticky) or buybacks (flexible, non-committing). Does financial flexibility drive the mix?
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item Compustat / CRSP firms, 1985--2010.
+\item Detailed payout data: repurchases, dividends, special dividends.
+\item Hedging and cash-holding data (FASB disclosures, 10-K).
+\item Cash-flow volatility, credit ratings, investment opportunities.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Cross-sectional and panel regressions of repurchase vs.\ dividend choice on flexibility measures.
+\item Joint modelling of hedging, cash-holding, and payout as complements/substitutes.
+\item Event studies around payout-policy changes.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Cash-flow volatility strongly predicts repurchase-bias (vs.\ dividend).
+\item Firms with lower hedging activity and lower cash reserves lean toward repurchases for flexibility.
+\item Dividend initiations are rare; repurchase initiations common and reversible.
+\item Payout-policy choice is consistent with a flexibility framework that integrates risk management, cash, and distributions.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Dividends commit the firm via signaling costs (Lintner smoothing).
+\item Repurchases are conditional distributions --- flexible, reversible.
+\item Firms balance investor clientele preferences for dividends against flexibility benefits of buybacks.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Payout choice is part of integrated financial policy, not just a distribution decision.
+\item Decline in dividend-paying firms reflects rising cash-flow volatility and flexibility preference.
+\item Supports a unified theory of corporate liquidity management (cash, hedging, payout).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Payout-policy changes are often endogenous with investment opportunities.
+\item Repurchase announcements are non-binding --- actual execution varies.
+\item Regime shifts (e.g., 2003 dividend tax cut) add noise.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Payout instruments: \blank{2cm} vs.\ repurchases.
+\item Flexibility driver: cash-flow \blank{2cm}.
+\item Related papers: Jagannathan-\blank{2cm}-Weisbach 2000.
+\item Joint policies: hedging, cash, \blank{2cm}.
+\item Lintner framework: dividend \blank{2cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the flexibility hypothesis for payout choice.
+\item Describe the data and joint-policy approach.
+\item Report main findings on repurchase-vs-dividend determinants.
+\item Discuss mechanism via signaling and clientele.
+\item Implications for the decline of dividend-paying firms.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) hypothesis, (ii) data, (iii) findings, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: financial flexibility and the repurchase vs.\ dividend decision.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Two payout types. (2) Flexibility driver. (3) Joint policies. (4) Dividend-rate model. (5) Secular trend.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Choice.} Dividends vs.\ repurchases.
+\item \textbf{Driver.} Cash-flow volatility / flexibility needs.
+\item \textbf{Integration.} With hedging + cash holdings.
+\item \textbf{Trend.} Declining dividend share.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bonaim\'e, Hankins \& Harford (2014) argue that payout choice is part of an integrated financial-policy problem. Firms choose between dividends (committed, sticky) and share repurchases (flexible, non-committing) based on their need for financial flexibility. Using Compustat firms 1985--2010 with hedging and cash-holding data, they show cash-flow volatility strongly predicts repurchase bias; firms with less hedging or lower cash reserves also lean toward repurchases; payout, hedging, and cash-holding policies move jointly. Mechanism: dividends commit the firm via Lintner-style smoothing and signaling costs, whereas repurchases remain optional. The paper provides a unified framework for corporate liquidity management and explains the secular decline of dividend-paying firms as a consequence of rising cash-flow volatility and greater flexibility needs.
+\end{keybox}
+
+\end{document}

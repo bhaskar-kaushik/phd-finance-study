@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E06-01: Hoberg \& Phillips (2010, RFS) \\
+\large ``Product Market Synergies and Competition in Mergers and Acquisitions: A Text-Based Analysis'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} HP build text-based product-market similarity scores from 10-K business descriptions and show that M\&A targets are systematically closer in product-space to acquirers than randomly-matched control firms, and that closer product-market similarity predicts larger post-merger cash-flow gains --- providing text-based evidence that product-market synergies are a real driver of M\&A value creation.
+
+\textbf{Placement.} Foundational paper in text-based industry classification; precursor to Hoberg-Phillips Text-based Network Industry Classification (TNIC). Key reference for M\&A-synergy measurement and product-market research.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Standard M\&A studies rely on SIC/NAICS codes, which are coarse and time-invariant. Can we measure product-market closeness directly from firm disclosures, and does product-market similarity predict M\&A selection and gains?
+
+\subsection*{1.2 Text-based similarity}
+\begin{itemize}
+\item Parse Item 1 (business description) of every 10-K.
+\item Extract nouns/noun phrases; convert to binary/tf-idf vectors.
+\item Cosine similarity $s_{ij}=\frac{V_i\cdot V_j}{\|V_i\|\|V_j\|}$ across firm pairs.
+\item Values $\in[0,1]$; TNIC industry = set of $j$ with $s_{ij}$ above threshold.
+\end{itemize}
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item All 10-K filings 1996--2005.
+\item SDC M\&A sample in the same window.
+\item Logit: probability target was acquired as function of similarity with bidder.
+\item Cross-sectional regressions of announcement returns and long-run operating performance on similarity.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Targets are much more similar to acquirers than random control firms (conditional on same SIC industry even, within-industry similarity varies a lot).
+\item Higher product-market similarity predicts larger combined-firm CARs, higher post-merger cash flows, and greater synergies.
+\item Similarity captures synergy variation missed by SIC-based measures.
+\item Effects robust to fixed effects and measurement choices.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Similar product lines imply economies of scale, scope, complementarity.
+\item Text-based measure captures evolving product markets that SIC codes cannot.
+\item Consistent with a synergy-based explanation of M\&A rather than pure empire-building.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Text-based industry classification is a richer alternative to SIC/NAICS.
+\item Allows research on product differentiation, competition, and synergy at a fine level.
+\item TNIC data (Hoberg-Phillips website) now standard in applied empirical finance.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item 10-K business descriptions are strategic disclosures, potentially selectively written.
+\item Similarity measured only among public filers.
+\item Text-based does not capture production-cost or geographic dimensions of markets.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Text source: Item 1 of firm \blank{1cm}-K.
+\item Similarity measure: \blank{2cm} of word vectors.
+\item Period: \blank{1cm}--\blank{1cm}.
+\item Finding: targets more similar to acquirers than \blank{2cm} controls.
+\item Outcome: similarity predicts higher combined \blank{2cm} and cash flows.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the text-based similarity construction.
+\item Report the main findings on selection and post-merger performance.
+\item Compare text-based to SIC/NAICS industry classifications.
+\item Discuss the mechanism and implications for M\&A research.
+\item What are the caveats, and how does HP extend to TNIC?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) motivation, (ii) text method, (iii) findings, (iv) mechanism, (v) extensions.
+
+\section*{Round 5: Blank Page}
+Essay: text-based product-market similarity and M\&A synergy.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Text source. (2) Similarity metric. (3) Sample years. (4) Selection finding. (5) Synergy finding.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Text.} 10-K Item 1 business descriptions.
+\item \textbf{Measure.} Cosine similarity of word vectors.
+\item \textbf{Selection.} Targets closer to acquirers.
+\item \textbf{Synergy.} Similarity $\to$ higher CAR \& CF.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Hoberg \& Phillips (2010) build text-based product-market similarity scores from Item 1 of 10-Ks, 1996--2005. Cosine similarity of noun-vector representations identifies firm pairs that are close in product space, even within SIC industries. Applied to SDC mergers, targets are dramatically more similar to acquirers than randomly-matched control firms, and similarity strongly predicts higher combined-firm CARs and post-merger cash flows, indicating real product-market synergies. This challenges the sufficiency of SIC/NAICS for synergy research and establishes text-based industry classification as a richer alternative. The paper seeds the Hoberg-Phillips TNIC dataset now standard in applied empirical finance, and provides foundational evidence that M\&A creates product-market value consistent with synergy theories rather than pure empire-building.
+\end{keybox}
+
+\end{document}

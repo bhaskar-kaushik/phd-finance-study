@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E02-02: Albuquerque, Fos \& Schroth (2022, JFE) \\
+\large ``Value creation in shareholder activism'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} AFS estimate a structural model of activism decomposing the activist's gain into stock-picking (information advantage) vs.\ value-creation (engagement that raises firm value), and find that the bulk ($>$70--80\%) of the activist's realized return comes from \emph{real value creation}, not from trading on prior information --- validating the monitoring-creates-value view.
+
+\textbf{Placement.} Structural / mechanism companion to Brav-Jiang-Kim (E02-01). Provides the quantitative decomposition that defends activism against the ``tipping / information'' critique.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+When an activist buys a 5\%+ stake and triggers a 13D filing, the target's stock jumps. Is the activist profiting from:
+\begin{enumerate}[label=(\roman*)]
+\item Pre-existing information advantage (``stock picking''), buying cheap with knowledge of a future catalyst?
+\item Engagement that changes firm policy and raises fundamental value (``value creation'')?
+\end{enumerate}
+
+\subsection*{1.2 Structural model}
+\begin{itemize}
+\item Model activist's accumulation period (pre-13D) and post-13D engagement.
+\item Latent firm-value process affected by activist engagement with probability $p$.
+\item Activist chooses stake $\alpha$ and engagement effort to maximize expected profit; data on prices, volumes, stakes, and outcomes identify $p$, cost of effort, and information parameters.
+\end{itemize}
+
+\subsection*{1.3 Data}
+\begin{itemize}
+\item 13D filings 1993--2014; $\sim$2{,}000 events.
+\item CRSP price and volume data around filings.
+\item Hand-collected campaign outcomes (board seats, spin-offs, M\&A).
+\end{itemize}
+
+\subsection*{1.4 Main quantitative findings}
+\begin{itemize}
+\item Activists' total profit on successful campaigns averages $\sim$20--30\% of their stake value.
+\item Decomposition: $\sim$70--85\% of that profit is \emph{value creation} (engagement improves firm value); $\sim$15--30\% is stock picking.
+\item Announcement CARs around 13D filings reflect market's update about value creation.
+\item Value-creation share larger for offensive, strategic, and governance campaigns; smaller for financial campaigns.
+\end{itemize}
+
+\subsection*{1.5 Mechanisms}
+\begin{itemize}
+\item Engagement raises operating performance and payout; value-creation channel explicit in the structural model.
+\item Stock-picking share exists but is secondary; activists accumulate under constraints (disclosure, liquidity).
+\item Complements BJK by attributing BJK's plant-level gains quantitatively to activist engagement.
+\end{itemize}
+
+\subsection*{1.6 Policy implications}
+\begin{itemize}
+\item Activists' private gains are largely socially valuable (real value created).
+\item Policy restrictions on disclosure windows should consider trade-off between limiting stock-picking and preserving engagement incentives.
+\item Supports rather than refutes the case for activist-investor protections.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Structural estimates depend on functional-form assumptions.
+\item Sample is 13D filings; non-public campaigns (``wolf packs'') are not captured directly.
+\item Post-2014 activism environment differs (ESG, universal owners) so external validity of point estimates is uncertain.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Two channels: stock \blank{1.5cm} vs.\ value \blank{1.5cm}.
+\item Data: \blank{1cm}D filings 1993--\blank{1cm}.
+\item Activists' profit: $\sim$\blank{1cm}--\blank{1cm}\% of stake.
+\item Value-creation share: $\sim$\blank{1cm}--\blank{1cm}\%.
+\item Campaigns with largest value-creation: \blank{1.5cm} and governance.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the structural decomposition of activist profit.
+\item Report the main numerical finding and its interpretation.
+\item Relate AFS to Brav-Jiang-Kim (2015).
+\item Discuss policy implications for disclosure windows and activism regulation.
+\item What assumptions drive the decomposition, and how sensitive are the results?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) structural model, (iii) quantitative results, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: decomposing the returns to shareholder activism --- what AFS adds to BJK.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Two channels. (2) Value-creation share. (3) Data source. (4) Policy implication. (5) Complement to BJK.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Model.} Structural: stock-picking + value-creation.
+\item \textbf{Profit share.} $\sim 70$--$85$\% from value creation.
+\item \textbf{Stock picking.} $\sim 15$--$30$\%.
+\item \textbf{Complement.} AFS quantifies; BJK shows plant-level realization.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Albuquerque, Fos \& Schroth (2022) provide a structural decomposition of the gains from hedge-fund activism into stock picking (pre-existing information advantage) and value creation (engagement improving fundamentals). Using 13D filings 1993--2014 and a model of the activist's accumulation and engagement choice, they estimate that activists capture 20--30\% returns on their stakes, and that 70--85\% of those gains derive from real value creation, with only 15--30\% from information advantage. Value-creation shares are largest for strategic/governance/offensive campaigns and smaller for financial campaigns. The results directly complement Brav-Jiang-Kim (2015) by quantifying the monitoring-and-engagement contribution whose realizations BJK observe at the plant level. Policy: limiting disclosure windows trades off less stock-picking for less value-creation incentive. AFS is the structural benchmark for the 2020s debate on whether activism is a net-positive governance institution.
+\end{keybox}
+
+\end{document}

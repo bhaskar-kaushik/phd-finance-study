@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E04-04: Bernile, Bhagwat \& Rau (2017, JF) \\
+\large ``What Doesn't Kill You Only Makes You More Risk-Loving: Early Life Disasters and CEO Behavior'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} BBR match CEO birth counties to county-level natural-disaster data and show a \emph{non-monotonic} relationship: CEOs who experienced \emph{moderate} natural disasters as children take more corporate risk as adults (higher leverage, volatility, risky acquisitions), while those exposed to \emph{extreme} disasters take less --- evidence that formative-experience effects on managerial behavior are U-shaped.
+
+\textbf{Placement.} Canonical ``CEO formative-experience'' paper in behavioral corporate finance (complement to Malmendier-Nagel 2011 on depression babies and Schoar-Zuo 2017 on recession CEOs). Demonstrates non-monotonicity that simple exposure stories miss.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Hypothesis}
+Early-life adversity may \emph{desensitize} (``what doesn't kill you makes you stronger,'' increases risk tolerance) or \emph{sensitize} (``scarring,'' decreases risk tolerance). Which dominates may depend on severity: moderate experiences desensitize, extreme ones traumatize.
+
+\subsection*{1.2 Data and matching}
+\begin{itemize}
+\item ExecuComp CEOs 1992--2012; hand-collected birth counties.
+\item NOAA/FEMA county-level natural disasters (hurricanes, floods, tornadoes, earthquakes, wildfires) during CEO's childhood years (age 5--15).
+\item Classify exposure: none / moderate / extreme (based on fatalities).
+\item Data-quality controls: historical county boundaries, migration adjustments.
+\end{itemize}
+
+\subsection*{1.3 Specification}
+\[
+Y_{it}=\alpha_{\text{industry}}+\delta_t+\beta_1\cdot\text{Moderate}_i+\beta_2\cdot\text{Extreme}_i+X_{it}'\gamma+\varepsilon_{it},
+\]
+where $Y$ includes leverage, return vol, acquisition activity, and cash holdings.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Moderate-disaster CEOs: higher leverage ($+$several percentage points), higher return vol, more (and larger) acquisitions, lower cash.
+\item Extreme-disaster CEOs: lower leverage, lower vol, fewer acquisitions, more cash.
+\item U-shaped pattern robust to sample splits, firm controls, and matched-sample analysis.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Moderate exposure builds resilience and risk tolerance (consistent with developmental psychology on mastery).
+\item Extreme exposure produces trauma; risk-avoidance dominates.
+\item Effect persists through decades; consistent with formative-experience imprinting (Malmendier-Nagel).
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item CEO biographies matter for corporate policy; governance should consider this heterogeneity.
+\item Provides a sharp non-monotonic test of behavioral CEO-trait channels.
+\item Complements CEO-fixed-effect studies (Bertrand-Schoar 2003).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Birth-county exposure is an imperfect proxy for personal experience.
+\item Migration within childhood introduces measurement error.
+\item Cannot distinguish individual-level biological/psychological channels from local-culture effects.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Exposure classification: none / \blank{2cm} / \blank{1.5cm}.
+\item Age range used: \blank{1cm}--\blank{1cm}.
+\item Moderate-disaster CEOs: \blank{1cm} risk-taking.
+\item Extreme-disaster CEOs: \blank{1cm} risk-taking.
+\item Pattern: \blank{1cm}-shaped exposure-risk relationship.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the competing hypotheses for adversity's effect on risk.
+\item Describe the data construction and identification.
+\item Report the U-shaped finding and its statistical robustness.
+\item Relate BBR to Malmendier-Nagel (2011) and Bertrand-Schoar (2003).
+\item What are the key caveats, and how might they be addressed?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) hypothesis, (ii) data, (iii) U-shape, (iv) mechanism, (v) caveats.
+
+\section*{Round 5: Blank Page}
+Essay: early-life disasters, CEO risk preferences, and corporate policy.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Exposure categories. (2) Childhood age range. (3) Moderate-exposure effect. (4) Extreme-exposure effect. (5) Pattern shape.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Design.} County-level childhood disaster exposure.
+\item \textbf{Moderate.} $\uparrow$ risk-taking.
+\item \textbf{Extreme.} $\downarrow$ risk-taking.
+\item \textbf{Pattern.} U-shaped in severity.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bernile, Bhagwat \& Rau (2017) test whether early-life adversity affects adult CEOs' corporate risk-taking. They hand-match ExecuComp CEOs (1992--2012) to their birth counties and merge with NOAA/FEMA county-level natural-disaster data for the CEOs' childhood years. Classifying exposure as none, moderate (disaster present), or extreme (disasters with significant fatalities), they find a U-shaped pattern: moderate-disaster CEOs take more corporate risk as adults (higher leverage, return vol, more risky M\&A, lower cash) while extreme-disaster CEOs take less. The effect is robust across specifications and sample splits. Interpretation: moderate adversity builds resilience and risk tolerance; extreme adversity traumatizes. The paper is a canonical CEO-formative-experience study in behavioral corporate finance, complementing Malmendier-Nagel's depression-babies and Bertrand-Schoar's manager-fixed-effects work, and cautioning that simple ``adversity increases risk tolerance'' stories miss important non-monotonicity.
+\end{keybox}
+
+\end{document}

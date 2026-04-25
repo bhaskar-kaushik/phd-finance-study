@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E08-02: Peters \& Taylor (2017, JFE) \\
+\large ``Intangible Capital and the Investment-$q$ Relation'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} PT construct a firm-level intangible-capital stock (from R\&D and SG\&A flows) and use it to build a ``total-capital $q$'' (market value over physical + intangible capital). Investment-$q$ sensitivity --- long thought weak --- becomes dramatically stronger when intangibles are included, salvaging the neoclassical $q$-theory of investment.
+
+\textbf{Placement.} Key paper rehabilitating $q$-theory; foundational for modern treatment of intangible capital in asset-pricing and corporate investment studies. Widely cited in finance and macro.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+Classical $q$-theory says investment/capital $\approx b_0 + b_1 q$, where $q$ is market-to-book. Empirically the investment-$q$ relationship is weak (low $R^2$, small $b_1$), contradicting theory. One potential reason: the ``capital'' denominator in $q$ ignores intangibles, which are a growing share of firm value.
+
+\subsection*{1.2 Intangible-capital construction}
+\begin{itemize}
+\item Perpetual inventory of R\&D: $K^{RD}_t=(1-\delta_{RD})K^{RD}_{t-1}+\text{R\&D}_t$ with $\delta_{RD}\approx 15$\%.
+\item Perpetual inventory of organizational capital from SG\&A: $K^{SG}_t=(1-\delta_{SG})K^{SG}_{t-1}+\theta\cdot\text{SG\&A}_t$, $\theta\approx 30$\%, $\delta_{SG}\approx 20$\%.
+\item Total intangible = $K^{RD}+K^{SG}$.
+\item Total capital = physical + intangible.
+\end{itemize}
+
+\subsection*{1.3 Total-$q$ definition}
+\[
+q_{\text{total}}=\frac{V_E+V_D}{K_{\text{phys}}+K_{\text{intan}}},
+\]
+investment = physical + intangible investment flows, analogous denominators.
+
+\subsection*{1.4 Empirical results}
+\begin{itemize}
+\item Total-$q$ explains physical + intangible investment much better than traditional $q$: $R^2$ rises from $\sim$5--10\% to $\sim$25--30\%.
+\item Investment-$q$ coefficient $b_1$ rises meaningfully; statistically significant economic magnitudes.
+\item Differences across industries: intangible-intensive sectors see the largest improvement.
+\item Restores $q$-theory's empirical validity.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Ignoring intangibles biases both $q$ and investment measures; including them aligns theory with data.
+\item Intangibles have become a central part of firm capital; traditional book-based capital is incomplete.
+\item Consistent with McGrattan-Prescott-style macro models emphasizing intangible capital.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Applied finance should use total-$q$, not book-$q$, when measuring investment responsiveness.
+\item Cost-of-capital and asset-pricing tests should account for intangibles.
+\item Provides a standard, replicable construction now widely used.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item SG\&A-to-organizational-capital parameter $\theta$ requires assumption; sensitivity analyses needed.
+\item Depreciation rates estimated from literature, may vary.
+\item Cross-country replication requires consistent accounting.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Intangible-capital flows: \blank{1cm}\&D and \blank{1cm}\&A.
+\item Organizational-capital parameter $\theta\approx$\blank{1cm}\%.
+\item Total-$q$ formula: $q=(V_E+V_D)/(\blank{2cm}+K_\text{intan})$.
+\item $R^2$ improvement: \blank{1cm}\%$\to$\blank{1cm}\%.
+\item Industry showing largest gain: \blank{2cm}-intensive.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the investment-$q$ puzzle.
+\item Define intangible-capital construction.
+\item Report improvements in $R^2$ and investment-$q$ coefficient.
+\item Discuss mechanism and macro implications.
+\item What parameter assumptions drive the results?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) puzzle, (ii) construction, (iii) results, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: rehabilitating $q$-theory with intangible capital.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Components of intangibles. (2) SG\&A parameter. (3) Total-$q$ formula. (4) $R^2$ gain. (5) Implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Puzzle.} Weak investment-$q$ empirically.
+\item \textbf{Fix.} Include intangible capital.
+\item \textbf{Result.} $R^2$ triples; investment-$q$ rehabilitated.
+\item \textbf{Standard.} Total-$q$ used in modern research.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Peters \& Taylor (2017) rehabilitate the classical $q$-theory of investment by constructing firm-level intangible capital. Traditional book-based $q$ explains little investment variation. PT build perpetual-inventory stocks of knowledge capital from R\&D and organizational capital from SG\&A (with $\theta\approx30\%$, $\delta_{RD}\approx15\%$, $\delta_{SG}\approx20\%$), combine with physical capital, and define total-$q=(V_E+V_D)/(K_{\text{phys}}+K_{\text{intan}})$ plus total investment. Total-$q$ explains $\sim$25--30\% of investment-rate variation (vs.\ $\sim$5--10\% for book-$q$), with the largest gains in intangible-intensive industries. The construction has become standard in empirical finance and provides a clean methodological response to the long-standing investment-$q$ puzzle: the theory works once we measure capital correctly.
+\end{keybox}
+
+\end{document}

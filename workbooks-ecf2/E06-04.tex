@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E06-04: Kepler, Naiker \& Stewart (2023, JF) \\
+\large ``Stealth Acquisitions and Product Market Competition'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} KNS show that a meaningful share of M\&A falls below disclosure thresholds (``stealth acquisitions'') and therefore escapes antitrust scrutiny, and that these small deals, when aggregated in product-market networks, measurably reduce competition and increase markups --- evidence that the Hart-Scott-Rodino (HSR) reporting threshold creates an enforcement blind spot.
+
+\textbf{Placement.} Recent paper on M\&A and competition policy; connects to Azar-Schmalz-Tecu common-ownership literature and antitrust enforcement debates. Important for applied antitrust research.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Institutional background}
+\begin{itemize}
+\item Hart-Scott-Rodino Act (1976) requires pre-merger notification for deals above a size threshold (currently $\sim$\$100 million).
+\item Below-threshold deals are not centrally reported and face minimal antitrust scrutiny.
+\item ``Stealth acquisitions'' = cumulative sub-threshold acquisitions by a firm over time, which can add up to significant market concentration.
+\end{itemize}
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item SDC, PitchBook, and proprietary data on sub-threshold deals, 2000--2020.
+\item TNIC industry classification to define product-market neighborhoods.
+\item Firm-level markups (De Loecker-Eeckhout method), sales concentration, R\&D, entry.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Industry-level panel: within-industry stealth M\&A intensity as treatment.
+\item Compare industries with high vs.\ low stealth activity on markups, concentration, entry.
+\item Firm-level: acquirers with repeated stealth deals vs.\ matched controls.
+\item Event-study around HSR threshold changes as identification.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Stealth acquisitions represent $\sim$30\% of M\&A volume by count, though much smaller by value.
+\item Industries with concentrated stealth acquirers see markups rise by 2--4 pp over 5 years.
+\item Product-market competitors report lower growth; entry falls by $\sim$15\%.
+\item HSR threshold increases (raising the reporting bar) predict spikes in below-threshold acquisitions just under the new cutoff.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Serial small acquisitions create market power invisible to antitrust review.
+\item Startups and potential competitors are bought before they can scale.
+\item Product-market network effects amplify individual-deal anticompetitive impact.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Antitrust enforcement should consider cumulative M\&A activity, not just individual-deal size.
+\item Calls for sub-threshold reporting or industry-concentration triggers.
+\item Evidence relevant to debates over Big Tech ``killer acquisitions'' (Cunningham-Ederer-Ma 2021).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Sub-threshold deal data is incomplete; measurement error biases estimates.
+\item Markup measurement (De Loecker-Eeckhout) is itself contested.
+\item Identification relies on threshold variation that may coincide with other regulatory changes.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item HSR reporting threshold: $\sim\$$\blank{1cm} million.
+\item Stealth deals' share of M\&A: $\sim$\blank{1cm}\% by count.
+\item Markup effect: $+$\blank{1cm}--\blank{1cm} pp over 5 years.
+\item Entry effect: \blank{1cm}\% decline.
+\item Related concept: \blank{2cm} acquisitions (Cunningham-Ederer-Ma).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the HSR threshold and stealth-M\&A definition.
+\item Report main findings on markups, entry, and concentration.
+\item Explain the mechanism and use of TNIC networks.
+\item Discuss implications for antitrust policy.
+\item How does KNS relate to killer-acquisitions research?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) institutional setting, (ii) data, (iii) findings, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: stealth acquisitions, market power, and antitrust enforcement.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Threshold. (2) Stealth share. (3) Markup effect. (4) Entry effect. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Setting.} HSR threshold exempts small deals.
+\item \textbf{Share.} $\sim$30\% of M\&A count sub-threshold.
+\item \textbf{Effect.} Markups $+2$--$4$ pp; entry $-15\%$.
+\item \textbf{Policy.} Enforce on cumulative activity.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Kepler, Naiker \& Stewart (2023) document ``stealth acquisitions'' --- sub-Hart-Scott-Rodino-threshold deals that escape antitrust review. Using SDC, PitchBook, and proprietary deal data 2000--2020 combined with TNIC product-market networks and De Loecker-Eeckhout markups, they find stealth deals account for $\sim$30\% of M\&A by count. In industries where stealth acquirers concentrate, markups rise 2--4 pp over 5 years, competitor growth falls, and entry drops $\sim$15\%. HSR threshold increases predict spikes in deals sized just below the new cutoff. Mechanism: serial small acquisitions of potential competitors create market power invisible to individual-deal review. The paper motivates antitrust reforms that consider cumulative M\&A activity (not just single-deal size) and directly informs ``killer acquisitions'' debates, including Big Tech's serial startup buyouts. It is a canonical recent contribution at the intersection of M\&A and competition policy.
+\end{keybox}
+
+\end{document}

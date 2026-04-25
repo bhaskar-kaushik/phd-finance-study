@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E11-04: DeAngelo, Goncalves \& Stulz (2022, RF) \\
+\large ``Leverage and Cash Dynamics'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} DGS document the joint dynamics of leverage and cash holdings in US Compustat firms and argue for a \emph{net-debt} framework: firms manage gross debt and cash simultaneously, using cash as a flexibility buffer and debt for tax/discipline reasons; leverage studies that ignore cash misread capital-structure behavior --- many ``deleveraging'' episodes are actually just cash accumulation.
+
+\textbf{Placement.} Modern re-framing of capital structure; consolidates insights from cash-holdings (Bates-Kahle-Stulz 2009), trade-off theory, and debt-structure literature. Important for joint capital-structure / liquidity-management research.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+Corporate leverage measured as debt/assets has risen modestly over decades, but gross debt and cash have both grown. Whether firms have ``deleveraged'' depends on whether one looks at gross debt, net debt (debt minus cash), or total liabilities.
+
+\subsection*{1.2 Framework: gross vs.\ net debt}
+\begin{itemize}
+\item Gross debt ratio: $D/A$.
+\item Cash ratio: $C/A$.
+\item Net debt ratio: $(D-C)/A$.
+\item Capital-structure decisions are meaningful only if debt and cash are modeled jointly.
+\end{itemize}
+
+\subsection*{1.3 Data}
+\begin{itemize}
+\item Compustat US non-financial firms, 1980--2019.
+\item Aggregate and firm-level gross debt, cash, and net debt ratios.
+\item Decompose leverage changes into debt-issuance, debt-retirement, and cash-flow channels.
+\end{itemize}
+
+\subsection*{1.4 Headline facts}
+\begin{itemize}
+\item Average gross debt / assets rises modestly; average cash / assets rises sharply (especially post-1990s).
+\item Net debt / assets is relatively stable over time.
+\item Cross-sectionally, firms with higher precautionary-savings motives have lower net debt; firms with stronger tax benefits have higher net debt.
+\item Firms that appear to ``deleverage'' are often just building cash reserves without reducing gross debt.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Cash is a flexibility / precautionary-savings instrument.
+\item Gross debt gives tax shields and discipline; cash gives financial-flexibility option.
+\item Optimal joint management balances these across macro and firm-level conditions.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Capital-structure research should use net debt or jointly model debt and cash.
+\item Many ``deleveraging'' narratives misread data.
+\item Supports dynamic trade-off theories with cash-management (e.g., Bolton-Chen-Wang 2011).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Cash may include marketable securities with debt-like properties.
+\item Net-debt formalism may over-smooth meaningful gross-debt changes.
+\item Aggregate trends may mask cross-sectional heterogeneity.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Framework: gross debt, cash, \blank{2cm} debt.
+\item Trend: gross \blank{2cm} rises modestly; cash rises sharply.
+\item Net debt ratio: roughly \blank{2cm} over time.
+\item Implication: ``deleveraging'' often is cash \blank{2cm}.
+\item Related theory: \blank{2cm}-Chen-Wang 2011.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define gross, cash, and net debt.
+\item Summarize secular trends.
+\item Explain why ignoring cash biases leverage interpretation.
+\item Relate DGS to Bates-Kahle-Stulz 2009.
+\item Implications for capital-structure theory and applied work.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) framework, (ii) trends, (iii) mechanism, (iv) implications, (v) cautions.
+
+\section*{Round 5: Blank Page}
+Essay: joint dynamics of leverage and cash --- capital structure revisited.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Three variables. (2) Trend in cash. (3) Trend in net debt. (4) Reinterpretation. (5) Related cash-holdings paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Framework.} Gross debt + cash = net debt.
+\item \textbf{Trend.} Cash up, net debt stable.
+\item \textbf{Insight.} ``Deleveraging'' often is cash accumulation.
+\item \textbf{Lesson.} Use net debt in capital-structure work.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} DeAngelo, Goncalves \& Stulz (2022) argue that empirical capital-structure research should treat cash and debt jointly. Using Compustat non-financial firms 1980--2019, they document that gross debt / assets has risen modestly while cash / assets has risen sharply (especially post-1990s), leaving net debt / assets relatively stable. Narratives of ``corporate deleveraging'' often describe cash accumulation, not reductions in gross debt. Cross-sectionally, firms facing stronger precautionary-savings motives run lower net debt, and those with higher tax benefits run higher net debt. The paper consolidates insights from Bates-Kahle-Stulz (2009) on cash trends with dynamic trade-off theory (Bolton-Chen-Wang 2011), arguing that capital-structure tests should use net debt or jointly-model gross debt and cash. It reshapes applied capital-structure work and clarifies secular trends in corporate balance sheets.
+\end{keybox}
+
+\end{document}

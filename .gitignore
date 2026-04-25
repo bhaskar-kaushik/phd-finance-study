@@ -13,4 +13,15 @@ workbooks/tmp*.tmp
 workbooks/*.aux
 workbooks/*.log
 workbooks/*.out
+
+# LaTeX build artifacts in workbooks-ecf2/ (keep .tex and .pdf, drop everything else)
+workbooks-ecf2/*.aux
+workbooks-ecf2/*.log
+workbooks-ecf2/*.out
+workbooks-ecf2/*.fls
+workbooks-ecf2/*.fdb_latexmk
+workbooks-ecf2/*.toc
+workbooks-ecf2/*.synctex.gz
+workbooks-ecf2/tmp*.tmp
+
 .DS_Store

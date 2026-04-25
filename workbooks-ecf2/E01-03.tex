@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E01-03: Bolton \& Scharfstein (1998, JEP) \\
+\large ``Corporate Finance, the Theory of the Firm, and Organizations'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} A survey arguing that corporate finance and the theory of the firm should be unified: the allocation of \emph{control rights} (who decides what when contracts are incomplete) and the structure of financial contracts (debt, equity, covenants) jointly determine firm boundaries, internal organization, and financing --- with incentives and enforcement as the common frictions.
+
+\textbf{Placement.} Bridge paper that maps the incomplete-contracts / property-rights theory (Grossman-Hart, Hart-Moore, Aghion-Bolton) into corporate finance. Frames why debt vs equity, board structure, and internal capital markets are all expressions of the same underlying contracting problem.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The integration argument}
+Traditional corporate finance (MM, tradeoff, pecking order) treats firm boundaries as given and asks about capital structure. Traditional theory of the firm (Coase, Williamson, Grossman-Hart) asks about boundaries but ignores financing. BS argue both literatures share the same foundations: incomplete contracts, moral hazard, control rights.
+
+\subsection*{1.2 Core tools}
+\begin{itemize}
+\item \textbf{Incomplete contracts.} Some contingencies cannot be specified ex ante (Grossman-Hart 1986).
+\item \textbf{Control rights.} In unspecified states, residual control accrues to whoever has authority (owner, manager, creditor).
+\item \textbf{State-contingent transfer of control.} Financial contracts (esp.\ debt) shift control to creditors when the firm defaults --- Aghion-Bolton (1992).
+\end{itemize}
+
+\subsection*{1.3 Financing as control allocation}
+\begin{itemize}
+\item Debt vs.\ equity: different cash-flow + control-right bundles; debt's hardness is that control shifts on default.
+\item Covenants and collateral: specify the states in which control transfers.
+\item Venture-capital contracts (Kaplan-Strömberg 2003): detailed state-contingent control allocation.
+\end{itemize}
+
+\subsection*{1.4 Firm boundaries as control allocation}
+\begin{itemize}
+\item Integration = acquiring residual control over a set of assets (Grossman-Hart).
+\item Boundary choice shaped by who should retain control in uncontracted states --- the party whose incentives to invest matter most.
+\item Outsourcing vs.\ integration maps to a financial-contracting decision on who gets ex post bargaining power.
+\end{itemize}
+
+\subsection*{1.5 Internal organization}
+\begin{itemize}
+\item Hierarchies allocate decision rights internally (Aghion-Tirole 1997); formal vs.\ real authority.
+\item Internal capital markets (Stein 1997) re-allocate funds across divisions.
+\item Organizational form (flat vs.\ hierarchical; M-form vs.\ U-form) reflects information and incentive trade-offs.
+\end{itemize}
+
+\subsection*{1.6 Empirical implications and agenda}
+\begin{itemize}
+\item Cross-sectional tests of state-contingent control (who has control in default vs.\ good states).
+\item Empirical work on covenants (Chava-Roberts 2008), on VC contracts (KS 2003), on M\&A (Hoberg-Phillips).
+\item Unified empirical agenda: finance and organization jointly shaped by incompleteness + incentives.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Survey / framework, not an empirical paper --- predictions are directional, not pin-down.
+\item Theory assumes court enforcement of residual rights; weak institutions complicate.
+\item Some authors (Hart, Tirole) find tensions between complete-contracting and the incomplete-contracts formulation.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Two literatures BS unify: theory of the \blank{1.5cm} and \blank{2cm} finance.
+\item Contracts are \blank{2cm}; residual control rights fill the gap.
+\item State-contingent control allocation: debt shifts control to \blank{2cm} on default.
+\item Organizational form (Aghion-Tirole): formal vs.\ \blank{1.5cm} authority.
+\item Agenda: financing, boundaries, organization all expressions of the same \blank{2cm} problem.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Articulate the unification argument between theory of the firm and corporate finance.
+\item Explain how financing decisions are control-allocation decisions.
+\item Discuss how firm boundary questions map to a financial-contracting lens.
+\item Relate BS to Grossman-Hart 1986, Aghion-Bolton 1992, and Kaplan-Strömberg 2003.
+\item Propose an empirical design that jointly tests boundary and financing predictions.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) unification motivation, (ii) incomplete contracts + control rights, (iii) financing $=$ control, (iv) boundaries $=$ control, (v) empirical agenda.
+
+\section*{Round 5: Blank Page}
+Essay: corporate finance and the theory of the firm as two views of the same contracting problem.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Two literatures unified. (2) Key friction. (3) Debt's control role. (4) Organization framework (formal/real). (5) One empirical descendant.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Unification.} Firm boundaries + finance share incomplete-contracts foundation.
+\item \textbf{Tool.} Control-right allocation.
+\item \textbf{Finance.} Debt/equity = contingent control bundles.
+\item \textbf{Organization.} Hierarchy = internal control allocation.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bolton \& Scharfstein (1998) argue that corporate finance and the theory of the firm should be treated as one field because they share foundations: incomplete contracts, moral hazard, and the allocation of residual control rights (Grossman-Hart 1986). Financing decisions are themselves control allocations: debt shifts control to creditors on default (Aghion-Bolton 1992); covenants and collateral specify state-contingent authority; VC term sheets (Kaplan-Strömberg) are explicit state-contingent control contracts. Firm boundaries are control allocations too --- integration gives the integrator residual rights over the asset. Internal organization (hierarchies, internal capital markets) extends the same logic inside the firm. The paper reframes corporate-finance empirics as tests of who has control in which states, and motivates a unified agenda in which financing, boundaries, and organization are jointly determined by incomplete contracting plus incentive frictions. It is the framing reference for why organizational choices and financial contracts should be studied together.
+\end{keybox}
+
+\end{document}

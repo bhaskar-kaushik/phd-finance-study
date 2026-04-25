@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E04-02: Hayes, Lemmon \& Qiu (2012, JFE) \\
+\large ``Stock options and managerial incentives for risk taking: Evidence from FAS 123R'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} When the 2006 FAS 123R rule forced firms to expense stock options at fair value on income statements, firms sharply reduced option grants (compensation vega fell $\sim$20--30\%), yet risk-taking measures (return vol, leverage, R\&D) did \emph{not} decline --- challenging the standard theoretical link from convex compensation to managerial risk-taking and suggesting vega is not the primary driver of corporate risk.
+
+\textbf{Placement.} Direct challenge to the Smith-Stulz / Low (E04-01) view that option vega drives risk-taking. Important caveat paper in the compensation-and-risk literature.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+FAS 123R (effective mid-2005 for fiscal years starting after June 15 2005) required firms to expense stock options at fair value in income statements, raising their accounting cost. Prior to FAS 123R, options were disclosed only in footnotes. The rule reduced the reported-earnings attractiveness of options and led firms to cut option grants.
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item ExecuComp + Compustat, 2000--2009.
+\item Measure compensation vega (derivative of CEO wealth with respect to stock volatility, Black-Scholes approximation).
+\item Risk measures: return vol, leverage, R\&D/assets, capex, M\&A aggressiveness.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+DiD using the FAS 123R shock:
+\[
+Y_{it}=\alpha_i+\delta_t+\beta\cdot\text{Post}_t\cdot\text{HighVega}_{i,\text{pre}}+X_{it}'\gamma+\varepsilon_{it},
+\]
+with ``HighVega'' defined by pre-shock exposure; firms with more options pre-shock cut grants more after the rule.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Option grants drop sharply post-FAS 123R; vega falls by 20--30\%.
+\item No corresponding decline in firm risk-taking: return vol flat, leverage flat, R\&D flat, capex flat.
+\item Risk measures track industry trends and investment opportunities, not vega.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item The vega-to-risk mapping is weaker than Smith-Stulz theory would predict.
+\item Alternative drivers of risk: growth opportunities, industry competition, CEO preferences.
+\item Challenges the policy argument that restricting options reduces excess risk-taking (post-GFC narrative).
+\end{itemize}
+
+\subsection*{1.6 Reconciliation with Low (2009)}
+\begin{itemize}
+\item Low exploits a takeover-pressure shock; vega moderates the effect.
+\item HLQ exploits a pay-structure shock; vega change does not move risk.
+\item Together suggest vega matters when other disciplining mechanisms change, but is not a prime mover on its own.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Vega measurement uses Black-Scholes assumptions.
+\item FAS 123R affects reporting, not real incentives, so some firms may have offset via alternative grants.
+\item Short post-shock window; long-run dynamics may differ.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Rule: FAS \blank{1cm}R, effective \blank{1cm}; requires option \blank{2cm}.
+\item Post-rule vega change: $-$\blank{1cm}--\blank{1cm}\%.
+\item Risk-taking response: \blank{1cm}.
+\item Challenges the Smith-\blank{1cm}--type vega-risk link.
+\item Paired with Low \blank{1cm} for contrast.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe FAS 123R and why it is a useful natural experiment.
+\item Write the DiD and the vega-based treatment variable.
+\item Report findings on vega and on risk-taking measures.
+\item How do HLQ results challenge Low (2009) and Smith-Stulz theory?
+\item Reconcile the two papers and state a synthesis.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) shock, (ii) DiD, (iii) results, (iv) challenge to theory, (v) reconciliation.
+
+\section*{Round 5: Blank Page}
+Essay: does compensation vega drive risk-taking? Evidence from FAS 123R.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Rule and year. (2) Vega change. (3) Risk-taking change. (4) Challenge. (5) Companion paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Shock.} FAS 123R 2006, options expensed.
+\item \textbf{Vega.} Falls 20--30\%.
+\item \textbf{Risk.} No measurable decline.
+\item \textbf{Challenge.} Vega-risk link weaker than theory.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Hayes, Lemmon \& Qiu (2012) test whether compensation vega --- the Smith-Stulz (1985) convexity incentive for risk-taking --- actually drives managerial risk-taking. They exploit FAS 123R (2006), which forced expensing of stock options and caused firms to cut option grants sharply, lowering CEO vega by 20--30\%. Yet in ExecuComp + Compustat panels 2000--2009, no corresponding decline appears in equity-return vol, leverage, R\&D, capex, or M\&A aggressiveness. Risk tracks industry and growth opportunities, not vega. This challenges the standard theoretical link from convex pay to corporate risk-taking and qualifies Low (2009): vega may moderate risk when other disciplining mechanisms change, but is not a prime mover in isolation. Policy implication: restricting options does not automatically reduce excess risk-taking. HLQ is the canonical caveat to option-vega risk theories.
+\end{keybox}
+
+\end{document}

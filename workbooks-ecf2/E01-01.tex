@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E01-01: Coase (1937, Economica) \\
+\large ``The Nature of the Firm'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Firms exist because using the price mechanism is costly (search, negotiation, contracting): the firm substitutes internal, authority-based allocation for market transactions wherever the marginal cost of an extra internal transaction is below the marginal cost of a market transaction --- defining firm boundaries at that margin.
+
+\textbf{Placement.} Foundational paper for the theory of the firm. The starting point for the entire transaction-cost literature (Williamson 1979, 1985), incomplete contracts (Grossman-Hart 1986, Hart-Moore 1990), and the organizational-economics branch of corporate finance.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 The puzzle}
+If markets allocate resources efficiently (Smith, Marshall), why do firms exist at all? Why is all production not organized as contracting between individuals through the price system?
+
+\subsection*{1.2 Coase's answer: transaction costs}
+Using the price mechanism has costs:
+\begin{itemize}
+\item Discovering the relevant prices.
+\item Negotiating and drafting separate contracts for each transaction.
+\item Risk and uncertainty about future contingencies.
+\item Tax treatment of market vs.\ internal transactions.
+\end{itemize}
+Within a firm, these costs are avoided: the entrepreneur \emph{directs} resources by authority, under a single open-ended employment contract.
+
+\subsection*{1.3 Firm boundary condition}
+A firm will expand to the point where
+\[
+\text{marginal cost of organizing one more transaction internally} = \text{marginal cost of doing it through the market}.
+\]
+Internal cost rises with firm size (decreasing returns to management, errors, mis-allocation); at some point, internal is no longer cheaper than market.
+
+\subsection*{1.4 Distinctive contribution}
+\begin{itemize}
+\item Firms are not merely production functions; they are \emph{governance structures}.
+\item The employment relationship --- an incomplete, open-ended, authority-based contract --- is the defining feature.
+\item The price system and the firm are \emph{substitute} coordination mechanisms.
+\end{itemize}
+
+\subsection*{1.5 Influence}
+\begin{itemize}
+\item Williamson (1975, 1985): asset specificity, opportunism, hierarchy --- the transaction-cost branch.
+\item Klein-Crawford-Alchian (1978): quasi-rents and holdup --- concretizes Coase's transaction costs.
+\item Grossman-Hart (1986), Hart-Moore (1990): property rights over non-contractible actions --- formalizes firm boundary.
+\item Jensen-Meckling (1976): agency costs --- complementary lens on internal-vs-market choice.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Paper is prose-theoretic, not formal. The marginal condition is intuition, not a closed model.
+\item ``Transaction costs'' are loosely defined; later work tries to pin them down (asset specificity, enforcement).
+\item Does not explain \emph{internal organization} of the firm (hierarchy, incentives) --- just firm existence.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Core answer to ``why firms?'': \blank{3cm} of using the price mechanism.
+\item Firm boundary condition: marginal cost internal $=$ marginal cost \blank{1.5cm}.
+\item Firms substitute \blank{1.5cm}-based allocation for \blank{1.5cm}-based allocation.
+\item Key contract inside the firm: the \blank{2cm} contract (open-ended, authority).
+\item Coase (1937) planted the seed for Williamson and the \blank{2cm}-costs literature.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State and explain Coase's transaction-cost argument for firm existence.
+\item Derive the boundary condition; what determines when a firm is ``too big''?
+\item Contrast Coase with the neoclassical production-function view of the firm.
+\item How did Williamson and Klein-Crawford-Alchian sharpen Coase's insight?
+\item In an incomplete-contracts framework (Grossman-Hart), how is Coase's boundary reinterpreted?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) puzzle, (ii) transaction-cost answer, (iii) boundary condition, (iv) contract structure, (v) descendants.
+
+\section*{Round 5: Blank Page}
+Essay: why do firms exist? Coase's answer and its modern refinements.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Main question. (2) Main answer. (3) Boundary condition. (4) Key contract type. (5) Two descendants.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Puzzle.} If markets are efficient, why firms?
+\item \textbf{Answer.} Using the price mechanism is costly.
+\item \textbf{Boundary.} MC internal $=$ MC market.
+\item \textbf{Contract.} Open-ended employment / authority.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Coase (1937) asks why production is organized in firms at all if markets work. His answer: using the price mechanism has positive costs --- discovering prices, negotiating contracts, bearing uncertainty, tax treatment. Firms substitute internal, authority-based allocation (directed by an entrepreneur) for market transactions, avoiding these transaction costs. A firm expands until the marginal cost of organizing one more transaction internally equals the marginal cost of the equivalent market transaction --- defining the firm's boundary. The key contract is open-ended employment, under which labor accepts authority within limits in exchange for pay. The paper founds the transaction-cost view of the firm, feeding directly into Williamson (1975, 1985), Klein-Crawford-Alchian (1978), and Grossman-Hart (1986) on property rights. In modern corporate finance, Coase is the grounding for asking: which activities belong inside vs.\ outside firm boundaries, and why?
+\end{keybox}
+
+\end{document}

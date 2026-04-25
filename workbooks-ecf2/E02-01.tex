@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E02-01: Brav, Jiang \& Kim (2015, RFS) \\
+\large ``The Real Effects of Hedge Fund Activism'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using US Census plant-level data matched to hedge-fund 13D activism events 1994--2007, BJK show that target firms' plants see productivity gains ($\sim$5--6\% within 3 years), labour-intensity declines, and operating margins rise --- direct evidence that activism produces \emph{real} operational improvements, not just financial engineering.
+
+\textbf{Placement.} Canonical empirical paper on hedge-fund activism. Paired with Albuquerque-Fos-Schroth (E02-02) which structurally models value creation in activism. Contrast with short-termism critiques.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Data and setting}
+\begin{itemize}
+\item US Census Longitudinal Business Database and Census of Manufactures plant data (establishment level).
+\item Hedge-fund 13D filings 1994--2007 identifying activist targets ($\sim$2{,}000 events).
+\item Match target firms to plant-level outcomes.
+\end{itemize}
+
+\subsection*{1.2 Empirical design}
+Plant-level DiD:
+\[
+Y_{pt}=\alpha_p+\delta_t+\sum_{\tau=-3}^{+3}\beta_\tau\,\mathbf 1[t-\text{event}=\tau]+X_{pt}'\gamma+\varepsilon_{pt}.
+\]
+Outcomes: TFP, labour productivity, capital intensity, wages, employment, margins. Control: matched plants from non-targeted firms.
+
+\subsection*{1.3 Headline results}
+\begin{itemize}
+\item Plant-level TFP rises $\sim$5--6\% over 3 years post-activism.
+\item Labour productivity rises more; capital intensity falls --- substitution away from labour.
+\item Wages per worker rise modestly; employment falls; total payroll unchanged.
+\item Plants closed post-activism are below-average in TFP; survivors are stronger.
+\item Effects concentrated in ``offensive'' campaigns (strategic/M\&A) vs.\ ``financial'' campaigns.
+\end{itemize}
+
+\subsection*{1.4 Mechanism}
+\begin{itemize}
+\item Activists push targets to reallocate resources toward more-productive uses.
+\item Closing unproductive plants; improving remaining ones.
+\item Monitoring reduces managerial slack, especially in diversified firms.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Activism creates real value, not just price appreciation via expropriation.
+\item Short-termism critique (that activists extract wealth at expense of long-run investment) is not supported at the plant level.
+\item Labour losses are real but are concentrated in uncompetitive plants.
+\end{itemize}
+
+\subsection*{1.6 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item 13D filings are selective: activists target firms they expect to improve.
+\item Plant-level measurement of TFP has well-known issues (mark-ups, outsourcing).
+\item No effects on R\&D / innovation pipelines beyond 3 years examined.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: US \blank{1cm} plant data + hedge-fund \blank{1cm}D filings 1994--\blank{1cm}.
+\item Plant-level TFP rises $\sim$\blank{1cm}\% within 3 years.
+\item Employment \blank{1cm}s; wages per worker \blank{1cm}.
+\item Closed plants: \blank{1cm} than firm average in TFP.
+\item Campaigns with biggest effects: \blank{1.5cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the plant-level DiD and identification concerns.
+\item Discuss the TFP, labour, and employment results.
+\item How does BJK refute the short-termism critique of activism?
+\item Relate to Albuquerque-Fos-Schroth (2022).
+\item What are the identification threats, and how does the paper address them?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) data + design, (ii) TFP results, (iii) labour results, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: does hedge-fund activism create real value? BJK's plant-level evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Data sources. (2) TFP effect size. (3) Employment effect. (4) Closed-plant selection. (5) Interpretation vs.\ short-termism.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} US Census plants + 13D filings, 1994--2007.
+\item \textbf{TFP.} $+5$--$6$\% within 3 years.
+\item \textbf{Labour.} Employment falls; wages rise.
+\item \textbf{Lesson.} Activism generates real operational gains.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Brav, Jiang \& Kim (2015) use US Census plant-level data matched to hedge-fund 13D activism events (1994--2007, $\sim$2{,}000 events) to test whether activism creates real operational value. Plant-level DiD shows treated plants gain 5--6\% TFP within three years, labour productivity rises, capital intensity falls, wages per worker rise modestly, employment falls, and plants closed post-activism are below-average in productivity --- consistent with reallocation toward more-productive uses. ``Offensive'' campaigns (strategic/M\&A) drive the largest effects. The results counter the short-termism critique that activists extract wealth at the expense of long-run productivity; the real effects are improvements, not wealth transfers. BJK is the canonical empirical demonstration that activism has real consequences in production, and it frames the 2010s-20s debate on activist investing and corporate governance.
+\end{keybox}
+
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E04-03: Gopalan, Milbourn, Song \& Thakor (2014, JF) \\
+\large ``Duration of Executive Compensation'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} GMST construct a firm-year measure of executive-compensation \emph{duration} (weighted-average vesting horizon across salary, bonus, restricted stock, and options), and show it is meaningfully dispersed across firms and correlated with longer-horizon investment: longer pay duration associates with higher R\&D, lower short-term earnings management, and better long-run firm performance.
+
+\textbf{Placement.} The duration measure is the standard horizon-proxy in compensation research. Addresses the short-termism critique of stock-based pay and informs policy on clawbacks and vesting schedules.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+Stock-based compensation varies in vesting schedules. Total stock value is not informative about how long the executive is incentivized to care. Prior work used simple proxies (e.g., options-to-salary); GMST build a principled duration measure drawing on fixed-income analogies.
+
+\subsection*{1.2 Definition of duration}
+For each pay component $c$ with payoff time $t_c$ and value $V_c$,
+\[
+\text{Duration}_{it} = \frac{\sum_c t_c \cdot V_c}{\sum_c V_c}.
+\]
+Salary and cash bonus have duration 0 (paid in-period); restricted stock and options have duration equal to remaining vesting horizon. Sum across pay components.
+
+\subsection*{1.3 Sample and summary}
+\begin{itemize}
+\item ExecuComp firms 2006--2011 (when vesting-schedule disclosure improved).
+\item $\sim$2,000 CEOs; mean duration $\sim$1.2 years, but wide cross-section (0 to 4+).
+\item Larger firms, R\&D-intensive firms, and newer firms tend to have longer pay duration.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Firms with longer CEO pay duration invest more in R\&D and have longer asset durations.
+\item Longer duration associated with less earnings management (fewer accruals, smoother earnings).
+\item Long-run stock performance is stronger at long-duration firms; no accounting-return advantage.
+\item Duration is positively priced by the market in CEO transitions.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Longer vesting bonds CEO wealth to long-run firm value; reduces temptation to manipulate short-term metrics.
+\item Aligns horizon of CEO and shareholders in innovation-intensive settings.
+\item Complements Narayanan (1985)-style short-termism models.
+\end{itemize}
+
+\subsection*{1.6 Policy and governance implications}
+\begin{itemize}
+\item Supports regulatory/IR push for longer vesting and clawbacks.
+\item Compensation-committee design should measure duration, not just level or vega.
+\item Duration as a governance variable in cross-sectional compensation research.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Duration is endogenous to firm opportunities.
+\item Disclosure limits make pre-2006 measurement weaker.
+\item Causal identification relies on instrumented variations (firm-age, lagged peer pay) that are imperfect.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Duration = weighted-average \blank{2cm} across pay components.
+\item Salary / cash: duration \blank{1cm}.
+\item Long duration correlates with higher \blank{1cm}\&D and less \blank{2cm} management.
+\item Mean duration: $\sim$\blank{1cm} years.
+\item Policy: longer \blank{2cm} and clawbacks.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define GMST's duration measure and state its fixed-income analogy.
+\item Describe the sample and summarize the distribution of duration.
+\item Report the main cross-sectional findings.
+\item Discuss mechanism and tie to short-termism theories.
+\item How should duration be used in applied compensation research and policy?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) definition, (ii) distribution, (iii) results, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: pay duration as a governance variable.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Duration formula. (2) Mean duration. (3) R\&D correlation. (4) Earnings-management correlation. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Definition.} Weighted-avg vesting horizon.
+\item \textbf{Distribution.} Wide; mean $\sim$1.2 yrs.
+\item \textbf{Results.} $\uparrow$ R\&D, $\downarrow$ EM, $\uparrow$ long-run stock.
+\item \textbf{Policy.} Longer vesting / clawbacks.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Gopalan, Milbourn, Song \& Thakor (2014) construct a firm-year measure of executive-compensation \emph{duration}: the weighted-average vesting horizon across all pay components, analogous to bond duration. Using ExecuComp firms 2006--2011, mean duration is $\sim$1.2 years with wide cross-sectional variation. Longer pay duration correlates with higher R\&D intensity, less earnings management, and stronger long-run stock performance, without an accounting-return advantage --- consistent with longer-horizon CEO incentives aligning with innovation and long-term value creation. Larger firms, R\&D-heavy firms, and newer firms tend to have longer duration. The paper validates the short-termism concern in compensation design and supports longer vesting schedules and clawbacks as governance tools. Duration has since become the standard empirical proxy for horizon in CEO-pay research, complementing level and vega as a third compensation-design dimension.
+\end{keybox}
+
+\end{document}

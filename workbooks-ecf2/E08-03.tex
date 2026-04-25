@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E08-03: Andrei, Mann \& Moyen (2019, JFE) \\
+\large ``Why Did the $q$ Theory of Investment Start Working?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} AMM show that the investment-$q$ relation has grown stronger over time: in the cross-section the investment-$q$ sensitivity has roughly doubled since the 1970s, and the improvement is driven by a reduction in measurement error in $q$ (better disclosure, less noisy prices, more informed capital markets) rather than structural changes in firm technology.
+
+\textbf{Placement.} Complements Peters-Taylor (E08-02) on intangibles by identifying a \emph{time trend} in investment-$q$ fit; together they explain why modern investment-$q$ regressions work better than early ones.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Observation}
+Early empirical investment-$q$ regressions (Hayashi 1982, Fazzari et al.\ 1988) had low $R^2$ and modest coefficients. Later work (Peters-Taylor 2017, Eberly et al.\ 2008) shows stronger fit. Is this a real change?
+
+\subsection*{1.2 Hypothesis}
+Two candidates:
+\begin{itemize}
+\item \textbf{Structural}: firms have changed (more intangibles, different technology), altering the true $q$-investment mapping.
+\item \textbf{Measurement}: market prices have become more informative about fundamentals, so measured $q$ is a better proxy for marginal Tobin's $q$.
+\end{itemize}
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item Compustat firm-year panel 1950--2015.
+\item Standard $q$ and investment measures; subsample analyses by decade.
+\item Measures of market informativeness: analyst coverage, disclosure quality, institutional ownership, pricing-efficiency metrics (PIN, price synchronicity).
+\item Structural decomposition of investment-$q$ estimates using a measurement-error framework.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Investment-$q$ coefficient increases from $\sim$0.02 in 1970s to $\sim$0.05 in 2000s+.
+\item $R^2$ roughly doubles across the same period.
+\item Trend correlates strongly with indicators of market informativeness.
+\item Adding controls for structural changes (industry composition, intangibles) leaves most of the trend unexplained.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Better price efficiency $\Rightarrow$ less measurement error in $q$.
+\item With less measurement error, the estimated investment-$q$ coefficient attenuates less toward zero.
+\item Investment-$q$ ``puzzle'' was partially a measurement-era artifact.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Cross-period comparisons of investment sensitivity must account for market informativeness.
+\item Research on firm investment should use modern $q$ estimates.
+\item Complements Peters-Taylor intangibles story: both measurement and model errors were present earlier.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Informativeness metrics are noisy proxies for true pricing efficiency.
+\item Trends in institutional ownership may reflect underlying structural changes.
+\item Difficult to cleanly separate measurement and structural effects.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Investment-$q$ coefficient trend: $0.02\to$\blank{1cm} over decades.
+\item Main explanation: \blank{2cm} error reduction in $q$.
+\item Proxies for market \blank{2cm}: analyst coverage, PIN, disclosure.
+\item Sample: Compustat \blank{1cm}--\blank{1cm}.
+\item Complement paper: Peters-\blank{1cm} 2017.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the observed trend in investment-$q$ fit.
+\item State the measurement-vs-structural hypotheses.
+\item Report main results distinguishing the two.
+\item Discuss implications for applied investment research.
+\item Relate to Peters-Taylor.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) puzzle, (ii) hypotheses, (iii) data, (iv) results, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: why has $q$-theory started working? Measurement vs.\ structure.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Coefficient trend. (2) Two hypotheses. (3) Key proxies. (4) Main conclusion. (5) Complement paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Trend.} Investment-$q$ slope $\sim$ doubles.
+\item \textbf{Cause.} Reduced $q$ measurement error.
+\item \textbf{Proxy.} Market informativeness rises.
+\item \textbf{Lesson.} Not structural change, mostly measurement.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Andrei, Mann \& Moyen (2019) document that the empirical investment-$q$ relation has strengthened over the past half-century --- coefficient roughly doubled, $R^2$ roughly doubled --- and ask whether this reflects structural changes in firms or improvement in measurement. Using Compustat 1950--2015 and proxies for market price informativeness (analyst coverage, institutional ownership, disclosure quality, pricing-efficiency metrics), they show the trend tracks market-informativeness gains rather than shifts in industry mix or intangibles alone. Under classical measurement-error attenuation, better-measured $q$ produces estimates closer to the true coefficient. The paper reframes the investment-$q$ puzzle as partially an era-specific measurement artifact, and complements Peters-Taylor (2017) on intangibles: both measurement (AMM) and model misspecification (PT) contributed to the original puzzle, and modern data + methods resolve both.
+\end{keybox}
+
+\end{document}

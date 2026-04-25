@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E08-01: Bloom, Bond \& Van Reenen (2007, RES) \\
+\large ``Uncertainty and Investment Dynamics'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} BBVR show theoretically and empirically (UK manufacturing panel) that higher firm-level uncertainty --- measured by stock-return volatility --- causes a short-run drop in investment responsiveness to demand shocks, a classic ``real-options'' wait-and-see effect, with the responsiveness of investment to sales cut in half when uncertainty is high.
+
+\textbf{Placement.} Foundational paper in uncertainty-and-investment literature; complements Bloom (2009) aggregate uncertainty shocks. Standard reference for real-options empirical work.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Theory}
+Real-options models (Dixit-Pindyck 1994) predict that under irreversible investment and uncertainty, firms have an option to wait. Higher uncertainty raises the value of waiting, so investment becomes less sensitive to current demand shocks. This produces a time-varying investment-response coefficient.
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item UK manufacturing firms, panel 1972--1991.
+\item Firm-level stock-return volatility (rolling window) as uncertainty measure.
+\item Investment: gross capital expenditure / capital stock.
+\item Sales growth as demand proxy.
+\end{itemize}
+
+\subsection*{1.3 Empirical specification}
+Error-correction investment model with uncertainty interaction:
+\[
+\Delta I_{it}/K_{it-1}=\alpha_i+\delta_t+\beta\cdot\Delta\text{Sales}_{it}+\gamma\cdot\sigma_{it-1}\cdot\Delta\text{Sales}_{it}+X_{it}'\eta+\varepsilon_{it}.
+\]
+Interaction coefficient $\gamma$ tests whether uncertainty moderates the investment response.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Sales-to-investment sensitivity: $\sim$0.4 at low uncertainty; $\sim$0.2 at high uncertainty (halved).
+\item Effect robust to alternative uncertainty measures (sales volatility, analyst-dispersion).
+\item Larger for firms with higher capital irreversibility.
+\item Consistent with structural real-options-model calibrations.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Uncertainty increases the option value of waiting.
+\item Investment responses to demand are dampened when uncertainty is high.
+\item Short-run investment dynamics change even if long-run investment levels do not.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Uncertainty affects the \emph{speed} of investment adjustment.
+\item Monetary and fiscal policy may be less effective during high-uncertainty periods.
+\item Foundational for Bloom (2009) and Bloom et al.\ (2018) macro-level results.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Stock-return volatility blends demand and uncertainty shocks; identification requires careful interpretation.
+\item Estimates depend on capital irreversibility assumptions.
+\item UK manufacturing sample; generalizability varies.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Theory: real-\blank{2cm} wait-and-see.
+\item Uncertainty proxy: firm-level stock \blank{2cm}.
+\item Sample: UK \blank{2cm} \blank{1cm}--\blank{1cm}.
+\item Sensitivity change: $0.4\to$\blank{1cm} (halved).
+\item Related macro paper: Bloom \blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the real-options mechanism.
+\item Describe the specification and uncertainty measure.
+\item Report the main interaction findings.
+\item Discuss policy implications for monetary/fiscal response in high-uncertainty regimes.
+\item Relate to subsequent macro-uncertainty literature.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) theory, (ii) data, (iii) specification, (iv) results, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: uncertainty, real options, and investment dynamics.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Theory. (2) Uncertainty proxy. (3) Sample. (4) Sensitivity change. (5) Related macro paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Theory.} Real options, wait-and-see.
+\item \textbf{Measure.} Stock-return volatility.
+\item \textbf{Sample.} UK manufacturing 1972--91.
+\item \textbf{Result.} Investment-sales sensitivity halves.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Bloom, Bond \& Van Reenen (2007) test the real-options prediction that higher uncertainty reduces investment responsiveness to demand shocks. Using UK manufacturing panel data 1972--1991, firm-level stock-return volatility as uncertainty, and an error-correction investment specification with an uncertainty-sales interaction, they show that the elasticity of investment with respect to sales falls from $\sim$0.4 in low-uncertainty periods to $\sim$0.2 in high-uncertainty periods, consistent with a structural real-options model. The effect is strongest for firms with high capital irreversibility. The paper establishes that uncertainty affects the \emph{speed} of investment adjustment, not just its level; monetary/fiscal policy are dampened during uncertain periods. It is the foundational firm-level uncertainty-investment paper and seeds Bloom (2009)'s aggregate uncertainty-shock literature.
+\end{keybox}
+
+\end{document}

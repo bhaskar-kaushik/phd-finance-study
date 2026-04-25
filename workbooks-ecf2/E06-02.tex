@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E06-02: Ahern \& Harford (2014, JF) \\
+\large ``The Importance of Industry Links in Merger Waves'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} AH use BEA input-output tables to map supplier-customer links between industries and show that merger waves are not isolated industry events but \emph{propagate} through production networks: a wave in one industry predicts future waves in connected (upstream/downstream) industries, supporting a network-based theory where real-economy shocks cascade through the supply chain.
+
+\textbf{Placement.} Key paper on M\&A-wave contagion; connects to Harford (2005) on wave origins. Complements network-based macro studies (Acemoglu et al.\ 2012).
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Harford (2005) establishes industry-level waves driven by shocks and liquidity. But industries are interconnected: do waves spread across supply chains? If yes, what explains the propagation?
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item SDC mergers 1986--2010.
+\item BEA benchmark input-output tables (multiple vintages): dollar flows from industry $i$ to industry $j$.
+\item Compute industry-to-industry link strength: \% of $i$'s output going to $j$ (customer link) and \% of $i$'s input coming from $j$ (supplier link).
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Industry-year panel of merger intensity (number of deals, aggregate value).
+\item Lagged merger activity in customer/supplier industries as predictor.
+\item Control for own-industry shocks, liquidity, and time effects.
+\item Instrumental-variable design using technology diffusion patterns.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item A one-standard-deviation increase in lagged merger activity in customer/supplier industries predicts $\sim$20--30\% higher merger activity in a focal industry.
+\item Upstream waves spread downstream more strongly than vice-versa.
+\item Network spillovers operate over 1--3 year horizons; effect decays beyond that.
+\item Consistent with consolidation propagating through the supply chain (e.g., telecom $\to$ equipment $\to$ component makers).
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Downstream consolidation increases bargaining power, pressuring upstream firms to consolidate in response.
+\item Technology shocks propagate through supplier relationships.
+\item Efficiency gains in one stage of production create demand for reorganization at other stages.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Merger waves have a network structure; isolated industry studies miss this.
+\item Merger policy (antitrust) should consider network effects of consolidation.
+\item Industry networks are state variables for M\&A forecasting.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item I/O tables updated infrequently; may miss recent network changes.
+\item Common shocks (macro) can drive simultaneous waves; identification requires lags.
+\item Reverse causality: forward-looking consolidation in one industry may reflect anticipated consolidation in another.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Data: BEA \blank{1cm}-\blank{1cm} tables.
+\item Sample: SDC mergers \blank{1cm}--\blank{1cm}.
+\item Lagged \blank{2cm}/supplier waves predict focal-industry waves.
+\item Spillover magnitude: \blank{1cm}--\blank{1cm}\% of SD.
+\item Direction: \blank{2cm} more strongly propagates downstream.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the input-output data and link construction.
+\item Report the main spillover findings.
+\item Discuss mechanisms: bargaining, technology, efficiency.
+\item Compare AH to Harford (2005).
+\item What are the antitrust implications?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) I/O data, (iii) spillovers, (iv) mechanism, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: merger-wave propagation through production networks.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Network data. (2) Sample. (3) Spillover size. (4) Upstream vs.\ downstream. (5) Mechanism.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Network.} BEA I/O tables.
+\item \textbf{Finding.} Waves propagate via supplier-customer links.
+\item \textbf{Size.} $\sim$20--30\% SD of focal activity.
+\item \textbf{Lesson.} M\&A is networked; antitrust should notice.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Ahern \& Harford (2014) test whether merger waves propagate across industries through supply-chain linkages. Using SDC mergers 1986--2010 and BEA input-output tables to measure industry customer/supplier ties, they estimate industry-year panels in which lagged merger activity in customer and supplier industries predicts focal-industry waves. A one-SD increase in customer/supplier merger activity raises focal merger activity by $\sim$20--30\%, with upstream-to-downstream propagation stronger than the reverse and effects decaying after 1--3 years. Mechanisms include consolidation-induced bargaining-power shifts and technology propagation. The paper establishes a network view of M\&A waves and complements Harford (2005) --- within-industry waves are real but partially induced by connected-industry consolidation --- with antitrust and industry-forecasting implications: merger policy must recognize that mergers in one industry set off consolidation in connected ones.
+\end{keybox}
+
+\end{document}

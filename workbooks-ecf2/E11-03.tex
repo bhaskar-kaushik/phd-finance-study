@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E11-03: Farre-Mensa \& Ljungqvist (2016, RFS) \\
+\large ``Do Measures of Financial Constraints Measure Financial Constraints?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using quasi-experimental state-tax changes (as in Heider-Ljungqvist), FML test whether the four most-popular financial-constraints indices (Kaplan-Zingales, Whited-Wu, Hadlock-Pierce, payout-ratio) identify firms whose investment responds to cash-flow shocks. Answer: none of the indices reliably separate constrained from unconstrained firms --- they all pick up firm attributes correlated with growth opportunities, not constraint status.
+
+\textbf{Placement.} Landmark methodological paper challenging the empirical literature that relies on financial-constraint indices; paradigm-shifting for cash-flow sensitivity research.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Motivation}
+Financial-constraints research (Fazzari-Hubbard-Petersen 1988, Kaplan-Zingales 1997) classifies firms as constrained/unconstrained using indices and studies differential investment-cash-flow sensitivity. If these indices do not actually measure constraint status, the entire literature is compromised.
+
+\subsection*{1.2 Test idea}
+If a firm is truly financially constrained, a positive (exogenous) cash-flow shock should raise its investment, whereas an unconstrained firm should invest at its first-best level regardless. Use state-tax cuts as exogenous cash-flow shocks and ask which groups (by various indices) respond.
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item US state corporate-income-tax changes 1989--2011.
+\item Firms classified by KZ, WW, HP, payout-ratio indices.
+\item Event-study of investment response to tax-induced cash-flow changes across constraint groups.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Investment response to cash-flow shocks is similar across all constraint-index quartiles.
+\item Firms classified as ``most constrained'' by KZ or WW do not respond more strongly than ``least constrained'' firms.
+\item Instead, size (HP index) and growth opportunities predict investment response more consistently.
+\item Payout-ratio index does a slightly better job but still leaves huge variance unexplained.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Popular constraint indices fail to identify financially-constrained firms as defined by investment-cash-flow sensitivity.
+\item Indices pick up attributes (growth, size, age) correlated with but distinct from financial constraints.
+\item Empirical-corporate-finance studies using these indices need caution.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Use exogenous cash-flow shocks (IV or quasi-experiment) rather than indices for constraint research.
+\item Re-examine prior results that relied on KZ/WW/HP classifications.
+\item Develop better direct measures (e.g., covenant violations, rating downgrades, rationing in credit markets).
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item State-tax shocks measure short-run cash flow, not long-run constraint.
+\item Sample is US-listed; private firms may differ.
+\item Indices may still correlate with constraints for specific use cases (e.g., firm survival).
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Four tested indices: KZ, WW, \blank{1cm}, payout-ratio.
+\item Shock: US \blank{2cm} corporate-tax changes.
+\item Finding: indices do \blank{2cm} identify constraint status.
+\item Implication: use exogenous \blank{2cm} for constraint research.
+\item HP stands for \blank{2cm} (authors' initials).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the identification idea (tax-induced cash-flow shock as test).
+\item Which indices are tested and how they were constructed.
+\item Report main findings on differential response.
+\item Discuss implications for financial-constraints literature.
+\item What alternative measures should researchers use?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) motivation, (ii) test, (iii) findings, (iv) implications, (v) alternatives.
+
+\section*{Round 5: Blank Page}
+Essay: measuring financial constraints --- a methodological critique.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Indices tested. (2) Shock. (3) Finding. (4) Bias mechanism. (5) Alternative measure.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Indices.} KZ, WW, HP, payout ratio.
+\item \textbf{Shock.} State tax changes as exogenous CF shocks.
+\item \textbf{Finding.} Indices fail to identify constraint status.
+\item \textbf{Advice.} Use exogenous shocks, not indices.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Farre-Mensa \& Ljungqvist (2016) test whether the four leading financial-constraints indices (Kaplan-Zingales, Whited-Wu, Hadlock-Pierce, payout ratio) actually identify financially-constrained firms. Using US state corporate-tax changes 1989--2011 as exogenous cash-flow shocks, they compare the investment response across index quartiles. Under the classical constraint hypothesis, ``constrained'' firms should show stronger investment responses. Instead, response is similar across all quartiles, and the indices primarily capture growth opportunities, size, or age rather than constraint status. The paper is a paradigm-shifting critique of decades of empirical work using these indices, pushing researchers toward quasi-experimental cash-flow shocks and direct measures (covenant violations, credit rationing) rather than index-based classification.
+\end{keybox}
+
+\end{document}

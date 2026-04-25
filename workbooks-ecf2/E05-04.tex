@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E05-04: Erel, Liao \& Weisbach (2012, JF) \\
+\large ``Determinants of Cross-Border Mergers and Acquisitions'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Using a global sample of cross-border M\&A 1990--2007, ELW show that cross-border deals flow from countries with strong currencies, high valuations, and well-developed financial markets to countries with weaker currencies and weaker markets, consistent with capital and market-access motives: the bidder's \emph{relative advantage} in home-country valuation, accounting transparency, and investor protection drives who acquires whom internationally.
+
+\textbf{Placement.} Foundational cross-border M\&A paper; moves the neoclassical/misvaluation debate to an international setting where exchange rates and institutional differences provide quasi-experimental variation.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+What determines the direction and volume of cross-border M\&A? Candidate forces: real shocks, relative valuations, exchange-rate movements, institutional differences, financial-market development.
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item SDC cross-border M\&A 1990--2007, $\sim$56,000 deals across 50+ countries.
+\item Country-level: GDP, stock-market returns, currency strength, accounting standards, shareholder-rights indices.
+\item Firm-level (where available): acquirer and target financials.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+Directed dyadic-country-year panel:
+\[
+\text{Deals}_{ij,t}=\alpha+\beta_1\Delta\text{Val}_{i,t}+\beta_2\Delta\text{FX}_{ij,t}+\beta_3\Delta\text{Inst}_{ij}+X_{ij,t}'\gamma+\varepsilon_{ij,t},
+\]
+where $i$ = acquirer country, $j$ = target country.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Acquirer countries with recent stock-market appreciation and currency strength do more cross-border deals.
+\item Acquirer countries with better accounting standards and investor protection buy more; target countries tend to have weaker institutions.
+\item Exchange-rate movements matter: currency appreciation predicts outbound M\&A even controlling for stock returns.
+\item Neoclassical variables (industry shocks, GDP growth) also predict deal flow, but valuations and FX are independently significant.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Extends Shleifer-Vishny / RKRV misvaluation logic internationally: country-level overvaluation supports outbound acquisitions.
+\item Institutional-quality gradient: high-governance firms acquiring low-governance targets is consistent with bringing better corporate governance across borders (``spillover'' channel).
+\item FX movements support a pure relative-purchasing-power story distinct from stock-valuation effects.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item International M\&A waves align with relative valuation waves (Japan 1980s, US 1990s, China 2000s, etc.).
+\item Policy: financial-market development and institutional quality shape a country's status as acquirer vs.\ target.
+\item Provides micro evidence for ``capital flows uphill'' patterns at the firm level.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Cross-border M\&A selection: unobserved firm-level strategies.
+\item Institutional variables are persistent; time-variation limited.
+\item Reverse causality: M\&A may itself affect FX and market valuations.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Sample: cross-border M\&A \blank{1cm}--\blank{1cm}.
+\item Acquirers: high-\blank{2cm}, strong-\blank{2cm} countries.
+\item Targets: weaker \blank{2cm} and weaker institutions.
+\item FX movements predict \blank{2cm} M\&A.
+\item Extends \blank{2cm}-Vishny misvaluation internationally.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the research question and candidate forces.
+\item Describe the dyadic-country panel design.
+\item Report the main findings on valuations, FX, and institutions.
+\item Relate ELW to RKRV and Shleifer-Vishny.
+\item What are the caveats and policy implications?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) data, (iii) specification, (iv) results, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: cross-border M\&A and relative valuation --- international evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Sample. (2) Unit of analysis. (3) Acquirer-country features. (4) Target-country features. (5) FX effect.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Data.} SDC cross-border 1990--2007.
+\item \textbf{Acquirers.} High valuations, strong FX, good institutions.
+\item \textbf{Targets.} Weaker market, weaker institutions.
+\item \textbf{Lesson.} Relative valuation + institutions drive direction.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Erel, Liao \& Weisbach (2012) study cross-border M\&A determinants using an SDC global sample 1990--2007 with $\sim$56,000 deals across 50+ countries in a directed-dyadic panel. Acquirer-country stock-market appreciation, currency strength, and better accounting standards / investor protection each independently predict outbound M\&A; target countries tend to be those with weaker markets and weaker institutions. Controlling for real industry and GDP shocks, relative valuation and exchange-rate movements remain highly significant. The paper extends Shleifer-Vishny / Rhodes-Kropf et al.\ misvaluation logic internationally and documents an institutional-quality gradient (high-governance firms buying low-governance targets), consistent with corporate-governance spillover across borders. It is the canonical reference for cross-border deal determinants and anchors research on international capital allocation, exchange-rate-driven M\&A, and the institutions-finance interaction.
+\end{keybox}
+
+\end{document}

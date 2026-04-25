@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E01-02: Klein, Crawford \& Alchian (1978, JLE) \\
+\large ``Vertical Integration, Appropriate Rents, and the Competitive Contracting Process'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} When an asset is ``relationship-specific'' --- worth more inside a particular trading relationship than outside --- the gap (the \emph{quasi-rent}) creates a holdup temptation for the partner, so parties choose vertical integration or long-term contracts to protect the quasi-rent from opportunistic appropriation.
+
+\textbf{Placement.} Concretizes Coase (1937): names the transaction cost that matters (holdup of relationship-specific investment). Direct antecedent to Williamson (1979, 1985) on asset specificity, Grossman-Hart (1986) on residual rights, and modern empirical make-or-buy work.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Key concepts}
+\begin{itemize}
+\item \textbf{Specific asset.} An asset with a lower value in its second-best use than in its current one.
+\item \textbf{Appropriable quasi-rent.} (Value in current use) $-$ (value in best alternative use). This is the rent a partner can attempt to capture via opportunistic renegotiation.
+\[
+\text{Quasi-rent} = V_{\text{current}} - V_{\text{alt}} \ge 0.
+\]
+\item \textbf{Holdup.} Post-investment, the non-investing partner renegotiates to capture the quasi-rent, leaving the investor with only the alternative value.
+\end{itemize}
+
+\subsection*{1.2 Canonical example: Fisher Body / General Motors}
+Fisher Body invests in auto-body stamping dies specific to GM models. Once sunk, Fisher cannot redeploy the dies profitably elsewhere. GM can threaten to reduce the price it pays and capture Fisher's quasi-rents. Result: GM vertically integrates Fisher Body in 1926 (acquires ownership of the specific assets and the relationship).
+
+\subsection*{1.3 Governance choice}
+To protect quasi-rents, parties choose among:
+\begin{itemize}
+\item Spot-market transactions (only when specificity is low).
+\item Long-term contracts (when specificity exists but contract is writable).
+\item Vertical integration (when specificity is high and contracts are incomplete).
+\end{itemize}
+
+\subsection*{1.4 Formal structure (intuitive)}
+Let $k$ denote relationship-specific investment, $V(k)$ current-relationship value, $\bar V$ alternative-use value. Ex ante surplus is $V(k) - k$. After $k$ is sunk, ex post bargaining splits $V(k) - \bar V$. If the investor fears holdup, $k^*$ is underinvested relative to first-best. Integration/long-term contract restores incentives to invest.
+
+\subsection*{1.5 Predictions}
+\begin{itemize}
+\item Higher asset specificity $\Rightarrow$ more vertical integration / long-term contracting.
+\item Contracts substitute for integration when contingencies are foreseeable and enforceable.
+\item Spot markets dominate for generic (non-specific) inputs.
+\end{itemize}
+
+\subsection*{1.6 Influence}
+\begin{itemize}
+\item Williamson: asset specificity becomes the central dimension of transaction-cost economics.
+\item Joskow (1987) on coal contracts, Monteverde-Teece (1982) on auto parts empirically support the predictions.
+\item Grossman-Hart: shifts focus to \emph{who owns} residual control rights rather than whether a contract exists.
+\item Corporate-finance integration/outsourcing decisions; franchising vs.\ company-owned.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Coase-Fisher-Body narrative has been challenged historically (e.g., Casadesus-Masanell-Spulber 2000 dispute the holdup account).
+\item Theory predicts integration but cannot precisely pin down boundary --- contract vs.\ integration margin is empirical.
+\item Assumes opportunism; repeated-game cooperation may substitute for integration in practice.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Appropriable quasi-rent = value in current use $-$ value in \blank{2cm} use.
+\item Holdup arises \emph{after} relationship-specific \blank{1.5cm} is sunk.
+\item Canonical example: \blank{2cm} Body and General Motors.
+\item Three governance choices: spot market, long-term \blank{1.5cm}, vertical \blank{2cm}.
+\item Key later author who built on KCA: \blank{2cm} (1979, 1985).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Define appropriable quasi-rent and asset specificity; work through the Fisher-GM example.
+\item Explain the holdup problem and why relationship-specific investment is underprovided.
+\item Derive the governance-choice prediction: specificity $\Rightarrow$ integration.
+\item Relate KCA to Coase (1937) and to Williamson (1979).
+\item Discuss empirical tests (Joskow, Monteverde-Teece) and limitations.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) quasi-rent definition, (ii) Fisher-GM example, (iii) holdup logic, (iv) governance prediction, (v) descendants.
+
+\section*{Round 5: Blank Page}
+Essay: relationship-specific investment and the theory of vertical integration, KCA's contribution.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Quasi-rent formula. (2) Canonical example. (3) Governance continuum. (4) Holdup problem statement. (5) One empirical test.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Quasi-rent.} $V_{\text{current}} - V_{\text{alt}}$.
+\item \textbf{Example.} Fisher Body / GM 1926.
+\item \textbf{Logic.} Specificity $\Rightarrow$ holdup risk $\Rightarrow$ integration.
+\item \textbf{Continuum.} Spot $<$ long-term contract $<$ integration.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Klein, Crawford \& Alchian (1978) give transaction-cost theory its sharpest mechanism: when an asset is relationship-specific --- worth more inside a particular trading relationship than outside --- there is an \emph{appropriable quasi-rent} equal to the gap between current-use and alternative-use value. Once the investment is sunk, the non-investing partner can renegotiate and capture that quasi-rent --- the holdup problem. Anticipating this, parties choose governance to protect the rent: spot markets for generic assets, long-term contracts when contingencies are writable, and vertical integration when specificity is high and contracts incomplete. The canonical story is Fisher Body / GM (1926), where GM integrated Fisher to internalize specific stamping-die investments. The paper names the transaction cost that matters, launches Williamson's asset-specificity program, and underlies modern empirical make-or-buy and outsourcing research. In corporate finance, it motivates why firms own rather than rent critical specific assets.
+\end{keybox}
+
+\end{document}

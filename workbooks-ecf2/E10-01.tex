@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E10-01: Gompers, Kovner, Lerner \& Scharfstein (2010, JFE) \\
+\large ``Performance Persistence in Entrepreneurship'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} GKLS show that entrepreneurs with prior successes (IPO or high-value acquisition) have $\sim$30\% probability of success in their next venture vs.\ $\sim$21\% for first-time entrepreneurs and $\sim$22\% for failed-prior entrepreneurs --- striking persistence in entrepreneurial performance driven by both inherent skill and network/reputation effects.
+
+\textbf{Placement.} Canonical paper on entrepreneurial serial success; anchor for studies of founder experience, VC screening, and entrepreneurial human capital. Influences Kaplan-Sensoy-Str\"omberg (2009) on VC evaluation.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+Is entrepreneurial success persistent across ventures? If so, is persistence due to skill, industry/market timing, or VC-network effects? Answers matter for VC screening, public-policy support of entrepreneurship, and human-capital theory.
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item VentureOne / Thomson Reuters VC-backed US startup data, 1986--2003.
+\item Founder-level records linked across ventures.
+\item Outcome: IPO or profitable acquisition (exit event), $\sim$20\% base rate.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+\begin{itemize}
+\item Classify founders by prior-outcome: first-time, prior failure, prior success.
+\item Logit regression of current-venture success on prior-outcome plus controls (industry, year, VC-backer).
+\item Decompose persistence into skill vs.\ industry/market-timing components using industry fixed effects.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Success rates: first-time 21\%, prior-failed 22\%, prior-succeeded 30\%.
+\item Persistence is economically large and statistically significant.
+\item Successful founders return to similar industries (skill + industry knowledge).
+\item Part of persistence driven by market timing: successful founders cluster in high-performing industries / time periods.
+\item Top-VC backing amplifies persistence (network + resources interact with skill).
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Serial success cannot be fully explained by luck.
+\item Mix of inherent skill, industry knowledge, and network access.
+\item Challenges the view that entrepreneurship outcomes are dominated by randomness.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item VC screening: founder track record is a valuable signal.
+\item Policy: supporting failed entrepreneurs does not show a persistent penalty; failure is not highly informative of future performance.
+\item Human-capital and social-capital both matter in entrepreneurial production functions.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Sample limited to VC-backed companies (selected sample).
+\item Success measured by IPO/acquisition, not long-run profitability.
+\item Cannot fully distinguish skill from VC-network effects.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item First-time success rate: \blank{1cm}\%.
+\item Prior-failed success rate: \blank{1cm}\%.
+\item Prior-succeeded success rate: \blank{1cm}\%.
+\item Part of persistence: \blank{2cm} timing.
+\item Sample: VC-backed US startups \blank{1cm}--\blank{1cm}.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the research question and success measure.
+\item Describe the classification of founders.
+\item Report persistence estimates.
+\item Decompose into skill, timing, networks.
+\item Discuss implications for VC screening and policy.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) question, (ii) data, (iii) persistence, (iv) mechanism, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: entrepreneurial skill, persistence, and VC screening.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Success measure. (2) First-time rate. (3) Prior-success rate. (4) Key mechanism. (5) Policy implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Rates.} First-time 21\%, failed 22\%, success 30\%.
+\item \textbf{Gap.} $\sim$9 pp persistence.
+\item \textbf{Drivers.} Skill + timing + VC networks.
+\item \textbf{Lesson.} Track record matters for screening.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Gompers, Kovner, Lerner \& Scharfstein (2010) document striking performance persistence in entrepreneurship using VentureOne data on VC-backed US startups 1986--2003. Linking founders across ventures, they find that previously-successful founders (prior IPO or profitable acquisition) have $\sim$30\% success probability on their next venture, versus $\sim$21\% for first-time founders and $\sim$22\% for previously-failed founders. The $\sim$9 pp persistence gap is economically and statistically large, cannot be fully explained by industry/market timing, and reflects a combination of inherent skill, industry knowledge, and VC-network access. The paper anchors entrepreneurial-human-capital research, provides a clear rationale for VC screening on founder track record, and notes that prior failure does not show a measurable penalty --- relevant for policy toward second-chance entrepreneurship.
+\end{keybox}
+
+\end{document}

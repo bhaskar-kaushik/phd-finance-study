@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E07-04: Harford, Stanfield \& Zhang (2019, JFE) \\
+\large ``Do Insiders Time Management Buyouts and Freezeouts to Buy Undervalued Targets?'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} HSZ provide evidence that managers strategically time management buyouts (MBOs) and freezeouts to coincide with private-information-driven troughs in target stock prices, by documenting that MBO/freezeout firms consistently outperform on operating metrics and stock returns post-deal while paying low completion premia --- insiders use information advantages to buy shareholders out cheaply.
+
+\textbf{Placement.} Core evidence on the agency-cost side of going-private transactions; directly relevant to Delaware fiduciary-duty jurisprudence and regulatory treatment of insider-led deals. Pairs with BDS (E07-01) on LBO efficiency.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Research question}
+MBOs and freezeouts feature insiders (management, controlling shareholders) on both sides of the transaction. Do they time such deals to private-information-based undervaluation, paying shareholders an artificially low premium?
+
+\subsection*{1.2 Setting}
+\begin{itemize}
+\item MBO: management team + PE backer acquires all public shares.
+\item Freezeout: controlling shareholder buys remaining minority.
+\item Legal: Delaware ``entire fairness'' standard for insider-led deals.
+\end{itemize}
+
+\subsection*{1.3 Data}
+\begin{itemize}
+\item SDC MBO and freezeout deals 1990--2014, U.S.\ targets.
+\item Compustat fundamentals; CRSP returns pre- and post-deal.
+\item Comparison arm-length acquisitions with similar target characteristics.
+\end{itemize}
+
+\subsection*{1.4 Empirical findings}
+\begin{itemize}
+\item Deal premia are lower in MBOs/freezeouts than in arms-length acquisitions of similar targets.
+\item Pre-deal target stock performance is depressed relative to industry peers.
+\item Post-deal (with PE as informed buyer), firms outperform on operating metrics: margins, ROA, growth.
+\item IPO-reintroduction or resale transactions later ($\sim$3--5 years) realize high implied returns for insiders.
+\item Freezeouts show the most pronounced pattern, consistent with controlling-shareholder informational advantage.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Supports the ``informed-insider timing'' hypothesis.
+\item Insiders appear to exploit short-run undervaluation that they are positioned to know about.
+\item Complements legal scrutiny under Delaware entire-fairness review.
+\end{itemize}
+
+\subsection*{1.6 Policy and governance implications}
+\begin{itemize}
+\item Independent special committees and majority-of-minority votes should be the norm.
+\item Disclosure of insider information advantages should be required.
+\item Evidence informs SEC Rule 13e-3 and state-court fairness analyses.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Hard to distinguish timing from genuine operational-improvement opportunity.
+\item Selection of targets into MBO/freezeout is endogenous.
+\item Post-deal outcomes may reflect PE value-add rather than pre-deal undervaluation.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item MBO = \blank{2cm} + PE buys public shares; freezeout = controlling \blank{2cm}.
+\item Premium pattern: \blank{1cm} in MBO/freezeout vs.\ arm-length.
+\item Pre-deal returns: \blank{2cm}.
+\item Post-deal: \blank{2cm} operating performance.
+\item Legal standard: Delaware ``\blank{2cm} fairness.''
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Distinguish MBOs from freezeouts.
+\item Describe the empirical pattern (premia, pre-deal returns, post-deal operations).
+\item Explain the informed-insider hypothesis.
+\item Relate HSZ to Delaware fiduciary doctrine.
+\item Evaluate endogeneity concerns.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) data, (iii) findings, (iv) theory, (v) policy.
+
+\section*{Round 5: Blank Page}
+Essay: insider timing in going-private transactions.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) MBO vs.\ freezeout. (2) Premium. (3) Pre-deal returns. (4) Post-deal performance. (5) Legal standard.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Deals.} MBO \& freezeout by insiders.
+\item \textbf{Premia.} Lower than arms-length.
+\item \textbf{Post.} Targets outperform later.
+\item \textbf{Lesson.} Informed-insider timing.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Harford, Stanfield \& Zhang (2019) study MBOs (management + PE) and freezeouts (controlling shareholders buying remaining minority) to test whether insiders time such deals to private-information-based undervaluation. Using SDC deals 1990--2014 and comparing to arm's-length acquisitions with similar targets, they find deal premia are significantly lower in MBO/freezeout transactions, pre-deal target stock performance is depressed relative to peers, and post-deal firms outperform on margins and growth, with particularly strong patterns in freezeouts. The results support an informed-insider-timing hypothesis: insiders exploit short-run undervaluation and PE expertise to buy shareholders out cheaply. The paper is central to Delaware ``entire fairness'' jurisprudence and to SEC Rule 13e-3, arguing for independent special committees, majority-of-minority votes, and stricter disclosure to protect outside shareholders from insider-led going-private transactions.
+\end{keybox}
+
+\end{document}

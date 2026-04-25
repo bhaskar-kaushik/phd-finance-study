@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E12-03: Duchin, Gilbert, Harford \& Hrdlicka (2017, JF) \\
+\large ``Precautionary Savings with Risky Assets: When Cash Is Not Cash'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} DGHH show that a large share of what firms report as ``cash and marketable securities'' is actually invested in risky assets (equity, corporate bonds, MBS, municipal bonds), particularly among cash-rich firms, and that this risky-cash composition explains cash-flow sensitivity anomalies and alters the precautionary-savings interpretation of corporate cash holdings.
+
+\textbf{Placement.} Important re-examination of corporate cash holdings; complements Bates-Kahle-Stulz 2009 and Denis-Sibilkov 2010. Anchors research on firms-as-asset-managers.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Observation}
+Standard capital-structure and cash-holdings research treats ``cash'' as safe near-money. DGHH note that firms hold sizable \emph{risky} assets inside their cash line, blurring the distinction between precautionary savings and financial investments.
+
+\subsection*{1.2 Data and construction}
+\begin{itemize}
+\item Hand-collect detailed composition of cash and short-term investments from 10-K/10-Q footnotes for large US firms, 2005--2014.
+\item Categorize by: cash \& deposits, commercial paper, government securities, corporate bonds, equities, MBS, munis.
+\item Construct risky-cash share and adjusted safe-cash.
+\end{itemize}
+
+\subsection*{1.3 Facts}
+\begin{itemize}
+\item Among cash-rich firms (e.g., Apple, Google), \emph{more than half} of ``cash \& equivalents'' is in risky assets --- corporate debt, MBS, equities.
+\item Risky share correlates with total cash balance: larger cash buffers held more aggressively.
+\item Many firms effectively run internal asset-management portfolios.
+\end{itemize}
+
+\subsection*{1.4 Empirical results}
+\begin{itemize}
+\item Cash-flow sensitivity of cash (Almeida-Campello-Weisbach 2004) is overstated because some ``cash'' is actually risky investment.
+\item Using adjusted safe-cash measures, constrained firms show cleaner precautionary-savings patterns.
+\item Firm performance during GFC worsened for those with large risky-cash shares (losses on holdings).
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Trapped foreign cash and accumulated profits are invested to earn returns.
+\item Tax and regulatory constraints push firms into longer-duration or riskier securities.
+\item Blurs the ``cash-as-safe-buffer'' interpretation.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Cash-holdings research needs to decompose reported cash.
+\item Corporate-treasury risk is a meaningful distinct source of firm risk.
+\item Regulatory discussion should address corporate-treasury portfolio disclosures.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Hand-collection limits sample size and generalizability.
+\item Disclosure detail varies across firms and years.
+\item Risky vs.\ safe classifications are judgment calls for some securities.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Problem: ``cash'' actually includes \blank{2cm} assets.
+\item Period: \blank{1cm}--\blank{1cm}.
+\item Cash-rich firms: $>$\blank{1cm}\% of cash in risky.
+\item Correction: adjusted \blank{2cm}-cash measure.
+\item Related paper: Bates-Kahle-\blank{2cm} 2009.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item State the problem with treating cash as safe.
+\item Describe the hand-collection and classification.
+\item Report key facts about risky-cash composition.
+\item Discuss cash-flow-sensitivity-of-cash corrections.
+\item Implications for treasury risk and regulation.
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) problem, (ii) data, (iii) facts, (iv) regression corrections, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: corporate cash holdings, risky assets, and precautionary savings.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Observation. (2) Sample. (3) Risky-cash share. (4) Econometric correction. (5) Implication.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Fact.} ``Cash'' includes risky assets.
+\item \textbf{Share.} $>$50\% risky at cash-rich firms.
+\item \textbf{Effect.} Alters cash-flow sensitivity of cash.
+\item \textbf{Lesson.} Treasury risk is real.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Duchin, Gilbert, Harford \& Hrdlicka (2017) challenge the conventional treatment of corporate cash as safe near-money. Hand-collecting detailed 10-K / 10-Q footnote disclosures of cash and short-term investments for large US firms 2005--2014, they find that a substantial fraction --- more than half for cash-rich firms like Apple and Google --- is held in risky assets: corporate bonds, MBS, municipal bonds, even equities. The risky-cash share rises with total cash balance. Standard cash-flow-sensitivity-of-cash tests (Almeida-Campello-Weisbach 2004) overstate precautionary savings because they treat risky investments as cash. Firms with large risky-cash portfolios suffered during the GFC. The paper establishes corporate treasury as an asset-management function, reshapes cash-holdings research, and motivates regulatory attention to corporate-treasury disclosures and risks.
+\end{keybox}
+
+\end{document}

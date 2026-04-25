@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E05-03: Rhodes-Kropf, Robinson \& Viswanathan (2005, JFE) \\
+\large ``Valuation Waves and Merger Activity: The Empirical Evidence'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} RKRV decompose market-to-book into firm-specific misvaluation, sector-level misvaluation, and long-run fundamentals, and show that merger waves coincide with high sector misvaluation, stock-financed deals involve targets with relatively lower misvaluation than acquirers, and cash-financed deals are undertaken by firms closer to long-run value --- providing structural evidence consistent with Shleifer-Vishny (2003) misvaluation-driven M\&A.
+
+\textbf{Placement.} Canonical empirical test of the misvaluation theory of M\&A; paired with Harford (2005) which argues shocks-plus-liquidity explain waves. Together define the dominant debate on M\&A-wave causes.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Theory background}
+Shleifer-Vishny (2003) ``stock market driven acquisitions'': when managers have private information that their firm is overvalued, they can use overvalued equity to buy real assets (or less-overvalued targets) and lock in long-run value. Prediction: overvalued firms acquire with stock; undervalued firms acquire with cash; waves cluster with market overvaluation.
+
+\subsection*{1.2 Valuation decomposition}
+Core econometric contribution: decompose log market-to-book into three components.
+\[
+m_{it}-b_{it} \;=\; \underbrace{(m_{it}-v(\theta_{jt};\alpha_{jt}))}_{\text{firm-specific misval}}+\underbrace{(v(\theta_{jt};\alpha_{jt})-v(\theta_{jt};\alpha_j))}_{\text{sector misval}}+\underbrace{(v(\theta_{jt};\alpha_j)-b_{it})}_{\text{long-run value-to-book}}.
+\]
+$v(\cdot)$ is a regression-implied fair value from fundamentals (book, earnings, leverage); $\alpha_{jt}$ uses contemporaneous industry multiples, $\alpha_j$ uses long-run industry multiples.
+
+\subsection*{1.3 Data and design}
+\begin{itemize}
+\item SDC U.S.\ mergers 1978--2001, merged with Compustat fundamentals.
+\item Compute firm-specific, sector, and long-run components for acquirers and targets at announcement.
+\item Aggregate to form measures of wave intensity and misvaluation by year/industry.
+\end{itemize}
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Merger waves coincide with periods of high sector misvaluation (market overvalues whole industries).
+\item Stock deals: acquirer much more overvalued than target.
+\item Cash deals: acquirer closer to long-run value.
+\item Targets in stock deals get paid in overvalued acquirer shares; long-run target returns consistent with partial overpayment.
+\end{itemize}
+
+\subsection*{1.5 Interpretation}
+\begin{itemize}
+\item Consistent with SV misvaluation theory of M\&A.
+\item Decomposition method separates short-run pricing noise from fundamental mispricing and sector-wide sentiment.
+\item Wave \emph{composition} (stock vs.\ cash, which acquirers, which targets) strongly tied to misvaluation.
+\end{itemize}
+
+\subsection*{1.6 Relation to Harford (2005)}
+\begin{itemize}
+\item Harford argues waves come from shocks + capital liquidity; misvaluation loses significance after controls.
+\item RKRV argue misvaluation drives wave composition and exists independently of real shocks.
+\item Synthesis: both matter --- real shocks/liquidity drive wave timing, misvaluation drives method-of-payment and participant selection.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Residual-based misvaluation measure is model-dependent.
+\item Long-run ``fundamental'' proxies may miss permanent industry changes.
+\item Endogeneity: misvaluation may reflect unobserved real shocks the model misses.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Decomposition: firm-specific misvaluation, \blank{2cm} misvaluation, long-run value-to-book.
+\item \blank{1cm} deals: acquirer more overvalued than target.
+\item \blank{1cm} deals: acquirer closer to long-run value.
+\item Theory underlying: Shleifer-\blank{1cm} 2003.
+\item Waves coincide with high \blank{2cm} misvaluation.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the valuation decomposition and its economic interpretation.
+\item Report main findings on waves, stock vs.\ cash deals, and target/acquirer misvaluation.
+\item Contrast RKRV with Harford (2005).
+\item Discuss model-dependence and caveats of the residual-based measure.
+\item Synthesize: what does the joint evidence say about neoclassical vs.\ behavioral M\&A?
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) theory, (ii) decomposition, (iii) results, (iv) Harford contrast, (v) synthesis.
+
+\section*{Round 5: Blank Page}
+Essay: misvaluation, merger waves, and the method of payment.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Three components. (2) Sample. (3) Stock-deal pattern. (4) Cash-deal pattern. (5) Theoretical basis.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Decomposition.} Firm + sector misvaluation + long-run value/book.
+\item \textbf{Stock deals.} Acquirer $\gg$ target overvaluation.
+\item \textbf{Cash deals.} Acquirer closer to fundamentals.
+\item \textbf{Theory.} Shleifer-Vishny 2003.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Rhodes-Kropf, Robinson \& Viswanathan (2005) provide the canonical empirical test of the Shleifer-Vishny (2003) misvaluation theory of M\&A. They decompose log market-to-book into three components: firm-specific misvaluation (firm vs.\ contemporaneous sector multiples), sector misvaluation (contemporaneous sector vs.\ long-run sector multiples), and long-run value-to-book. Applying this to SDC mergers 1978--2001, they find that merger waves cluster with high sector misvaluation; in stock-financed deals, acquirers are substantially more overvalued than targets; in cash-financed deals, acquirers are closer to long-run fundamentals. This supports misvaluation as a driver of M\&A \emph{composition} (who buys whom with what currency). The paper complements Harford (2005) --- shocks-plus-liquidity explain wave \emph{timing}, misvaluation explains \emph{method of payment and selection} --- and jointly they define the dominant synthesis of merger-wave research.
+\end{keybox}
+
+\end{document}

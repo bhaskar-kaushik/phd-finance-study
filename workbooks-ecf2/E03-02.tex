@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E03-02: Ahern \& Dittmar (2012, QJE) \\
+\large ``The changing of the boards: The impact on firm value of mandated female board representation'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} Norway's 2003--2008 gender quota (40\% female board representation for public limited firms) caused a sharp decline in Tobin's Q --- roughly $-3.5$\% at announcement and deeper over implementation --- driven by mandatory appointment of younger, less-experienced female directors, documenting a real cost of rigid diversity mandates.
+
+\textbf{Placement.} Canonical early study of the Norwegian quota; launched the literature on board diversity and forced representation. Paired with Eckbo-Nygaard-Thorburn (E03-03) who revisit with cleaner identification and find the effect is much smaller.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Setting}
+Norway's ASA-law (2003): requires 40\% female representation on all public limited (ASA) firm boards by 2008. Non-compliance risks forced dissolution. Unique exogenous shock to board composition.
+
+\subsection*{1.2 Sample}
+\begin{itemize}
+\item $\sim$250 Norwegian ASA firms.
+\item Private limited (AS) firms not bound by quota; serve as control.
+\item Event windows: 2003 announcement, 2006 legal binding, 2008 full compliance.
+\end{itemize}
+
+\subsection*{1.3 Empirical design}
+Event study around announcement plus DiD comparing ASA vs.\ AS firms:
+\[
+\Delta Q_{it} = \alpha + \beta\cdot\text{PostQuota}_{t}\cdot\text{ASA}_{i}+X_{it}'\gamma+\varepsilon_{it}.
+\]
+Firm FE and industry-year controls.
+
+\subsection*{1.4 Headline results}
+\begin{itemize}
+\item Announcement CAR for ASA firms: $\approx -3.5$\%.
+\item Tobin's Q declines $\sim$12--15\% over implementation.
+\item Effect strongest for firms with \emph{least} female-directorship slack (i.e.\ had to do most adjustment).
+\item Firms with more diverse pre-quota boards largely unaffected.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Quota forced rapid appointment of women who were younger, less experienced, less connected.
+\item Average tenure and board experience of new female directors significantly below replaced male directors.
+\item Suggests the \emph{cost of forced search} under tight deadlines, not of female directors per se.
+\end{itemize}
+
+\subsection*{1.6 Interpretation}
+\begin{itemize}
+\item Rigid quotas impose adjustment costs when the pool of qualified candidates is shallow.
+\item Value effect is an implementation phenomenon, not a critique of diversity.
+\item Policy implication: gradual phase-ins and development of talent pipelines matter.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item AS firms differ systematically from ASA; control inference is arguable.
+\item Short post-implementation window.
+\item Later work (Eckbo-Nygaard-Thorburn 2022) substantially revises the magnitudes --- see E03-03.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item Country / quota: \blank{1.5cm}, \blank{1cm}\% female representation.
+\item Binding year: \blank{1cm}; full compliance: \blank{1cm}.
+\item Announcement CAR: $\sim$\blank{1cm}\%.
+\item Mechanism: new female directors were \blank{1.5cm}/less experienced.
+\item Paper that revisits: Eckbo, Nygaard \& \blank{2cm} (2022).
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Describe the Norwegian ASA quota and why it gives a clean setting.
+\item Write the DiD spec and discuss identification.
+\item Report the headline results and the proposed mechanism.
+\item How does AD interpret the value decline (implementation vs.\ directors themselves)?
+\item Discuss policy implications and relate to Eckbo-Nygaard-Thorburn (2022).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) setting, (ii) DiD, (iii) value effects, (iv) mechanism, (v) interpretation.
+
+\section*{Round 5: Blank Page}
+Essay: board quotas and firm value --- the AD (2012) evidence.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) Quota year and \%. (2) Announcement CAR. (3) Q decline. (4) Mechanism. (5) Follow-up paper.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Policy.} Norway 40\% quota, 2003--08.
+\item \textbf{CAR.} $\approx -3.5$\%.
+\item \textbf{Q.} Down $\sim$12--15\%.
+\item \textbf{Mechanism.} Forced appointment of younger, less-experienced directors.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Ahern \& Dittmar (2012) study Norway's 2003 gender quota requiring public limited (ASA) firm boards to be at least 40\% female by 2008. They document a sharp Tobin's Q decline at treated firms: announcement CAR $\approx -3.5$\% and a $\sim$12--15\% Q decline through implementation, concentrated at firms with the least pre-quota diversity (thus the largest adjustment). The mechanism is that newly-appointed female directors were disproportionately younger, less-experienced, and less-connected than the male directors they replaced --- a forced-search cost, not an indictment of diversity per se. The paper launches the board-diversity and forced-representation literature, raises policy concerns about rigid timelines and shallow talent pipelines, and should be read alongside Eckbo-Nygaard-Thorburn (2022), which substantially revises the magnitude downward with cleaner identification.
+\end{keybox}
+
+\end{document}

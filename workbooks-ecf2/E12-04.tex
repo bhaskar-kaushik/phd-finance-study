@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{enumitem,booktabs,array}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\setlist[itemize]{topsep=2pt,itemsep=2pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt}
+\newtcolorbox{keybox}{colback=blue!3!white,colframe=blue!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{alertbox}{colback=red!3!white,colframe=red!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{answerbox}{colback=green!3!white,colframe=green!40!black,boxrule=0.4pt,arc=1mm}
+\newtcolorbox{drillbox}{colback=yellow!5!white,colframe=orange!60!black,boxrule=0.4pt,arc=1mm}
+\newcommand{\EV}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+
+\title{E12-04: Michaely \& Moin (2022, JFE) \\
+\large ``Disappearing and Reappearing Dividends'' --- Active Recall Workbook}
+\author{Empirical Corporate Finance II --- Exam Prep}
+\date{\today}
+\begin{document}\maketitle
+
+\begin{keybox}
+\textbf{Paper in one sentence.} MM document that the long-run decline in US dividend-paying firms (Fama-French 2001's ``Disappearing Dividends'') stabilized and partially reversed post-2000: dividends reappeared not because firms returned to smoothing cash flows but because the universe of listed firms matured and repurchases + dividends converged to a unified ``total payout'' framework in which dividends play a smaller but meaningful share.
+
+\textbf{Placement.} Updates Fama-French 2001 for the 21st century; important for payout-policy research in the era of rising buybacks.
+\end{keybox}
+
+\section*{Round 1: Complete Walk-Through}
+
+\subsection*{1.1 Context}
+Fama-French 2001 showed the fraction of public firms paying dividends fell from $\sim$70\% in 1978 to $\sim$20\% by 1999, driven by a surge of young unprofitable listings and a shift to repurchases. Did dividends continue to disappear?
+
+\subsection*{1.2 Data}
+\begin{itemize}
+\item Compustat/CRSP, 1975--2019.
+\item Dividend-paying status, payout levels, repurchases.
+\item Firm characteristics: profitability, size, age, investment opportunities.
+\end{itemize}
+
+\subsection*{1.3 Facts}
+\begin{itemize}
+\item Dividend-paying fraction rose from $\sim$20\% (1999) to $\sim$35\% (2019).
+\item Rise driven by older, profitable firms initiating dividends and sustained dividend continuations.
+\item Aggregate dividend payout dollars grew steadily; repurchase dollars grew even faster.
+\item Total payout (div + repurchase) / earnings trended up.
+\end{itemize}
+
+\subsection*{1.4 Analysis}
+\begin{itemize}
+\item Decompose the reappearance into composition effect (fewer young loss-making firms in sample) and propensity effect (existing firms more likely to initiate).
+\item Roughly: 60\% composition, 40\% propensity.
+\item Firms increasingly pair dividends with repurchases; total-payout framework best describes behavior.
+\end{itemize}
+
+\subsection*{1.5 Mechanism}
+\begin{itemize}
+\item Post-dot-com bust: fewer loss-making tech IPOs, sample composition shifts.
+\item Mature firms in concentrated industries generate excess cash they prefer to return.
+\item Dividend-tax cut (2003) may have mattered but composition shifts explain most of the reversal.
+\end{itemize}
+
+\subsection*{1.6 Implications}
+\begin{itemize}
+\item Dividend-policy research should account for sample composition.
+\item Total-payout models fit better than dividend-only models.
+\item Corporate-life-cycle theories (DeAngelo et al.\ 2006) gain support: mature firms pay out, young ones retain.
+\end{itemize}
+
+\subsection*{1.7 Caveats}
+\begin{alertbox}
+\begin{itemize}
+\item Composition vs.\ propensity decomposition is sensitive to controls.
+\item Private-to-public listing trends affect sample.
+\item 2003 tax cut and other regulatory changes confound.
+\end{itemize}
+\end{alertbox}
+
+\section*{Round 2: Level 1 Fill-in}
+\begin{enumerate}
+\item FF 2001 finding: \blank{2cm} dividends.
+\item Dividend-paying fraction: 1999 $\sim$20\%, 2019 $\sim$\blank{1cm}\%.
+\item Decomposition: $\sim$\blank{1cm}\% composition, $\sim$\blank{1cm}\% propensity.
+\item Framework: \blank{2cm}-payout.
+\item Life-cycle theory: DeAngelo \blank{1cm} 2006.
+\end{enumerate}
+
+\section*{Round 3: Level 2 Prompts}
+\begin{enumerate}
+\item Restate Fama-French 2001 and the reversal documented by MM.
+\item Describe the composition-propensity decomposition.
+\item Explain total-payout framework.
+\item Discuss life-cycle implications.
+\item Evaluate alternative explanations (tax cut, governance).
+\end{enumerate}
+
+\section*{Round 4: Minimal Scaffolding}
+From a blank page: (i) context, (ii) facts, (iii) decomposition, (iv) framework, (v) implications.
+
+\section*{Round 5: Blank Page}
+Essay: dividends, repurchases, and the payout revival.
+
+\vspace{6pt}
+\begin{drillbox}
+\textbf{Speed Drill.} (1) FF 2001 finding. (2) 2019 paying share. (3) Decomposition split. (4) Framework. (5) Life-cycle theory.
+\end{drillbox}
+
+\section*{Quick Reference \& Answer Key}
+\begin{answerbox}
+\begin{itemize}
+\item \textbf{Context.} FF 2001 Disappearing Dividends.
+\item \textbf{Fact.} Paying fraction 20\%$\to$35\%.
+\item \textbf{Decomp.} 60\% composition, 40\% propensity.
+\item \textbf{Model.} Total payout framework.
+\end{itemize}
+\end{answerbox}
+
+\begin{keybox}
+\textbf{30-second exam pitch.} Michaely \& Moin (2022) update Fama-French's (2001) ``Disappearing Dividends'' finding into the 21st century. Using Compustat/CRSP 1975--2019, the fraction of dividend-paying listed firms rose from $\sim$20\% in 1999 to $\sim$35\% in 2019, with aggregate dividend dollars growing steadily and repurchase dollars growing even faster. A decomposition attributes roughly 60\% of the recovery to composition shifts (fewer young loss-making listings post-dot-com) and 40\% to increased propensity of existing firms to initiate. Total payout / earnings trended up throughout. The paper endorses a total-payout framework (dividends + repurchases jointly) and supports corporate-life-cycle theories (DeAngelo et al.\ 2006): mature, profitable firms return cash; young ones retain. Dividend-research specifications should control for sample composition and use total-payout measures.
+\end{keybox}
+
+\end{document}
